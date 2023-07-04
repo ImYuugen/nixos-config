@@ -1,0 +1,16 @@
+[
+  ./alacritty
+  ./discord
+  ./firefox
+  #./games
+  ./gpg
+  ./joshuto
+  ./lazygit
+  ./macchina
+  ./obs-studio
+  ./spotify
+  ./utils
+  ./youtube-tui
+  ./yt-dlp
+  ./zathura
+]
