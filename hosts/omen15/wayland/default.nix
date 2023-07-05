@@ -24,7 +24,6 @@
       extraGroups = [ "wheel" "video" "audio" ];
       packages = with pkgs; [
         thunderbird
-        blender
         ani-cli aria jq
       ];
     };
