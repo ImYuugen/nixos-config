@@ -13,6 +13,5 @@
   };
   programs.home-manager.enable = true;
 
-  #home.stateVersion = "23.11";
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 }

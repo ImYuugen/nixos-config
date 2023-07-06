@@ -3,7 +3,7 @@
   imports = [
     (import ../../environment/hypr-variables.nix)
   ];
-  /*programs = {
+  programs = {
     bash = {
       initExtra = ''
         if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
@@ -14,22 +14,31 @@
     fish = {
       loginShellInit = ''
         set TTY1 (tty)
-        [ "TTY1" = "/dev/tty1" ] && exec Hyprland
+        [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
       '';
     };
   };
-  */
+
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
     nvidiaPatches = true;
+    xwayland = {
+      enable = true;
+      hidpi = true;
+    };
     extraConfig = ''
       $mainMod = MOD4
       $appMod = ALT SHIFT
 
       monitor = eDP-1,1920x1080@144Hz,0x0,1
-      #monitor = DP-2,1920x1080@144Hz,0x0,1
+      monitor = DP-2,1920x1080@144Hz,1920x0,1
+
+      ### ENV VARS ###
+      env = LIBVA_DRIVER_NAME, nvidia
+      env = GBM_BACKEND, nvidia-drm
+      __GLX_VENDOR_LIBRARY_NAME, nvidia
 
       input {
         kb_layout = us,fr
@@ -37,13 +46,14 @@
         repeat_rate = 30
 
         follow_mouse = 1
-        sensitivity = -0.2
+        sensitivity = -0.1
         accel_profile = "flat"
 
         touchpad {
           natural_scroll = true
           middle_button_emulation = true
           clickfinger_behavior = true # 1fg = LMB, 2fg = RMB, 3fg = MMB
+          disable_while_typing = false # Like bruh why is it even true by default
         }
       }
 
@@ -64,7 +74,7 @@
       }
 
       decoration {
-        drop_shadow = true
+        drop_shadow = false
         shadow_range = 4
         shadow_offset = [5, 3]
       }
@@ -79,12 +89,16 @@
       }
 
       misc {
-        disable_autoreload = true
       }
 
       bind = $mainMod, Return, exec, alacritty
       bind = $mainMod SHIFT, Q, killactive,
-      bind = $mainMod SHIFT, L, exec, swaylock
+      bind = $mainMod SHIFT, P, exec, ~/.config/rofi/bin/powermenu.sh
+      bind = $mainMod SHIFT, L, exec, swaylock --screenshots --clock --indicator --effect-blur 7x5
+      bind = $mainMod, E, exec, alacritty -e joshuto
+      bind = $mainMod, D, exec, rofi -show drun
+      bind = $appMod, B, exec, nvidia-offload firefox
+
 
       bind = $mainMod, Space, togglefloating,
       bind = $mainMod, F, fullscreen,
@@ -115,8 +129,10 @@
       bind = $mainMod SHIFT, 0, movetoworkspace, 0
       #TODO: left right workspace with [, ]
 
-      bind = $appMod, B, exec, nvidia-offload firefox
-      bind = $appMod, D, exec, pkill rofi || ~/.config/rofi/launcher.sh
+      bind = $mainMod SHIFT, Left, movewindow, l
+      bind = $mainMod SHIFT, Right, movewindow, r
+      bind = $mainMod SHIFT, Up, movewindow, u
+      bind = $mainMod SHIFT, Down, movewindow, d
 
       # Volume, Brightness, Media
       bind = , XF86MonBrightnessDown, exec, light -U 5
@@ -124,12 +140,30 @@
       bind = , XF86AudioMute, exec, pamixer -t 
       bind = , XF86AudioLowerVolume, exec, pamixer -d 5
       bind = , XF86AudioRaiseVolume, exec, pamixer -i 5
-      bind = , XF86AudioPrev, exec, mpc -q prev
-      bind = , XF86AudioPlay, exec, mpc -q toggle
-      bind = , XF86AudioNext, exec, mpc -q next
+      bind = , XF86AudioPrev, exec, playerctl previous
+      bind = , XF86AudioPlay, exec, playerctl play-pause
+      bind = , XF86AudioNext, exec, playerctl next
+
+
+      ### RESIZE/MOVE MODE ###
+      bind = $mainMod, r, submap, resize
+      submap = resize
+      binde = , Left, resizeactive, -40 0
+      binde = , Right, resizeactive, 40 0
+      binde = , Up, resizeactive, 0 -40
+      binde = , Down, resizeactive, 0 40
+      binde = SHIFT, Left, moveactive, -40 0
+      binde = SHIFT, Right, moveactive, 40 0
+      binde = SHIFT, Up, moveactive, 0 -40
+      binde = SHIFT, Down, moveactive, 0 40
+      bind = , escape, submap, reset
+      submap = reset
+      ### END ###
 
       # Autostart
       exec-once = mako &
+      exec-once = waybar &
+      exec-once = playerctld daemon &
     '';
   };
 }

@@ -24,7 +24,6 @@
       extraGroups = [ "wheel" "video" "audio" ];
       packages = with pkgs; [
         thunderbird
-        ani-cli aria jq
       ];
     };
   };
@@ -40,12 +39,12 @@
     consoleLogLevel = 0;
     loader = {
       grub = {
-        enable = true;
-        device = "nodev";
-        useOSProber = true;
-        efiSupport = true;
+        enable = false;
+      #  device = "nodev";
+      #  useOSProber = true;
+      #  efiSupport = true;
       };
-      systemd-boot.enable = false;
+      systemd-boot.enable = true;
       efi = {
         canTouchEfiVariables = true;
       };
@@ -57,17 +56,16 @@
 
   environment = {
     systemPackages = with pkgs; [
-      # Wayland stuff
+      ## Wayland stuff
       xwayland wl-clipboard wlr-randr wayland wayland-scanner
       wayland-utils egl-wayland wayland-protocols glfw-wayland
-      qt6.qtwayland wev sway-contrib.grimshot wayfire wlroots
+      qt6.qtwayland wev sway-contrib.grimshot wayfire wlroots swayidle
      
-      libsForQt5.qt5ct lxappearance
-      nvidia-vaapi-driver libva mesa
-      vulkan-validation-layers vulkan-tools
+      libsForQt5.qt5ct libsForQt5.qt5.qtwayland lxappearance
+      nvidia-vaapi-driver libva mesa linuxHeaders
 
-      flameshot grim pulsemixer alsa-lib alsa-utils iwd polkit_gnome
-      rust-bin.stable.latest.default libnotify
+      flameshot grim slurp pulsemixer alsa-lib alsa-utils iwd polkit_gnome
+      rust-bin.stable.latest.default libnotify playerctl krita
     ];
   };
 

@@ -11,6 +11,7 @@
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     swaylock-effects
     pamixer
+    hyprpaper
   ];
 
   security.pam.services.swaylock = {

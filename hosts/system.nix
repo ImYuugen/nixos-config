@@ -6,6 +6,8 @@
   networking = {
     hostName = "omen15";
     networkmanager.enable = true;
+    networkmanager.wifi.backend = "iwd";
+    wireless.iwd.enable = true;
   };
 
   time = {
@@ -27,7 +29,7 @@
     systemPackages = with pkgs; [
       git wget xdg-utils pciutils killall
       macchina #neofetch but in rust *\^.^/*
-      bat exa tree
+      bat exa tree btop gtop
       neovim sops libreoffice-qt
       gcc clang cmake cargo libcxx luajit python3Full gdb
       nodejs
@@ -47,7 +49,7 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    #package = pkgs.nixVersions.unstable;
+    package = pkgs.nixVersions.unstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -57,7 +59,6 @@
   };
 
   system = {
-    #stateVersion = "23.11";
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 }
