@@ -40,9 +40,9 @@
     loader = {
       grub = {
         enable = false;
-      #  device = "nodev";
-      #  useOSProber = true;
-      #  efiSupport = true;
+        device = "nodev";
+        useOSProber = true;
+        efiSupport = true;
       };
       systemd-boot.enable = true;
       efi = {

@@ -14,10 +14,11 @@
       MOZ_ENABLE_WAYLAND = "1";
       SDL_VIDEODRIVER = "wayland";
       __JAVA_AWT_WM_NONREPARENTING = "1";
-      WLR_DRM_DEVICES = "dev/dri/card1";
+      WLR_DRM_DEVICES = "/dev/dri/card1";
       WLR_NO_HARDWARE_CURSORS = "1"; # Enable if cursor becomes transparent
       WLR_DRM_NO_ATOMIC = "1";
       WLR_RENDERER_ALLOW_SOFTWARE = "1";
+      WLR_RENDER_DRM_DEVICE = "/dev/dri/card1";
       WLR_RENDERER = "vulkan";
       CLUTTER_BACKEND = "wayland";
 
