@@ -13,9 +13,10 @@ in {
     specialArgs = { inherit inputs user; };
     modules = [
       ./system.nix
-      ./omen15/wayland
+      #./omen15/wayland
+      ./omen15/xorg
     ] ++ [
-      inputs.hyprland.nixosModules.default
+      #inputs.hyprland.nixosModules.default
       inputs.nur.nixosModules.nur
       inputs.lanzaboote.nixosModules.lanzaboote
       inputs.home-manager.nixosModules.home-manager {
@@ -25,9 +26,9 @@ in {
           extraSpecialArgs = { inherit user; };
           users.${user} = {
             imports = [
-              (import ./omen15/wayland/home.nix)
+              (import ./omen15/xorg/home.nix)
             ] ++ [
-              inputs.hyprland.homeManagerModules.default
+              #inputs.hyprland.homeManagerModules.default
             ];
           };
         };

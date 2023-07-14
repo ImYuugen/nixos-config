@@ -1,5 +1,13 @@
 { config, pkgs, lib, inputs, user, ... }:
-{
+
+let
+  pythonpkgs = ps: with ps; [
+    pandas
+    numpy
+    scipy
+    request
+  ];
+in {
   nixpkgs.system = "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
 
@@ -27,14 +35,14 @@
   environment = {
     shells = [ pkgs.fish ];
     systemPackages = with pkgs; [
-      git wget xdg-utils pciutils killall
+      git wget xdg-utils pciutils killall pkg-config
       macchina #neofetch but in rust *\^.^/*
       bat exa tree btop gtop
       neovim sops libreoffice-qt
       gcc clang cmake cargo libcxx luajit python3Full gdb
-      nodejs
+      nodejs efibootmgr
 
-      ffmpeg ffmpegthumbnailer mpv
+      ffmpeg ffmpegthumbnailer mpv ani-cli
 
       zip unzip p7zip rar minizip-ng
     ];
@@ -43,6 +51,8 @@
   nix = {
     settings = {
       auto-optimise-store = true;
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
     gc = {
       automatic = true;

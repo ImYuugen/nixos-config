@@ -5,13 +5,13 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     gamescopeSession = {
-      #enable = true;
+      enable = false; # true if you want to use steam deck OS ig
     };
   };
   programs.gamemode.enable = true;
 
   environment.systemPackages = with pkgs; [
-    wineWowPackages.waylandFull # Should not be in common but fuck off
+    wineWowPackages.stable
 
     steam # The G.O.A.T
     gamescope
@@ -28,5 +28,7 @@
       extraPkgs = pkgs: [
       ];
     })
+
+    playonlinux
   ];
 }

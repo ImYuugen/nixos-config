@@ -19,7 +19,6 @@
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprpicker.url = "github:hyprwm/hyprpicker";

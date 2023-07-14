@@ -15,6 +15,7 @@
       SDL_VIDEODRIVER = "wayland";
       __JAVA_AWT_WM_NONREPARENTING = "1";
       WLR_DRM_DEVICES = "/dev/dri/card1";
+      #WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
       WLR_NO_HARDWARE_CURSORS = "1"; # Enable if cursor becomes transparent
       WLR_DRM_NO_ATOMIC = "1";
       WLR_RENDERER_ALLOW_SOFTWARE = "1";
@@ -25,6 +26,9 @@
       LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+
+      GDK_SCALE = "1";
+      XCURSOR_SIZE = "32";
 
       LIBSEAT_BACKEND = "logind";
 

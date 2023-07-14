@@ -12,10 +12,10 @@
       '';
     };
     fish = {
-      #loginShellInit = ''
-      #  set TTY1 (tty)
-      #  [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
-      #'';
+      loginShellInit = ''
+        set TTY1 (tty)
+        [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
+      '';
     };
   };
 
@@ -26,19 +26,17 @@
     nvidiaPatches = true;
     xwayland = {
       enable = true;
-      hidpi = true;
+      hidpi = false;
     };
     extraConfig = ''
       $mainMod = MOD4
       $appMod = ALT SHIFT
 
-      monitor = eDP-1,1920x1080@144Hz,0x0,1
-      monitor = DP-2,1920x1080@144Hz,1920x0,1
+      $pictures = ~/Pictures
 
-      ### ENV VARS ###
-      env = LIBVA_DRIVER_NAME, nvidia
-      env = GBM_BACKEND, nvidia-drm
-      __GLX_VENDOR_LIBRARY_NAME, nvidia
+      #monitor = eDP-1,1920x1080@144Hz,0x0,1
+      monitor = DP-2,1920x1080@144Hz,1920x0,1
+      #monitor = HDMI-A-1,2560x1440@60Hz,1920x1080,2
 
       input {
         kb_layout = us,fr
@@ -46,7 +44,7 @@
         repeat_rate = 30
 
         follow_mouse = 1
-        sensitivity = -0.1
+        sensitivity = -0.3
         accel_profile = "flat"
 
         touchpad {
@@ -68,6 +66,8 @@
       }
 
       dwindle {
+        pseudotile = yes
+        preserve_split = yes
       }
 
       master {
@@ -89,16 +89,24 @@
       }
 
       misc {
+        disable_hyprland_logo = true #sowwy >///<
+        disable_splash_rendering = true
+        vrr = 2
       }
 
+      bind = $mainMod SHIFT, E, exec, hyprctl dispatch exit
+      bind = $mainMod SHIFT, R, exec, hyprctl reload
       bind = $mainMod, Return, exec, alacritty
       bind = $mainMod SHIFT, Q, killactive,
-      bind = $mainMod SHIFT, P, exec, ~/.config/rofi/bin/powermenu.sh
       bind = $mainMod SHIFT, L, exec, swaylock --screenshots --clock --indicator --effect-blur 7x5
+      bind = $mainMod, Print, exec, grimblast --notify --cursor save screen
+      bind = $mainMod SHIFT, S, exec, grimblast copy area
+
       bind = $mainMod, E, exec, alacritty -e joshuto
       bind = $mainMod, D, exec, rofi -show drun
       bind = $appMod, B, exec, nvidia-offload firefox
-
+      bind = $appMod, S, exec, spotify
+      bind = $appMod, G, exec, steam
 
       bind = $mainMod, Space, togglefloating,
       bind = $mainMod, F, fullscreen,
@@ -164,6 +172,7 @@
       exec-once = mako &
       exec-once = waybar &
       exec-once = playerctld daemon &
+      exec-once = swww-daemon &
     '';
   };
 }

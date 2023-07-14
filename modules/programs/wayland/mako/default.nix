@@ -3,33 +3,35 @@
   services.mako.enable = true;
 
   home.file."~/.config/mako/config".text = ''
-    background-color=#282828bb
-    text-color=#ebdbb8
+    sort=-time
+    max-history=100
 
-    margin=5
-    padding=8
+    on-button-left=dismiss
+    on-button-middle=none
+    on-button-right=dismiss-all
+    on-touch=dismiss
 
-    border-size=1
-    border-color=#d79921cc
-    border-radius=6
-
-    progress-color=source #383838
-
-    format=<sup>%a</sup>\n<b>%s</b>\n%b
-
+    #font
+    markup=1
     default-timeout=5000
+    layer=overlay
 
-    group-by=app-name
-
-    [urgency=critical]
-    border-size=2
-    border-color=#cc2222cc
+    background-color=#1e1e2e
+    text-color=#cdd6f4
+    border-color=#cba6f7
+    progress-color=over #89b4fa
 
     [urgency=low]
-    text-color=#bbab88
+    border-color=#313244
+    default-timeout=2000
 
-    [mode=away]
+    [urgency=normal]
+    border-color=#cba6f7
+    default-timeout=5000
+
+    [urgency=high]
+    border-color=#f38ba8
+    text-color=#f38ba8
     default-timeout=0
-    ignore-timeout=1
   '';
 }

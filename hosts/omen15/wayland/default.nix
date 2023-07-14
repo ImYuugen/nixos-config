@@ -71,8 +71,16 @@
 
   services = {
     xserver = {
+      #enable = true;
       videoDrivers = [ "amdgpu" "nvidia" ];
+
+      displayManager = {
+        sessionPackages = [ pkgs.hyprland ];
+        gdm.enable = true;
+      };
     };
+
+    flatpak.enable = true;
 
     dbus.packages = [ pkgs.gcr ];
     pipewire = {
@@ -99,6 +107,12 @@
     };
     opentabletdriver = {
       enable = true;
+    };
+    logitech = {
+      wireless = {
+        enable = true;
+        enableGraphical = true;
+      };
     };
   };
 
