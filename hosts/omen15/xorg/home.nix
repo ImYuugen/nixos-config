@@ -4,8 +4,8 @@
   imports = [ (import ../../../modules/desktop/bspwm/home.nix) ] ++
     (import ../../../modules/shell) ++
     (import ../../../modules/editors) ++
-    (import ../../../modules/dev) ++
-    (import ../../../modules/programs/x11);
+#    (import ../../../modules/dev) ++
+    (import ../../../modules/programs/xorg);
 
   home = {
     username = "${user}";

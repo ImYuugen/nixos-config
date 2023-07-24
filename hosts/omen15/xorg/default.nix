@@ -5,9 +5,11 @@
     ../hardware-configuration.nix
     ../../../modules/fonts
     ../../../modules/desktop/bspwm
-     
+    
+    ../../../modules/programs/common/games
+
     inputs.nixos-hardware.nixosModules.common-cpu-amd
-    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    #inputs.nixos-hardware.nixosModules.common-gpu-amd
     inputs.nixos-hardware.nixosModules.common-gpu-nvidia
     inputs.nixos-hardware.nixosModules.common-pc-laptop
     inputs.nixos-hardware.nixosModules.common-pc-ssd
@@ -15,7 +17,7 @@
 
   users = {
     mutableUsers = true;
-    users.{user} = {
+    users."${user}" = {
       shell = pkgs.fish;
       isNormalUser = true;
       extraGroups = [ "wheel" "video" "audio" ];
@@ -27,7 +29,9 @@
   programs.fish.enable = true;
 
   boot = {
-    kernelModules = [ "amdgpu" "nvidia" ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = [ "nvidia" ];
+    blacklistedKernelModules = [ "nouveau" ];
     kernelParams = [ "quiet" "splash" "nvidia-drm.modeset=1" ];
     consoleLogLevel = 0;
     bootspec.enable = true;
@@ -38,36 +42,50 @@
       #  useOSProber = true;
       #  efiSupport = true;
       #};
-      systemd-boot = (lib.mkIf config.boot.lanzaboote.enable) {
-        enable = lib.mkForce false;
-        consoleMode = "auto";
-      };
+      systemd-boot.enable = true;#(lib.mkIf config.boot.lanzaboote.enable) {
+        #enable = lib.mkForce false;
+        #consoleMode = "auto";
+      #};
       efi.canTouchEfiVariables = true;
-      lanzaboote = {
-        enable = false;
-        pkiBundle = "/etc/secureboot";
-      };
+      #lanzaboote = {
+      #  enable = false;
+      #  pkiBundle = "/etc/secureboot";
+      #};
     };
   };
 
   i18n.inputMethod = {
-
+    enabled = "fcitx5";
+    fcitx5.addons = [ pkgs.fcitx5-mozc ];
   };
 
   environment = {
     systemPackages = with pkgs; [
-      libnotify xclip xorg.xrandr cinnamon.nemo
+      libnotify xclip xorg.xrandr arandr cinnamon.nemo
       polkit_gnome networkmanagerapplet xorg.xev
       alsa-lib alsa-utils flac pulsemixer linux-firmware
       sshpass pkgs.rust-bin.stable.latest.default lxappearance
-      imagemagick flameshot
+      imagemagick flameshot playerctl iwd alsa-lib nvidia-vaapi-driver
+      libva mesa linuxHeaders xorg.xinit
+
+      galculator
     ];
   };
 
   services = {
-    xserver.libinput = {
+    xserver = {
       enable = true;
-      touchpad.naturalScrolling = true;
+      videoDrivers = [ "nvidia" ];
+      displayManager = {
+        lightdm.enable = true;
+      };
+      libinput = {
+        enable = true;
+        touchpad.naturalScrolling = true;
+      };
+      extraConfig = ''
+        
+      '';
     };
     dbus.packages = [ pkgs.gcr ];
     getty.autologinUser = "${user}";
@@ -78,6 +96,42 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+    };
+  };
+
+  hardware = {
+    nvidia = {
+      nvidiaSettings = true;
+      modesetting.enable = true;
+      prime = {
+        offload.enable = true;
+        amdgpuBusId = "PCI:7:0:0";
+        nvidiaBusId = "PCI:1:0:0";
+        reverseSync.enable = true;
+      };
+    };
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = [ pkgs.mesa.drivers ];
+    };
+    opentabletdriver = {
+      enable = true;
+    };
+    logitech = {
+      wireless.enable = true;
+      wireless.enableGraphical = true;
+    };
+  };
+
+  specialisation = {
+    external-display.configuration = {
+      system.nixos.tags = [ "external-display" ];
+      hardware.nvidia = {
+        prime.offload.enable = lib.mkForce false;
+        powerManagement.enable = lib.mkForce false;
+      };
     };
   };
 

@@ -15,11 +15,10 @@
         "sxhkd"
         "flameshot"
         "dunst"
-        "sleep 2s; polybar -q main"
       ];
       monitors = {
-        eDP-2 = [
-          "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X"
+        DP-1-2 = [
+          "1" "2" "3" "4" "5" "6" "7" "8" "9" "10"
         ];
       };
       rules = {
@@ -38,21 +37,35 @@
       };
       settings = {
         pointer_modifier = "mod4";
-        border_width = 3;
+        border_width = 1;
         window_gap = 5;
         split_ratio = 0.5;
         borderless_monocle = true;
         gapless_monocle = false;
         focus_follows_pointer = true;
 
-        normal_border_color = "#008080";
-        # focused_border_color, urgent_border_color, presel_border_color, presel_feedback_color
+        normal_border_color = "#555555";
+        focused_border_color = "#008080";
+        urgent_border_color = "#730039";
+        # presel_border_color, presel_feedback_color
       };
-      extraConfig = ''
+      extraConfig = let
+          LAPTOP_MONITOR="eDP";
+          AOC_EXTERNAL="DP-1-2";
+        in ''
+        if [[ "$1" = 0 ]]; then
+          if [[ $(xrandr -q | grep "${AOC_EXTERNAL} connected") ]]; then
+            bspc monitor "${AOC_EXTERNAL}" -d 1 2 3 4 5 6 7 8 9 10
+            bspc wm -O "${AOC_EXTERNAL}"
+          else
+            bspc monitor "${LAPTOP_MONITOR}" -d 1 2 3 4 5 6 7 8 9 10
+          fi
+        fi
       '';
       extraConfigEarly = ''
         systemctl --user start bspwm-session.target
         systemctl --user start tray.target
+        bspc monitor -d 1 2 3 4 5 6 7 8 9 10
       '';
     };
   };
@@ -64,13 +77,13 @@
       After = [ "graphical-session-pre.target" ];
     };
   };
-  programs.fish.loginShellInit = ''
-    if status --is-login
-        if test -z "$DISPLAY" -a $XDG_VTNR = 1
-            exec lightdm
-        end
-    end
-  '';
+  #programs.fish.loginShellInit = ''
+  #  if status --is-login
+  #      if test -z "$DISPLAY" -a $XDG_VTNR = 1
+  #          exec doas lightdm
+  #      end
+  #  end
+  #'';
 
   home.file.".xinitrc".text = ''
     if test -z "$DBUS_SESSION_BUS_ADDRESS"; then

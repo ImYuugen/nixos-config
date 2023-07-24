@@ -11,7 +11,7 @@
   programs.gamemode.enable = true;
 
   environment.systemPackages = with pkgs; [
-    wineWowPackages.stable
+    #wineWowPackages.stable
 
     steam # The G.O.A.T
     gamescope
@@ -29,6 +29,6 @@
       ];
     })
 
-    playonlinux
+    #playonlinux
   ];
 }

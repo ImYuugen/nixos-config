@@ -1,16 +1,13 @@
 { config, lib, pkgs, user, ... }:
 {
-  imports = [ ../../xorg/polybar ];
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm = {
-      enable = true;
-    };
-  };
-
+  imports = [ ../../programs/xorg/polybar ];
   programs = {
     dconf.enable = true;
     light.enable = true;
+  };
+  services.xserver = {
+    windowManager.bspwm.enable = true;
+    displayManager.defaultSession = "none+bspwm";
   };
   environment.systemPackages = with pkgs; [
     pamixer

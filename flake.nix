@@ -2,8 +2,8 @@
   description = "My nixos config";
 
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-shell.url = "github:Mic92/nixos-shell";
@@ -17,6 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+/*
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
@@ -24,6 +25,7 @@
     hyprpicker.url = "github:hyprwm/hyprpicker";
 
     hypr-contrib.url = "github:hyprwm/contrib";
+*/
 
     joshuto.url = "github:kamiyaa/joshuto";
 
