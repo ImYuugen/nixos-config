@@ -1,6 +1,5 @@
 { config, lib, pkgs, user, ... }:
 {
-  imports = [ ../../programs/xorg/polybar ];
   programs = {
     dconf.enable = true;
     light.enable = true;

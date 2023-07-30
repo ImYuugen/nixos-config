@@ -5,19 +5,26 @@
       enable = true;
       extraConfig = ''
         super + {_,shift + }Return
-          alacritty {_,class='termfloat'}
+          alacritty {_,--class termfloat}
 
         super + {_,shift + }q
           bspc node -{c,k}
 
+        #reload sxhkd
+        super + Escape
+          pkill -USR1 -x sxhkd
+
+        #lock screen
+        super + shift + l
+          i3lock-fancy
 
         #=-=-= Apps =-=-=#
 
-        super + d
-          rofi -show drun
+        super + {d,r}
+          rofi -modi "run,drun" -show {drun,run}
 
         super{_, + shift} + e
-          {nemo, alacritty; joshuto}
+          {nemo, alacritty --command joshuto}
         
         alt + shift + w
           nvidia-offload firefox
@@ -39,20 +46,33 @@
         super + shift + {a,d}
           bspc node @/ -C {backward,forward}
 
-        ### RESIZE MODE ###
+        super + {t,f,m}
+          bspc node -t {tiled,floating,fullscreen}
 
-        super + r : {Left,Down,Up,Right}
-          STEP=20; SELECTION={1,2,3,4}; \
-          bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
-          bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
+        #focus node in direction
+        super + {h,j,k,l}
+          bspc node -f {west,south,north,east}
+        super + {Left,Down,Up,Right}
+          bspc node -f {west,south,north,east}
 
+        #focus last node/desktop
+        super + {Tab}
+          bspc {node} -f last
+         
+        #preselect direction
+        ctrl + alt + {h,j,k,l}
+          bspc node -p {west,south,north,east}
+        ctrl + alt + {Left,Down,Up,Right}
+          bspc node -p {west,south,north,east}
 
-        super + r : {h,j,k,l}
-          STEP=20; SELECTION={1,2,3,4}; \
-          bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
-          bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
+        #preselect ratio
+        ctrl + alt + {1-9}
+          bspc node -o 0.{1-9}
 
-        ###     END     ###
+        #cancel preselection
+        ctrl + alt + space
+          bspc node -p cancel
+
 
         #=-=-= /Windows/Desktops =-=-=#
 

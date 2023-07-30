@@ -36,13 +36,15 @@
     consoleLogLevel = 0;
     bootspec.enable = true;
     loader = {
-      #grub = {
-      #  enable = false;
-      #  device = "nodev";
-      #  useOSProber = true;
-      #  efiSupport = true;
-      #};
-      systemd-boot.enable = true;#(lib.mkIf config.boot.lanzaboote.enable) {
+      grub = {
+        enable = true;
+        device = "nodev";
+        useOSProber = true;
+        efiSupport = true;
+        configurationLimit = 10;
+        default = "saved";
+      };
+      systemd-boot.enable = false;#(lib.mkIf config.boot.lanzaboote.enable) {
         #enable = lib.mkForce false;
         #consoleMode = "auto";
       #};
@@ -66,9 +68,9 @@
       alsa-lib alsa-utils flac pulsemixer linux-firmware
       sshpass pkgs.rust-bin.stable.latest.default lxappearance
       imagemagick flameshot playerctl iwd alsa-lib nvidia-vaapi-driver
-      libva mesa linuxHeaders xorg.xinit
+      libva libva-utils mesa linuxHeaders xorg.xinit
 
-      galculator
+      galculator libreoffice
     ];
   };
 
@@ -79,13 +81,16 @@
       displayManager = {
         lightdm.enable = true;
       };
+      layout = "us,fr";
       libinput = {
         enable = true;
-        touchpad.naturalScrolling = true;
+        touchpad = {
+          naturalScrolling = true;
+        };
+        mouse = {
+          accelProfile = "flat";
+        };
       };
-      extraConfig = ''
-        
-      '';
     };
     dbus.packages = [ pkgs.gcr ];
     getty.autologinUser = "${user}";
@@ -109,12 +114,19 @@
         nvidiaBusId = "PCI:1:0:0";
         reverseSync.enable = true;
       };
+      powerManagement = {
+        enable = true;
+      };
     };
     opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = [ pkgs.mesa.drivers ];
+      extraPackages = with pkgs; [
+        libva
+        vaapiVdpau
+        mesa.drivers
+      ];
     };
     opentabletdriver = {
       enable = true;
@@ -130,7 +142,7 @@
       system.nixos.tags = [ "external-display" ];
       hardware.nvidia = {
         prime.offload.enable = lib.mkForce false;
-        powerManagement.enable = lib.mkForce false;
+        #powerManagement.enable = lib.mkForce false;
       };
     };
   };

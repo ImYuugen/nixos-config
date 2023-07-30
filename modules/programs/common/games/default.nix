@@ -11,7 +11,9 @@
   programs.gamemode.enable = true;
 
   environment.systemPackages = with pkgs; [
-    #wineWowPackages.stable
+    wineWowPackages.stagingFull
+    winetricks
+    playonlinux
 
     steam # The G.O.A.T
     gamescope
@@ -24,11 +26,10 @@
 
     (lutris.override {
       extraLibraries = pkgs: [
+        pkgs.libunwind
       ];
       extraPkgs = pkgs: [
       ];
     })
-
-    #playonlinux
   ];
 }

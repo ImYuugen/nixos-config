@@ -11,11 +11,8 @@
     neovim = {
       enable = true;
       viAlias = true;
+      vimAlias = true;
       withNodeJs = true;
-      extraPackages = [
-      ];
-
-      plugins = with pkgs.vimPlugins; [];
     };
   };
 
@@ -44,6 +41,8 @@
     ];
   };
 
-  # TODO: Nvim config
-  home.file.".config/nvim/init.vim".source = ./init.vim;
+  home.file.".config/nvim" = {
+    source = ./config;
+    recursive = true;
+  };
 }

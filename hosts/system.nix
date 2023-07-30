@@ -1,13 +1,6 @@
 { config, pkgs, lib, inputs, user, ... }:
 
-let
-  pythonpkgs = ps: with ps; [
-    pandas
-    numpy
-    scipy
-    request
-  ];
-in {
+{
   nixpkgs.system = "x86_64-linux";
   nixpkgs.config.allowUnfree = true;
 
@@ -36,9 +29,9 @@ in {
     shells = [ pkgs.fish ];
     systemPackages = with pkgs; [
       git wget xdg-utils pciutils killall pkg-config
-      macchina #neofetch but in rust *\^.^/*
+      neofetch
       bat exa tree btop gtop
-      neovim sops libreoffice-qt
+      neovim sops
       gcc clang cmake cargo libcxx luajit python3Full gdb
       nodejs efibootmgr
 
@@ -47,6 +40,11 @@ in {
       zip unzip p7zip rar minizip-ng
     ];
   };
+
+  hardware.enableAllFirmware = true;
+  powerManagement.powertop.enable = true;
+  powerManagement.enable = true;
+  services.thermald.enable = true;
 
   nix = {
     settings = {
@@ -59,7 +57,7 @@ in {
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    package = pkgs.nixVersions.unstable;
+    #package = pkgs.nixVersions.unstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -69,6 +67,6 @@ in {
   };
 
   system = {
-    stateVersion = "23.11";
+    stateVersion = "23.05";
   };
 }

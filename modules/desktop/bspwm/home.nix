@@ -15,9 +15,11 @@
         "sxhkd"
         "flameshot"
         "dunst"
+        "polybar"
+        "eww"
       ];
       monitors = {
-        DP-1-2 = [
+        DP-2 = [
           "1" "2" "3" "4" "5" "6" "7" "8" "9" "10"
         ];
       };
@@ -27,10 +29,6 @@
           center = true;
         };
         "termfloat" = {
-          state = "floating";
-          center = true;
-        };
-        "nemo" = {
           state = "floating";
           center = true;
         };
@@ -50,13 +48,15 @@
         # presel_border_color, presel_feedback_color
       };
       extraConfig = let
-          LAPTOP_MONITOR="eDP";
-          AOC_EXTERNAL="DP-1-2";
+          LAPTOP_MONITOR="eDP-1-0";
+          AOC_EXTERNAL="DP-2";
         in ''
         if [[ "$1" = 0 ]]; then
           if [[ $(xrandr -q | grep "${AOC_EXTERNAL} connected") ]]; then
             bspc monitor "${AOC_EXTERNAL}" -d 1 2 3 4 5 6 7 8 9 10
             bspc wm -O "${AOC_EXTERNAL}"
+            xrandr --output ${AOC_EXTERNAL} --mode 1920x1080 --rate 144 --pos 0x0
+            xrandr --output ${LAPTOP_MONITOR} --off
           else
             bspc monitor "${LAPTOP_MONITOR}" -d 1 2 3 4 5 6 7 8 9 10
           fi
@@ -96,6 +96,9 @@
     ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
       Xcursor.theme: Catppuccin-Frappe-Dark
       ''}
+    if [[ $(xrandr -q | grep "DP-2 connected") ]]; then
+      xrandr --output DP-2 --mode 1920x1080 --rate 144 --pos 0x0
+    fi
     exec bspwm 
   '';
 }

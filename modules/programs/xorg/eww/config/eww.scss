@@ -1,0 +1,36 @@
+* {
+  all: unset;
+}
+
+.bar {
+  background-color: #3a3a3a;
+  color: #b0b4bc;
+  padding: 10px;
+}
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+.metric scale through highlight {
+  all: unset;
+  background-color: #d35d6e;
+  color: #000000;
+  border-radius: 50px;
+}
+.metric scale through {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.label-ram {
+  font-size: large;
+}
+.workspaces button:hover {
+  color: #d35d6e
+}

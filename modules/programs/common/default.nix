@@ -10,7 +10,6 @@
   ./matrix
   ./obs-studio
   ./spotify
-  ./swww
   ./utils
   ./youtube-tui
   ./yt-dlp
