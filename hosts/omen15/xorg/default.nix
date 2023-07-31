@@ -26,8 +26,6 @@
     };
   };
 
-  programs.fish.enable = true;
-
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "nvidia" ];
@@ -71,6 +69,9 @@
       libva libva-utils mesa linuxHeaders xorg.xinit
 
       galculator libreoffice
+
+      # Fish plugins
+      fishPlugins.fzf-fish fishPlugins.tide
     ];
   };
 

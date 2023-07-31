@@ -32,7 +32,7 @@
       neofetch
       bat exa tree btop gtop
       neovim sops
-      gcc clang cmake cargo libcxx luajit python3Full gdb
+      gcc clang cmake cargo libcxx luajit python3Full gdb gnumake
       nodejs efibootmgr
 
       ffmpeg ffmpegthumbnailer mpv ani-cli

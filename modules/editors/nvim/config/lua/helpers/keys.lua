@@ -10,6 +10,7 @@ end
 
 M.dap_map = function(mode, lhs, rhs, desc)
    vim.keymap.set(mode, lhs, rhs, desc)
+end
 
 M.set_leader = function(key)
    vim.g.mapleader = key

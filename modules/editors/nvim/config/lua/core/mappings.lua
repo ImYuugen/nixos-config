@@ -1,3 +1,4 @@
-local map = require("helper.keys").map
+local map = require("helpers.keys").map
 
--- TODO: Sections
+map("n", "<S-h>", ":bprevious<cr>", "Go to previous buffer")
+map("n", "<S-l>", ":bnext<cr>", "Go to next buffer")

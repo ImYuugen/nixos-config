@@ -8,6 +8,7 @@ return {
          "folke/neodev.nvim",
          "RRethy/vim-illuminate",
          "hrsh7th/cmp-nvim-lsp",
+         "kosayoda/nvim-lightbulb",
       },
       config = function()
          require("mason").setup()
@@ -16,7 +17,7 @@ return {
                "bashls", --BASH
                "clangd", --C/C++
                "lua_ls", --LUA
-               "nil_ls" --NIX
+               "nil_ls", --NIX
                "rust_analyzer", --RUST
                "taplo", --TOML
             },
@@ -26,6 +27,7 @@ return {
          require("helpers.keys").map("n", "<leader>m", "<cmd>Mason<cr>", "Show Mason")
          require("neodev").setup()
          require("fidget").setup()
+         require("nvim-lighbulb").setup({ autocmd = { enabled = true, }, })
 
          local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " }, --TODO: Find icons
          for type, icon in pairs(signs) do
@@ -60,9 +62,9 @@ return {
 
             lsp_map("gd", vim.lsp.buf.definition, bufnr, "Goto definition")
             lsp_map("gr", require("telescope.builtin").lsp_references, bufnr, "Goto References")
-			lsp_map("gi", vim.lsp.buf.implementation, bufnr, "Goto Implementation")
-			lsp_map("K", vim.lsp.buf.hover, bufnr, "Hover Documentation")
-			lsp_map("gD", vim.lsp.buf.declaration, bufnr, "Goto Declaration")
+	        lsp_map("gi", vim.lsp.buf.implementation, bufnr, "Goto Implementation")
+	        lsp_map("K", vim.lsp.buf.hover, bufnr, "Hover Documentation")
+	        lsp_map("gD", vim.lsp.buf.declaration, bufnr, "Goto Declaration")
 
             vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
                vim.lsp.buf.format()
