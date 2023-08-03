@@ -29,7 +29,7 @@
     shells = [ pkgs.fish ];
     systemPackages = with pkgs; [
       git wget xdg-utils pciutils killall pkg-config
-      neofetch
+      neofetch powertop
       bat exa tree btop gtop
       neovim sops
       gcc clang cmake cargo libcxx luajit python3Full gdb gnumake
@@ -42,15 +42,25 @@
   };
 
   hardware.enableAllFirmware = true;
+
+
   powerManagement.powertop.enable = true;
   powerManagement.enable = true;
   services.thermald.enable = true;
+  services.auto-cpufreq.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    };
+  };
 
   nix = {
     settings = {
       auto-optimise-store = true;
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
     gc = {
       automatic = true;

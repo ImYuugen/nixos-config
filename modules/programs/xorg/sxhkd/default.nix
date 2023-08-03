@@ -10,6 +10,9 @@
         super + {_,shift + }q
           bspc node -{c,k}
 
+        super + shift + s
+          flameshot gui
+
         #reload sxhkd
         super + Escape
           pkill -USR1 -x sxhkd

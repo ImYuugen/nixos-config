@@ -6,11 +6,11 @@ return {
          wk.setup()
          wk.register({
             ["<leader>"] = {
-               d = "Debug"
-               f = "File"
-               g = "Git"
-               l = "LSP"
-               u = "UI"
+               d = "Debug",
+               f = "File",
+               g = "Git",
+               l = "LSP",
+               u = "UI",
             },
          })
       end

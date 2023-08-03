@@ -10,9 +10,9 @@ return {
             sources = {
                null_ls.builtins.formatting.stylua,
 			   null_ls.builtins.formatting.clang_format,
-               null_ls.builtins.rustfmt,
-               null_ls.builtins.beautysh,
-               null_ls.builtins.nixfmt,
+               --null_ls.builtins.rustfmt,
+               --null_ls.builtins.beautysh,
+               --null_ls.builtins.nixfmt,
             }
          })
       end

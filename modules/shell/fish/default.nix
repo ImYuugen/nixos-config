@@ -3,8 +3,12 @@
   programs.fish = {
     enable = true;
     loginShellInit = ''
+			set -U fish_greeting ""
     '';
   };
-  #home.file.".config/fish/fish_variables".text = import ./fish_variables.nix;
-  #home.file.".config/fish/functions".source = ./functions;
+
+  home.file."~/.config/fish/" = {
+    source = ./config;
+    recursive = true;
+  };
 }

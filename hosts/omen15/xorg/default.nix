@@ -25,6 +25,7 @@
       ];
     };
   };
+  programs.fish.enable = true;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

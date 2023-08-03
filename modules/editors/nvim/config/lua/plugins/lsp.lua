@@ -27,11 +27,11 @@ return {
          require("helpers.keys").map("n", "<leader>m", "<cmd>Mason<cr>", "Show Mason")
          require("neodev").setup()
          require("fidget").setup()
-         require("nvim-lighbulb").setup({ autocmd = { enabled = true, }, })
+         require("nvim-lightbulb").setup({ autocmd = { enabled = true, }, })
 
-         local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " }, --TODO: Find icons
-         for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
+         local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " } --TODO: Find icons
+         for sign, icon in pairs(signs) do
+            local hl = "DiagnosticSign" .. sign
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
          end
 

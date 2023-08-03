@@ -1,8 +1,8 @@
 return {
-   {
-      "iamcco/mardown-preview.nvim",
+   --[[{
+      "iamcco/markdown-preview.nvim",
       config = function()
          require("markdown-preview").setup()
       end
-   },
+   },--]]
 }
