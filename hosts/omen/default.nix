@@ -37,12 +37,12 @@
     bootspec.enable = true;
 
     loader = {
-#      grub = {
-#        enable = true;
-#        device = "nodev";
-#        useOSProber = true;
-#        efiSupport = true;
-#      };
+      grub = {
+        enable = lib.mkForce false;
+        device = "nodev";
+        useOSProber = true;
+        efiSupport = true;
+      };
       systemd-boot.enable = lib.mkForce false;
       efi.canTouchEfiVariables = true;
     };
@@ -58,7 +58,9 @@
     libnotify linux-firmware linuxHeaders
     xdg-utils pciutils killall pkg-config
     zip unzip
-  
+ 
+    sbctl
+
     libva libva-utils mesa
 
     # Nvidia
