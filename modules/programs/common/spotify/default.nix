@@ -1,6 +1,9 @@
 { pkgs, config, ... }:
+
 {
   services.spotifyd.enable = true;
-
-  home.packages = with pkgs; [ spotify spotify-tui ];
+  home.packages = with pkgs; [
+    spotify
+    spotify-tui
+  ];
 }

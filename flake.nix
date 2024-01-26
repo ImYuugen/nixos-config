@@ -1,12 +1,11 @@
 {
-  description = "My nixos config";
+  description = "My *new* NixOs config";
 
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs";
-    nur.url = "github:nix-community/NUR";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    nix-shell.url = "github:Mic92/nixos-shell";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-root.url = "github:srid/flake-root";
@@ -16,47 +15,41 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-/*
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
+    nur = {
+      url = "github:nix-community/NUR";
     };
 
-    hyprpicker.url = "github:hyprwm/hyprpicker";
+    lanzaboote.url = "github:nix-community/lanzaboote";
 
-    hypr-contrib.url = "github:hyprwm/contrib";
-*/
-
-    joshuto.url = "github:kamiyaa/joshuto";
-
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    neovim-nightly-overlay = {
+    neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nil.url = "github:oxalica/nil";
-
     nixd.url = "github:nix-community/nixd";
-
-    picom.url = "github:yaocccc/picom";
-
-    rust-overlay.url = "github:oxalica/rust-overlay";
 
     statix = {
       url = "github:nerdypepper/statix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rust-overlay.url = "github:oxalica/rust-overlay";
+
+    zig-overlay.url = "github:mitchellh/zig-overlay";
+
+# Xorg
+    picom.url = "github:yaocccc/picom";
+
+# Wayland
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
+    hypr-contrib.url = "github:hyprwm/contrib";
   };
 
   outputs = inputs @ { self, nixpkgs, flake-parts, ... }:
     let
       user = "yuugen";
-      selfPkgs = import ./pkgs;
+      confPkgs = import ./pkgs;
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
@@ -65,6 +58,7 @@
         let
           pkgs = import nixpkgs {
             inherit system;
+            config.allowUnfree = true;
             overlays = [
               self.overlays.default
             ];
@@ -76,12 +70,13 @@
             inputsFrom = [ config.flake-root.devShell ];
           };
         };
-
+      
       flake = {
-        overlays.default = selfPkgs.overlay;
+        overlays.default = confPkgs.overlay;
         nixosConfigurations = (
           import ./hosts {
             system = "x86_64-linux";
+            wayland = true;
             inherit nixpkgs self inputs user;
           }
         );

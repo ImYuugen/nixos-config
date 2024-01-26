@@ -1,74 +1,18 @@
-{ config, pkgs, lib, inputs, user, ... }:
+{ config, inputs, lib, pkgs, system, user, ... }:
 
 {
-  nixpkgs.system = "x86_64-linux";
-  nixpkgs.config.allowUnfree = true;
-
-  networking = {
-    hostName = "omen15";
-    networkmanager.enable = true;
-    networkmanager.wifi.backend = "iwd";
-    wireless.iwd.enable = true;
-  };
-
-  time = {
-    timeZone = "Europe/Paris";
-    hardwareClockInLocalTime = true;
-  };
-
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  security.rtkit.enable = true;
-
-  services = {
-    openssh.enable = true;
-    dbus.enable = true;
-  };
-
-  environment = {
-    shells = [ pkgs.fish ];
-    systemPackages = with pkgs; [
-      git wget xdg-utils pciutils killall pkg-config
-      neofetch powertop
-      bat exa tree btop gtop
-      neovim sops
-      gcc clang cmake cargo libcxx luajit python3Full gdb gnumake
-      nodejs efibootmgr
-
-      ffmpeg ffmpegthumbnailer mpv ani-cli
-
-      zip unzip p7zip rar minizip-ng
-    ];
-  };
-
-  hardware.enableAllFirmware = true;
-
-
-  powerManagement.powertop.enable = true;
-  powerManagement.enable = true;
-  services.thermald.enable = true;
-  services.auto-cpufreq.enable = true;
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 0;
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-    };
+  nixpkgs = {
+    inherit system;
+    config.allowUnfree = true;
   };
 
   nix = {
-    settings = {
-      auto-optimise-store = true;
-    };
+    settings.auto-optimise-store = true;
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 14d";
     };
-    #package = pkgs.nixVersions.unstable;
-    registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
       keep-outputs = true
@@ -76,7 +20,61 @@
     '';
   };
 
-  system = {
-    stateVersion = "23.05";
+  time = {
+    timeZone = "Europe/Paris";
+    hardwareClockInLocalTime = true;
   };
+
+  i18n = let
+    EN = "en_US.UTF-8";
+    FR = "fr_FR.UTF-8/UTF-8";
+    JP = "ja_JP.UTF-8/UTF-8";
+  in {
+    defaultLocale = EN;
+    supportedLocales = [
+      FR
+      JP
+    ];
+  };
+
+  environment = {
+    shells = [ pkgs.fish pkgs.bash ];
+    systemPackages = with pkgs; [
+      man-pages
+      xdg-utils pciutils
+      glibcLocales
+    ];
+  };
+
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+
+    sudo.enable = false;
+    doas = {
+      enable = true;
+      extraConfig = ''
+        permit nopass :wheel
+      '';
+    };
+  };
+
+  systemd = {
+    user.services.polkit-gnome-authentification-agent-1 = {
+      description = "polkit-gnome-authentification-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
+
+  #**DO NOT CHANGE**
+  system.stateVersion = "23.11";
 }

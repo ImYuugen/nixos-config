@@ -1,9 +1,0 @@
-* {
-    background:                     #282828ff; /* window/menu bg */
-    background-alt:                 #383838ff; /* element bg */
-    foreground:                     #d79921ff; /* text/icons */
-    border:               	    #d79921ff; /* left side vertical line */
-    selected:               	    #484848ff; /* selected element bg */
-
-    window-border: #d79921cc;
-}

@@ -1,6 +1,0 @@
-[
-  ./bash
-  ./fish
-  ./git
-  ./nushell
-]

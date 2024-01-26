@@ -2,27 +2,30 @@
 
 {
   environment.systemPackages = with pkgs; [
-    twemoji-color-font
   ];
 
   fonts = {
     packages = with pkgs; [
-      dejavu_fonts
       ipafont
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
+      kochi-substitute
+#      (nerdfonts.override {
+#        fonts = [
+#          "BigBlueTerminal"
+#          "FiraCode"
+#          "JetBrainsMono"
+#          "Iosevka"
+#	  "VictorMono"
+#        ];
+#      })
       nerdfonts
-      source-code-pro
+      symbola
       twemoji-color-font
     ];
     fontconfig = {
-      localConf = ''
-      '';
       defaultFonts = {
         monospace = [
-          "DejaVu Sans Mono"
-          "IPAGothic"
+          "FiraCode"
+          "IPAPGothic"
         ];
         sansSerif = [
           "DejaVu Sans"

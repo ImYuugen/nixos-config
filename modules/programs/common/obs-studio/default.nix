@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+
 {
   programs.obs-studio = {
     enable = true;
@@ -6,8 +7,6 @@
       wlrobs
       obs-vkcapture
       obs-vaapi
-      input-overlay
-      advanced-scene-switcher
     ];
   };
 }

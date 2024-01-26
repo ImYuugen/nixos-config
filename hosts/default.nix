@@ -1,24 +1,23 @@
-{ system, self, nixpkgs, inputs, user, ... }:
+{ self, system, nixpkgs, inputs, wayland, user, ... }:
 
 let
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-  };
-
   lib = nixpkgs.lib;
 in {
-  omen15 = lib.nixosSystem {
+  omen = lib.nixosSystem {
     inherit system;
+
     specialArgs = { inherit inputs user; };
     modules = [
+      ./omen
       ./system.nix
-      #./omen15/wayland
-      ./omen15/xorg
-    ] ++ [
-      #inputs.hyprland.nixosModules.default
-      inputs.nur.nixosModules.nur
       inputs.lanzaboote.nixosModules.lanzaboote
+    ] ++ (
+      if wayland then [
+        ./omen/wayland
+        inputs.hyprland.nixosModules.default
+      ] else [
+        ./omen/x
+    ]) ++ [
       inputs.home-manager.nixosModules.home-manager {
         home-manager = {
           useGlobalPkgs = true;
@@ -26,20 +25,26 @@ in {
           extraSpecialArgs = { inherit user; };
           users.${user} = {
             imports = [
-              (import ./omen15/xorg/home.nix)
-            ] ++ [
-              #inputs.hyprland.homeManagerModules.default
-            ];
+              (import ./omen/home.nix)
+            ] ++ (
+              if wayland then [
+                inputs.hyprland.homeManagerModules.default
+                (import ./omen/wayland/home.nix)
+              ] else [
+                (import ./omen/x/home.nix)
+              ]
+            );
           };
         };
         nixpkgs = {
           overlays = [
             self.overlays.default
-            inputs.rust-overlay.overlays.default
-            inputs.picom.overlays.default
-            inputs.nil.overlays.default
-            inputs.joshuto.overlays.default
+            inputs.neovim-nightly.overlay
             inputs.nixd.overlays.default
+            inputs.rust-overlay.overlays.default
+            inputs.zig-overlay.overlays.default
+          ] ++ [
+            inputs.picom.overlays.default
           ] ++ (import ../overlays);
         };
       }

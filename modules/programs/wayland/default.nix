@@ -1,7 +1,8 @@
 let
   common = import ../common;
-in [
+in
+[
   ./launcher
-  ./mpv
   ./mako
+  ./waybar
 ] ++ common

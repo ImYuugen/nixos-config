@@ -1,17 +1,13 @@
 [
-  ./alacritty
   ./discord
+  ./gaming
+  ./git
   ./firefox
-  #./games
-  ./gpg
-  ./joshuto
-  ./lazygit
-  ./macchina
-  ./matrix
+  ./kitty
+  ./media
   ./obs-studio
   ./spotify
   ./utils
-  ./youtube-tui
+  ./vpn
   ./yt-dlp
-  ./zathura
-]
+] ++ (import ./editors) ++ (import ./shells)
