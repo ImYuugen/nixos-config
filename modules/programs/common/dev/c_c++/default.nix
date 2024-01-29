@@ -16,4 +16,8 @@
     # Misc
     clang-tools gdb doxygen pkg-config
   ];
+
+  home.file = {
+    ".clang-format".source = ./.clang-format;
+  };
 }
