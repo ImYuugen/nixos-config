@@ -5,5 +5,5 @@
     rofi-wayland
   ];
 
-  home.file.".config/rofi/config".source = ./config;
+  #home.file.".config/rofi/config".source = ./config;
 }
