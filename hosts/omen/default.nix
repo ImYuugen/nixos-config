@@ -34,6 +34,7 @@
       "nvidia-drm.modeset=1"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
+    supportedFilesystems = [ "ntfs" ];
 
     bootspec.enable = true;
 
