@@ -38,8 +38,6 @@
 
     rust-overlay.url = "github:oxalica/rust-overlay";
 
-    zig-overlay.url = "github:mitchellh/zig-overlay";
-
 # Xorg
     picom.url = "github:yaocccc/picom";
 

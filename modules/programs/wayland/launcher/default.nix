@@ -5,7 +5,5 @@
     rofi-wayland
   ];
 
-  home.file."~/.config/rofi" = {
-    source = ./config;
-  };
+  home.file.".config/rofi/config".source = ./config;
 }

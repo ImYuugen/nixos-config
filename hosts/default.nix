@@ -42,7 +42,6 @@ in {
             inputs.neovim-nightly.overlay
             inputs.nixd.overlays.default
             inputs.rust-overlay.overlays.default
-            inputs.zig-overlay.overlays.default
           ] ++ [
             inputs.picom.overlays.default
           ] ++ (import ../overlays);
