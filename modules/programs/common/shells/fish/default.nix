@@ -58,6 +58,14 @@
           end
         end
       '';
+
+      reboot-windows = ''
+        systemctl reboot --boot-loader-entry=auto-windows
+      '';
+
+      reboot-bios = ''
+        systemctl reboot --firmware-setup
+      '';
     };
   };
 }
