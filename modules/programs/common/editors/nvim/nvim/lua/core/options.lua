@@ -5,6 +5,7 @@ local opt = vim.opt
 
 opt.backspace = "indent,eol,start"
 opt.clipboard = "unnamedplus"
+opt.colorcolumn = "80"
 opt.cursorline = true
 opt.expandtab = true
 opt.formatoptions:remove({ "c", "r", "o" })
@@ -29,7 +30,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 4
 opt.termguicolors = true
-opt.undodir = "/home/yuugen/.nvim/undo_dir/"
+opt.undodir = (os.getenv("HOME") or "/home/yuugen") .. "/.nvim/undo_dir/"
 opt.undofile = true
 opt.undolevels = 10000
 opt.wildmode = "longest:full,full"
