@@ -53,7 +53,7 @@
     doas = {
       enable = true;
       extraConfig = ''
-        permit nopass :wheel
+        permit nopass keepenv setenv { PATH } :wheel
       '';
     };
   };
