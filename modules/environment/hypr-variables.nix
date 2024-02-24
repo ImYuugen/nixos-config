@@ -26,8 +26,6 @@
       WLR_RENDER_DRM_DEVICE = "/dev/dri/card1";
       WLR_RENDERER = "vulkan";
 
-      XCURSOR_SIZE = "32";
-
       __JAVA_AWT_WM_NONREPARENTING = "1";
     };
   };
