@@ -68,7 +68,7 @@
     # Nvidia
     nvidia-vaapi-driver
     # Amd
-    amdvlk 
+    amdvlk
   ];
 
   hardware = {
