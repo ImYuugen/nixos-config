@@ -11,10 +11,11 @@
     llvmPackages_12.llvm llvmPackages_12.lld
 
     # Testing
-    criterion gtest gcovr
+    criterion gtest gcovr valgrind
 
     # Misc
     clang-tools gdb doxygen pkg-config
+    httplib libyamlcpp bear
   ];
 
   home.file = {

@@ -14,8 +14,23 @@
         };
         cursor-shape = {
           insert = "bar";
+          select = "underline";
         };
       };
     };
+    languages.language = [
+      {
+        name = "cpp";
+        auto-format = true;
+        formatter = {
+          command = "clang-format";
+        };
+        language-servers = [ "clangd" ];
+        indent = {
+          tab-width = 4;
+          unit = "    ";
+        };
+      }
+    ];
   };
 }

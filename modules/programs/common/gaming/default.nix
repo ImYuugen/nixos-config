@@ -1,11 +1,6 @@
 { config, inputs, pkgs, user, ... }:
 
 {
-  #programs.steam = {
-  #  enable = true;
-  #};
-  #programs.gamemode.enable = true;
-
   home.packages = with pkgs; [
     wineWowPackages.stagingFull
     winetricks

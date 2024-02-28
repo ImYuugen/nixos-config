@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/fonts
+    (import ../../modules/programs/common/gaming/steam.nix)
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-gpu-nvidia
