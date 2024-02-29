@@ -59,6 +59,11 @@
         end
       '';
 
+      tardel = ''
+        tar -xvf $argv[1]
+        rm $argv[1]
+      '';
+
       reboot-windows = ''
         systemctl reboot --boot-loader-entry=auto-windows
       '';
