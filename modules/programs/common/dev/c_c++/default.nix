@@ -15,7 +15,7 @@
 
     # Misc
     clang-tools gdb doxygen pkg-config
-    httplib libyamlcpp bear
+    httplib yaml-cpp bear
   ];
 
   home.file = {

@@ -16,15 +16,6 @@
     '';
   };
 
-  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    enableNvidiaPatches = true;
-    systemdIntegration = true;
-    xwayland.enable = true;
-  };
-
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.catppuccin-cursors.mochaDark;
@@ -42,8 +33,24 @@
     };
   };
 
+  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+
   home.file.".config/hypr" = {
     source = ./config;
     recursive = true;
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    enableNvidiaPatches = true;
+    systemdIntegration = true;
+    xwayland.enable = true;
+
+#    settings = {
+#      input = {
+#        kb_layout = "us,fr";
+#        kb_options = "grp:win_space_toggle,caps:escape";
+#      };
+#    };
   };
 }
