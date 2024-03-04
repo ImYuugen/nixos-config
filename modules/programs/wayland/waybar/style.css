@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-  background-color: rgba(43, 28, 47, 0.5);
+  background-color: #FFFFFF;
 }
 
 button {
@@ -13,9 +13,9 @@ button {
 
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -3px #ffffff;
+  box-shadow: inset 0 -3px #FFFFFF;
 }
 
 #workspaces button.urgent {
-  background-color: rbga(255, 0, 0, 1);
+  background-color: #FF0000;
 }
