@@ -7,7 +7,7 @@
       "hyprland/workspaces"
     ];
     modules-center = [];
-    modules-rights = [
+    modules-right = [
       "wireplumber"
       "battery"
       "clock"
@@ -16,6 +16,7 @@
 
     "hyprland/workspaces" = {
       active-only = true;
+      all-outputs = true;
       format-icons = {
         "1" = "1";
         "2" = "2";
@@ -39,7 +40,7 @@
     };
 
     "battery" = {
-      format = "{capacity}% %{icon}";
+      format = "{capacity}% {icon}";
       format-icons = [" " " " " " " " " "];
       states = {
         warning = 30;
@@ -48,20 +49,20 @@
     };
 
     "clock" = {
-        timezones = ["Europe/Paris" "Asia/Tokyo"];
-        format = "{:%H.%M}";
-        tooltip = true;
-        tooltip-format = "{:%Y-%m-%d}";
-        actions = {
-          on-click-forward = "tz_up";
-          on-click-backward = "tz_down";
-          on-scroll-up = "shift_up";
-          on-scroll-down = "shift_down";
-        };
-      };
-
-      "tray" = {
-        icon-size = 21;
+      timezones = ["Europe/Paris" "Asia/Tokyo"];
+      format = "{:%H:%M}";
+      tooltip = true;
+      tooltip-format = "{:%Y-%m-%d}";
+      actions = {
+        on-click-forward = "tz_up";
+        on-click-backward = "tz_down";
+        on-scroll-up = "shift_up";
+        on-scroll-down = "shift_down";
       };
     };
+
+    "tray" = {
+      icon-size = 21;
+    };
+  };
 }

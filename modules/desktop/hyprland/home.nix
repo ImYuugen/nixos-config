@@ -45,12 +45,5 @@
     enableNvidiaPatches = true;
     systemdIntegration = true;
     xwayland.enable = true;
-
-#    settings = {
-#      input = {
-#        kb_layout = "us,fr";
-#        kb_options = "grp:win_space_toggle,caps:escape";
-#      };
-#    };
   };
 }
