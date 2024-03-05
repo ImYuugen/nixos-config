@@ -11,6 +11,7 @@
       set sponge_purge_on_exit true
     '';
     interactiveShellInit = ''
+      set fish_greeting
       set fish_emoji_width 2
     '';
 
@@ -18,6 +19,7 @@
       { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
       { name = "sponge"; src = pkgs.fishPlugins.sponge.src; }
       { name = "tide"; src = pkgs.fishPlugins.tide.src; }
+      { name = "z"; src = pkgs.fishPlugins.z; }
     ];
 
     shellAbbrs = {

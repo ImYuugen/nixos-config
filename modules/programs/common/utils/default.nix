@@ -8,6 +8,7 @@
     ripgrep
     tree
     btop
+    zoxide
   ];
   programs.fzf.enable = true;
 }
