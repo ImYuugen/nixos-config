@@ -2,12 +2,11 @@
 
 {
   home.packages = with pkgs; [
-    eza
     bat
+    btop
+    eza
     fd
     ripgrep
-    tree
-    btop
     zoxide
   ];
   programs.fzf.enable = true;
