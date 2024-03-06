@@ -7,7 +7,11 @@
     eza
     fd
     ripgrep
-    zoxide
   ];
   programs.fzf.enable = true;
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 }

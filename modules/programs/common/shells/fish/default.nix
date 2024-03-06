@@ -43,7 +43,7 @@
       "gls" = "git ls-files";
     };
     shellAliases = {
-      "cd" = "zoxide";
+      "cd" = "z";
       "tree" = "eza -T --color=always --icons";
       "ls" = "eza --color=always --icons --group-directories-first";
       "sudo" = "doas";
