@@ -27,6 +27,7 @@
       "l" = "ls -la";
 
       "goflake" = "cd /home/yuugen/Projects/Nix/flake";
+      "nix-fish" = "nix-shell --run fish";
 
       # Git
       # log
