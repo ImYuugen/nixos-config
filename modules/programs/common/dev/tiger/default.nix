@@ -1,13 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pgks; [
+  home.packages = with pkgs; [
     autoconf automake
     bison boost
-    clang32-alias
     flex reflex
     gnum4 gnumake
-    libtool libxslt llvmPackages_14.llvm
+    libtool libxslt
     perl
-  ]
+  ];
 }

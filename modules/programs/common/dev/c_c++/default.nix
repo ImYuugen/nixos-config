@@ -8,7 +8,7 @@
 
     # Compilers
     gcc (lib.setPrio (gcc.meta.priority + 1) gcc-unwrapped)
-    llvmPackages_12.llvm llvmPackages_12.lld
+    llvmPackages_14.llvm llvmPackages_14.lld
 
     # Testing
     criterion gtest gcovr valgrind
