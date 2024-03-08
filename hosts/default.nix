@@ -28,6 +28,7 @@ in {
               (import ./omen/home.nix)
             ] ++ (
               if wayland then [
+                inputs.ags.homeManagerModules.default
                 inputs.hyprland.homeManagerModules.default
                 (import ./omen/wayland/home.nix)
               ] else [
