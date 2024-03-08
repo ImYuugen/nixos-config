@@ -2,6 +2,7 @@
   ./discord
   ./gaming
   ./git
+  ./files
   ./firefox
   ./kitty
   ./media
