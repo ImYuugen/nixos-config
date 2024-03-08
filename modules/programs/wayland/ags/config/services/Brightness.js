@@ -9,7 +9,7 @@ class BrightnessService extends Service {
 
   #interface = Utils.exec("sh -c 'ls -w1 /sys/class/backlight | head -1'")
   #screenValue = 0
-  #max = Number(Utils.exec('brightnessctl max'))
+  #max = Number(Utils.exec('light -M'))
 
   get screen_value() {
     return this.#screenValue
@@ -22,7 +22,7 @@ class BrightnessService extends Service {
     if (percent > 1)
     percent = 1
 
-    Utils.execAsync(`brightnessctl set ${percent * 100}% -q`)
+    Utils.execAsync(`light -S ${percent * 100}%`)
   }
 
   constructor() {
@@ -35,7 +35,7 @@ class BrightnessService extends Service {
   }
 
   #onChange() {
-    this.#screenValue = Number(Utils.exec('brightnessctl get')) / this.#max
+    this.#screenValue = Number(Utils.exec('light')) / this.#max
 
     this.emit('changed')
     this.notify('screen-value')
