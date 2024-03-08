@@ -5,7 +5,7 @@
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "gruvbox";
       editor = {
         line-number = "relative";
         lsp = {
