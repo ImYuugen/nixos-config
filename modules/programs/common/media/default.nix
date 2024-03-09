@@ -2,13 +2,12 @@
 
 {
   home.packages = with pkgs; [
+    gvfs
     playerctl
     swappy
   ];
 
   programs = {
-    mpv = {
-      enable = true;
-    };
+    mpv.enable = true;
   };
 }
