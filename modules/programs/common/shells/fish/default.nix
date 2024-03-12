@@ -28,6 +28,8 @@
 
       "goflake" = "cd /home/yuugen/Projects/Nix/flake";
       "nix-fish" = "nix-shell --run fish";
+      "dev-fish" = "doas nix develop -c fish";
+      "shell-fish" = "doas nix shell -c fish";
 
       # Git
       # log
