@@ -31,13 +31,6 @@ function StartSection() {
     onPrimaryClick: () => Utils.exec(`bash -c "${App.configDir}/shared/scripts/sidebar.sh toggle-applauncher"`)
   })
 
-  const WallpaperButton = Widget.Button({
-    className: 'wallpaper_button',
-    cursor: 'pointer',
-    child: Widget.Label('󰸉'),
-    onPrimaryClick: () => Utils.exec(`bash -c "${App.configDir}/shared/scripts/sidebar.sh toggle-wallpapers"`)
-  })
-
   const revealSystray = Variable(false)
   const SysTray = Widget.Box({
     className: 'systray',
@@ -91,7 +84,6 @@ function StartSection() {
       SideBarButton,
       Divider(),
       SearchButton,
-      WallpaperButton,
       SysTray
     ]
   })
@@ -102,7 +94,7 @@ function CenterSection() {
     className: 'workspace_indicator',
     vertical: true,
     spacing: 4,
-    children: Array.from({ length: 5 }).map((_, i) =>
+    children: Array.from({ length: 10 }).map((_, i) =>
       Widget.Button({
         className: 'workspace',
         hpack: 'center',
@@ -143,7 +135,7 @@ function EndSection() {
     className: 'screenshot_button',
     child: Widget.Label('󰄄'),
     onPrimaryClick: () => Utils.subprocess(
-      ['bash', '-c', '/home/qxb3/.config/hypr/scripts/screenshot.sh p'],
+      [ 'bash', '-c', 'grimblast --notify copy area Images/Screenshots/$(date).jpg' ],
       (output) => print(output)
     )
   })

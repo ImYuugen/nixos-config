@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, user, pkgs, ... }:
 
 {
   programs.ags = {

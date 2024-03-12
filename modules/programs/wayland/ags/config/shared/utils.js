@@ -1,9 +1,9 @@
 import Gio from 'gi://Gio'
 
-const STATES_PATH = `${App.configDir}/.states.json`
+const STATES_PATH = '/tmp/ags/states.json'
 
 /**
- * Manage state on ~/.config/ags/.states.json
+ * Manage state on /tmp/ags/states.json
  *
  * @param {string} key - the key in the json file
  * @param {any} value - default value

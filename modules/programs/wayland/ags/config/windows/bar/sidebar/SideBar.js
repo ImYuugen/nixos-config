@@ -1,6 +1,5 @@
 import Home from './home/Home.js'
 import AppLauncher from './app-launcher/AppLauncher.js'
-import Wallpapers from './wallpapers/Wallpapers.js'
 
 import { revealSideBar, sidebarShown } from '../../../shared/vars.js'
 
@@ -12,7 +11,6 @@ function SideBar() {
     children: {
       home: Home(),
       applauncher: AppLauncher(),
-      wallpapers: Wallpapers()
     }
   })
 }

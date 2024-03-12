@@ -49,16 +49,6 @@
         }
       }
 
-      & .wallpaper_button {
-        @include section;
-        @include button;
-
-        & label {
-          font-size: 20px;
-          padding-right: 6px;
-        }
-      }
-
       & .systray {
         & .apps {
           margin-top: 8px;
@@ -79,12 +69,12 @@
           background-color: $fg;
           border-radius: 8px;
           min-width: 10px;
-          min-height: 24px;
+          min-height: 10px;
           transition: min-height 100ms cubic-bezier(1, 0, 0, 1);
 
           &.active {
             background-color: $yellow;
-            min-height: 42px;
+            min-height: 20px;
           }
 
           &:hover {
