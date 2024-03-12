@@ -3,5 +3,4 @@
   ./js
   ./lua
   ./rust
-  ./tiger
 ]
