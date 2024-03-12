@@ -5,5 +5,5 @@ in
   ./ags
   ./launcher
   ./mako
-  ./waybar
+#  ./waybar
 ] ++ common
