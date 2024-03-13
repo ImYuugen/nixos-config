@@ -18,12 +18,18 @@
     wireless.iwd.enable = true;
   };
 
+  virtualisation = {
+    docker = {
+      enable = true;
+    };
+  };
+
   users = {
     mutableUsers = true;
     users.${user} = {
       shell = pkgs.fish;
       isNormalUser = true;
-      extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+      extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" ];
     };
   };
   programs.dconf.enable = true;
