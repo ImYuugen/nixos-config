@@ -63,7 +63,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    alsa-lib alsa-utils
+    alsa-lib alsa-utils glib
     libnotify linux-firmware linuxHeaders
     xdg-utils pciutils killall pkg-config
     zip unzip

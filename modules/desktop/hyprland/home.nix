@@ -18,18 +18,16 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    package = pkgs.catppuccin-cursors.mochaDark;
-    name = "Catppuccin-Mocha-Dark";
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
     size = 22;
   };
 
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        variant = "mocha";
-      };
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-dark-gtk;
     };
   };
 
