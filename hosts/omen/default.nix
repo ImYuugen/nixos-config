@@ -79,6 +79,10 @@
   ];
 
   hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
     nvidia = {
       nvidiaSettings = true;
       modesetting.enable = true;
@@ -105,8 +109,6 @@
   powerManagement.powertop.enable = true;
   services = {
     auto-cpufreq.enable = true;
-
-    blueman.enable = true;
 
     dbus = {
       enable = true;
