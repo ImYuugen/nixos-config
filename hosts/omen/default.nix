@@ -66,7 +66,7 @@
     alsa-lib alsa-utils glib
     libnotify linux-firmware linuxHeaders
     xdg-utils pciutils killall pkg-config
-    zip unzip
+    zip unzip p7zip rar
  
     sbctl
 
