@@ -23,5 +23,7 @@
       extraPkgs = pkgs: [
       ];
     })
+
+    ryujinx
   ];
 }
