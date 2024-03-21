@@ -3,6 +3,7 @@ let
 in
 [
   ./ags
+  ./kanshi
   ./launcher
   ./mako
 #  ./waybar
