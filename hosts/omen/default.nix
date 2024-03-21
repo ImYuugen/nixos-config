@@ -39,9 +39,13 @@
     kernelModules = [ "nvidia" ];
     kernelParams = [
       "nvidia-drm.modeset=1"
+      "quiet"
+      "udev.log_level=0"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "ntfs" ];
+    initrd.verbose = false;
+    consoleLogLevel = 0;
 
     bootspec.enable = true;
 
@@ -59,6 +63,11 @@
     lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
+    };
+
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
     };
   };
 
