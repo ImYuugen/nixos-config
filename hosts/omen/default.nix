@@ -41,6 +41,7 @@
       "nvidia-drm.modeset=1"
       "quiet"
       "udev.log_level=0"
+      "usbcore.autosuspend=-1"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "ntfs" ];
@@ -115,9 +116,20 @@
   };
 
   powerManagement.enable = true;
-  powerManagement.powertop.enable = true;
   services = {
-    auto-cpufreq.enable = true;
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+          governor = "powersave";
+          turbo = "never";
+        };
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
+      };
+    };
 
     dbus = {
       enable = true;
@@ -137,15 +149,6 @@
     tlp = {
       enable = true;
       settings = {
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-        CPU_ENERGY_PERF_ON_AC = "balance_performance";
-        CPU_ENERGY_PERF_ON_BAT = "power";
-
-        CPU_BOOST_ON_AC = 1;
-        CPU_BOOST_ON_BAT = 0;
-
         USB_AUTOSUSPEND = 0;
       };
     };
