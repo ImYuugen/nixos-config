@@ -20,7 +20,10 @@
       XDG_SESSION_DESKTOP = "Hyprland";
       XDG_SESSION_TYPE = "wayland";
 
-      XCURSOR_SIZE = "24";
+      HYPRCURSOR_THEME = "rose-pine-hyprcursor";
+      HYPRCURSOR_SIZE = "20";
+
+      XCURSOR_SIZE = "20";
 
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_SCALE_FACTOR = "1";

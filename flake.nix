@@ -46,6 +46,10 @@
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+    hyprcursor.url = "github:hyprwm/hyprcursor";
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprlock.url = "github:hyprwm/hyprlock";
     hyprpicker.url = "github:hyprwm/hyprpicker";
