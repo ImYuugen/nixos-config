@@ -6,18 +6,9 @@
 
   fonts = {
     packages = with pkgs; [
-      ipafont
-      kochi-substitute
-#      (nerdfonts.override {
-#        fonts = [
-#          "BigBlueTerminal"
-#          "FiraCode"
-#          "JetBrainsMono"
-#          "Iosevka"
-#	  "VictorMono"
-#        ];
-#      })
       nerdfonts
+      noto-fonts-cjk-serif
+      noto-fonts-cjk-sans
       symbola
       twemoji-color-font
     ];
@@ -25,15 +16,15 @@
       defaultFonts = {
         monospace = [
           "FiraCode"
-          "IPAPGothic"
+          "Noto Sans CJK JP"
         ];
         sansSerif = [
           "DejaVu Sans"
-          "IPAPGothic"
+          "Noto Sans CJK JP"
         ];
         serif = [
           "DejaVu Serif"
-          "IPAPMincho"
+          "Noto Serif CJK JP"
         ];
       };
     };
