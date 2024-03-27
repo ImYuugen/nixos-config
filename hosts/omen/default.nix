@@ -79,6 +79,7 @@
     zip unzip p7zip rar
  
     sbctl
+    acpi
 
     libva libva-utils mesa
 
