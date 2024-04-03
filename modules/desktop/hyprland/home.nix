@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, unstable, ... }:
 
 {
   imports = [
@@ -40,8 +40,10 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    enableNvidiaPatches = true;
-    systemdIntegration = true;
+    package = unstable.hyprland;
+    systemd.enable = true;
     xwayland.enable = true;
+
+    settings = {};
   };
 }

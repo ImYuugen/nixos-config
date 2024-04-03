@@ -1,4 +1,4 @@
-{ self, system, nixpkgs, inputs, wayland, user, ... }:
+{ self, system, nixpkgs, inputs, wayland, unstable, user, ... }:
 
 let
   lib = nixpkgs.lib;
@@ -22,7 +22,7 @@ in {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = { inherit user; };
+          extraSpecialArgs = { inherit unstable user; };
           users.${user} = {
             imports = [
               (import ./omen/home.nix)
@@ -40,7 +40,6 @@ in {
         nixpkgs = {
           overlays = [
             self.overlays.default
-            inputs.neovim-nightly.overlay
             inputs.nixd.overlays.default
             inputs.rust-overlay.overlays.default
           ] ++ [

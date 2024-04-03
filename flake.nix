@@ -12,7 +12,7 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
@@ -21,11 +21,6 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    neovim-nightly = {
-      url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -59,7 +54,9 @@
   outputs = inputs @ { self, nixpkgs, flake-parts, ... }:
     let
       user = "yuugen";
+      system = "x86_64-linux";
       confPkgs = import ./pkgs;
+      unstable = import inputs.nixpkgs-unstable { inherit system; };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
@@ -85,9 +82,8 @@
         overlays.default = confPkgs.overlay;
         nixosConfigurations = (
           import ./hosts {
-            system = "x86_64-linux";
             wayland = true;
-            inherit nixpkgs self inputs user;
+            inherit nixpkgs self inputs unstable user system;
           }
         );
       };
