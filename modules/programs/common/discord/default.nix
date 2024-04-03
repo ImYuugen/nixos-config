@@ -2,9 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    (discord.override {
-      withOpenASAR = true;
-    })
-    betterdiscordctl
+    vesktop
   ];
 }
