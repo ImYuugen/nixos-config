@@ -44,6 +44,6 @@
     systemd.enable = true;
     xwayland.enable = true;
 
-    settings = ./config.nix;
+    settings = import ./config.nix;
   };
 }
