@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = [ pkgs.kanshi ];
+
   services.kanshi = {
     enable = true;
     profiles = {
@@ -9,6 +11,7 @@
           {
             criteria = "eDP-1";
             scale = 1.0;
+            position = "0,0";
             status = "enable";
           }
         ];
@@ -22,13 +25,14 @@
           }
           {
             criteria = "DP-2";
-            scale = 1.0;
             mode = "1920x1080@144Hz";
+            position = "0,0";
+            scale = 1.0;
             status = "enable";
           }
         ];
       };
     };
-    systemdTarget = "hyprland-session.target";
+    systemdTarget = "graphical-session.target";
   };
 }
