@@ -1,4 +1,4 @@
 [
   ./helix
-  ./nvim
+#  ./nvim
 ]

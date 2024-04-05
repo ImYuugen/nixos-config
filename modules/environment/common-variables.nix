@@ -5,6 +5,7 @@
     sessionVariables = {
       BROWSER = "firefox";
       TERMINAL = "kitty";
+      EDITOR = "hx";
 
       XDG_CONFIG_HOME = "\${HOME}/.config";
       XDG_CACHE_HOME = "\${HOME}/.cache";
