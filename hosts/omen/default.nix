@@ -78,6 +78,7 @@
 
     libva libva-utils mesa
 
+    nvtop
     # Nvidia
     nvidia-vaapi-driver
     # Amd
