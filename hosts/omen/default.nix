@@ -65,11 +65,6 @@
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
-
-    plymouth = {
-      enable = true;
-      theme = "bgrt";
-    };
   };
 
   environment.systemPackages = with pkgs; [
