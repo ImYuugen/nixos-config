@@ -78,6 +78,12 @@
 
     libva libva-utils mesa
 
+    # Graphics stuff
+    shaderc directx-shader-compiler ocl-icd libGL
+    vulkan-tools vulkan-tools-lunarg
+    vulkan-headers vulkan-loader
+    vulkan-validation-layers
+
     nvtop
     # Nvidia
     nvidia-vaapi-driver

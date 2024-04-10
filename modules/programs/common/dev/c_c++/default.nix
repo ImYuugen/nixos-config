@@ -7,8 +7,10 @@
     cmake gnumake meson ninja
 
     # Compilers
-    gcc (lib.setPrio (gcc.meta.priority + 1) gcc-unwrapped)
+    (lib.setPrio (gcc.meta.priority + 1) gcc-unwrapped)
+    llvmPackages_14.clang
     llvmPackages_14.llvm llvmPackages_14.lld
+    llvmPackages_14.lldb
 
     # Testing
     criterion gtest gcovr valgrind
