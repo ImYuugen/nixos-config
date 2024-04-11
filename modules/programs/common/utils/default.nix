@@ -8,10 +8,19 @@
     fd
     ripgrep
   ];
-  programs.fzf.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+  
+    fzf = {
+      enable = true;
+    };
 
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 }
