@@ -1,4 +1,4 @@
-{ self, system, lib, pkgs, inputs, user, ... }:
+{ self, config, system, lib, pkgs, inputs, user, ... }:
 
 {
   imports = [
@@ -7,7 +7,6 @@
     (import ../../modules/programs/common/gaming/syswide.nix)
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd
-    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
     inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
 
@@ -38,9 +37,6 @@
   boot = {
     kernelModules = [ "nvidia" ];
     kernelParams = [
-      "nvidia-drm.modeset=1"
-      "quiet"
-      "udev.log_level=0"
       "usbcore.autosuspend=-1"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
@@ -87,6 +83,7 @@
     nvtop
     # Nvidia
     nvidia-vaapi-driver
+    vaapiVdpau
     # Amd
     amdvlk
   ];
@@ -97,15 +94,20 @@
       powerOnBoot = true;
     };
     nvidia = {
+# Uncomment when open is no longer broken
+#      open = true;
+      open = false;
       nvidiaSettings = true;
       modesetting.enable = true;
       prime = {
-        offload.enable = true;
+        sync.enable = true;
+        offload.enable = false;
         amdgpuBusId = "PCI:7:0:0";
         nvidiaBusId = "PCI:1:0:0";
-        reverseSync.enable = true;
       };
-      powerManagement.enable = true;
+      powerManagement = {
+        enable = true;
+      };
     };
     opengl = {
       enable = true;
