@@ -73,8 +73,12 @@
         in
         {
           flake-root.projectRootFile = "flake.nix";
+          formatter = pkgs.nixpkgs-fmt;
           devShells.default = pkgs.mkShell {
             inputsFrom = [ config.flake-root.devShell ];
+            buildInputs = with pkgs; [
+              nixpkgs-fmt
+            ];
           };
         };
       
