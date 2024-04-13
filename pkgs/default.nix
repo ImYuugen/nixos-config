@@ -6,5 +6,6 @@ rec {
         value = final.callPackage (./. + "/${name}") { };
       };
       names = builtins.attrNames (builtins.readDir ./.);
-    in builtins.listToAttrs (map genPackage names);
+    in
+    builtins.listToAttrs (map genPackage names);
 }

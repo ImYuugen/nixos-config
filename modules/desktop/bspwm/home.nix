@@ -12,7 +12,7 @@
       enable = true;
     };
   };
- 
+
   systemd.user.targets.bspwm-session = {
     Unit = {
       Description = "bspwm session";

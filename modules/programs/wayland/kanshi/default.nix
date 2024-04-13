@@ -16,7 +16,7 @@
           }
         ];
       };
-      
+
       docked = {
         outputs = [
           {

@@ -2,8 +2,26 @@
 
 let
   ts_grammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
-    p.bash p.c p.cpp p.css p.fish p.go p.haskell p.html p.json p.llvm p.lua
-    p.make p.markdown p.nix p.ninja p.python p.rasi p.rust p.toml p.typescript
+    p.bash
+    p.c
+    p.cpp
+    p.css
+    p.fish
+    p.go
+    p.haskell
+    p.html
+    p.json
+    p.llvm
+    p.lua
+    p.make
+    p.markdown
+    p.nix
+    p.ninja
+    p.python
+    p.rasi
+    p.rust
+    p.toml
+    p.typescript
     p.wgsl
   ]));
 in
@@ -21,7 +39,7 @@ in
         source = ./nvim;
         recursive = true;
       };
-      
+
       ".local/share/nvim/nix/nvim-treesitter" = {
         source = ts_grammars;
         recursive = true;

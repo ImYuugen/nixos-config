@@ -11,7 +11,6 @@
       s = "status";
     };
 
-    extraConfig = {
-    };
+    extraConfig = { };
   };
 }

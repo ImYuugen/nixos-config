@@ -23,14 +23,14 @@
       package = pkgs.gruvbox-dark-gtk;
     };
   };
-  
+
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Ice";
     size = 20;
   };
-  
+
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
 
   home.file.".config/hypr" = {

@@ -7,7 +7,9 @@
 
   environment.systemPackages = with pkgs; [
     arandr
-    xorg.xev xorg.xinit xorg.xrandr
+    xorg.xev
+    xorg.xinit
+    xorg.xrandr
   ];
 
   services = {

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../../modules/desktop/hyprland    
+    ../../../modules/desktop/hyprland
   ];
 
   nix = {
@@ -14,11 +14,22 @@
 
   environment = {
     systemPackages = with pkgs; [
-      wayland wayland-scanner wayland-utils xwayland
-      wlroots wlrctl wlr-protocols wlr-randr xdg-desktop-portal-wlr
-      egl-wayland glfw-wayland wine-wayland
-      
-      swayidle qt6.qtwayland wev
+      wayland
+      wayland-scanner
+      wayland-utils
+      xwayland
+      wlroots
+      wlrctl
+      wlr-protocols
+      wlr-randr
+      xdg-desktop-portal-wlr
+      egl-wayland
+      glfw-wayland
+      wine-wayland
+
+      swayidle
+      qt6.qtwayland
+      wev
     ];
   };
 }

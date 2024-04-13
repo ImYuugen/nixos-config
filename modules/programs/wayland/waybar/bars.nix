@@ -6,7 +6,7 @@
     modules-left = [
       "hyprland/workspaces"
     ];
-    modules-center = [];
+    modules-center = [ ];
     modules-right = [
       "wireplumber"
       "battery"
@@ -34,14 +34,14 @@
     "wireplumber" = {
       format = "{volume}%";
       format-muted = "🤫";
-      format-icons = ["" "󰖀" "󰕾"];
+      format-icons = [ "" "󰖀" "󰕾" ];
       max-volume = 150;
       scroll-step = 5;
     };
 
     "battery" = {
       format = "{capacity}% {icon}";
-      format-icons = [" " " " " " " " " "];
+      format-icons = [ " " " " " " " " " " ];
       states = {
         warning = 30;
         critical = 10;
@@ -49,7 +49,7 @@
     };
 
     "clock" = {
-      timezones = ["Europe/Paris" "Asia/Tokyo"];
+      timezones = [ "Europe/Paris" "Asia/Tokyo" ];
       format = "{:%H:%M}";
       tooltip = true;
       tooltip-format = "{:%Y-%m-%d}";

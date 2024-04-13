@@ -6,9 +6,9 @@
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
       extraPolicies = {
         DisplayBookmarksToolbar = true;
-	Preferences = {
-	  "media.ffmpeg.vaapi.enabled" = true;
-	};
+        Preferences = {
+          "media.ffmpeg.vaapi.enabled" = true;
+        };
       };
     };
   };

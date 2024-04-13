@@ -2,7 +2,8 @@
 
 let
   lib = nixpkgs.lib;
-in {
+in
+{
   omen = lib.nixosSystem {
     inherit system;
 
@@ -17,8 +18,10 @@ in {
         inputs.hyprland.nixosModules.default
       ] else [
         ./omen/x
-    ]) ++ [
-      inputs.home-manager.nixosModules.home-manager {
+      ]
+    ) ++ [
+      inputs.home-manager.nixosModules.home-manager
+      {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;

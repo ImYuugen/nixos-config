@@ -11,7 +11,7 @@
       enable = true;
       target = "hyprland-session.target";
     };
-    
+
     style = builtins.readFile ./style.css;
     settings = import ./bars.nix;
   };

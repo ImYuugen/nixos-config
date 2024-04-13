@@ -6,5 +6,5 @@ in
   ./kanshi
   ./launcher
   ./mako
-#  ./waybar
+  #  ./waybar
 ] ++ common

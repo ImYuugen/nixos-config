@@ -64,20 +64,37 @@
   };
 
   environment.systemPackages = with pkgs; [
-    alsa-lib alsa-utils glib
-    libnotify linux-firmware linuxHeaders
-    xdg-utils pciutils killall pkg-config
-    zip unzip p7zip rar
- 
+    alsa-lib
+    alsa-utils
+    glib
+    libnotify
+    linux-firmware
+    linuxHeaders
+    xdg-utils
+    pciutils
+    killall
+    pkg-config
+    zip
+    unzip
+    p7zip
+    rar
+
     sbctl
     acpi
 
-    libva libva-utils mesa
+    libva
+    libva-utils
+    mesa
 
     # Graphics stuff
-    shaderc directx-shader-compiler ocl-icd libGL
-    vulkan-tools vulkan-tools-lunarg
-    vulkan-headers vulkan-loader
+    shaderc
+    directx-shader-compiler
+    ocl-icd
+    libGL
+    vulkan-tools
+    vulkan-tools-lunarg
+    vulkan-headers
+    vulkan-loader
     vulkan-validation-layers
 
     nvtop
@@ -94,8 +111,8 @@
       powerOnBoot = true;
     };
     nvidia = {
-# Uncomment when open is no longer broken
-#      open = true;
+      # Uncomment when open is no longer broken
+      #      open = true;
       open = false;
       nvidiaSettings = true;
       modesetting.enable = true;
@@ -114,7 +131,9 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        libva vaapiVdpau mesa.drivers
+        libva
+        vaapiVdpau
+        mesa.drivers
       ];
     };
     opentabletdriver.enable = true;

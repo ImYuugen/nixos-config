@@ -4,6 +4,6 @@
   programs.ags = {
     enable = true;
     configDir = ./config;
-    extraPackages = with pkgs; [];
+    extraPackages = with pkgs; [ ];
   };
 }
