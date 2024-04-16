@@ -1,4 +1,4 @@
-{ self, config, system, lib, pkgs, inputs, user, ... }:
+{ self, config, inputs, lib, pkgs, system, unstable, user, ... }:
 
 {
   imports = [
@@ -114,11 +114,15 @@
       # Uncomment when open is no longer broken
       #      open = true;
       open = false;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
       nvidiaSettings = true;
       modesetting.enable = true;
       prime = {
-        sync.enable = true;
-        offload.enable = false;
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        reverseSync.enable = true;
         amdgpuBusId = "PCI:7:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };

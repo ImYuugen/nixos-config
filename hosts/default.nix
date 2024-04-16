@@ -7,7 +7,7 @@ in
   omen = lib.nixosSystem {
     inherit system;
 
-    specialArgs = { inherit inputs user; };
+    specialArgs = { inherit inputs user unstable; };
     modules = [
       ./omen
       ./system.nix
