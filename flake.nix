@@ -56,7 +56,10 @@
       user = "yuugen";
       system = "x86_64-linux";
       confPkgs = import ./pkgs;
-      unstable = import inputs.nixpkgs-unstable { inherit system; };
+      unstable = import inputs.nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
