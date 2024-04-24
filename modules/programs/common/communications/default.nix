@@ -1,0 +1,4 @@
+[
+  ./discord
+  (import ./thunderbird.nix)
+]

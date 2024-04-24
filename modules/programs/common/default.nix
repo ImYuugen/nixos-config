@@ -1,5 +1,4 @@
 [
-  ./discord
   ./gaming
   ./git
   ./files
@@ -12,4 +11,7 @@
   ./utils
   ./vpn
   ./yt-dlp
-] ++ (import ./dev) ++ (import ./editors) ++ (import ./shells)
+] ++ (import ./communications)
+  ++ (import ./dev)
+  ++ (import ./editors)
+  ++ (import ./shells)
