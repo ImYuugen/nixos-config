@@ -114,7 +114,6 @@
       # Uncomment when open is no longer broken
       #      open = true;
       open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.production;
       nvidiaSettings = true;
       modesetting.enable = true;
       prime = {
