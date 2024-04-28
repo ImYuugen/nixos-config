@@ -10,6 +10,15 @@
     enable = true;
     windowManager.bspwm = {
       enable = true;
+      settings = {
+        border_width = 1;
+        window_gap = 5;
+        
+        focus_follows_pointer = false;
+        split_ratio = 0.5;
+        borderless_monocle = true;
+        gapless_monocle = true;
+      };
     };
   };
 
@@ -22,12 +31,7 @@
     };
   };
 
-  file.".config/bspwm" = {
-    source = ./bspwm;
-    recursive = true;
-  };
-
-  file.".xinitrc".text = ''
+  home.file.".xinitrc".text = ''
     if [ -z $DBUS_SESSION_BUS_ADDRESS ]; then
       eval $(dbus-launch --exit-with-session --sh-syntax)
     fi

@@ -1,4 +1,6 @@
 let
   common = import ../common;
 in
-[ ] ++ common
+[
+  ./bspwm
+] ++ common
