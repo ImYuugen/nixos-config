@@ -35,7 +35,7 @@
   programs.fish.enable = true;
 
   boot = {
-    kernelModules = [ "nvidia" ];
+    kernelModules = [ "nvidia" "nvidia_drm" ];
     kernelParams = [
       "usbcore.autosuspend=-1"
     ];
