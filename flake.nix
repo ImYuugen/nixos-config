@@ -89,7 +89,7 @@
         overlays.default = confPkgs.overlay;
         nixosConfigurations = (
           import ./hosts {
-            wayland = false;
+            wayland = true;
             inherit nixpkgs self inputs unstable user system;
           }
         );
