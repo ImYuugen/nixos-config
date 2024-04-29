@@ -15,7 +15,10 @@
   services = {
     xserver = {
       enable = true;
-      layout = "us,fr";
+      xkb = {
+        layout = "us,fr";
+        options = "caps:escape";
+      };
       libinput = {
         enable = true;
         touchpad = {

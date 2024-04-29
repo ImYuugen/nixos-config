@@ -10,11 +10,22 @@
     enable = true;
     windowManager.bspwm = {
       enable = true;
+      extraConfig = ''
+        sxhkd &
+        picom &
+        bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+      '';
       settings = {
         border_width = 1;
         window_gap = 5;
         
         focus_follows_pointer = false;
+        pointer_follows_focus = false;
+        pointer_modifier = "mod4";
+        pointer_action1 = "move";
+        pointer_action2 = "resize_side";
+        pointer_action3 = "resize_corner";
+
         split_ratio = 0.5;
         borderless_monocle = true;
         gapless_monocle = true;

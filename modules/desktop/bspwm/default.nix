@@ -4,6 +4,5 @@
   programs.light.enable = true;
 
   services.xserver = {
-    displayManager.defaultSession = "none+bspwm";
   };
 }
