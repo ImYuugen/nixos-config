@@ -10,7 +10,7 @@
 
       LIBSEAT_BACKEND = "logind";
 
-      LIBVA_DRIVER_NAME = "amdgpu";
+      LIBVA_DRIVER_NAME = "radeonsi";
 #      LIBVA_DRIVER_NAME = "nvidia";
 #      GBM_BACKEND = "nvidia-drm";
 #      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
