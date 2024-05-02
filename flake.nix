@@ -15,9 +15,6 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur = {
-      url = "github:nix-community/NUR";
-    };
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
@@ -25,11 +22,6 @@
     };
 
     nixd.url = "github:nix-community/nixd";
-
-    statix = {
-      url = "github:nerdypepper/statix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     rust-overlay.url = "github:oxalica/rust-overlay";
 
@@ -42,7 +34,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     hyprcursor.url = "github:hyprwm/hyprcursor";
 
     hyprland.url = "github:hyprwm/Hyprland";
