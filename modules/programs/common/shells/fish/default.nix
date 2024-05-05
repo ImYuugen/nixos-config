@@ -78,6 +78,10 @@
       reboot-bios = ''
         systemctl reboot --firmware-setup
       '';
+
+      dup = ''
+        $TERMINAL . & disown
+      '';
     };
   };
 }
