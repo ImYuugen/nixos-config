@@ -6,6 +6,7 @@
 
   fonts = {
     packages = with pkgs; [
+      aegyptus
       nerdfonts
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
