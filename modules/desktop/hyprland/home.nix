@@ -33,14 +33,16 @@
 
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
 
-  home.file.".config/hypr" = {
-    source = ./config;
-    recursive = true;
+  home.file = {
+    ".config/hypr" = {
+      source = ./config;
+      recursive = true;
+    };
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = unstable.hyprland;
     systemd.enable = true;
     xwayland.enable = true;
 
