@@ -21,8 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixd.url = "github:nix-community/nixd";
-
+    nil.url = "github:oxalica/nil";
     rust-overlay.url = "github:oxalica/rust-overlay";
 
 # Xorg
@@ -71,7 +70,7 @@
           devShells.default = pkgs.mkShell {
             inputsFrom = [ config.flake-root.devShell ];
             buildInputs = with pkgs; [
-              nixd
+              inputs.nil.packages.${system}.default
               nixpkgs-fmt
             ];
           };

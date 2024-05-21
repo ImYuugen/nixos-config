@@ -43,7 +43,6 @@ in
         nixpkgs = {
           overlays = [
             self.overlays.default
-            inputs.nixd.overlays.default
             inputs.rust-overlay.overlays.default
           ] ++ [
             inputs.picom.overlays.default
