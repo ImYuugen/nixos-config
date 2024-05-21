@@ -71,6 +71,7 @@
           devShells.default = pkgs.mkShell {
             inputsFrom = [ config.flake-root.devShell ];
             buildInputs = with pkgs; [
+              nixd
               nixpkgs-fmt
             ];
           };
