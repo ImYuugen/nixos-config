@@ -2,20 +2,19 @@
 
 {
   home.packages = with pkgs; [
-    wineWowPackages.stagingFull
-    winetricks
-
     heroic
-
+    mangohud
     prismlauncher
-
+    protonup
+    ryujinx
+    winetricks
+    wineWowPackages.stagingFull
     (retroarchFull.override {
       cores = with libretro; [
         citra
         dolphin
       ];
     })
-
     (lutris.override {
       extraLibraries = pkgs: [
         pkgs.libunwind
@@ -23,7 +22,5 @@
       extraPkgs = pkgs: [
       ];
     })
-
-    ryujinx
   ];
 }

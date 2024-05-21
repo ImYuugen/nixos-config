@@ -7,6 +7,9 @@
       package = pkgs.steam.override {
         extraPkgs = pkgs: [ ];
       };
+      gamescopeSession = {
+        enable = true;
+      };
     };
 
     gamemode = {
