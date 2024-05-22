@@ -9,6 +9,6 @@ Just reboot cuh
 
 ### Side quests
 - [ ] Ricing
-- [ ] Nvidia support on wayland
+- [x] Nvidia support on wayland
 - [ ] Secrets
 - [ ] Acceptable gaming support
