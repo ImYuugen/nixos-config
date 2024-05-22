@@ -1,0 +1,3 @@
+# Force the repo's language to be Nix
+* linguist-vendored
+*.nix linguist-vendored=false
