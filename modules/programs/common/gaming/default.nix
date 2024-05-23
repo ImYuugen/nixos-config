@@ -1,14 +1,19 @@
-{ config, inputs, pkgs, user, ... }:
+{ config, inputs, pkgs, user, wayland, ... }:
 
 {
   home.packages = with pkgs; [
     heroic
     mangohud
     prismlauncher
-    protonup
     ryujinx
+    steamcmd
+    steam-tui
     winetricks
-    wineWowPackages.stagingFull
+    (if wayland then
+      wineWowPackages.waylandFull
+    else
+      wineWowPackages.stagingFull
+    )
     (retroarchFull.override {
       cores = with libretro; [
         citra

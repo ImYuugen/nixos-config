@@ -4,9 +4,9 @@
   programs = {
     steam = {
       enable = true;
-      package = pkgs.steam.override {
-        extraPkgs = pkgs: [ ];
-      };
+      extraCompatPackages = [
+        pkgs.proton-ge-bin
+      ];
       gamescopeSession = {
         enable = true;
       };

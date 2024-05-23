@@ -25,7 +25,7 @@ in
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = { inherit inputs unstable user; };
+          extraSpecialArgs = { inherit inputs unstable user wayland; };
           users.${user} = {
             imports = [
               (import ./omen/home.nix)
