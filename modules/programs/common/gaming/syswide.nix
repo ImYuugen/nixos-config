@@ -4,9 +4,11 @@
   programs = {
     steam = {
       enable = true;
-      extraCompatPackages = [
-        pkgs.proton-ge-bin
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
       ];
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
       gamescopeSession = {
         enable = true;
       };
