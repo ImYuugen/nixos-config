@@ -13,6 +13,6 @@
   ./yt-dlp
   (import ./utils/macchina.nix)
 ] ++ (import ./communications)
-  ++ (import ./dev)
-  ++ (import ./editors)
-  ++ (import ./shells)
+++ (import ./dev)
+++ (import ./editors)
+++ (import ./shells)

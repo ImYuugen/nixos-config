@@ -3,7 +3,7 @@
 {
   home = {
     sessionVariables = {
-    # Moved to /modules/desktop/hyprland/config/env.conf
+      # Moved to /modules/desktop/hyprland/config/env.conf
     };
   };
 }

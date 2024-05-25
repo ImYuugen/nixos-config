@@ -18,7 +18,7 @@
       settings = {
         border_width = 1;
         window_gap = 5;
-        
+
         focus_follows_pointer = false;
         pointer_follows_focus = false;
         pointer_modifier = "mod4";

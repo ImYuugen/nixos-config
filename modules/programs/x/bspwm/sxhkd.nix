@@ -12,7 +12,7 @@ in
       "${super} + {_,shift + }q" = "bspc node -{c,k}";
       "${super} + shift + Escape" = "pkill -USR1 -x sxhkd";
       "${super} + {_,shift + }d" = "rofi -modi \"run, drun\" -show {drun,run}";
-      
+
       "${appMod} + w" = "firefox";
 
       "${super} + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,10}'";

@@ -3,6 +3,5 @@
 {
   programs.light.enable = true;
 
-  services.xserver = {
-  };
+  services.xserver = { };
 }

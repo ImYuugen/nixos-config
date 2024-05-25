@@ -5,8 +5,8 @@
     enable = true;
     profiles = {
       "default" = {
-        isDefault = true; 
-        settings = {};
+        isDefault = true;
+        settings = { };
       };
     };
   };
