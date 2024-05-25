@@ -57,7 +57,7 @@
     doas = {
       enable = true;
       extraConfig = ''
-        permit nopass keepenv setenv { PATH } :wheel
+        permit nopass keepenv setenv { PATH } :wheel cmd nixos-rebuild
       '';
     };
   };
