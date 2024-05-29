@@ -145,7 +145,7 @@
   powerManagement.enable = true;
   services = {
     auto-cpufreq = {
-      enable = false;
+      enable = true;
       settings = {
         battery = {
           governor = "powersave";
