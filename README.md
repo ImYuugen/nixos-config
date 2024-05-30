@@ -12,3 +12,7 @@ Just reboot cuh
 - [x] Nvidia support on wayland
 - [ ] Secrets
 - [ ] Acceptable gaming support
+- [ ] Display Manager
+- [ ] Recording setup
+- [ ] Fucking fix kanshi
+- [ ] Add IME support
