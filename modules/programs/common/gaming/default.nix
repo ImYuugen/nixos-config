@@ -5,6 +5,7 @@
     heroic
     mangohud
     prismlauncher
+    jdk21 # For minecraft
     ryujinx
     steamcmd
     steam-tui

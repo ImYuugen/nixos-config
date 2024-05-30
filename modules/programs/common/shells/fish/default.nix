@@ -30,6 +30,7 @@
       "nix-fish" = "nix-shell --run fish";
       "dev-fish" = "nix develop -c fish";
       "shell-fish" = "nix shell -c fish";
+      "update" = "doas nixos-rebuild switch --flake .#";
 
       # Git
       # log

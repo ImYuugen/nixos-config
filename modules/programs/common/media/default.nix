@@ -5,6 +5,7 @@
     gvfs
     playerctl
     swappy
+    vlc
   ];
 
   programs = {
