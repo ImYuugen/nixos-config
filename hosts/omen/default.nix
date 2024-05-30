@@ -78,6 +78,7 @@
     unzip
     p7zip
     rar
+    wget
 
     sbctl
     acpi

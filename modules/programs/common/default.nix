@@ -15,4 +15,5 @@
 ] ++ (import ./communications)
 ++ (import ./dev)
 ++ (import ./editors)
+++ (import ./productivity)
 ++ (import ./shells)
