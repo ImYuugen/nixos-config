@@ -23,10 +23,10 @@
     ];
 
     shellAbbrs = {
-      "..." = "cd ../..";
+      "..." = "z ../..";
       "l" = "ls -la";
 
-      "goflake" = "cd /home/yuugen/Projects/Nix/flake";
+      "goflake" = "z /home/yuugen/Projects/Nix/flake";
       "nix-fish" = "nix-shell --run fish";
       "dev-fish" = "nix develop -c fish";
       "shell-fish" = "nix shell -c fish";
@@ -47,7 +47,6 @@
       "gls" = "git ls-files";
     };
     shellAliases = {
-      "cd" = "z";
       "tree" = "eza -T --color=always --icons";
       "ls" = "eza --color=always --icons --group-directories-first";
       "sudo" = "doas";
@@ -61,7 +60,7 @@
           switch $argv[(count $argv)]
             case '-*'
             case '*'
-              cd $argv[(count $argv)]
+              z $argv[(count $argv)]
               return
           end
         end

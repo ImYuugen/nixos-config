@@ -98,7 +98,7 @@
     vulkan-loader
     vulkan-validation-layers
 
-    nvtop
+    nvtopPackages.full
     # Nvidia
     nvidia-vaapi-driver
     vaapiVdpau

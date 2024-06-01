@@ -5,49 +5,57 @@
 
   services.kanshi = {
     enable = true;
-    profiles = {
-      undocked = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            scale = 1.0;
-            position = "0,0";
-            status = "enable";
-          }
-        ];
-      };
-
-      docked-dp = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            status = "disable";
-          }
-          {
-            criteria = "DP-2";
-            mode = "1920x1080@144Hz";
-            position = "0,0";
-            scale = 1.0;
-            status = "enable";
-          }
-        ];
-      };
-
-      docked-hdmi = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            mode = "1920x1080@144Hz";
-            position = "0x0";
-          }
-          {
-            criteria = "HDMI-1";
-            mode = "1920x1080";
-            position = "0x0";
-          }
-        ];
-      };
-    };
+    settings = [
+      {
+        profile = {
+          name = "undocked";
+          outputs = [
+            {
+              criteria = "eDP-1";
+              status = "enable";
+            }
+          ];
+        };
+      }
+      {
+        profile = {
+          name = "AOC";
+          outputs = [
+            {
+              criteria = "eDP-1";
+              status = "disable";
+            }
+            {
+              criteria = "AOC 2460G4 0x00012CF6";
+              status = "enable";
+              mode = "--custom 1920x1080@144Hz";
+            }
+          ];
+        };
+      }
+      {
+        profile = {
+          name = "HDMI_Hotplug";
+          outputs = [
+            {
+              criteria = "eDP-1";
+              status = "disable";
+            }
+            {
+              criteria = "HDMI-1";
+              status = "enable";
+              mode = "1920x1080";
+            }
+          ];
+          exec = [
+            "hyprctl dispatch moveworkspacetomonitor 7 HDMI-1"
+            "hyprctl dispatch moveworkspacetomonitor 8 HDMI-1"
+            "hyprctl dispatch moveworkspacetomonitor 9 HDMI-1"
+            "hyprctl dispatch moveworkspacetomonitor 0 HDMI-1"
+          ];
+        };
+      }
+    ];
     systemdTarget = "graphical-session.target";
   };
 }
