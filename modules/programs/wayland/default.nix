@@ -3,6 +3,7 @@ let
 in
 [
   ./ags
+  ./hyprlock
   ./kanshi
   ./launcher
   ./mako

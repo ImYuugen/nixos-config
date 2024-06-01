@@ -56,6 +56,6 @@
         };
       }
     ];
-    systemdTarget = "graphical-session.target";
+    systemdTarget = "hyprland-session.target";
   };
 }

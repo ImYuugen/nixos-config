@@ -2,8 +2,10 @@
 
 {
   imports = [
-    (import ../../environment/hypr-variables.nix)
     (import ../../environment/common-variables.nix)
+    ./binds.nix
+    ./settings.nix
+    ./rules.nix
   ];
 
   programs = {
@@ -31,21 +33,25 @@
     size = 20;
   };
 
-  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
-
-  home.file = {
-    ".config/hypr" = {
-      source = ./config;
-      recursive = true;
-    };
-  };
+  home.packages = [
+    inputs.hyprcursor
+    inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+    inputs.hyprlock.packages.${pkgs.system}.hyprlock
+    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    pkgs.swww
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    systemd.enable = true;
-    xwayland.enable = true;
-
-    settings = import ./config.nix;
+    plugins = [ ];
+    systemd = {
+      enable = true;
+      variables = [ "--all" ];
+      extraCommands = [
+        "systemctl --user stop graphical-session.target"
+        "systemctl --user start hyprland-session.target"
+      ];
+    };
   };
 }

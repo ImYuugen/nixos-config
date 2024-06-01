@@ -1,5 +1,0 @@
-{
-  general = {
-    layout = "dwindle";
-  };
-}
