@@ -90,5 +90,9 @@ in
       ", XF86AudioNext, exec, playerctl next"
     ];
     bindl = [ ];
+    bindm = [
+      "$mainMod, mouse:272, movewindow"
+      "$mainMod, mouse:273, resizewindow"
+    ];
   };
 }
