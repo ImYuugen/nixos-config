@@ -15,10 +15,10 @@
               status = "enable";
             }
           ];
+          exec = [
+            "hyprctl keyword monitor eDP-1, 1920x1080@144Hz, 0x0, 1"
+          ];
         };
-        exec = [
-          "hyprctl keyword monitor eDP-1, 1920x1080@144Hz, 0x0, 1"
-        ];
       }
       {
         profile = {
