@@ -21,6 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    fps = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nil.url = "github:oxalica/nil";
     rust-overlay.url = "github:oxalica/rust-overlay";
 

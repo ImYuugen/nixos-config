@@ -12,6 +12,7 @@ in
       ./omen
       ./system.nix
       inputs.lanzaboote.nixosModules.lanzaboote
+      inputs.fps.nixosModules.programs-sqlite
     ] ++ (
       if wayland then [
         ./omen/wayland
