@@ -1,4 +1,4 @@
 [
-  (import ./sxhkd.nix)
-  (import ./picom.nix)
+  ./sxhkd.nix
+  ./picom.nix
 ]

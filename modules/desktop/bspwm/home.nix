@@ -2,8 +2,8 @@
 
 {
   imports = [
-    (import ../../environment/bspwm-variables.nix)
-    (import ../../environment/common-variables.nix)
+    ../../environment/bspwm-variables.nix
+    ../../environment/common-variables.nix
   ];
 
   xsession = {

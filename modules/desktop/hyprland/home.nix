@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import ../../environment/common-variables.nix)
+    ../../environment/common-variables.nix
     ./binds.nix
     ./settings.nix
     ./rules.nix

@@ -11,7 +11,7 @@
   ./utils
   ./vpn
   ./yt-dlp
-  (import ./utils/macchina.nix)
+  ./utils/macchina.nix
 ] ++ (import ./communications)
 ++ (import ./dev)
 ++ (import ./editors)

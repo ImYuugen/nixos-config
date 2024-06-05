@@ -42,19 +42,21 @@
           outputs = [
             {
               criteria = "eDP-1";
-              status = "disable";
+              status = "enable";
+              mode = "--custom 1920x1080@144Hz";
             }
             {
-              criteria = "HDMI-1";
+              criteria = "HDMI-A-1";
               status = "enable";
               mode = "1920x1080";
             }
           ];
           exec = [
-            "hyprctl dispatch moveworkspacetomonitor 7 HDMI-1"
-            "hyprctl dispatch moveworkspacetomonitor 8 HDMI-1"
-            "hyprctl dispatch moveworkspacetomonitor 9 HDMI-1"
-            "hyprctl dispatch moveworkspacetomonitor 0 HDMI-1"
+            "hyprctl keyword monitor eDP-1, 1920x1080@144Hz, 0x0, 1"
+            "hyprctl dispatch moveworkspacetomonitor 7 HDMI-A-1"
+            "hyprctl dispatch moveworkspacetomonitor 8 HDMI-A-1"
+            "hyprctl dispatch moveworkspacetomonitor 9 HDMI-A-1"
+            "hyprctl dispatch moveworkspacetomonitor 0 HDMI-A-1"
           ];
         };
       }

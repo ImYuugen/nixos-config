@@ -29,14 +29,14 @@ in
           extraSpecialArgs = { inherit inputs unstable user wayland; };
           users.${user} = {
             imports = [
-              (import ./omen/home.nix)
+              ./omen/home.nix
             ] ++ (
               if wayland then [
                 inputs.ags.homeManagerModules.default
                 inputs.hyprland.homeManagerModules.default
-                (import ./omen/wayland/home.nix)
+                ./omen/wayland/home.nix
               ] else [
-                (import ./omen/x/home.nix)
+                ./omen/x/home.nix
               ]
             );
           };
