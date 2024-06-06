@@ -1,3 +1,0 @@
-[
-  ./libreoffice.nix
-]

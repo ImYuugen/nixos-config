@@ -1,4 +1,0 @@
-[
-  ./sxhkd.nix
-  ./picom.nix
-]
