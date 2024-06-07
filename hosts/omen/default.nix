@@ -1,7 +1,17 @@
-{ config, inputs, lib, pkgs, ... }:
-
 {
+  inputs,
+  lib,
+  pkgsSet,
+  ...
+}: let
+  pkgs = pkgsSet.stable;
+in {
   imports = [
+    ../shared/fonts.nix
+    ../shared/i18n.nix
+    ../shared/nix.nix
+    ../shared # TODO: Modularize moar
+
     ./hardware.nix
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-pc-ssd
@@ -15,8 +25,8 @@
     kernelParams = [
       "usbcore.autosuspend=-1"
     ];
-    kernelPackages = pkgs.stable.linuxPackages_latest;
-    supportedFilesystems = [ "nfts" ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    supportedFilesystems = ["nfts"];
     bootspec.enableValidation = true;
     loader = {
       systemd-boot.enable = lib.mkForce false;
@@ -55,8 +65,9 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs.stable; [
-        libva vaapiVdpau
+      extraPackages = with pkgs; [
+        libva
+        vaapiVdpau
       ];
     };
     opentabletdriver = {
@@ -101,13 +112,13 @@
     };
     powertop.enable = true;
     thermald.enable = true;
-    xserver.videoDrivers = [ "nvidia" ];
+    xserver.videoDrivers = ["nvidia"];
   };
 
   users.users.yuugen = {
     shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "audio" "docker" "networkmanager" "video" "wheel" ];
+    extraGroups = ["audio" "docker" "networkmanager" "video" "wheel"];
   };
 
   virtualisation = {
@@ -115,4 +126,6 @@
       enable = true;
     };
   };
+
+  system.stateVersion = "23.11";
 }

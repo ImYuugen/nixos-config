@@ -1,25 +1,27 @@
-{ inputs, lib, pkgs, ... }:
-let
+{
+  inputs,
+  lib,
+  pkgsSet,
+  ...
+}: let
   shared = [
-    ./shared
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        users.yuugen = {
-          imports = [
-            ../home/yuugen
-          ];
-        };
       };
     }
   ];
 in {
+  # HP Omen Laptop
   omen = lib.nixosSystem {
-    specialArgs = { inherit inputs lib pkgs; };
-    modules = [
-      ./omen
-    ] ++ shared;
+    specialArgs = {inherit inputs lib pkgsSet;};
+    modules =
+      [
+        ./omen
+        ../home/yuugen
+      ]
+      ++ shared;
   };
 }
