@@ -11,8 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
     # For command-not-found
     fps = {
       url = "github:wamserma/flake-programs-sqlite";
@@ -28,37 +26,28 @@
     ...
   } @ inputs: let
     lib = inputs.nixpkgs.lib // home-manager.lib;
-  in inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-    systems = [ "x86_64-linux" ];
-    perSystem = {
-      system,
-      ...
-    }: let
-      pkgs = with inputs; {
-        stable = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
+    system = "x86_64-linux";
+    pkgsSet = with inputs; {
+      stable = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
       };
-    in
-    {
-      nixosConfigurations = (
-        import ./hosts {
-        # TODO: Add options for modularity
-          inherit inputs lib pkgs;
-        }
-      );
-    
-      formatter = pkgs.stable.alejandra;
-      devShells.default = pkgs.stable.mkShell {
-        buildInputs = [
-          inputs.nil.packages.${system}.default
-        ];
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
       };
+    };
+  in {
+    nixosConfigurations = (
+      import ./hosts {
+        inherit inputs lib pkgsSet;
+      }
+    );
+    formatter.${system} = pkgsSet.stable.alejandra;
+    devShells.${system}.default = pkgsSet.stable.mkShell {
+      buildInputs = [
+        inputs.nil.packages.${system}.default
+      ];
     };
   };
 }
