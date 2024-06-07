@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{pkgsSet, ...}: {
   fonts = {
     enableDefaultPackages = true;
-    packages = with pkgs.unstable; [
+    packages = with pkgsSet.unstable; [
       # Curse of Râ
       aegyptus
       nerdfonts

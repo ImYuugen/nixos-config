@@ -1,10 +1,10 @@
 {
   inputs,
   lib,
-  pkgs,
+  pkgsSet,
   ...
 }: {
-  environment.systemPackages = with pkgs.stable; [
+  environment.systemPackages = with pkgsSet.stable; [
     man-pages
     man-pages-posix
     pciutils

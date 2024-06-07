@@ -13,6 +13,7 @@ in {
     ../shared # TODO: Modularize moar
 
     ./hardware.nix
+    inputs.lanzaboote.nixosModules.lanzaboote
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
@@ -38,10 +39,13 @@ in {
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    sbctl
+  ];
+
   hardware = {
     bluetooth = {
       enable = true;
-      hsphfpd.enable = true;
     };
     nvidia = {
       open = true;
@@ -86,7 +90,12 @@ in {
     };
   };
 
-  powerManagement.enable = true;
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+  };
+
+  programs.fish.enable = true;
 
   services = {
     auto-cpufreq = {
@@ -110,7 +119,6 @@ in {
       jack.enable = true;
       pulse.enable = true;
     };
-    powertop.enable = true;
     thermald.enable = true;
     xserver.videoDrivers = ["nvidia"];
   };
