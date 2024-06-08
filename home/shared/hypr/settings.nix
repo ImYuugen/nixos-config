@@ -1,8 +1,6 @@
-{ config, ... }:
-let
+{config, ...}: let
   pointer = config.home.pointerCursor;
-in
-{
+in {
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER";
     "$appMod" = "ALT SHIFT";
@@ -49,16 +47,16 @@ in
     ];
 
     exec-once = [
-    # !!! IMPURE
+      # !!! IMPURE
       "ln -sf /dev/dri/by-path/pci-0000:07:00.0-card $HOME/.config/hypr/amdgpu"
       "ln -sf /dev/dri/by-path/pci-0000:01:00.0-card $HOME/.config/hypr/nvidia"
-    # !!!
+      # !!!
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "dbus-update-activation-environment --systemd --all"
       "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "/usr/lib/polkit-kde-authentication-agent-1"
       "hyprctl setcursor ${pointer.name} ${toString pointer.size}"
-    # TODO: Put these auto-launches in respective modules
+      # TODO: Put these auto-launches in respective modules
       "ags"
       "mako"
     ];
