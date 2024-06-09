@@ -5,7 +5,7 @@
     enable = true;
     package = pkgsSet.unstable.helix;
     settings = {
-      theme = "gruvbox";
+      theme = "rose_pine_moon";
       editor = {
         line-number = "relative";
         lsp = {
