@@ -32,6 +32,8 @@
     nil.url = "github:oxalica/nil";
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+
+    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
   outputs = {
