@@ -17,7 +17,7 @@
       ../shared/editors/helix.nix
       ../shared/environment.nix
       ../shared/gaming.nix
-      # ../shared/media/mpv.nix
+      ../shared/media/mpv.nix
       # ../shared/media/spotify.nix
       # ../shared/media/vlc.nix
       # ../shared/media/yt-dlp.nix
