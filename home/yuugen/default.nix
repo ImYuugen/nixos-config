@@ -18,7 +18,7 @@
       ../shared/environment.nix
       ../shared/gaming.nix
       ../shared/media/mpv.nix
-      # ../shared/media/spotify.nix
+      ../shared/media/spotify.nix
       # ../shared/media/vlc.nix
       # ../shared/media/yt-dlp.nix
       # ../shared/obs.nix
