@@ -13,7 +13,7 @@
       ../shared/communications/discord.nix
       ../shared/communications/thunderbird.nix
       # ../shared/files.nix
-      # ../shared/firefox
+      ../shared/firefox
       ../shared/editors/helix.nix
       ../shared/environment.nix
       ../shared/gaming.nix
