@@ -10,6 +10,7 @@ in {
     ../shared/fonts.nix
     ../shared/i18n.nix
     ../shared/nix.nix
+    ../shared/steam.nix
     ../shared # TODO: Modularize moar
 
     ./hardware.nix
@@ -95,7 +96,10 @@ in {
     powertop.enable = true;
   };
 
-  programs.fish.enable = true;
+  programs = {
+    fish.enable = true;
+    light.enable = true;
+  };
 
   services = {
     auto-cpufreq = {
