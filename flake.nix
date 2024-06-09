@@ -59,12 +59,12 @@
     );
     formatter.${system} = pkgsSet.stable.alejandra;
     devShells.${system}.default = pkgsSet.stable.mkShell {
-      inherit (self.checks.pre-commit-check) shellHook;
+      inherit (self.checks.${system}.pre-commit-check) shellHook;
       buildInputs = [
         inputs.nil.packages.${system}.default
       ];
     };
-    checks = {
+    checks.${system} = {
       pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
         src = ./.;
         hooks = {
