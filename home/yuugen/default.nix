@@ -26,7 +26,7 @@
       ../shared/shells/fish.nix
       # ../shared/shells/bash.nix
       ../shared/sound/easyeffects.nix
-      # ../shared/utils.nix
+      ../shared/utils
       # ../shared/vpn.nix
       # ../shared/wayland/ags
       ../shared/wayland/hypr
