@@ -31,7 +31,7 @@
       # ../shared/wayland/ags
       ../shared/wayland/hypr
       ../shared/wayland/kanshi.nix
-      # ../shared/wayland/launcher.nix
+      ../shared/wayland/launcher
       # ../shared/wayland/mako.nix
       ../shared/wezterm
     ];
