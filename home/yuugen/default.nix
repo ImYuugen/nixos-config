@@ -32,7 +32,7 @@
       ../shared/wayland/hypr
       ../shared/wayland/kanshi.nix
       ../shared/wayland/launcher
-      # ../shared/wayland/mako.nix
+      ../shared/wayland/mako.nix
       ../shared/wezterm
     ];
 
