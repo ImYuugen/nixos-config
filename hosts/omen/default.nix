@@ -10,7 +10,7 @@ in {
     ../shared/fonts.nix
     ../shared/i18n.nix
     ../shared/nix.nix
-    ../shared/steam.nix
+    ../shared/gaming.nix
     ../shared # TODO: Modularize moar
 
     ./hardware.nix
