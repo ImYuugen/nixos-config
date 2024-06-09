@@ -16,12 +16,22 @@
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprcursor.url = "github:hyprwm/hyprcursor";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland/?submodules=1";
+    hyprlock.url = "github:hyprwm/hyprlock";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
+    hypr-contrib.url = "github:hyprwm/contrib";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nil.url = "github:oxalica/nil";
+
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   };
 
   outputs = {
@@ -49,9 +59,18 @@
     );
     formatter.${system} = pkgsSet.stable.alejandra;
     devShells.${system}.default = pkgsSet.stable.mkShell {
+      inherit (self.checks.pre-commit-check) shellHook;
       buildInputs = [
         inputs.nil.packages.${system}.default
       ];
+    };
+    checks = {
+      pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          alejandra.enable = true;
+        };
+      };
     };
   };
 }
