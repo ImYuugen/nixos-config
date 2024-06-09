@@ -30,10 +30,10 @@
       # ../shared/vpn.nix
       # ../shared/wayland/ags
       ../shared/wayland/hypr
-      # ../shared/wayland/kanshi.nix
+      ../shared/wayland/kanshi.nix
       # ../shared/wayland/launcher.nix
       # ../shared/wayland/mako.nix
-      # ../shared/wezterm.nix
+      ../shared/wezterm
     ];
 
     home = rec {
