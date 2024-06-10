@@ -36,8 +36,8 @@ in
         "$mainMod SHIFT, S, exec, grimblast --notify copy area"
         "$mainMod SHIFT, Print, exec, grimblast --notify --freeze save area"
         # Term
-        "$mainMod, Return, exec, kitty"
-        "$mainMod SHIFT, Return, exec, kitty --class='termfloat'"
+        "$mainMod, Return, exec, $TERMINAL"
+        # "$mainMod SHIFT, Return, exec, kitty --class='termfloat'"
         # Launcher
         "$mainMod, D, exec, rofi -show drun"
         "$mainMod SHIFT, D, exec, rofi -show run"
