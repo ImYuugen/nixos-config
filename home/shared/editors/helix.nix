@@ -28,6 +28,7 @@
         language-servers = [ "clangd" ];
         indent = {
           tab-width = 4;
+          unit = "\t";
         };
       }
       {
