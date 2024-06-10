@@ -62,9 +62,9 @@ in
     general = {
       gaps_in = "0";
       gaps_out = "8";
-      border_size = "2";
-      "col.inactive_border" = "0x00000000";
-      "col.active_border" = "0xFFFFFF88";
+      border_size = "1";
+      "col.inactive_border" = "rgba(00000000)";
+      "col.active_border" = "rgba(ffffff88)";
       layout = "dwindle";
       resize_on_border = "true";
     };
