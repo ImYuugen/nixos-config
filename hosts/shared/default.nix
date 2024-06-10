@@ -8,6 +8,7 @@
     man-pages-posix
     pciutils
     glibcLocales
+    dconf
   ];
 
   security = {

@@ -116,6 +116,10 @@ in
         };
       };
     };
+    dbus = {
+      enable = true;
+      packages = [ pkgs.gcr ];
+    };
     openssh.enable = true;
     pipewire = {
       enable = true;
