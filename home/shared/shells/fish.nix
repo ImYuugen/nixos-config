@@ -38,7 +38,7 @@ in {
       "..." = "z ../..";
       "l" = "ls -la";
 
-      "goflake" = "z /home/yuugen/Projects/Nix/flake";
+      "goflake" = "z $HOME/Projects/Nix/flake";
       "nix-fish" = "nix-shell --run fish";
       "dev-fish" = "nix develop -c fish";
       "shell-fish" = "nix shell -c fish";
