@@ -33,8 +33,6 @@
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
-
     wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
