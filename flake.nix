@@ -55,6 +55,7 @@
           inherit system;
           config.allowUnfree = true;
         };
+        confPkgs = import ./pkgs;
       };
     in
     {
