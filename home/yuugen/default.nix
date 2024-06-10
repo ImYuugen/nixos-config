@@ -21,7 +21,7 @@
       ../shared/media/spotify.nix
       # ../shared/media/vlc.nix
       # ../shared/media/yt-dlp.nix
-      # ../shared/obs.nix
+      ../shared/obs.nix
       # ../shared/productivity/libreoffice.nix
       ../shared/shells/fish.nix
       # ../shared/shells/bash.nix
