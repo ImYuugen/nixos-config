@@ -1,9 +1,9 @@
-{
-  inputs,
-  lib,
-  pkgsSet,
-  ...
-}: let
+{ inputs
+, lib
+, pkgsSet
+, ...
+}:
+let
   shared = [
     inputs.home-manager.nixosModules.home-manager
     {
@@ -13,10 +13,11 @@
       };
     }
   ];
-in {
+in
+{
   # HP Omen Laptop
   omen = lib.nixosSystem {
-    specialArgs = {inherit inputs lib pkgsSet;};
+    specialArgs = { inherit inputs lib pkgsSet; };
     modules =
       [
         ./omen

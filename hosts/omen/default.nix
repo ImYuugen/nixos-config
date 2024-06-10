@@ -1,11 +1,12 @@
-{
-  inputs,
-  lib,
-  pkgsSet,
-  ...
-}: let
+{ inputs
+, lib
+, pkgsSet
+, ...
+}:
+let
   pkgs = pkgsSet.stable;
-in {
+in
+{
   imports = [
     ../shared/fonts.nix
     ../shared/i18n.nix
@@ -28,7 +29,7 @@ in {
       "usbcore.autosuspend=-1"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = ["nfts"];
+    supportedFilesystems = [ "nfts" ];
     bootspec.enableValidation = true;
     loader = {
       systemd-boot.enable = lib.mkForce false;
@@ -124,13 +125,13 @@ in {
       pulse.enable = true;
     };
     thermald.enable = true;
-    xserver.videoDrivers = ["nvidia"];
+    xserver.videoDrivers = [ "nvidia" ];
   };
 
   users.users.yuugen = {
     shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = ["audio" "docker" "networkmanager" "video" "wheel"];
+    extraGroups = [ "audio" "docker" "networkmanager" "video" "wheel" ];
   };
 
   virtualisation = {

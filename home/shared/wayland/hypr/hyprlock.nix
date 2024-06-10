@@ -1,7 +1,6 @@
-{
-  inputs,
-  pkgsSet,
-  ...
+{ inputs
+, pkgsSet
+, ...
 }: {
   programs.hyprlock = {
     enable = true;

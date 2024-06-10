@@ -1,8 +1,7 @@
-{
-  inputs,
-  lib,
-  pkgsSet,
-  ...
+{ inputs
+, lib
+, pkgsSet
+, ...
 }: {
   environment.systemPackages = with pkgsSet.stable; [
     man-pages

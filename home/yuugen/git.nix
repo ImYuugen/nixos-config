@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  unstable,
-  ...
+{ config
+, pkgs
+, unstable
+, ...
 }: {
   programs = {
     git = {

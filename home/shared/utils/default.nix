@@ -1,5 +1,5 @@
 {
-  imports = [./btop.nix];
+  imports = [ ./btop.nix ];
 
   programs = {
     bat.enable = true;

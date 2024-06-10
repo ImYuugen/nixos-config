@@ -38,43 +38,45 @@
     wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
-  outputs = {
-    self,
-    home-manager,
-    ...
-  } @ inputs: let
-    lib = inputs.nixpkgs.lib // home-manager.lib;
-    system = "x86_64-linux";
-    pkgsSet = with inputs; {
-      stable = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
+  outputs =
+    { self
+    , home-manager
+    , ...
+    } @ inputs:
+    let
+      lib = inputs.nixpkgs.lib // home-manager.lib;
+      system = "x86_64-linux";
+      pkgsSet = with inputs; {
+        stable = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
       };
-      unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
+    in
+    {
+      nixosConfigurations = (
+        import ./hosts {
+          inherit inputs lib pkgsSet;
+        }
+      );
+      formatter.${system} = pkgsSet.stable.nixpkgs-fmt;
+      devShells.${system}.default = pkgsSet.stable.mkShell {
+        inherit (self.checks.${system}.pre-commit-check) shellHook;
+        buildInputs = [
+          inputs.nil.packages.${system}.default
+        ];
       };
-    };
-  in {
-    nixosConfigurations = (
-      import ./hosts {
-        inherit inputs lib pkgsSet;
-      }
-    );
-    formatter.${system} = pkgsSet.stable.alejandra;
-    devShells.${system}.default = pkgsSet.stable.mkShell {
-      inherit (self.checks.${system}.pre-commit-check) shellHook;
-      buildInputs = [
-        inputs.nil.packages.${system}.default
-      ];
-    };
-    checks.${system} = {
-      pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = {
-          alejandra.enable = true;
+      checks.${system} = {
+        pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            nixpkgs-fmt.enable = true;
+          };
         };
       };
     };
-  };
 }

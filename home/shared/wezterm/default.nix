@@ -1,7 +1,6 @@
-{
-  inputs,
-  pkgsSet,
-  ...
+{ inputs
+, pkgsSet
+, ...
 }: {
   home.sessionVariables.TERMINAL = "wezterm";
 

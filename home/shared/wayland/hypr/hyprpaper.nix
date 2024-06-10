@@ -1,7 +1,6 @@
-{
-  inputs,
-  pkgsSet,
-  ...
+{ inputs
+, pkgsSet
+, ...
 }: {
   services.hyprpaper = {
     enable = true;

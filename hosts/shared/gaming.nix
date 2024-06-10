@@ -1,4 +1,4 @@
-{pkgsSet, ...}: {
+{ pkgsSet, ... }: {
   programs = {
     steam = {
       enable = true;

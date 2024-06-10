@@ -1,11 +1,12 @@
-{
-  inputs,
-  lib,
-  pkgsSet,
-  ...
-}: let
+{ inputs
+, lib
+, pkgsSet
+, ...
+}:
+let
   pkgs = pkgsSet.stable;
-in {
+in
+{
   imports = [
     ./binds.nix
     ./hyprcursor.nix
@@ -38,7 +39,7 @@ in {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd = {
-      variables = ["--all"];
+      variables = [ "--all" ];
       extraCommands = [
         "systemctl --user stop graphical-session.target"
         "systemctl --user start hyprland-session.target"

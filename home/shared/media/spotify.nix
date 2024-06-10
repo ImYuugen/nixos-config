@@ -1,12 +1,13 @@
-{
-  inputs,
-  pkgsSet,
-  ...
-}: let
+{ inputs
+, pkgsSet
+, ...
+}:
+let
   pkgs = pkgsSet.stable;
   unstable = pkgsSet.unstable;
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
-in {
+in
+{
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
   ];

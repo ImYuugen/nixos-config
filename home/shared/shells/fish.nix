@@ -1,6 +1,8 @@
-{pkgsSet, ...}: let
+{ pkgsSet, ... }:
+let
   pkgs = pkgsSet.stable;
-in {
+in
+{
   programs.fish = {
     enable = true;
 
