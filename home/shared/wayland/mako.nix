@@ -15,4 +15,8 @@
     padding = "0,5,10";
     textColor = "#9E9AB3";
   };
+
+  wayland.windowManager.hyprland.settings.exec-once = [
+    "mako"
+  ];
 }
