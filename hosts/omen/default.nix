@@ -43,6 +43,7 @@ in
 
   environment.systemPackages = with pkgs; [
     sbctl
+    nvtopPackages.full
   ];
 
   hardware = {
