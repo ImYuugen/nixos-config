@@ -35,8 +35,18 @@ in
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
   ];
 
+  xdg.portal = {
+    enable = true;
+    config.common.default = [ "gtk" ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd = {
       variables = [ "--all" ];

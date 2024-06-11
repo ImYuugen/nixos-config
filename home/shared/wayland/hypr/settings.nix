@@ -1,7 +1,3 @@
-{ config, ... }:
-let
-  pointer = config.home.pointerCursor;
-in
 {
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER";
