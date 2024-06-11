@@ -12,6 +12,8 @@ let
         useUserPackages = true;
       };
     }
+    # Fix command-not-found
+    inputs.fps.nixosModules.programs-sqlite
   ];
 in
 {
