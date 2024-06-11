@@ -4,11 +4,16 @@
 , ...
 }: {
   environment.systemPackages = with pkgsSet.stable; [
+    dconf
+    glib
+    glibcLocales
+    killall
+    linux-firmware
+    linuxHeaders
     man-pages
     man-pages-posix
     pciutils
-    glibcLocales
-    dconf
+    wget
   ];
 
   security = {

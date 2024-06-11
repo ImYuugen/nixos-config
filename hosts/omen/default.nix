@@ -15,6 +15,7 @@ in
     ../shared # TODO: Modularize moar
 
     ./hardware.nix
+    ./packages.nix
     inputs.lanzaboote.nixosModules.lanzaboote
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-pc-ssd
@@ -40,11 +41,6 @@ in
       pkiBundle = "/etc/secureboot";
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    sbctl
-    nvtopPackages.full
-  ];
 
   hardware = {
     bluetooth = {
