@@ -19,6 +19,7 @@
       ../shared/media/mpv.nix
       ../shared/media/spotify.nix
       # ../shared/media/vlc.nix
+      ../shared/media/utils.nix
       # ../shared/media/yt-dlp.nix
       ../shared/obs.nix
       # ../shared/productivity/libreoffice.nix
