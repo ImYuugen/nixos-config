@@ -47,7 +47,7 @@ in
       enable = true;
     };
     nvidia = {
-      open = true;
+      open = false;
       nvidiaSettings = true;
       modesetting.enable = true;
       dynamicBoost.enable = true;
