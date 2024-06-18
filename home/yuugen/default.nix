@@ -10,6 +10,7 @@
     imports = [
       ./git.nix
       ../shared/communications/discord.nix
+      ../shared/communications/slack.nix
       ../shared/communications/thunderbird.nix
       # ../shared/files.nix
       ../shared/firefox
