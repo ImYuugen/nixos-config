@@ -46,6 +46,10 @@
         pull = {
           ff = "only";
         };
+        # Fuck off
+        safe = {
+          directory = "/home/yuugen/Projects/Nix/flake/.git";
+        };
       };
 
       ignores = [
