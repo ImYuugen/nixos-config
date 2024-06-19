@@ -12,6 +12,7 @@
     };
 
     dwindle = {
+      no_gaps_when_only = "1";
       pseudotile = "no";
       preserve_split = "yes";
     };
@@ -77,9 +78,7 @@
       };
     };
 
-    master = {
-      new_is_master = "true";
-    };
+    master = { };
 
     misc = {
       force_default_wallpaper = "0";
