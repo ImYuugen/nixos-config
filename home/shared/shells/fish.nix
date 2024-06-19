@@ -83,14 +83,6 @@ in
         rm $argv[1]
       '';
 
-      reboot-windows = ''
-        systemctl reboot --boot-loader-entry=auto-windows
-      '';
-
-      reboot-bios = ''
-        systemctl reboot --firmware-setup
-      '';
-
       dup = ''
         $TERMINAL . & disown
       '';

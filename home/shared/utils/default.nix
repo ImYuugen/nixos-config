@@ -13,6 +13,7 @@
       icons = true;
     };
     fd.enable = true;
+    feh.enable = true;
     fzf.enable = true;
     ripgrep.enable = true;
     zoxide.enable = true;

@@ -1,5 +1,8 @@
 { pkgsSet, ... }: {
   home.packages = with pkgsSet.stable; [
-    vesktop
+    (discord.override {
+      withOpenASAR = true;
+    })
+    betterdiscordctl
   ];
 }
