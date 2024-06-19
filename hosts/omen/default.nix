@@ -1,5 +1,4 @@
 { inputs
-, lib
 , pkgsSet
 , ...
 }:
@@ -16,7 +15,6 @@ in
 
     ./hardware.nix
     ./packages.nix
-    inputs.lanzaboote.nixosModules.lanzaboote
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
@@ -33,12 +31,12 @@ in
     supportedFilesystems = [ "nfts" ];
     bootspec.enableValidation = true;
     loader = {
-      systemd-boot.enable = lib.mkForce false;
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+      };
       efi.canTouchEfiVariables = true;
-    };
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
     };
   };
 
