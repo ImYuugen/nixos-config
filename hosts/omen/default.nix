@@ -81,10 +81,6 @@ in
     hostName = "omen";
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
-    };
-    wireless.iwd = {
-      enable = true;
     };
   };
 
