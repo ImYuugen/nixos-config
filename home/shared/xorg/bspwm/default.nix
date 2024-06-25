@@ -7,11 +7,11 @@
 
   programs = {
     bash.initExtra = ''
-      [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
+      [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] && exec bspwm
     '';
     fish.loginShellInit = ''
       set TTY1 (tty)
-      [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
+      [ "$TTY1" = "/dev/tty1" ] && exec bspwm
     '';
   };
 
