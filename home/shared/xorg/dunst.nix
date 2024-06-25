@@ -1,8 +1,15 @@
+{ pkgsSet
+, ...
+}:
 {
   # TODO: Finish config
   services.dunst = {
     enable = true;
-    iconTheme = { };
+    iconTheme = {
+      name = "Papirus Dark";
+      package = pkgsSet.stable.papirus-icon-theme;
+      size = "32";
+    };
     settings = {
       global = {
         background = "#2A273F";
