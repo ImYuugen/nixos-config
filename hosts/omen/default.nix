@@ -8,9 +8,9 @@ in
 {
   imports = [
     ../shared/fonts.nix
+    ../shared/gaming.nix
     ../shared/i18n.nix
     ../shared/nix.nix
-    ../shared/gaming.nix
     ../shared # TODO: Modularize moar
 
     ./hardware.nix
