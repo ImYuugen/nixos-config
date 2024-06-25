@@ -121,7 +121,9 @@ in
       pulse.enable = true;
     };
     thermald.enable = true;
+    xserver.enable = true;
     xserver.videoDrivers = [ "nvidia" ];
+    xserver.displayManager.startx.enable = true;
   };
 
   users.users.yuugen = {

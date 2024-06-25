@@ -1,0 +1,8 @@
+{ pkgsSet
+, ...
+}:
+{
+  xsession = {
+    enable = true;
+  };
+}

@@ -36,6 +36,7 @@
       # ../shared/wayland/kanshi.nix
       # ../shared/wayland/launcher
       # ../shared/wayland/mako.nix
+      ../shared/xorg
       ../shared/xorg/bspwm
       ../shared/xorg/dunst.nix
       ../shared/xorg/launcher
