@@ -2,6 +2,7 @@
   imports = [
     ./rules.nix
     ./settings.nix
+    ./sxhkd.nix
   ];
 
   programs = {
