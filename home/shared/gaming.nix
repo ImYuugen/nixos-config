@@ -9,7 +9,8 @@ in
     jdk21 # For minecraft
     winetricks
     # TODO: mkif wayland config blabla
-    wineWowPackages.waylandFull
+    wineWowPackages.full
+    # wineWowPackages.waylandFull
     (retroarch.override {
       cores = [ ];
     })

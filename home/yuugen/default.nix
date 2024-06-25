@@ -30,12 +30,16 @@
       ../shared/sound/easyeffects.nix
       ../shared/utils
       # ../shared/vpn.nix
-      ../shared/wayland
+      # ../shared/wayland
       # ../shared/wayland/ags
-      ../shared/wayland/hypr
-      ../shared/wayland/kanshi.nix
-      ../shared/wayland/launcher
-      ../shared/wayland/mako.nix
+      # ../shared/wayland/hypr
+      # ../shared/wayland/kanshi.nix
+      # ../shared/wayland/launcher
+      # ../shared/wayland/mako.nix
+      ../shared/xorg/bspwm
+      ../shared/xorg/dunst.nix
+      ../shared/xorg/launcher
+      ../shared/xorg/lockscreen.nix
       ../shared/wezterm
     ];
 
