@@ -35,6 +35,7 @@
         dbus-update-activation-environment DISPLAY XAUTHORITY
     fi
 
+    fcitx5 &
     sxhkd &
     exec bspwm
   '';
