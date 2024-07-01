@@ -40,6 +40,7 @@
       ../shared/xorg/autorandr.nix
       ../shared/xorg/bspwm
       ../shared/xorg/dunst.nix
+      ../shared/xorg/eww
       ../shared/xorg/launcher
       ../shared/xorg/lockscreen.nix
       ../shared/wezterm
