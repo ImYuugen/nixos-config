@@ -37,6 +37,7 @@
       # ../shared/wayland/launcher
       # ../shared/wayland/mako.nix
       ../shared/xorg
+      ../shared/xorg/autorandr.nix
       ../shared/xorg/bspwm
       ../shared/xorg/dunst.nix
       ../shared/xorg/launcher
