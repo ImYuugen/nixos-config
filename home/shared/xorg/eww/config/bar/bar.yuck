@@ -1,24 +1,16 @@
 ;; Begin vars
-(defpoll clock_time :interval "5s" "date +%H:%M")
-(defpoll clock_date :interval "1h" "date +%d/%m/%Y")
-
-;;(defpoll bat_percentage :interval "30s" "cat /sys/class/power_supply/BAT0/capacity")
-;;(defpoll bat_charging :interval "30s" "cat /sys/class/power_supply/BAT0/status")
-;;(defpoll bat_time :interval "1m" :run-while battery_rev "acpi | sed 's/.*, \([0-9:]*\).*/\1/'")
-
-;;(defpoll vol_percentage :interval)
-
 (defvar time_rev false)
-;;(defvar cal_rev false)
-;;(defvar vol_rev false)
-;;(defvar bat_rev false)
+
+(defpoll clock_time :interval "5s" "date +%H:%M")
+(defpoll clock_date :interval "1h" "date +%d/%m/%Y" :run-while time_rev)
 ;; End vars
 
 (defwidget clock_module []
-  (eventbox :onclick "eww update time_rev=${!time_rev}"
-    (box :class "module_class" :space-evenly false :orientation "h" :spacing "3"
+  (eventbox :onclick "eww --config ${EWW_CONFIG_DIR} update time_rev=${!time_rev}"
+    :cursor "pointer"
+    (box :class "module" :space-evenly false :orientation "h" :spacing "3"
       (label :class "clock_time_class" :text clock_time)
-      (revealer :transition "slidedown"
+      (revealer :transition "slideleft"
         :reveal time_rev
         :duration "350ms"
         (label :class "clock_date_class" :text clock_date)))))
@@ -44,12 +36,13 @@
 
 (defwindow bar
     :geometry (geometry :x "0%"
-                        :y "7px"
-                        :width "98%"
-                        :height "35px"
+                        :y "0.5%"
+                        :width "99%"
+                        :height "3.5%"
                         :anchor "top center")
+    :reserve (struts :distance "4%" :side "top")
     :stacking "bg"
-    :windowtype "desktop"
+    :wm-ignore false
     (box :class "bar_class" :orientation "h"
       (left)
       (center)

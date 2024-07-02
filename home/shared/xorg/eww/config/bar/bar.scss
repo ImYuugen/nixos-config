@@ -1,0 +1,13 @@
+*{
+  all: unset;
+}
+
+.bar_class {
+  background-color: $base;
+  border-radius: 10px;
+}
+
+.module {
+  margin: 0px 0px 0px 0px;
+  border-radius: 10px 16px 0px 10px;
+}
