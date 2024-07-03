@@ -1,10 +1,15 @@
-*{
-  all: unset;
-}
-
 .bar_class {
   background-color: $base;
-  border-radius: 10px;
+  margin-bottom: 0rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  padding: 5px;
+}
+
+.wrapper_box {
+  background-color: $surface;
+  border-radius: 20px;
+  padding: 5px;
 }
 
 .module {
