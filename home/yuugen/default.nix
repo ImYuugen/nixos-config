@@ -31,7 +31,7 @@
       ../shared/utils
       # ../shared/vpn.nix
       ../shared/wayland
-      # ../shared/wayland/ags
+      ../shared/wayland/ags
       ../shared/wayland/hypr
       ../shared/wayland/kanshi.nix
       ../shared/wayland/launcher

@@ -17,6 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ags.url = "github:Aylur/ags";
     hyprcursor.url = "github:hyprwm/hyprcursor";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland/?submodules=1";
     hyprlock.url = "github:hyprwm/hyprlock";
@@ -67,6 +68,7 @@
         inherit (self.checks.${system}.pre-commit-check) shellHook;
         buildInputs = [
           inputs.nil.packages.${system}.default
+          pkgsSet.stable.nodePackages_latest.typescript-language-server
         ];
       };
       checks.${system} = {
