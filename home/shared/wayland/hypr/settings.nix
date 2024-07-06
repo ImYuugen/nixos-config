@@ -46,10 +46,6 @@
     ];
 
     exec-once = [
-      # !!! IMPURE
-      "ln -sf /dev/dri/by-path/pci-0000:07:00.0-card $HOME/.config/hypr/amdgpu"
-      "ln -sf /dev/dri/by-path/pci-0000:01:00.0-card $HOME/.config/hypr/nvidia"
-      # !!!
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "dbus-update-activation-environment --systemd --all"
       "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -68,13 +64,14 @@
 
     input = {
       kb_layout = "us, fr";
+      kb_variant = "altgr-intl,";
       kb_options = "grp:win_space_toggle,caps:escape";
       follow_mouse = "2";
       mouse_refocus = "false";
       sensitivity = "0.2";
       accel_profile = "flat";
       touchpad = {
-        natural_scroll = "true";
+        natural_scroll = "false";
       };
     };
 
