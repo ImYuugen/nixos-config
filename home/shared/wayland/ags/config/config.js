@@ -1,26 +1,15 @@
-const time = Variable('', {
-    poll: [1000, function() {
-        return Date().toString()
-    }],
-})
+"use strict";
 
-const Bar = (/** @type {number} */ monitor) => Widget.Window({
-    monitor,
-    name: `bar${monitor}`,
-    anchor: ['top', 'left', 'right'],
-    exclusivity: 'exclusive',
-    child: Widget.CenterBox({
-        start_widget: Widget.Label({
-            hpack: 'center',
-            label: 'Welcome to AGS!',
-        }),
-        end_widget: Widget.Label({
-            hpack: 'center',
-            label: time.bind(),
-        }),
-    }),
-})
+import App from 'resource:///com/github/Aylur/ags/app.js';
+import { Bar } from './modules/bar/bar.js';
+
+const scss = `${App.configDir}/scss/main.scss`;
+const css = `/tmp/ags-style.css`;
+Utils.exec(`sass ${scss} ${css}`);
 
 App.config({
-    windows: [Bar(0)],
-})
+    style: css,
+    windows: [
+        Bar(0),
+    ],
+});

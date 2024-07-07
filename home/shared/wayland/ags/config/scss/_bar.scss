@@ -1,0 +1,7 @@
+@use 'colors';
+
+.bar-normal {
+  background-color: $background;
+  border: 1px dotted red;
+  min-height: 2.727rem;
+}
