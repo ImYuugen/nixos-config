@@ -112,6 +112,9 @@ const workspacesArea = () => {
 export default () => Widget.EventBox({
   onScrollUp: () => Hyprland.messageAsync("dispatch workspace -1").catch(print),
   onScrollDown: () => Hyprland.messageAsync("dispatch workspace +1").catch(print),
+  attribute: {
+    clicked: false,
+  },
   child: Widget.Box({
     homogeneous: true,
     className: "bar-group-margin",
@@ -127,9 +130,11 @@ export default () => Widget.EventBox({
     self.on("button-press-event", (self, event) => {
       if (event.get_button()[1] === 1) {
         self.attribute.clicked = true;
+        const cursorX = event.get_coords()[1];
         const widgetWidth = self.get_allocation().width;
-        const wsId = Math.ceil(cursorX / widgetWidth);
-        Hyprland.messageAsync(`dispatch workspace ${wsId % 10}`).catch(print);
+        const wsId = Math.ceil(cursorX * wsCount / widgetWidth);
+        console.log(wsId);
+        Hyprland.messageAsync(`dispatch workspace ${wsId}`).catch(print);
       }
     });
     self.on("button-release-event", (self) => self.attribute.clicked = false);

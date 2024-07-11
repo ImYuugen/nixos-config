@@ -1,6 +1,6 @@
 import Widget from "resource:///com/github/Aylur/ags/widget.js"; 
 
-import workspaces from "./normal/workspaces.js";
+import workspaces from "./normal/workspaces.ts";
 
 export const Bar = (monitor = 0) => {
   const normalContent = Widget.CenterBox({

@@ -1,7 +1,7 @@
 "use strict";
 
 import App from 'resource:///com/github/Aylur/ags/app.js';
-import { Bar } from './modules/bar/bar.js';
+import { Bar } from './modules/bar/bar.ts';
 
 const scss = `${App.configDir}/scss/main.scss`;
 const css = `/tmp/ags-style.css`;
