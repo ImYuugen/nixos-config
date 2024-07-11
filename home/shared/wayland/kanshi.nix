@@ -9,10 +9,8 @@
             {
               criteria = "eDP-1";
               status = "enable";
+              mode = "--custom 1920x1080@144Hz";
             }
-          ];
-          exec = [
-            "hyprctl keyword monitor eDP-1, 1920x1080@144Hz, 0x0, 1"
           ];
         };
       }
@@ -28,6 +26,23 @@
               criteria = "AOC 2460G4 0x00012CF6";
               status = "enable";
               mode = "--custom 1920x1080@144Hz";
+            }
+          ];
+        };
+      }
+      {
+        profile = {
+          name = "Huion_Kamvas_undocked_usb_c";
+          outputs = [
+            {
+              criteria = "eDP-1";
+              status = "enable";
+              mode = "--custom 1920x1080@144Hz";
+            }
+            {
+              criteria = "HAT Kamvas Pro 16 0xF0000001";
+              status = "enable";
+              mode = "2560x1440";
             }
           ];
         };
