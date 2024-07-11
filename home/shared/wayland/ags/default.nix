@@ -10,7 +10,10 @@
     configDir = ./config;
     extraPackages = with pkgsSet.stable; [
       nodejs
-      dart-sass
     ];
   };
+
+  home.packages = [
+    pkgsSet.stable.dart-sass
+  ];
 }

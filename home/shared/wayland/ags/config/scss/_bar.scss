@@ -1,7 +1,39 @@
 @use 'colors';
 
+@mixin bar-group-rounding {
+  border-radius: 0.818rem;
+  -gtk-outline-radius: 0.818rem;
+}
+
 .bar-normal {
   background-color: $background;
-  border: 1px dotted red;
   min-height: 2.727rem;
+}
+
+.bar-group {
+  background-color: #222222;
+}
+
+.bar-group-margin {
+  padding: 0.273rem 0rem;
+}
+
+.bar-group-standalone {
+  @include bar-group-rounding;
+  -gtk-outline-radius: 1.364rem;
+}
+
+.bar-ws {
+  min-width: 1.774rem;
+  color: #BBBBBB;
+}
+
+.bar-ws-active {
+  background-color: #DDDDDD;
+  color: #000000;
+}
+
+.bar-ws-occupied {
+  background-color: #444444;
+  color: #FFFFFF;
 }

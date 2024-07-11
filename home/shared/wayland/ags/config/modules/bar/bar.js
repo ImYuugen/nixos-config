@@ -1,16 +1,19 @@
 import Widget from "resource:///com/github/Aylur/ags/widget.js"; 
 
+import workspaces from "./normal/workspaces.js";
+
 export const Bar = (monitor = 0) => {
   const normalContent = Widget.CenterBox({
     className: "bar-normal",
     startWidget: Widget.Box({
       className: "bar-start-box",
-      children: [],
+      children: [
+      ],
     }),
     centerWidget: Widget.Box({
       className: "bar-center-box",
       children: [
-        Widget.Label("Hewwo :3"),
+        workspaces()
       ],
     }),
     endWidget: Widget.Box({

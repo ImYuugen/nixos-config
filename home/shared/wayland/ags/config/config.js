@@ -10,6 +10,6 @@ Utils.exec(`sass ${scss} ${css}`);
 App.config({
     style: css,
     windows: [
-        Bar(0),
+        Bar(1),
     ],
 });
