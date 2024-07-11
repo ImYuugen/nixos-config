@@ -18,6 +18,11 @@
   padding: 0.273rem 0rem;
 }
 
+.bar-group-pad {
+  padding: 0.205rem;
+  min-width: 2px;
+}
+
 .bar-group-standalone {
   @include bar-group-rounding;
   -gtk-outline-radius: 1.364rem;

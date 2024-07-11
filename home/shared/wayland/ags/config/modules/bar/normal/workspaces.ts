@@ -20,7 +20,9 @@ const workspacesArea = () => {
       wsGroup: 0,
       updateMask: (self) => {
         self.attribute.occupiedWsMask =
-          Hyprland.workspaces.reduce((acc, ws) => acc |= 1 << ws.id, 0);
+          Hyprland.workspaces
+            .filter(ws => ws.id > 0 && ws.id <= wsCount)
+            .reduce((acc, ws) => acc |= 1 << ws.id, 0);
         self.queue_draw();
       },
     },
