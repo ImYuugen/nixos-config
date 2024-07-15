@@ -95,19 +95,6 @@ in
   };
 
   services = {
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "never";
-        };
-        charger = {
-          governor = "balanced";
-          turbo = "auto";
-        };
-      };
-    };
     dbus = {
       enable = true;
       packages = [ pkgs.gcr ];
@@ -121,6 +108,26 @@ in
       pulse.enable = true;
     };
     thermald.enable = true;
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_DRIVER_OPMODE_ON_AC = "guided";
+        CPU_DRIVER_OPMODE_ON_BAT = "passive";
+        CPU_SCALING_GOVERNOR_ON_AC = "ondemand";
+        CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+        CPU_BOOST_ON_AC = "1";
+        CPU_BOOST_ON_BAT = "0";
+        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_BAT = "low-power";
+        USB_AUTOSUSPEND = "0";
+        USB_ALLOWLIST = "";
+        START_CHARGE_THRESH_BAT0 = 70;
+        STOP_CHARGE_THRESH_BAT0 = 90;
+      };
+    };
+    upower.enable = true;
     xserver.enable = true;
     xserver.videoDrivers = [ "nvidia" ];
     xserver.displayManager.startx.enable = true;
