@@ -49,6 +49,27 @@
       }
       {
         profile = {
+          name = "Samsung_left";
+          outputs = [
+            {
+              criteria = "eDP-1";
+              status = "enable";
+              mode = "--custom 1920x1080@144Hz";
+              position = "1920,0";
+              adaptiveSync = true;
+            }
+            {
+              criteria = "Samsung Electric Company S22F350 H4ZJ700738";
+              status = "enable";
+              mode = "1920x1080";
+              position = "0,0";
+              adaptiveSync = true;
+            }
+          ];
+        };
+      }
+      {
+        profile = {
           name = "HDMI_Hotplug";
           outputs = [
             {
@@ -63,7 +84,6 @@
             }
           ];
           exec = [
-            "hyprctl keyword monitor eDP-1, 1920x1080@144Hz, 0x0, 1"
             "hyprctl dispatch moveworkspacetomonitor 7 HDMI-A-1"
             "hyprctl dispatch moveworkspacetomonitor 8 HDMI-A-1"
             "hyprctl dispatch moveworkspacetomonitor 9 HDMI-A-1"
