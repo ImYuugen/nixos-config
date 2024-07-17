@@ -86,6 +86,11 @@
       vrr = "1";
     };
 
+    # Set default scale to 1
+    monitor = [
+      ",preferred,auto,1"
+    ];
+
     xwayland = {
       force_zero_scaling = "true";
     };
