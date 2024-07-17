@@ -1,4 +1,5 @@
-{ inputs
+{ config
+, inputs
 , pkgsSet
 , ...
 }:
@@ -47,18 +48,19 @@ in
     };
     nvidia = {
       open = false;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
       nvidiaSettings = true;
       modesetting.enable = true;
       dynamicBoost.enable = true;
       powerManagement = {
         enable = true;
+        finegrained = true;
       };
       prime = {
         offload = {
           enable = true;
           enableOffloadCmd = true;
         };
-        reverseSync.enable = true;
         amdgpuBusId = "PCI:7:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
