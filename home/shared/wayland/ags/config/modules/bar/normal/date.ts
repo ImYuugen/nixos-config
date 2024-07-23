@@ -18,9 +18,12 @@ const DateModule = () => Widget.EventBox({
         className: "bar-time",
         label: time.bind(),
       }),
-      Widget.Label(" - "),
       Widget.Label({
-        className: "bar-date",
+        className: "txt-norm txt-on-layer1",
+        label: " • ",
+      }),
+      Widget.Label({
+        className: "txt-smaller bar-date",
         label: date.bind(),
       })
     ],

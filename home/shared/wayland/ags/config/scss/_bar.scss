@@ -1,4 +1,4 @@
-@use 'colors';
+@use 'colors' as *;
 
 @mixin bar-group-rounding {
   border-radius: 0.818rem;
@@ -6,14 +6,12 @@
 }
 
 .bar-normal {
-  // Layer 0
-  background-color: $background;
+  background-color: $layer0;
   min-height: 2.727rem;
 }
 
 .bar-group {
-  // Layer 1
-  background-color: #222222;
+  background-color: $layer1;
 }
 
 /* Adds space between top/bottom of bar for CHILDREN */
@@ -42,72 +40,83 @@
   -gtk-outline-radius: 1.364rem;
 }
 
+/* Battery */
 .bar-battery {
   min-height: 1.77rem;
   min-width: 1.77rem;
   border-radius: 10rem;
 }
 
-.bar-battery-label-icon {
-  // Battery On Layer 1
-  color: #FFFFFF;
+// Apply color change transition to all children
+.bar-battery>* {
+  transition: all 1s ease;
+}
+
+.bar-battery-icon {
+  color: $battOnLayer1;
 }
 
 .bar-battery-text {
   padding-left: 0.273rem;
-  // Battery On Layer 1
-  color: #00FF00;
+  color: $battOnLayer1;
 }
 
 .bar-battery-circprog {
   min-width: 0.136rem;
   min-height: 1.636rem;
   padding: 0rem;
-  // Battery Layer 2
-  background-color: #FFFF00;
-  // Battery On Layer 2
-  color: #FF0000;
+  background-color: $battLayer2;
+  color: $battOnLayer2;
 }
 
 .bar-battery-low {
-  // Error
-  background-color: #0000FF;
-  // Error Container
-  color: #FFFFFF;
+  background-color: $errorLayer;
+  color: $onErrorLayer;
+  transition: all 1s ease;
 }
 
-.bar-battery-label-icon-low {
-  // Error Container
-  color: #FFFFFF;
+.bar-battery-text-low {
+  padding-left: 0.273rem;
+  color: $onErrorLayer;
+}
+
+.bar-battery-icon-low {
+  color: $onErrorLayer;
 }
 
 .bar-battery-circprog-low {
-  // Error
-  background-color: #0000FF;
-  // Error Container
-  color: #FFFFFF;
+  background-color: $errorLayer;
+  color: $onErrorLayer;
 }
+/* --- */
 
+/* Clock */
 .bar-clock-box {
   margin: 0rem 0.682rem;
 }
 
+.bar-time {
+  color: $timeOnLayer1;
+}
+
+.bar-date {
+  color: $dateOnLayer1;
+}
+/* --- */
+
+/* Workspaces */
 .bar-ws {
   min-width: 1.774rem;
-  // Workspace On Layer 1 Inactive
-  color: #BBBBBB;
+  color: $workspaceOnLayer1Inactive;
 }
 
 .bar-ws-active {
-  // Layer 3
-  background-color: #DDDDDD;
-  // Workspace On Layer 3
-  color: #000000;
+  background-color: $layer3;
+  color: $onLayer3;
 }
 
 .bar-ws-occupied {
-  // Layer 2
-  background-color: #444444;
-  // Workspace On Layer 2
-  color: #FFFFFF;
+  background-color: $layer2;
+  color: $onLayer2;
 }
+/* --- */

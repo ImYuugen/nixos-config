@@ -1,3 +1,21 @@
+@use 'colors' as *;
+
 * {
   all: unset;
+}
+
+.txt-norm {
+  font-size: 1.2727rem;
+}
+
+.txt-on-layer1 {
+  color: $onLayer1;
+}
+
+.txt-smallie {
+  font-size: 1rem;
+}
+
+.txt-smaller {
+  font-size: 0.9091rem;
 }
