@@ -1,23 +1,23 @@
 import Widget from "resource:///com/github/Aylur/ags/widget.js"; 
 
+import battery from "./normal/battery.ts";
+import date from "./normal/date.ts";
 import workspaces from "./normal/workspaces.ts";
 
 export const Bar = (monitor = 0) => {
   const normalContent = Widget.CenterBox({
     className: "bar-normal",
     startWidget: Widget.Box({
-      className: "bar-start-box",
-      children: [
-      ],
+      children: [],
     }),
     centerWidget: Widget.Box({
-      className: "bar-center-box",
       children: [
-        workspaces()
+        workspaces(),
+        date(),
+        battery(),
       ],
     }),
     endWidget: Widget.Box({
-      className: "bar-end-box",
       children: [],
     }),
   });
@@ -34,7 +34,6 @@ export const Bar = (monitor = 0) => {
     exclusivity: "exclusive",
     visible: true,
     child: Widget.Stack({
-      // Space evenly: false
       homogeneous: false,
       children: {
         'normal': normalContent,

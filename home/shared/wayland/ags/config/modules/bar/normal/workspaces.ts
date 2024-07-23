@@ -122,8 +122,8 @@ export default () => Widget.EventBox({
     className: "bar-group-margin",
     children: [
       Widget.Box({
-        className: "bar-group bar-group-standalone bar-group-pad",
-        children: [workspacesArea()],
+        className: "bar-group bar-group-standalone bar-group-spaced bar-group-pad",
+        child: workspacesArea(),
       }),
     ]
   }),
@@ -135,7 +135,6 @@ export default () => Widget.EventBox({
         const cursorX = event.get_coords()[1];
         const widgetWidth = self.get_allocation().width;
         const wsId = Math.ceil(cursorX * wsCount / widgetWidth);
-        console.log(wsId);
         Hyprland.messageAsync(`dispatch workspace ${wsId}`).catch(print);
       }
     });
