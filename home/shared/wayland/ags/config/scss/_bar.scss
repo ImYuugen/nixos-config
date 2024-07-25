@@ -40,6 +40,11 @@
   -gtk-outline-radius: 1.364rem;
 }
 
+.bar-corner-spacer {
+  min-width: 1.705rem;
+  min-height: 1.705rem;
+}
+
 /* Battery */
 .bar-battery {
   min-height: 1.77rem;
@@ -101,6 +106,16 @@
 
 .bar-date {
   color: $dateOnLayer1;
+}
+/* --- */
+
+/* Window Title */
+.bar-window-title-desc {
+  color: $windowtitleOnLayer0Inactive;
+}
+
+.bar-window-title {
+  color: $windowtitleOnLayer0;
 }
 /* --- */
 

@@ -4,7 +4,8 @@ trap 'echo "Killing ags" && pkill ags' SIGINT
 
 nix-shell -p inotify-tools dart-sass --run '
   function execute() {
-    echo "Config changed, relaunching ags"
+    clear
+    echo "Config changed, relaunching ags ($1)"
     ags -c ./config.js -q
     ags -c ./config.js &
   }
@@ -12,7 +13,6 @@ nix-shell -p inotify-tools dart-sass --run '
   ags -c ./config.js &
   inotifywait --event modify --recursive --monitor ./ \
   | while read changed; do
-    echo $changed
-    execute
+    execute "$changed"
   done
 '

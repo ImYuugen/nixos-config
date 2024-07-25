@@ -2,13 +2,16 @@ import Widget from "resource:///com/github/Aylur/ags/widget.js";
 
 import battery from "./normal/battery.ts";
 import date from "./normal/date.ts";
+import title from "./normal/title.ts";
 import workspaces from "./normal/workspaces.ts";
 
 export const Bar = (monitor = 0) => {
   const normalContent = Widget.CenterBox({
     className: "bar-normal",
     startWidget: Widget.Box({
-      children: [],
+      children: [
+        title(),
+      ],
     }),
     centerWidget: Widget.Box({
       children: [
