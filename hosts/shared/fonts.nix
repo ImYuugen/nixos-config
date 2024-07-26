@@ -3,25 +3,25 @@
     enableDefaultPackages = true;
     packages = with pkgsSet.unstable; [
       # Curse of Râ
-      aegyptus
+      material-design-icons
       nerdfonts
+      noto-fonts
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       twemoji-color-font
-      symbola
     ];
     fontconfig = {
       defaultFonts = {
         monospace = [
-          "FiraCode"
+          "IosevkaTermNFM"
           "Noto Sans CJK JP"
         ];
         sansSerif = [
-          "DejaVu Sans"
+          "Noto Sans"
           "Noto Sans CJK JP"
         ];
         serif = [
-          "DejaVu Serif"
+          "Noto Serif"
           "Noto Serif CJK JP"
         ];
       };
