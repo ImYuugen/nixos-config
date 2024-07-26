@@ -42,7 +42,6 @@ const WindowTitle = () => Widget.Scrollable({
 export default () => Widget.Box({
   homogeneous: false,
   children: [
-    Widget.Box({ className: "bar-corner-spacer" }),
     WindowTitle(),
   ],
 });

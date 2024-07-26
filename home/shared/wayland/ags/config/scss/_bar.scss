@@ -109,6 +109,22 @@
 }
 /* --- */
 
+/* System */
+.bar-system-item {
+  @include bar-group-rounding;
+  min-width: 1.77rem;
+  min-height: 1.77rem;
+  background-color: $systemLayer2;
+  color: $systemOnLayer2;
+}
+
+.bar-system-item-circprog {
+  min-width: 0.136rem;
+  min-height: 1.636rem;
+  padding: 0rem;
+}
+/* --- */
+
 /* Window Title */
 .bar-window-title-desc {
   color: $windowtitleOnLayer0Inactive;

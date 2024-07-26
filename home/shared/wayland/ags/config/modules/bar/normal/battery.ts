@@ -1,4 +1,3 @@
-import BarGroup from "../../utils/bargroup.ts";
 import CircProg from "../../utils/circprog.ts";
 
 import Battery from "resource:///com/github/Aylur/ags/service/battery.js";
@@ -47,7 +46,6 @@ const BatteryText = () => Widget.Label({
 });
 
 const BatteryCapacity = Widget.Box({
-  className: "bar-battery",
   children: [
     BatteryText(),
     Widget.Overlay({
