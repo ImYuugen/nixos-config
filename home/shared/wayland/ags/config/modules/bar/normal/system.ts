@@ -1,4 +1,5 @@
 import CircProg from "../../utils/circprog.ts";
+import Material from "../../utils/material.ts";
 
 import Variable from "resource:///com/github/Aylur/ags/variable.js";
 import Widget from "resource:///com/github/Aylur/ags/widget.js"; 
@@ -17,7 +18,7 @@ const CpuCircProg = () => {
     extraSetup: (self) => {
       self.hook(CpuUsage, () => {
         self.css = `font-size: ${CpuUsage.value}px;`;
-        self.tooltipText = CpuUsage.value;
+        self.tooltipText = `CPU: ${CpuUsage.value}`;
       })
     },
   });
@@ -28,9 +29,11 @@ const CpuLoad = () => Widget.Box({
     overlays: [
       Widget.Box({
         homogeneous: true,
-        child: Widget.Label({
-          label: "C",
-        }),
+        child: Material(
+          "developer_board",
+          "norm",
+          {}
+        ),
       })
     ],
     child: Widget.Box({
@@ -97,7 +100,7 @@ const MemoryCircProg = () => {
     extraSetup: (self) => {
       self.hook(MemoryUsage, () => {
         self.css = `font-size: ${MemoryUsage.value}px;`;
-        self.tooltipText = MemoryUsage.value;
+        self.tooltipText = `RAM: ${MemoryUsage.value}`;
       })
     },
   });
@@ -108,9 +111,11 @@ const MemoryLoad = () => Widget.Box({
     overlays: [
       Widget.Box({
         homogeneous: true,
-        child: Widget.Label({
-          label: "M",
-        }),
+        child: Material(
+          "memory",
+          "norm",
+          {},
+        ),
       })
     ],
     child: Widget.Box({

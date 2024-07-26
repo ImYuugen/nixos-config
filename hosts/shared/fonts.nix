@@ -4,6 +4,7 @@
     packages = with pkgsSet.unstable; [
       # Curse of Râ
       material-design-icons
+      material-symbols
       nerdfonts
       noto-fonts
       noto-fonts-cjk-serif

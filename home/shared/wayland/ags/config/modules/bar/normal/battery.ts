@@ -1,4 +1,5 @@
 import CircProg from "../../utils/circprog.ts";
+import Material from "../../utils/material.ts";
 
 import Battery from "resource:///com/github/Aylur/ags/service/battery.js";
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
@@ -52,7 +53,21 @@ const BatteryCapacity = Widget.Box({
       child: Widget.Box({
         className: "bar-battery",
         homogeneous: true,
-        child: BatteryIcon(),
+        // child: BatteryIcon(),
+        child: Material(
+          "battery_full",
+          "small",
+          {
+            className: "bar-battery-icon",
+            setup: (self) => self.hook(
+              Battery,
+              (self) => self.toggleClassName(
+                "bar-battery-icon-low",
+                Battery.percent <= lowBatteryThresh && !Battery.charging
+              )
+            ),
+          },
+        ),
       }),
       overlays: [
         BatteryProgress(),
@@ -62,7 +77,11 @@ const BatteryCapacity = Widget.Box({
       transitionDuration: 300,
       transition: "slide_right",
       revealChild: Battery.bind("charging"),
-      child: Widget.Label("󱐋"),
+      child: Material(
+        "bolt",
+        "norm",
+        { tooltipText: "Charging", },
+      ),
     }),
   ],
 });
@@ -74,6 +93,13 @@ export default () => Widget.EventBox({
       Widget.EventBox({
         className: "bar-group bar-group-standalone bar-group-pad",
         child: BatteryCapacity,
+        tooltipText: Battery.bind("time_remaining").as(t => {
+          const h = Math.floor(t / 3600);
+          t = t % 3600;
+          const m = Math.floor(t / 60);
+          t = t % 60;
+          return `${h}:${m}:${t}`;
+        }),
         setup: (self) => {
           self.hook(Battery, box => {
             box.toggleClassName(

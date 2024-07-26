@@ -4,12 +4,20 @@
   all: unset;
 }
 
+.icon-material {
+  font-family: "Material Symbols Rounded", "MaterialSymbolsRounded", "Material Symbols Outlined", "Material Symbols Sharp";
+}
+
 .txt-norm {
-  font-size: 1.2727rem;
+  font-size: 1.24rem;
 }
 
 .txt-on-layer1 {
   color: $onLayer1;
+}
+
+.txt-small {
+  font-size: 1.115rem;
 }
 
 .txt-smallie {
