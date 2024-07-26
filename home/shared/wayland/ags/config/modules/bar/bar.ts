@@ -1,5 +1,8 @@
 import Widget from "resource:///com/github/Aylur/ags/widget.js"; 
 
+import { enableClickThrough } from "../utils/clickthrough.ts";
+import RoundedCorner from "../utils/roundedcorner.ts";
+
 import battery from "./normal/battery.ts";
 import date from "./normal/date.ts";
 import system from "./normal/system.ts";
@@ -52,3 +55,25 @@ export const Bar = (monitor = 0) => {
     })
   });
 };
+
+export const BarCornerTopLeft = (monitor = 0) => Widget.Window({
+  monitor,
+  name: `bar-cornertl${monitor}`,
+  layer: "top",
+  anchor: [ "top", "left" ],
+  exclusivity: "normal",
+  visible: true,
+  child: RoundedCorner("topleft", { className: "corner", }),
+  setup: enableClickThrough,
+});
+
+export const BarCornerTopRight = (monitor = 0) => Widget.Window({
+  monitor,
+  name: `bar-cornertr${monitor}`,
+  layer: "top",
+  anchor: [ "top", "right" ],
+  exclusivity: "normal",
+  visible: true,
+  child: RoundedCorner("topright", { className: "corner", }),
+  setup: enableClickThrough,
+});

@@ -5,6 +5,16 @@
   -gtk-outline-radius: 0.818rem;
 }
 
+@mixin large-rounding {
+  border-radius: 1.705rem;
+  -gtk-outline-radius: 1.705rem;
+}
+
+.corner {
+  @include large-rounding;
+  background-color: $layer0;
+}
+
 .bar-normal {
   background-color: $layer0;
   min-height: 2.727rem;

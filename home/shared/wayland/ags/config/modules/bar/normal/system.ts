@@ -18,7 +18,7 @@ const CpuCircProg = () => {
     extraSetup: (self) => {
       self.hook(CpuUsage, () => {
         self.css = `font-size: ${CpuUsage.value}px;`;
-        self.tooltipText = `CPU: ${CpuUsage.value}`;
+        self.tooltipText = `CPU: ${CpuUsage.value}%`;
       })
     },
   });
@@ -59,7 +59,7 @@ const DiskCircProg = () => {
     extraSetup: (self) => {
       self.hook(DiskUsage, () => {
         self.css = `font-size: ${DiskUsage.value}px;`;
-        self.tooltipText = DiskUsage.value;
+        self.tooltipText = `/ : ${DiskUsage.value}%`;
       })
     },
   });
@@ -100,7 +100,7 @@ const MemoryCircProg = () => {
     extraSetup: (self) => {
       self.hook(MemoryUsage, () => {
         self.css = `font-size: ${MemoryUsage.value}px;`;
-        self.tooltipText = `RAM: ${MemoryUsage.value}`;
+        self.tooltipText = `RAM: ${MemoryUsage.value}%`;
       })
     },
   });

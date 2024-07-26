@@ -5,7 +5,6 @@ export default (icon, size, props) => {
   if (props.className !== undefined) {
     delete props.className;
   };
-  console.log(cN);
   return Widget.Label({
     className: cN,
     label: `${icon}`,
