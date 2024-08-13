@@ -22,7 +22,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland/?submodules=1";
     hyprlock.url = "github:hyprwm/hyprlock";
     hyprpaper.url = "github:hyprwm/hyprpaper";
-    # hyprpicker.url = "github:hyprwm/hyprpicker";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
     hypr-contrib.url = "github:hyprwm/contrib";
 
     lanzaboote = {

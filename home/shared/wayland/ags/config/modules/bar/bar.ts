@@ -7,6 +7,7 @@ import battery from "./normal/battery.ts";
 import date from "./normal/date.ts";
 import system from "./normal/system.ts";
 import title from "./normal/title.ts";
+import tray from "./normal/tray.ts";
 import workspaces from "./normal/workspaces.ts";
 
 export const Bar = (monitor = 0) => {
@@ -28,6 +29,7 @@ export const Bar = (monitor = 0) => {
     endWidget: Widget.Box({
       hpack: "end",
       children: [
+        tray(),
         system(),
         Widget.Box({ className: "bar-corner-spacer" }),
       ],

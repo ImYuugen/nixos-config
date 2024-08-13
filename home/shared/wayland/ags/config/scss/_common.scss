@@ -27,3 +27,14 @@
 .txt-smaller {
   font-size: 0.9091rem;
 }
+
+@each $spacing in (5, 10) {
+  .spacing-#{$spacing} {
+    &.vertical > *:not(:last-child) {
+      margin-bottom: calc(0.341rem/5*$spacing);
+    }
+    &:not(.vertical) > *:not(:last-child) {
+      margin-right: calc(0.341rem/5*$spacing);
+    }
+  }
+}

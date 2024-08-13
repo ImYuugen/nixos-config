@@ -1,7 +1,9 @@
 "use strict";
 
 import App from 'resource:///com/github/Aylur/ags/app.js';
+
 import { Bar, BarCornerTopLeft, BarCornerTopRight } from './modules/bar/bar.ts';
+import SystemTray from "./modules/systray.ts";
 
 const scss = `${App.configDir}/scss/main.scss`;
 const css = `/tmp/ags-style.css`;
@@ -18,6 +20,8 @@ const BarWithRounding = (monitor = 0) => [
 App.config({
     style: css,
     windows: [
-        BarWithRounding(1),
+        ...BarWithRounding(0),
+        // ...BarWithRounding(1),
+        SystemTray(0),
     ],
 });

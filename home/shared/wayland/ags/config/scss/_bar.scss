@@ -119,6 +119,12 @@
 }
 /* --- */
 
+/* Tray */
+.bar-tray-button {}
+
+.bar-tray-arrow {}
+/* --- */
+
 /* System */
 .bar-system-item {
   @include bar-group-rounding;

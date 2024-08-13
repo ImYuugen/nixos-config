@@ -28,7 +28,7 @@ in
     kernelParams = [
       "usbcore.autosuspend=-1"
     ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_9;
     supportedFilesystems = [ "nfts" ];
     bootspec.enableValidation = true;
     loader = {
@@ -138,7 +138,7 @@ in
   users.users.yuugen = {
     shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "audio" "docker" "networkmanager" "video" "wheel" ];
+    extraGroups = [ "audio" "docker" "networkmanager" "video" "wheel" "gamemode" ];
   };
 
   virtualisation = {
