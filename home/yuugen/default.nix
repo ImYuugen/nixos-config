@@ -15,6 +15,8 @@
       # ../shared/files.nix
       ../shared/firefox
       ../shared/editors/helix.nix
+      ../shared/editors/intellij.nix
+      ../shared/editors/vscode.nix
       ../shared/environment.nix
       ../shared/gaming.nix
       ../shared/media/mpv.nix
