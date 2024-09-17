@@ -42,6 +42,7 @@
       "QT_QPA_PLATFORMTHEME,qt5ct"
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       "WLR_DRM_DEVICES,$HOME/.config/hypr/amdgpu:$HOME/.config/hypr/nvidia"
+      "AQ_DRM_DEVICES,$HOME/.config/hypr/amdgpu:$HOME/.config/hypr/nvidia"
       "__JAVA_AWT_WM_NONREPARENTING,1"
     ];
 
