@@ -28,8 +28,8 @@ in
     kernelParams = [
       "usbcore.autosuspend=-1"
     ];
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_9;
-    supportedFilesystems = [ "nfts" ];
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    supportedFilesystems = [ "ntfs" ];
     bootspec.enableValidation = true;
     loader = {
       grub = {
@@ -48,7 +48,7 @@ in
     };
     nvidia = {
       open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       nvidiaSettings = true;
       modesetting.enable = true;
       dynamicBoost.enable = true;
