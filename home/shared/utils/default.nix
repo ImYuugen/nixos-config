@@ -13,7 +13,7 @@ in
     mysql-workbench
   ];
 
-  services.gnome.gnome-keyring.enable = true;
+  services.gnome-keyring.enable = true;
 
   programs = {
     bat.enable = true;
