@@ -28,7 +28,7 @@ in
     kernelParams = [
       "usbcore.autosuspend=-1"
     ];
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgsSet.unstable.linuxPackages_latest;
     supportedFilesystems = [ "ntfs" ];
     bootspec.enableValidation = true;
     loader = {
