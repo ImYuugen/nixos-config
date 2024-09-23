@@ -64,4 +64,9 @@ in
       ];
     };
   };
+
+  xdg.configFile."hypr/resources" = {
+    source = ./resources;
+    recursive = true;
+  };
 }
