@@ -4,12 +4,14 @@
 }: {
   programs.hyprlock = {
     enable = true;
-    package = inputs.hyprlock.packages.${pkgsSet.stable.system}.hyprlock;
+    # package = inputs.hyprlock.packages.${pkgsSet.stable.system}.hyprlock;
     settings = {
       general = {
         disable_loading_bar = true;
         hide_cursor = false;
         no_fade_in = true;
+        no_fade_out = true;
+        grace = 3;
       };
       background = {
         path = "screenshot";
