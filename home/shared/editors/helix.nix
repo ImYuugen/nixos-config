@@ -1,5 +1,5 @@
 { pkgsSet, ... }: {
-  home.sessionVariables.EDITOR = "hx";
+  # home.sessionVariables.EDITOR = "hx";
 
   programs.helix = {
     enable = true;

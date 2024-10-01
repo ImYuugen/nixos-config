@@ -17,6 +17,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    lz.url = "github:nvim-neorocks/lz.n";
+
     ags.url = "github:Aylur/ags";
     hyprcursor.url = "github:hyprwm/hyprcursor";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland/?submodules=1";
