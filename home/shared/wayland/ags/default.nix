@@ -17,4 +17,8 @@
     pkgsSet.stable.dart-sass
     pkgsSet.stable.libdbusmenu-gtk3
   ];
+
+  wayland.windowManager.hyprland.settings.exec-once = [
+    "ags"
+  ];
 }

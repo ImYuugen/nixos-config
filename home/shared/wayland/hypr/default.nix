@@ -40,6 +40,9 @@ in
   home.packages = [
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+
+    # TODO: Move to ricing options
+    pkgs.kanagawa-icon-theme
   ];
 
   xdg.portal = {
