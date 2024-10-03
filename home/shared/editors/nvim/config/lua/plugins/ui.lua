@@ -3,6 +3,7 @@ local utils = require("utils")
 return {
   {
     "nvim-notify",
+    event = "UIEnter",
     keys = {
       {
         "<leader>un",
@@ -12,8 +13,7 @@ return {
         desc = "Dismiss notifications",
       },
     },
-    beforeAll = function()
-      -- TODO: Probably no worky
+    after = function()
       require("notify").setup({
         timeout = 2000,
         max_height = math.floor(vim.o.lines * 0.75),
@@ -22,14 +22,11 @@ return {
     end,
   },
   {
-    -- TODO: Find out why commands are not available
     "bufferline.nvim",
-    event = { "DeferredUIEnter" },
+    event = "UIEnter",
     keys = {
-      { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
-      { "<leader>bP", "<Cmd>BufferLineGroupClose<CR>", desc = "Delete non-pinned" },
     },
-    beforeAll = function()
+    after = function()
       local icons = utils.icons.diagnostics
       require("bufferline").setup({
         options = {
@@ -51,10 +48,10 @@ return {
     end,
   },
   {
-    -- TODO: Find out why it isn't showing
     "lualine.nvim",
-    event = { "DeferredUIEnter" },
-    beforeAll = function()
+    event = "UIEnter",
+    after = function()
+      vim.o.laststatus = 2
       require("lualine").setup({
         options = {
           theme = "auto",
@@ -78,11 +75,13 @@ return {
             { "filename", path = 1, symbols = { modified = "*", readonly = "!", unnamed = "無" } },
           },
           lualine_x = {
-            "diff",
-            symbols = {
-              added = utils.icons.git.Added,
-              removed = utils.icons.git.Removed,
-              modified = utils.icons.git.Modified,
+            {
+              "diff",
+              symbols = {
+                added = utils.icons.git.Added,
+                removed = utils.icons.git.Removed,
+                modified = utils.icons.git.Modified,
+              },
             },
           },
           lualine_y = {

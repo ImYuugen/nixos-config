@@ -1,9 +1,59 @@
 { inputs
+, lib
 , pkgsSet
 , ...
 }:
 let
   pkgs = pkgsSet.unstable;
+  tsGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: with p; [
+    p.arduino
+    p.asm
+    p.bash
+    p.c
+    p.cmake
+    p.cpp
+    p.css
+    p.cuda
+    p.diff
+    p.dockerfile
+    p.doxygen
+    p.fish
+    p.git_rebase
+    p.git_config
+    p.gitattributes
+    p.gitcommit
+    p.gitignore
+    p.glsl
+    p.go
+    p.haskell
+    p.html
+    p.http
+    p.hyprlang
+    p.java
+    p.javascript
+    p.json
+    p.latex
+    p.llvm
+    p.lua
+    p.make
+    p.markdown
+    p.meson
+    p.nix
+    p.objdump
+    p.ocaml
+    p.python
+    p.rasi
+    p.ron
+    p.rst
+    p.rust
+    p.scss
+    p.tiger
+    p.toml
+    p.typescript
+    p.wgsl
+    p.yaml
+    p.zig
+  ]);
 in
 {
   programs.neovim = {
@@ -27,6 +77,7 @@ in
       dashboard-nvim
       dressing-nvim
       gitsigns-nvim
+      lspkind-nvim
       lualine-nvim
       mini-nvim
       multicursors-nvim
@@ -80,7 +131,8 @@ in
       # Completion
       cmp-buffer
       cmp-nvim-lsp
-      cmp-path
+      cmp-async-path
+      cmp-treesitter
       nvim-cmp
 
       # Search
@@ -94,11 +146,10 @@ in
       nvim-treesitter-context
       nvim-treesitter-textobjects
       nvim-treesitter-textsubjects
-      nvim-treesitter.withAllGrammars
+      tsGrammars
     ];
     extraPackages = with pkgs; [
       gcc # For treesitter
-      vscode-langservers-extracted
     ];
   };
 

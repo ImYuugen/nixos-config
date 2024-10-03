@@ -3,11 +3,17 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Go into sub folders
+opt.path = vim.o.path .. "**"
+opt.laststatus = 0
+
 opt.backspace = "indent,eol,start"
+opt.compatible = false
 opt.cursorline = true
 opt.expandtab = true
 opt.formatoptions:remove({ "c", "r", "o" })
 opt.inccommand = "nosplit"
+opt.incsearch = true
 opt.list = true
 opt.listchars = { trail = "-" }
 opt.mouse = "a"
