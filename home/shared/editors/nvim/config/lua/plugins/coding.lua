@@ -8,10 +8,6 @@ return {
       local cmp = require("cmp")
       local lspkind = require("lspkind")
       cmp.setup({
-        experimental = {
-          native_menu = false,
-          ghost_text = true,
-        },
         formatting = {
           format = lspkind.cmp_format({
             mode = "symbol_text",
@@ -40,10 +36,10 @@ return {
         },
         sources = {
           { name = "nvim_lsp" },
-          { name = "buffer" },
+          { name = "buffer", keyword_length = 3, },
           { name = "crates" },
-          { name = "async_path" },
-          { name = "treesitter" }
+          { name = "async_path", trigger_characters = { "./", "/" }, },
+          { name = "treesitter" },
         },
       })
     end
