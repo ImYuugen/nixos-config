@@ -68,8 +68,8 @@ Below are some things that are top priority to me (unordered)
 - [ ] Isolate home-manager from system so you don't rebuild each time
 
 ## Resources
-I took inspiration from those:
+I took inspiration from these distinguished humans:
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config/)
 - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
 - [ja1den/_](https://gitlab.com/ja1den/_)
-- [Nix PIE](https://gitlab.cri.epita.fr/cri/infrastructure/nixpie)
+- [Neovim config](https://github.com/Eddio0141/meowvim/)
