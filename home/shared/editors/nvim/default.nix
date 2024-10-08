@@ -43,6 +43,7 @@ let
     p.ocaml
     p.python
     p.rasi
+    p.regex
     p.ron
     p.rst
     p.rust
@@ -66,32 +67,34 @@ in
 
     plugins = with pkgs.vimPlugins; [
       lz-n
-      vim-startuptime
 
       # Theming
       rose-pine
 
       # Functional
-      aerial-nvim
       bufferline-nvim
       dashboard-nvim
       dressing-nvim
       gitsigns-nvim
       lspkind-nvim
       lualine-nvim
+      luasnip
       mini-nvim
       multicursors-nvim
       neo-tree-nvim
       noice-nvim
       nui-nvim
       nvim-lsp-notify
+      nvim-navbuddy
       nvim-navic
       nvim-notify
+      nvim-surround
       nvim-web-devicons
       toggleterm-nvim
       trouble-nvim
       vim-repeat
       which-key-nvim
+      wilder-nvim
 
       # Leap
       leap-nvim
@@ -109,12 +112,9 @@ in
       todo-comments-nvim
 
       # [LSP]
-      actions-preview-nvim
       lazydev-nvim
-      none-ls-nvim
       nvim-lightbulb
       nvim-lspconfig
-      SchemaStore-nvim
       # [[Rust]]
       rustaceanvim
       crates-nvim
