@@ -1,9 +1,9 @@
-{ inputs
-, lib
-, pkgsSet
-, ...
-}:
-let
+{
+  inputs,
+  lib,
+  pkgsSet,
+  ...
+}: let
   shared = [
     inputs.home-manager.nixosModules.home-manager
     {
@@ -15,11 +15,10 @@ let
     # Fix command-not-found
     inputs.fps.nixosModules.programs-sqlite
   ];
-in
-{
+in {
   # HP Omen Laptop
   omen = lib.nixosSystem {
-    specialArgs = { inherit inputs lib pkgsSet; };
+    specialArgs = {inherit inputs lib pkgsSet;};
     modules =
       [
         ./omen

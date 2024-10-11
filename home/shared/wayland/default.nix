@@ -1,4 +1,4 @@
-{ pkgsSet, ... }: {
+{pkgsSet, ...}: {
   # Probably not useful
   home.packages = with pkgsSet.stable; [
     wayland

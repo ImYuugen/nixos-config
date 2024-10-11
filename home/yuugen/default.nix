@@ -1,6 +1,7 @@
-{ inputs
-, pkgsSet
-, ...
+{
+  inputs,
+  pkgsSet,
+  ...
 }: {
   home-manager.extraSpecialArgs = {
     inherit inputs pkgsSet;

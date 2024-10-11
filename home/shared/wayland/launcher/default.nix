@@ -1,8 +1,6 @@
-{ pkgsSet, ... }:
-let
+{pkgsSet, ...}: let
   pkgs = pkgsSet.stable;
-in
-{
+in {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;

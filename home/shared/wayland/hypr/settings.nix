@@ -76,7 +76,7 @@
       };
     };
 
-    master = { };
+    master = {};
 
     misc = {
       force_default_wallpaper = "0";

@@ -1,4 +1,4 @@
-{ pkgsSet, ... }: {
+{pkgsSet, ...}: {
   # home.sessionVariables.EDITOR = "hx";
 
   programs.helix = {
@@ -25,7 +25,7 @@
         formatter = {
           command = "clang-format";
         };
-        language-servers = [ "clangd" ];
+        language-servers = ["clangd"];
         indent = {
           tab-width = 4;
           unit = "\t";
@@ -37,7 +37,7 @@
         formatter = {
           command = "nix fmt";
         };
-        language-servers = [ "nil" ];
+        language-servers = ["nil"];
       }
     ];
   };

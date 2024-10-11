@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, unstable
-, ...
+{
+  config,
+  pkgs,
+  unstable,
+  ...
 }: {
   programs = {
     git = {
@@ -56,6 +57,10 @@
         "*~"
         "*.swp"
       ];
+    };
+    lazygit = {
+      enable = true;
+      # settings = {};
     };
   };
 }

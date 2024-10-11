@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # For command-not-found
     fps = {
       url = "github:wamserma/flake-programs-sqlite";
@@ -40,47 +45,46 @@
     wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
-  outputs =
-    { self
-    , home-manager
-    , ...
-    } @ inputs:
-    let
-      lib = inputs.nixpkgs.lib // home-manager.lib;
-      system = "x86_64-linux";
-      pkgsSet = with inputs; {
-        stable = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        confPkgs = import ./pkgs;
+  outputs = {
+    self,
+    home-manager,
+    ...
+  } @ inputs: let
+    lib = inputs.nixpkgs.lib // home-manager.lib;
+    system = "x86_64-linux";
+    pkgsSet = with inputs; {
+      stable = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
       };
-    in
-    {
-      nixosConfigurations = (
-        import ./hosts {
-          inherit inputs lib pkgsSet;
-        }
-      );
-      formatter.${system} = pkgsSet.stable.nixpkgs-fmt;
-      devShells.${system}.default = pkgsSet.stable.mkShell {
-        inherit (self.checks.${system}.pre-commit-check) shellHook;
-        buildInputs = [
-          inputs.nil.packages.${system}.default
-          pkgsSet.stable.nodePackages_latest.typescript-language-server
-        ];
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
       };
-      checks.${system} = {
-        pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {
-            nixpkgs-fmt.enable = true;
-          };
+      confPkgs = import ./pkgs;
+    };
+  in {
+    nixosConfigurations = (
+      import ./hosts {
+        inherit inputs lib pkgsSet;
+      }
+    );
+    formatter.${system} = inputs.alejandra.defaultPackage.${system};
+    devShells.${system}.default = pkgsSet.stable.mkShell {
+      inherit (self.checks.${system}.pre-commit-check) shellHook;
+      buildInputs = [
+        inputs.nil.packages.${system}.default
+        pkgsSet.stable.nodePackages_latest.typescript-language-server
+        pkgsSet.stable.lua-language-server
+      ];
+    };
+    checks.${system} = {
+      pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          alejandra.enable = true;
         };
       };
     };
+  };
 }

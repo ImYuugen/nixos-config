@@ -1,23 +1,19 @@
 let
   workspaces = builtins.concatLists (builtins.genList
     (
-      x:
-      let
-        ws =
-          let
-            c = (x + 1) / 10;
-          in
+      x: let
+        ws = let
+          c = (x + 1) / 10;
+        in
           builtins.toString (x + 1 - (c * 10));
-      in
-      [
+      in [
         "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
         "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
         "$mainMod CTRL, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
       ]
     )
     10);
-in
-{
+in {
   wayland.windowManager.hyprland.settings = {
     binds = {
       workspace_back_and_forth = "true";
@@ -93,7 +89,7 @@ in
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioNext, exec, playerctl next"
     ];
-    bindl = [ ];
+    bindl = [];
     bindm = [
       "$mainMod, mouse:272, movewindow"
       "$mainMod, mouse:273, resizewindow"

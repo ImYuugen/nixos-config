@@ -1,4 +1,4 @@
-{ pkgsSet, ... }: {
+{pkgsSet, ...}: {
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgsSet.unstable; [

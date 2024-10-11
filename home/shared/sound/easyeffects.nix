@@ -1,5 +1,5 @@
-{ pkgsSet, ... }: {
-  home.packages = [ pkgsSet.stable.easyeffects ];
+{pkgsSet, ...}: {
+  home.packages = [pkgsSet.stable.easyeffects];
 
   xdg.configFile = {
     "easyeffects/output/PerfectEQ.json".source = ./effects/PerfectEQ.json;

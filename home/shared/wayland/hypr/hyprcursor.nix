@@ -1,6 +1,7 @@
-{ inputs
-, pkgsSet
-, ...
+{
+  inputs,
+  pkgsSet,
+  ...
 }: rec {
   home.packages = [
     inputs.hyprcursor

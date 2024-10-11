@@ -1,12 +1,11 @@
-{ inputs
-, lib
-, pkgsSet
-, ...
-}:
-let
-  pkgs = pkgsSet.stable;
-in
 {
+  inputs,
+  lib,
+  pkgsSet,
+  ...
+}: let
+  pkgs = pkgsSet.stable;
+in {
   imports = [
     ./binds.nix
     ./hyprcursor.nix
@@ -18,8 +17,8 @@ in
 
   nix = {
     settings = {
-      extra-substituters = [ "https://hyprland.cachix.org" ];
-      extra-trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      extra-substituters = ["https://hyprland.cachix.org"];
+      extra-trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
   };
 
@@ -60,7 +59,7 @@ in
     xwayland.enable = true;
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd = {
-      variables = [ "--all" ];
+      variables = ["--all"];
       extraCommands = [
         "systemctl --user stop graphical-session.target"
         "systemctl --user start hyprland-session.target"

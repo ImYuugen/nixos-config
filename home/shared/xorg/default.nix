@@ -1,7 +1,4 @@
-{ pkgsSet
-, ...
-}:
-{
+{pkgsSet, ...}: {
   xsession = {
     enable = true;
   };

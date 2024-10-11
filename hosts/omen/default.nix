@@ -1,12 +1,11 @@
-{ config
-, inputs
-, pkgsSet
-, ...
-}:
-let
-  pkgs = pkgsSet.stable;
-in
 {
+  config,
+  inputs,
+  pkgsSet,
+  ...
+}: let
+  pkgs = pkgsSet.stable;
+in {
   imports = [
     ../shared/fonts.nix
     ../shared/gaming.nix
@@ -31,7 +30,7 @@ in
       "usbcore.autosuspend=-1"
     ];
     kernelPackages = pkgsSet.unstable.linuxPackages_latest;
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = ["ntfs"];
     bootspec.enableValidation = true;
     loader = {
       grub = {
@@ -102,7 +101,7 @@ in
   services = {
     dbus = {
       enable = true;
-      packages = [ pkgs.gcr ];
+      packages = [pkgs.gcr];
     };
     openssh.enable = true;
     pipewire = {
@@ -134,14 +133,14 @@ in
     };
     upower.enable = true;
     xserver.enable = true;
-    xserver.videoDrivers = [ "nvidia" ];
+    xserver.videoDrivers = ["nvidia"];
     xserver.displayManager.startx.enable = true;
   };
 
   users.users.yuugen = {
     shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "audio" "docker" "networkmanager" "video" "wheel" "gamemode" ];
+    extraGroups = ["audio" "docker" "networkmanager" "video" "wheel" "gamemode"];
   };
 
   virtualisation = {

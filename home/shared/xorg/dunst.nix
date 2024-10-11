@@ -1,7 +1,4 @@
-{ pkgsSet
-, ...
-}:
-{
+{pkgsSet, ...}: {
   # TODO: Finish config
   services.dunst = {
     enable = true;
