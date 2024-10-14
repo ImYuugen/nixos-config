@@ -4,57 +4,56 @@
   ...
 }: let
   pkgs = pkgsSet.unstable;
-  tsGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p:
-    with p; [
-      p.arduino
-      p.asm
-      p.bash
-      p.c
-      p.cmake
-      p.cpp
-      p.css
-      p.cuda
-      p.diff
-      p.dockerfile
-      p.doxygen
-      p.fish
-      p.git_rebase
-      p.git_config
-      p.gitattributes
-      p.gitcommit
-      p.gitignore
-      p.glsl
-      p.go
-      p.haskell
-      p.html
-      p.http
-      p.hyprlang
-      p.java
-      p.javascript
-      p.json
-      p.latex
-      p.llvm
-      p.lua
-      p.make
-      p.markdown
-      p.meson
-      p.nix
-      p.objdump
-      p.ocaml
-      p.python
-      p.rasi
-      p.regex
-      p.ron
-      p.rst
-      p.rust
-      p.scss
-      p.tiger
-      p.toml
-      p.typescript
-      p.wgsl
-      p.yaml
-      p.zig
-    ]);
+  tsGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+    p.arduino
+    p.asm
+    p.bash
+    p.c
+    p.cmake
+    p.cpp
+    p.css
+    p.cuda
+    p.diff
+    p.dockerfile
+    p.doxygen
+    p.fish
+    p.git_rebase
+    p.git_config
+    p.gitattributes
+    p.gitcommit
+    p.gitignore
+    p.glsl
+    p.go
+    p.haskell
+    p.html
+    p.http
+    p.hyprlang
+    p.java
+    p.javascript
+    p.json
+    p.latex
+    p.llvm
+    p.lua
+    p.make
+    p.markdown
+    p.meson
+    p.nix
+    p.objdump
+    p.ocaml
+    p.python
+    p.rasi
+    p.regex
+    p.ron
+    p.rst
+    p.rust
+    p.scss
+    p.tiger
+    p.toml
+    p.typescript
+    p.wgsl
+    p.yaml
+    p.zig
+  ]);
 in {
   programs.neovim = {
     enable = true;
@@ -72,6 +71,7 @@ in {
 
       # Functional
       bufferline-nvim
+      conform-nvim
       cord-nvim
       dashboard-nvim
       dressing-nvim

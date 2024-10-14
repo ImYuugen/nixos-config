@@ -17,12 +17,12 @@ return {
           maxwidth = 50,
           ellipsis_char = "...",
           menu = {
-              buffer = "[BUF]",
               nvim_lsp = "[LSP]",
               nvim_lsp_signature_help = "[LSP]",
               nvim_lsp_document_symbol = "[LSP]",
               nvim_lua = "[API]",
               path = "[PATH]",
+              buffer = "[BUF]",
               luasnip = "[SNIP]",
           },
         }),
@@ -47,7 +47,7 @@ return {
       sources = {
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "buffer", keyword_length = 3, },
+        { name = "buffer" },
         { name = "crates" },
         { name = "async_path", trigger_characters = { "./", "/" }, },
         { name = "treesitter" },
