@@ -12,6 +12,9 @@ in {
 
   services.gnome-keyring.enable = true;
 
+  # HACK: Drop-in replacement for programs.direnv.silent
+  home.sessionVariables.DIRENV_LOG_FORMAT = "";
+
   programs = {
     bat.enable = true;
     direnv = {
