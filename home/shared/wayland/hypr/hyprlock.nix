@@ -1,8 +1,5 @@
+{ ... }:
 {
-  inputs,
-  pkgsSet,
-  ...
-}: {
   programs.hyprlock = {
     enable = true;
     # package = inputs.hyprlock.packages.${pkgsSet.stable.system}.hyprlock;
