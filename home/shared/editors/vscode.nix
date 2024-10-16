@@ -1,6 +1,8 @@
-{pkgsSet, ...}: let
+{ pkgsSet, ... }:
+let
   pkgs = pkgsSet.stable;
-in {
+in
+{
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [

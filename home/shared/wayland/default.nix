@@ -1,4 +1,5 @@
-{pkgsSet, ...}: {
+{ pkgsSet, ... }:
+{
   # Probably not useful
   home.packages = with pkgsSet.stable; [
     wayland
@@ -18,8 +19,6 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgsSet.stable; [
-      xdg-desktop-portal-wlr
-    ];
+    extraPortals = with pkgsSet.stable; [ xdg-desktop-portal-wlr ];
   };
 }

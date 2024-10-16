@@ -1,7 +1,9 @@
-{pkgsSet, ...}: let
+{ pkgsSet, ... }:
+let
   stable = pkgsSet.stable;
   unstable = pkgsSet.unstable;
-in {
+in
+{
   home.packages = with stable; [
     unstable.prismlauncher
     jdk21 # For minecraft
@@ -9,12 +11,10 @@ in {
     # TODO: mkif wayland config blabla
     wineWowPackages.full
     # wineWowPackages.waylandFull
-    (retroarch.override {
-      cores = [];
-    })
+    (retroarch.override { cores = [ ]; })
     (lutris.override {
-      extraLibraries = pkgs: [];
-      extraPkgs = pkgs: [];
+      extraLibraries = pkgs: [ ];
+      extraPkgs = pkgs: [ ];
     })
   ];
 

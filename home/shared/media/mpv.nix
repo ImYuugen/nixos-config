@@ -1,4 +1,5 @@
-{pkgsSet, ...}: {
+{ pkgsSet, ... }:
+{
   programs.mpv = {
     enable = true;
     config = {

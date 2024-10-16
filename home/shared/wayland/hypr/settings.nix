@@ -76,7 +76,7 @@
       };
     };
 
-    master = {};
+    master = { };
 
     misc = {
       force_default_wallpaper = "0";
@@ -88,9 +88,7 @@
     };
 
     # Set default scale to 1
-    monitor = [
-      ",preferred,auto,1"
-    ];
+    monitor = [ ",preferred,auto,1" ];
 
     xwayland = {
       force_zero_scaling = "true";

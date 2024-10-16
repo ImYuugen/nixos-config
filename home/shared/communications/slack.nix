@@ -1,5 +1,4 @@
-{pkgsSet, ...}: {
-  home.packages = [
-    pkgsSet.stable.slack
-  ];
+{ pkgsSet, ... }:
+{
+  home.packages = [ pkgsSet.stable.slack ];
 }

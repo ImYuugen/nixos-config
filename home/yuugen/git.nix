@@ -3,7 +3,8 @@
   pkgs,
   unstable,
   ...
-}: {
+}:
+{
   programs = {
     git = {
       enable = true;

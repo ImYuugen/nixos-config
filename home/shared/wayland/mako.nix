@@ -16,7 +16,5 @@
     textColor = "#9E9AB3";
   };
 
-  wayland.windowManager.hyprland.settings.exec-once = [
-    "mako"
-  ];
+  wayland.windowManager.hyprland.settings.exec-once = [ "mako" ];
 }

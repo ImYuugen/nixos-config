@@ -1,4 +1,5 @@
-{pkgsSet, ...}: {
+{ pkgsSet, ... }:
+{
   services.playerctld.enable = true;
-  home.packages = with pkgsSet.stable; [playerctl];
+  home.packages = with pkgsSet.stable; [ playerctl ];
 }

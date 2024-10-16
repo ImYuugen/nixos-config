@@ -1,6 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
-    layerrule = [];
+    layerrule = [ ];
     windowrulev2 = [
       # Floating terminal
       "float, class:(termfloat)"

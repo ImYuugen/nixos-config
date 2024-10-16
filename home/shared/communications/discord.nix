@@ -1,5 +1,4 @@
-{pkgsSet, ...}: {
-  home.packages = with pkgsSet.stable; [
-    vesktop
-  ];
+{ pkgsSet, ... }:
+{
+  home.packages = with pkgsSet.stable; [ vesktop ];
 }

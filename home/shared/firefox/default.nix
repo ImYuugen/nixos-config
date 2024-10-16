@@ -1,4 +1,5 @@
-{pkgsSet, ...}: {
+{ pkgsSet, ... }:
+{
   programs.firefox = {
     enable = true;
     policies = {
@@ -35,7 +36,7 @@
               }
             ];
             icon = "${pkgsSet.unstable.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@np"];
+            definedAliases = [ "@np" ];
           };
           "NixOS Wiki" = {
             urls = [
@@ -51,7 +52,7 @@
             ];
             iconUpdateURL = "https://wiki.nixos.org/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = ["@nw"];
+            definedAliases = [ "@nw" ];
           };
         };
       };

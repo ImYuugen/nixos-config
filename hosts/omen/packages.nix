@@ -1,4 +1,5 @@
-{pkgsSet, ...}: {
+{ pkgsSet, ... }:
+{
   environment.systemPackages = with pkgsSet.stable; [
     acpi
     alsa-lib

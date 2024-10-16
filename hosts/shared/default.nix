@@ -3,7 +3,8 @@
   lib,
   pkgsSet,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgsSet.stable; [
     dconf
     glib
@@ -37,9 +38,7 @@
 
   xdg.portal = {
     enable = true;
-    config.common.default = ["gtk"];
-    extraPortals = with pkgsSet.stable; [
-      xdg-desktop-portal-gtk
-    ];
+    config.common.default = [ "gtk" ];
+    extraPortals = with pkgsSet.stable; [ xdg-desktop-portal-gtk ];
   };
 }

@@ -1,8 +1,5 @@
-{
-  inputs,
-  pkgsSet,
-  ...
-}: let
+{ inputs, pkgsSet, ... }:
+let
   pkgs = pkgsSet.unstable;
   tsGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.arduino
@@ -54,7 +51,8 @@
     p.yaml
     p.zig
   ]);
-in {
+in
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -71,83 +69,61 @@ in {
 
       # Functional
       bufferline-nvim
+      cmp-async-path
+      cmp-buffer
+      cmp-nvim-lsp
+      cmp-treesitter
       conform-nvim
-      cord-nvim
+      # cord-nvim # Funny but oooh the leaks ooh the leaks
+      crates-nvim
       dashboard-nvim
-      dressing-nvim
       fidget-nvim
+      flash-nvim
+      flit-nvim
       gitsigns-nvim
+      indent-blankline-nvim
+      lazydev-nvim
+      leap-nvim
       lspkind-nvim
       lualine-nvim
       luasnip
       mini-nvim
+      mini-indentscope
       multicursors-nvim
+      neotest
+      neotest-rust
       neo-tree-nvim
       noice-nvim
       nui-nvim
+      nvim-cmp
+      nvim-dap
+      nvim-dap-ui
+      nvim-dap-virtual-text
+      nvim-lightbulb
+      nvim-lspconfig
       nvim-lsp-notify
       nvim-navbuddy
       nvim-navic
       nvim-notify
-      nvim-surround
-      nvim-web-devicons
-      toggleterm-nvim
-      trouble-nvim
-      vim-repeat
-      which-key-nvim
-      wilder-nvim
-
-      # Leap
-      leap-nvim
-      flit-nvim
-
-      # Project management
-      project-nvim
-
-      # Appearance
-      indent-blankline-nvim
-      vim-illuminate
-
-      # Comments
-      nvim-ts-context-commentstring
-      todo-comments-nvim
-
-      # [LSP]
-      lazydev-nvim
-      nvim-lightbulb
-      nvim-lspconfig
-      # [[Rust]]
-      rustaceanvim
-      crates-nvim
-
-      # Dap me up
-      nvim-dap
-      nvim-dap-ui
-      nvim-dap-virtual-text
-
-      # Testing
-      neotest
-      neotest-rust
-
-      # Completion
-      cmp-buffer
-      cmp-nvim-lsp
-      cmp-async-path
-      cmp-treesitter
-      nvim-cmp
-
-      # Search
-      flash-nvim
       nvim-spectre
-      plenary-nvim
-      telescope-nvim
-      telescope-fzf-native-nvim
-
-      # Treesitter
+      nvim-surround
       nvim-treesitter-context
       nvim-treesitter-textobjects
       nvim-treesitter-textsubjects
       tsGrammars
+      nvim-ts-context-commentstring
+      nvim-web-devicons
+      plenary-nvim
+      project-nvim
+      rustaceanvim
+      todo-comments-nvim
+      toggleterm-nvim
+      telescope-nvim
+      telescope-fzf-native-nvim
+      trouble-nvim
+      vim-illuminate
+      vim-repeat
+      which-key-nvim
     ];
     extraPackages = with pkgs; [
       gcc # For treesitter

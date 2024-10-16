@@ -1,7 +1,9 @@
-{pkgsSet, ...}: let
+{ pkgsSet, ... }:
+let
   pkgs = pkgsSet.stable;
-in {
-  imports = [./btop.nix];
+in
+{
+  imports = [ ./btop.nix ];
 
   # Purely for Naelis
   home.packages = with pkgs; [
