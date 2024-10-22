@@ -81,6 +81,7 @@ in
       flash-nvim
       flit-nvim
       gitsigns-nvim
+      guess-indent-nvim
       indent-blankline-nvim
       lazydev-nvim
       leap-nvim

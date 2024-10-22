@@ -1,7 +1,6 @@
-local a = "plugins.langs."
+require("plugins.langs.html")
+require("plugins.langs.lua")
+require("plugins.langs.nix")
+require("plugins.langs.ts")
 
-require(a .. "lua")
-require(a .. "nix")
-require(a .. "ts")
-
-return {} -- What the fuck ???
+return {}

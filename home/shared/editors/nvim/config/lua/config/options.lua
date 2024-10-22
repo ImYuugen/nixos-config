@@ -12,10 +12,11 @@ opt.compatible = false
 opt.cursorline = true
 opt.expandtab = true
 opt.formatoptions:remove({ "c", "r", "o" })
+opt.ignorecase = true
 opt.inccommand = "nosplit"
 opt.incsearch = true
 opt.list = true
-opt.listchars = { trail = "-" }
+opt.listchars = { trail = "-", tab = "▏ " }
 opt.mouse = "a"
 opt.number = true
 opt.relativenumber = true

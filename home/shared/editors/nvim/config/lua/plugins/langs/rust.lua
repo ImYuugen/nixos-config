@@ -1,15 +1,14 @@
 local util = require("lspconfig.util")
 
-local lsp_bin = "nil"
+local lsp_bin = "rust-analyzer"
 
 if vim.fn.executable(lsp_bin) ~= 1 then
 	return
 end
 
 local root_files = {
-	"flake.nix",
-	"default.nix",
-	"shell.nix",
+	"Cargo.toml",
+	"Cargo.lock",
 	".git",
 }
 
@@ -32,6 +31,6 @@ require("lspconfig").nil_ls.setup({
 	},
 })
 
-require("conform").formatters_by_ft.nix = { "nixfmt" }
+require("conform").formatters_by_ft.nix = { "nix fmt" }
 
 return {}

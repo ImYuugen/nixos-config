@@ -1,4 +1,4 @@
 return {
-    "nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+	"nvim-lspconfig",
+	event = { "BufReadPre", "BufNewFile" },
 }
