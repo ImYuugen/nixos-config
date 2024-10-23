@@ -1,6 +1,7 @@
 { inputs, pkgsSet, ... }:
 let
-  wallpaper = ./resources/115738312_p0.jpg;
+  # wallpaper = ./resources/115738312_p0.jpg;
+  wallpaper = ./resources/cpunk2077.jpg;
 in
 {
   services.hyprpaper = {
