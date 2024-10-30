@@ -11,6 +11,9 @@ opt.backspace = "indent,eol,start"
 opt.compatible = false
 opt.cursorline = true
 opt.expandtab = true
+opt.foldenable = true
+opt.foldlevel = 99
+opt.foldlevelstart = 99
 opt.formatoptions:remove({ "c", "r", "o" })
 opt.ignorecase = true
 opt.inccommand = "nosplit"

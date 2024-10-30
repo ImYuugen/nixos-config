@@ -1,6 +1,24 @@
 { inputs, pkgsSet, ... }:
 let
   pkgs = pkgsSet.unstable;
+  minty = pkgs.vimUtils.buildVimPlugin {
+    name = "minty";
+    src = pkgs.fetchFromGitHub {
+      owner = "NvChad";
+      repo = "minty";
+      rev = "157e91c04cce2f01643519338d6b854275a77547";
+      hash = "sha256-cthvn3CKYlA54unvz/ayS6W1/dnfhBgKOs39rzQTr2E=";
+    };
+  };
+  volt = pkgs.vimUtils.buildVimPlugin {
+    name = "volt";
+    src = pkgs.fetchFromGitHub {
+      owner = "NvChad";
+      repo = "volt";
+      rev = "4472da2e77ad240e7fc56af6357b2a8fdf6aa0ae";
+      hash = "sha256-i5gbXzJK7LpfUZbP/RG0wD0SWUj1EwUJq8Z+IEN3Ihg=";
+    };
+  };
   tsGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.arduino
     p.asm
@@ -90,13 +108,14 @@ in
       luasnip
       mini-nvim
       mini-indentscope
+      minty
       multicursors-nvim
       neotest
-      neotest-rust
       neo-tree-nvim
       noice-nvim
       nui-nvim
       nvim-cmp
+      nvim-colorizer-lua
       nvim-dap
       nvim-dap-ui
       nvim-dap-virtual-text
@@ -106,6 +125,7 @@ in
       nvim-navbuddy
       nvim-navic
       nvim-notify
+      nvim-ufo
       nvim-spectre
       nvim-surround
       nvim-treesitter-context
@@ -124,6 +144,7 @@ in
       trouble-nvim
       vim-illuminate
       vim-repeat
+      volt
       which-key-nvim
     ];
     extraPackages = with pkgs; [
