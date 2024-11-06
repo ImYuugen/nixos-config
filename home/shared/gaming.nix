@@ -1,21 +1,21 @@
-{ pkgsSet, ... }:
+{ pkgsSet, inputs, ... }:
 let
   stable = pkgsSet.stable;
   unstable = pkgsSet.unstable;
 in
 {
   home.packages = with stable; [
-    unstable.prismlauncher
-    jdk21 # For minecraft
-    winetricks
-    # TODO: mkif wayland config blabla
-    wineWowPackages.full
-    # wineWowPackages.waylandFull
-    (retroarch.override { cores = [ ]; })
-    (lutris.override {
+    inputs.umu.packages.${system}.umu
+    (unstable.lutris.override {
       extraLibraries = pkgs: [ ];
       extraPkgs = pkgs: [ ];
     })
+    prismlauncher
+    protonplus
+    jdk21 # For minecraft
+    (retroarch.override { cores = [ ]; })
+    winetricks
+    wineWowPackages.waylandFull
   ];
 
   programs.mangohud.enable = true;
