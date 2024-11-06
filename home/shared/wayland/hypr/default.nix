@@ -45,14 +45,14 @@ in
 
   xdg.portal = {
     enable = true;
-    configPackages = [ pkgsSet.unstable.xdg-desktop-portal-hyprland ];
+    configPackages = [ pkgsSet.stable.xdg-desktop-portal-hyprland ];
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    package = pkgsSet.unstable.hyprland;
+    package = pkgsSet.stable.hyprland;
     systemd = {
       variables = [ "--all" ];
       extraCommands = [
