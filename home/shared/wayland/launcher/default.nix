@@ -6,11 +6,11 @@ in
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    plugins = with pkgs; [
-      rofi-calc
-      rofimoji
-    ];
+    plugins = with pkgs; [ ];
+  };
 
-    # TODO: Config
+  xdg.configFile."rofi" = {
+    source = ./config;
+    recursive = true;
   };
 }
