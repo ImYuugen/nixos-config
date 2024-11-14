@@ -8,7 +8,6 @@ return {
 				{
 					mode = { "n" },
 					{ "<leader>b", group = "Buffers", icon = { icon = " " } },
-					{ "<leader>g", group = "Git" },
 					{ "<leader>n", group = "Navigation", icon = { icon = "󰆋 " } },
 					{ "<leader>t", group = "Telescope" },
 					{ "<leader>x", group = "Diagnostics", icon = { icon = " " } },

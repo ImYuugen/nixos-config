@@ -86,6 +86,7 @@ in
       rose-pine
 
       # Functional
+      alpha-nvim
       bufferline-nvim
       cmp-async-path
       cmp-buffer
@@ -94,7 +95,6 @@ in
       conform-nvim
       # cord-nvim # Funny but oooh the leaks ooh the leaks
       crates-nvim
-      dashboard-nvim
       fidget-nvim
       flash-nvim
       flit-nvim
@@ -106,8 +106,9 @@ in
       lspkind-nvim
       lualine-nvim
       luasnip
-      mini-nvim
       mini-indentscope
+      mini-nvim
+      mini-pairs
       minty
       multicursors-nvim
       neotest

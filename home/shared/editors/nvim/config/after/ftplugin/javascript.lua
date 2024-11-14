@@ -7,6 +7,7 @@ do
 	end
 
 	require("lspconfig").ts_ls.setup({
+		autostart = true,
 		init_options = {
 			plugins = {},
 		},
@@ -66,5 +67,3 @@ do
 	}
 end
 -- END DEBUG ADAPTER
-
-return {}

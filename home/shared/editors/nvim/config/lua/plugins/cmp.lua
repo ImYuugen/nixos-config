@@ -51,6 +51,7 @@ return {
 				{ name = "crates" },
 				{ name = "async_path", trigger_characters = { "./", "/" } },
 				{ name = "treesitter" },
+				{ name = "lazydev" },
 			},
 		})
 

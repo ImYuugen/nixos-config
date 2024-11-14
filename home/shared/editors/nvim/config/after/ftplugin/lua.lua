@@ -6,9 +6,23 @@ do
 		return
 	end
 
+	local root_files = {
+		".luarc.json",
+		".luarc.jsonc",
+		".luacheckrc",
+		".stylua.toml",
+		"stylua.toml",
+		"selene.toml",
+		"selene.yml",
+		".git",
+		"flake.nix",
+		"shell.nix"
+	}
+
 	require("lspconfig").lua_ls.setup({
 		autostart = true,
 		cmd = { lsp_bin },
+		-- root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
 		on_init = function(client)
 			if client.workspace_folders then
 				local path = client.workspace_folders[1].name
@@ -52,4 +66,3 @@ do
 	-- TODO:
 end
 -- END DEBUG ADAPTER
-return {}

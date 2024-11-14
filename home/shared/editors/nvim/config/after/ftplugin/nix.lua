@@ -33,5 +33,3 @@ require("lspconfig").nil_ls.setup({
 })
 
 require("conform").formatters_by_ft.nix = { "nixfmt" }
-
-return {}

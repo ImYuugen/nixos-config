@@ -10,5 +10,3 @@ require("lspconfig").html.setup({
 	autostart = true,
 	filetypes = { "html", "htmlangular", "templ" },
 })
-
-return {}

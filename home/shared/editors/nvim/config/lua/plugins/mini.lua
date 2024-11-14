@@ -68,4 +68,11 @@ return {
 			})
 		end,
 	},
+	{
+		"mini.pairs",
+		evevnt = { "BufReadPre", "BufNewFile" },
+		after = function()
+			require("mini.pairs").setup({})
+		end,
+	},
 }
