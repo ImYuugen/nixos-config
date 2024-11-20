@@ -1,0 +1,31 @@
+Workspaces:
+    - Groups
+    - App icon on ws if alone
+
+Date/Time:
+    - Seconds (toggle)
+    - Calendar
+
+Battery:
+    - Circ prog
+    - Icon fill/charge
+    - Colors
+
+System tray:
+    - Rclick menu
+
+Media:
+    - Menu on right click (cava ?)
+
+Volume controls:
+    - Click => mute
+    - RClick => menu
+    - Scroll => gain
+
+System report:
+    - CPU, RAM, Disk
+    - CPU:
+        - RClick => Core infos + power profiles
+    - Disk:
+        - Shows /
+        - RClick => All mounted disks

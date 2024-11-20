@@ -1,0 +1,35 @@
+window.Bar {
+  border: none;
+  background-color: black;
+  color: white;
+
+  button {
+    all: unset;
+    background-color: transparent;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border: 1px solid blueviolet;
+  }
+
+  .bar-left {
+    /* DEBUG */
+    color: red;
+    border: 1px solid red;
+  }
+
+  .bar-center {
+    /* DEBUG */
+    color: green;
+    border: 1px solid green;
+  }
+
+  .bar-right {
+    /* DEBUG */
+    color: blue;
+    border: 1px solid blue;
+  }
+
+  .Workspaces .focused {
+    border-color: aqua;
+  }
+}
