@@ -13,6 +13,7 @@ in
     ../shared/gaming.nix
     ../shared/i18n.nix
     ../shared/nix.nix
+    ../shared/pipewire.nix
     ../shared # TODO: Modularize moar
 
     ./hardware.nix
@@ -99,18 +100,12 @@ in
   };
 
   services = {
+    blueman.enable = true;
     dbus = {
       enable = true;
       packages = [ pkgs.gcr ];
     };
     openssh.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      jack.enable = true;
-      pulse.enable = true;
-    };
     thermald.enable = true;
     tlp = {
       enable = true;
