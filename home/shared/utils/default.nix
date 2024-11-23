@@ -12,7 +12,10 @@ in
     mysql-workbench
   ];
 
-  services.gnome-keyring.enable = true;
+  services = {
+    blueman-applet.enable = true;
+    gnome-keyring.enable = true;
+  };
 
   # HACK: Drop-in replacement for programs.direnv.silent
   home.sessionVariables.DIRENV_LOG_FORMAT = "";
