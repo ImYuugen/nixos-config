@@ -12,7 +12,6 @@
     };
 
     dwindle = {
-      no_gaps_when_only = "1";
       pseudotile = "no";
       preserve_split = "yes";
     };
