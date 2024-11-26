@@ -23,6 +23,7 @@ function BarCenter(): JSX.Element {
 function BarRight(): JSX.Element {
     return (
         <box className="bar-right" hexpand halign={Gtk.Align.END}>
+            <AudioModule />
             <BatteryModule />
         </box>
     );

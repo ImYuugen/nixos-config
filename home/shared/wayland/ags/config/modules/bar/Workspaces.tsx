@@ -1,9 +1,8 @@
-import AstalHyprland from "gi://AstalHyprland?version=0.1";
+import Hyprland from "gi://AstalHyprland";
 import { bind } from "astal";
 
 function WorkspacesModule() {
-    const hypr = AstalHyprland.get_default();
-
+    const hypr = Hyprland.get_default();
     return (
         <box className="Workspaces">
             {bind(hypr, "workspaces").as((wss) =>

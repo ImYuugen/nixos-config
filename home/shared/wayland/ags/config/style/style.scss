@@ -11,20 +11,18 @@ window.Bar {
     border: 1px solid blueviolet;
   }
 
-  .bar-left {
-    /* DEBUG */
+  /* DEBUG */
+  .bar-left>* {
     color: red;
     border: 1px solid red;
   }
 
-  .bar-center {
-    /* DEBUG */
+  .bar-center>* {
     color: green;
     border: 1px solid green;
   }
 
-  .bar-right {
-    /* DEBUG */
+  .bar-right>* {
     color: blue;
     border: 1px solid blue;
   }

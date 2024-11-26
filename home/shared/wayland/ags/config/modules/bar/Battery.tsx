@@ -11,6 +11,7 @@ function BatteryModule() {
                     (p) => `${Math.floor(p * 100)}%`,
                 )}
             />
+            <label label={bind(bat, "charging").as((c) => (c ? " " : ""))} />
         </box>
     );
 }
