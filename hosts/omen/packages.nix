@@ -9,6 +9,7 @@
     libva-utils
     mesa
     nvtopPackages.full
+    pavucontrol
     p7zip
     rar
     sbctl

@@ -13,6 +13,7 @@ in
     ../shared/gaming.nix
     ../shared/i18n.nix
     ../shared/nix.nix
+    ../shared/pipewire.nix
     ../shared # TODO: Modularize moar
 
     ./hardware.nix
@@ -29,7 +30,7 @@ in
       "nvidia_drm"
     ];
     kernelParams = [ "usbcore.autosuspend=-1" ];
-    kernelPackages = pkgsSet.unstable.linuxPackages_latest;
+    kernelPackages = pkgsSet.stable.linuxPackages_latest;
     supportedFilesystems = [ "ntfs" ];
     bootspec.enableValidation = true;
     loader = {
@@ -46,6 +47,13 @@ in
   hardware = {
     bluetooth = {
       enable = true;
+    };
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        libva
+        vaapiVdpau
+      ];
     };
     nvidia = {
       open = false;
@@ -66,15 +74,6 @@ in
         amdgpuBusId = "PCI:7:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
-    };
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        libva
-        vaapiVdpau
-      ];
     };
     opentabletdriver = {
       enable = true;
@@ -99,18 +98,12 @@ in
   };
 
   services = {
+    blueman.enable = true;
     dbus = {
       enable = true;
       packages = [ pkgs.gcr ];
     };
     openssh.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      jack.enable = true;
-      pulse.enable = true;
-    };
     thermald.enable = true;
     tlp = {
       enable = true;

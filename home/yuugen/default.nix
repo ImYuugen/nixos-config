@@ -33,6 +33,7 @@
       # ../shared/vpn.nix
       ../shared/wayland
       ../shared/wayland/ags
+      ../shared/wayland/clipboard.nix
       ../shared/wayland/hypr
       ../shared/wayland/kanshi.nix
       ../shared/wayland/launcher

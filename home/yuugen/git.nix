@@ -48,9 +48,9 @@
         pull = {
           ff = "only";
         };
-        # Fuck off
+        # You know what go to hell
         safe = {
-          directory = "/home/yuugen/Projects/Nix/flake/.git";
+          directory = "*";
         };
       };
 
