@@ -4,7 +4,7 @@
 
   programs.ags = {
     enable = true;
-    configDir = ./config;
+    # configDir = ./config;
     extraPackages = with pkgsSet.stable; [ nodejs ];
   };
 
