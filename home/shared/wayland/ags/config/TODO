@@ -1,31 +1,25 @@
-Workspaces:
-    - Groups
-    - App icon on ws if alone
-
-Date/Time:
-    - Seconds (toggle)
-    - Calendar
-
-Battery:
-    - Circ prog
-    - Icon fill/charge
-    - Colors
-
 System tray:
     - Rclick menu
 
 Media:
-    - Menu on right click (cava ?)
+    - Currently playing scroller
+    - Menu on Rclick (cava + mpris)
 
-Volume controls:
-    - Click => mute
-    - RClick => menu
-    - Scroll => gain
+Bluetooth:
+    - Battery level
+    - Status
+    - Rclick menu: launch or emulate blueman
 
-System report:
-    - CPU, RAM, Disk
-    - CPU:
-        - RClick => Core infos + power profiles
-    - Disk:
-        - Shows /
-        - RClick => All mounted disks
+Network:
+    - Up/Down
+    - Connection status (wire[d,less],disconnected)
+    - VPN (oh so far away)
+
+Notifications:
+    - Yuh
+
+App launcher:
+    - Yuh
+
+Auth:
+    - Yuh
