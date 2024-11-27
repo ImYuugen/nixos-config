@@ -1,5 +1,8 @@
 import { Variable, GLib } from "astal";
 
+// TODO: Seconds toggle
+// Calendar
+
 function DatetimeModule({ format = "%H:%M - %A %e" }) {
     const time = Variable<string>("").poll(
         1000,

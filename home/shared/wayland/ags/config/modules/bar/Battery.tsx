@@ -1,6 +1,9 @@
 import { bind } from "astal";
 import Battery from "gi://AstalBattery";
 
+// TODO: - Circ prog
+// Icon fill
+
 function BatteryModule() {
     const bat = Battery.get_default();
 

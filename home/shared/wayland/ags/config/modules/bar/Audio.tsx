@@ -2,6 +2,8 @@ import Wp from "gi://AstalWp";
 import { bind } from "astal";
 import Gdk from "gi://Gdk";
 
+//TODO: Right click audio menu
+
 function AudioModule() {
     const audio = Wp.get_default()?.audio!!;
 
