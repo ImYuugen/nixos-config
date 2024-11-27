@@ -77,6 +77,8 @@
     master = { };
 
     misc = {
+      # Windows always appear on ws they were invoked on
+      initial_workspace_tracking = "2";
       force_default_wallpaper = "0";
       disable_hyprland_logo = "true";
       disable_splash_rendering = "true";
