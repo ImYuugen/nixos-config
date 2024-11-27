@@ -7,11 +7,11 @@ nix-shell -p inotify-tools dart-sass --run '
     clear
     echo "Config changed, relaunching ags ($1)"
     ags quit
-    ags run &
+    ags run -d $PWD &
   }
 
   ags quit
-  ags run &
+  ags run -d $PWD &
   inotifywait --event modify --recursive --monitor ./ \
   | while read changed; do
     execute "$changed"
