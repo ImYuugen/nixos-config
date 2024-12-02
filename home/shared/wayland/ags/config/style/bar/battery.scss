@@ -1,0 +1,22 @@
+.battery-module {
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
+
+  .icon-block {
+    color: black;
+    background-color: white;
+
+    .battery-icon {
+      padding: 0 0.2rem;
+    }
+    .charging-icon {
+      font-size: 0.8rem;
+    }
+  }
+
+  .percentage {
+    padding: 0.2rem;
+    font-weight: bold;
+  }
+}

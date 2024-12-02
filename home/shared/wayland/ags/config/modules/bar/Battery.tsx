@@ -1,20 +1,28 @@
 import { bind } from "astal";
 import Battery from "gi://AstalBattery";
-
-// TODO: - Circ prog
-// Icon fill
+import { DrawingArea } from "astal/gtk3/widget";
 
 function BatteryModule() {
     const bat = Battery.get_default();
 
+    const percentage = bind(bat, "percentage");
+    const charging = bind(bat, "charging");
     return (
-        <box className="bar-battery" visible={bind(bat, "isPresent")}>
+        <box className="battery-module" visible={bind(bat, "is_present")}>
+            <box className="icon-block">
+                <overlay>
+                    <label className="big-text battery-icon" label="󰂎" />
+                    <label
+                        className="charging-icon"
+                        label="󱐋"
+                        visible={charging.get()}
+                    />
+                </overlay>
+            </box>
             <label
-                label={bind(bat, "percentage").as(
-                    (p) => `${Math.floor(p * 100)}%`,
-                )}
+                className="percentage"
+                label={percentage.as((p) => `${Math.floor(p * 100)}%`)}
             />
-            <label label={bind(bat, "charging").as((c) => (c ? " " : ""))} />
         </box>
     );
 }

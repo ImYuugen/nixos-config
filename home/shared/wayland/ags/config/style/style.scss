@@ -1,9 +1,16 @@
+@use 'bar/battery.scss';
+@use 'bar/datetime.scss';
+
 * {
   all: unset;
 }
 
 .small-text {
   font-size: 0.7rem;
+}
+
+.big-text {
+  font-size: 1.5rem;
 }
 
 window.Bar {
@@ -20,44 +27,19 @@ window.Bar {
   }
 
   /* DEBUG */
-  .bar-left>* {
-    color: red;
+  .bar-left {
     border: 1px solid red;
   }
 
-  .bar-center>* {
-    color: green;
+  .bar-center {
     border: 1px solid green;
   }
 
-  .bar-right>* {
-    color: blue;
+  .bar-right {
     border: 1px solid blue;
   }
 
   .Workspaces .focused {
     border-color: aqua;
-  }
-
-  .datetime-module {
-    border-radius: 5px;
-    border: 1px solid white;
-    color: white;
-
-    .day-kanji {
-      background-color: white;
-      border-top-left-radius: 3px;
-      border-bottom-left-radius: 3px;
-      color: black;
-      font-weight: bold;
-      padding: 0 0.2rem;
-    }
-
-    .date {
-      margin: 0.2rem 0.2rem 0 0.2rem;
-    }
-    .time {
-      margin-left: 0.2rem;
-    }
   }
 }

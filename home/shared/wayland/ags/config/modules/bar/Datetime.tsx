@@ -15,7 +15,7 @@ function DatetimeModule() {
                 className="day-kanji"
                 label={time((t) => dayKanji[+(t.format("%u") ?? 0)])}
             />
-            <box>
+            <box vertical>
                 <label
                     className="time"
                     label={time((t) => t.format("%R") ?? "00:00")}
