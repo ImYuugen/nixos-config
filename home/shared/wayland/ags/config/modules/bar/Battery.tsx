@@ -1,27 +1,45 @@
-import { bind } from "astal";
+import { bind, Variable } from "astal";
 import Battery from "gi://AstalBattery";
-import { DrawingArea } from "astal/gtk3/widget";
 
 function BatteryModule() {
+    const LOW_BATTERY = 0.20;
+
     const bat = Battery.get_default();
 
-    const percentage = bind(bat, "percentage");
-    const charging = bind(bat, "charging");
+    const perchance = Variable.derive([
+        bind(bat, "percentage"),
+        bind(bat, "charging"),
+    ]);
     return (
-        <box className="battery-module" visible={bind(bat, "is_present")}>
+        <box
+            className="battery-module"
+            visible={bind(bat, "is_present")}
+            setup={(self) => {
+                self.toggleClassName(
+                    "critical",
+                    perchance.get()[0] < LOW_BATTERY && !perchance.get()[1],
+                );
+                self.hook(perchance, (self) =>
+                    self.toggleClassName(
+                        "critical",
+                        perchance.get()[0] < LOW_BATTERY && !perchance.get()[1],
+                    ),
+                );
+            }}
+        >
             <box className="icon-block">
                 <overlay>
                     <label className="big-text battery-icon" label="󰂎" />
                     <label
                         className="charging-icon"
                         label="󱐋"
-                        visible={charging.get()}
+                        visible={perchance((p) => p[1])}
                     />
                 </overlay>
             </box>
             <label
                 className="percentage"
-                label={percentage.as((p) => `${Math.floor(p * 100)}%`)}
+                label={perchance((p) => `${Math.floor(p[0] * 100)}%`)}
             />
         </box>
     );

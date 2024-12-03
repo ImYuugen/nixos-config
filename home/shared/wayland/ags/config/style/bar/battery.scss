@@ -2,10 +2,12 @@
   border-radius: 5px;
   border: 1px solid white;
   color: white;
+  transition: 250ms linear;
 
   .icon-block {
-    color: black;
     background-color: white;
+    color: black;
+    transition: inherit;
 
     .battery-icon {
       padding: 0 0.2rem;
@@ -16,7 +18,18 @@
   }
 
   .percentage {
-    padding: 0.2rem;
     font-weight: bold;
+    padding: 0.2rem;
   }
 }
+
+.battery-module.critical {
+  border-color: palevioletred;
+  color: palevioletred;
+
+  .icon-block {
+    background-color: palevioletred;
+  }
+}
+
+
