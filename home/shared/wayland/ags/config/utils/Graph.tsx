@@ -1,4 +1,5 @@
 import { Binding } from "astal";
+import { Gtk } from "astal/gtk3";
 import Cairo from "cairo";
 
 type Props = {
@@ -7,12 +8,62 @@ type Props = {
     value: Binding<number>;
     maxValue?: number;
     minValue?: number;
+    fill?: GraphFill;
 };
 
-// TODO: Under-the-curve fill enum:
-//  - Full
-//  - Empty
-//  - Hatched
+enum GraphFill {
+    NONE,
+    FULL,
+    HATCHED,
+}
+
+const DEFAULT_MAX_VALUE = 100;
+const DEFAULT_MIN_VALUE = 0;
+const clamp = (num: number, min: number, max: number) =>
+    Math.max(Math.min(num, max), min);
+
+const drawCurve = (
+    cr: Cairo.Context,
+    data: Array<number>,
+    ctx: Gtk.StyleContext,
+    props: Props,
+) => {
+    const width = ctx.get_property("min-width", ctx.get_state()) as number;
+    const color = ctx.get_border_color(ctx.get_state());
+    const lineWidth = ctx.get_border(ctx.get_state()).top;
+    cr.setSourceRGBA(color.red, color.green, color.blue, color.alpha);
+    // Divide original width by scale reduction factor => width / 1.0
+    cr.setLineWidth(lineWidth / width);
+    let x = 0.0,
+        y = 0.0;
+    for (let i = 0; i < data.length; i++) {
+        y = 1.0 - data[i] / props.maxValue!;
+        x = i / (data.length - 1);
+        cr.lineTo(x, y);
+    }
+    cr.stroke();
+};
+
+const fillUnderCurve = (
+    cr: Cairo.Context,
+    data: Array<number>,
+    ctx: Gtk.StyleContext,
+    props: Props,
+) => {
+    const color = ctx.get_color(ctx.get_state());
+    cr.setSourceRGBA(color.red, color.green, color.blue, color.alpha);
+    let x = 0.0,
+        y = 0.0;
+    for (let i = 0; i < data.length; i++) {
+        y = 1.0 - data[i] / props.maxValue!;
+        x = i / (data.length - 1);
+        cr.lineTo(x, y);
+    }
+    // Make sure it goes *under* the curve
+    cr.lineTo(x, 1.0);
+    cr.lineTo(0.0, 1.0);
+    cr.fill();
+};
 
 // Binds to a value, drawing a point for each past value
 // - `value`: the binding
@@ -26,11 +77,6 @@ type Props = {
 // - `background-color`: you'll NEVER guess
 function Graph(props: Props) {
     const DATA_BUF_LIMIT = props.samples ?? 10;
-    const DEFAULT_MAX_VALUE = 100;
-    const DEFAULT_MIN_VALUE = 0;
-    const clamp = (num: number, min: number, max: number) =>
-        Math.max(Math.min(num, max), min);
-
     return (
         <drawingarea
             className={props.className}
@@ -43,7 +89,7 @@ function Graph(props: Props) {
                 self.hook(props.value, () => {
                     let val = props.value.get();
                     if (Number.isNaN(val)) {
-                        val = DEFAULT_MIN_VALUE;
+                        val = data[data.length - 1];
                     }
                     data.push(
                         clamp(
@@ -53,7 +99,6 @@ function Graph(props: Props) {
                         ),
                     );
                     data.shift();
-                    print(data);
                     self.queue_draw();
                 });
                 self.connect("draw", (_, cr: Cairo.Context) => {
@@ -66,38 +111,21 @@ function Graph(props: Props) {
                         "min-height",
                         ctx.get_state(),
                     ) as number;
-                    const curveWidth = ctx.get_border(ctx.get_state());
-                    const curveColor = ctx.get_border_color(ctx.get_state());
-                    const bgColor = ctx.get_background_color(ctx.get_state());
-                    const fgColor = ctx.get_color(ctx.get_state());
                     self.set_size_request(width, height);
 
                     // Set scale so that 1, 1 is bottom right and 0,0 is top left
                     cr.scale(width, height);
 
-                    // Draw the curve
-                    cr.setSourceRGBA(
-                        curveColor.red,
-                        curveColor.green,
-                        curveColor.blue,
-                        curveColor.alpha,
-                    );
-                    // Divide original width by scale reduction factor => width / 1.0
-                    cr.setLineWidth(0.05);
-                    cr.moveTo(0.0, 1.0);
-                    let x = 0.0, y = 1.0 - data[0] / props.maxValue!;
-                    cr.lineTo(x, y);
-                    for (let i = 0; i < data.length; i++) {
-                        y = 1.0 - data[i] / props.maxValue!;
-                        x = i / data.length;
-                        cr.lineTo(x, y);
+                    if (props.fill == GraphFill.FULL) {
+                        fillUnderCurve(cr, data, ctx, props);
+                    } else if (props.fill == GraphFill.HATCHED) {
+                        // TODO:
                     }
-                    cr.lineTo(1.0, y);
-                    cr.stroke();
+                    drawCurve(cr, data, ctx, props);
                 });
             }}
         />
     );
 }
 
-export default Graph;
+export { Graph, GraphFill };
