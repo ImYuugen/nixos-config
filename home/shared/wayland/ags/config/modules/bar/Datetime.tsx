@@ -1,4 +1,5 @@
 import { Variable, GLib } from "astal";
+import { Gtk } from "astal/gtk3";
 
 // TODO: Seconds toggle
 // Calendar
@@ -15,7 +16,7 @@ function DatetimeModule() {
                 className="day-kanji"
                 label={time((t) => dayKanji[+(t.format("%u") ?? 0)])}
             />
-            <box vertical>
+            <box vertical className="datetime" valign={Gtk.Align.CENTER}>
                 <label
                     className="time"
                     label={time((t) => t.format("%R") ?? "00:00")}
