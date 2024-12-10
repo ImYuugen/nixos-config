@@ -14,7 +14,7 @@ type Props = {
 enum GraphFill {
     NONE,
     FULL,
-    HATCHED,
+    // TODO: HATCHED,
 }
 
 const DEFAULT_MAX_VALUE = 100;
@@ -74,7 +74,6 @@ const fillUnderCurve = (
 // - `color`: color of the under-the-curve area
 // - `border-color`: color of the curve
 // - `border-width`: width of the curve
-// - `background-color`: you'll NEVER guess
 function Graph(props: Props) {
     const DATA_BUF_LIMIT = props.samples ?? 10;
     return (
@@ -84,8 +83,6 @@ function Graph(props: Props) {
                 let data = new Array(DATA_BUF_LIMIT).fill(DEFAULT_MIN_VALUE);
                 props.maxValue = props.maxValue ?? DEFAULT_MAX_VALUE;
 
-                // FIX: If the value is updated, but is the same as
-                // before, this won't be called, for now use delta
                 self.hook(props.value, () => {
                     let val = props.value.get();
                     if (Number.isNaN(val)) {
@@ -118,8 +115,6 @@ function Graph(props: Props) {
 
                     if (props.fill == GraphFill.FULL) {
                         fillUnderCurve(cr, data, ctx, props);
-                    } else if (props.fill == GraphFill.HATCHED) {
-                        // TODO:
                     }
                     drawCurve(cr, data, ctx, props);
                 });
