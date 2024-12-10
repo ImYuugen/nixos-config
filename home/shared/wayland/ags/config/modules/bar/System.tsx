@@ -53,39 +53,41 @@ const diskRootUsage = Variable(0).poll(20000, "df", (out) => {
 function System() {
     return (
         <box className="system-module">
-            <overlay
+            <box
                 className="cpu"
                 tooltipText={bind(cpuUsage).as((u) => u.toString())}
             >
-                <Graph
-                    className="graph percent"
-                    value={bind(cpuUsage)}
-                    samples={20}
-                    fill={GraphFill.FULL}
-                />
-                <Graph
-                    className="graph temp"
-                    value={bind(cpuTemp)}
-                    samples={20}
-                    fill={GraphFill.NONE}
-                    maxValue={150}
-                />
-                <label
-                    className="component-icon"
-                    label=""
-                    halign={Gtk.Align.START}
-                    valign={Gtk.Align.START}
-                />
-                <label
-                    className="graph-text"
-                    label={bind(cpuFreq).as((c) =>
-                        humanReadable(c, "Hz", true, 2),
-                    )}
-                    halign={Gtk.Align.END}
-                    valign={Gtk.Align.START}
-                />
-            </overlay>
-            <overlay
+                <overlay>
+                    <Graph
+                        className="graph percent"
+                        value={bind(cpuUsage)}
+                        samples={20}
+                        fill={GraphFill.FULL}
+                    />
+                    <Graph
+                        className="graph temp"
+                        value={bind(cpuTemp)}
+                        samples={20}
+                        fill={GraphFill.NONE}
+                        maxValue={150}
+                    />
+                    <label
+                        className="component-icon"
+                        label=""
+                        halign={Gtk.Align.START}
+                        valign={Gtk.Align.START}
+                    />
+                    <label
+                        className="graph-text"
+                        label={bind(cpuFreq).as((c) =>
+                            humanReadable(c, "Hz", true, 2),
+                        )}
+                        halign={Gtk.Align.END}
+                        valign={Gtk.Align.START}
+                    />
+                </overlay>
+            </box>
+            <box
                 className="ram"
                 tooltipText={bind(ramUsage).as((f) =>
                     f[0].toLocaleString(undefined, {
@@ -93,27 +95,29 @@ function System() {
                     }),
                 )}
             >
-                <Graph
-                    className="graph"
-                    value={ramUsage((f) => f[0])}
-                    samples={10}
-                    fill={GraphFill.FULL}
-                />
-                <label
-                    className="component-icon"
-                    label=""
-                    halign={Gtk.Align.START}
-                    valign={Gtk.Align.START}
-                />
-                <label
-                    className="graph-text"
-                    label={bind(ramUsage).as((f) =>
-                        humanReadable(f[1], "B", false, 2),
-                    )}
-                    halign={Gtk.Align.END}
-                    valign={Gtk.Align.START}
-                />
-            </overlay>
+                <overlay>
+                    <Graph
+                        className="graph"
+                        value={ramUsage((f) => f[0])}
+                        samples={10}
+                        fill={GraphFill.FULL}
+                    />
+                    <label
+                        className="component-icon"
+                        label=""
+                        halign={Gtk.Align.START}
+                        valign={Gtk.Align.START}
+                    />
+                    <label
+                        className="graph-text"
+                        label={bind(ramUsage).as((f) =>
+                            humanReadable(f[1], "B", false, 2),
+                        )}
+                        halign={Gtk.Align.END}
+                        valign={Gtk.Align.START}
+                    />
+                </overlay>
+            </box>
         </box>
     );
 }
