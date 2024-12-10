@@ -82,6 +82,7 @@ function Graph(props: Props) {
             setup={(self) => {
                 let data = new Array(DATA_BUF_LIMIT).fill(DEFAULT_MIN_VALUE);
                 props.maxValue = props.maxValue ?? DEFAULT_MAX_VALUE;
+                props.minValue = props.minValue ?? DEFAULT_MIN_VALUE;
 
                 self.hook(props.value, () => {
                     let val = props.value.get();
@@ -91,9 +92,9 @@ function Graph(props: Props) {
                     data.push(
                         clamp(
                             Math.round(val),
-                            props.minValue ?? DEFAULT_MIN_VALUE,
-                            props.maxValue ?? DEFAULT_MAX_VALUE,
-                        ),
+                            props.minValue!,
+                            props.maxValue!,
+                        ) - props.minValue!,
                     );
                     data.shift();
                     self.queue_draw();
