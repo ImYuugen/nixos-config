@@ -1,5 +1,7 @@
 @use 'bar/battery.scss';
 @use 'bar/datetime.scss';
+@use 'bar/system.scss';
+@use 'bar/workspaces.scss';
 
 * {
   all: unset;
@@ -37,9 +39,5 @@ window.Bar {
 
   .bar-right {
     border: 1px solid blue;
-  }
-
-  .Workspaces .focused {
-    border-color: aqua;
   }
 }
