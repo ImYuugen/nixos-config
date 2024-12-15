@@ -1,0 +1,47 @@
+.system-module {
+  .component-icon {
+    font-size: 0.7rem;
+    padding: 0.3rem;
+    color: transparentize($color: white, $amount: 0.25);
+  }
+
+  .graph-text {
+    font-size: 0.7rem;
+    padding: 0.2rem;
+  }
+
+  .cpu {
+    // INFO: Needed for the graph not to disappear (idkwhy)
+    min-width: 75px;
+    min-height: 50px;
+    //
+    border: 1px solid purple;
+
+    .graph {
+      min-width: 75px;
+      min-height: 50px;
+    }
+
+    .percent {
+      border: 2px solid transparentize($color: white, $amount: 0.7);
+      color: transparentize($color: white, $amount: 0.8);
+    }
+
+    .temp {
+      border: 2px solid darkred;
+    }
+  }
+
+  .ram {
+    min-width: 75px;
+    min-height: 50px;
+    border: 1px solid darkcyan;
+
+    .graph {
+      min-width: 75px;
+      min-height: 50px;
+      border: 2px solid transparentize($color: white, $amount: 0.7);
+      color: transparentize($color: white, $amount: 0.8);
+    }
+  }
+}
