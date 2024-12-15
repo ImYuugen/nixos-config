@@ -4,6 +4,7 @@ import BatteryModule from "./Battery";
 import DatetimeModule from "./Datetime";
 import SystemModule from "./System";
 import WorkspacesModule from "./Workspaces";
+import NetworkModule from "./Network";
 
 function BarLeft() {
     return (
@@ -16,6 +17,7 @@ function BarLeft() {
 function BarCenter() {
     return (
         <box className="bar-center">
+            <NetworkModule />
             <DatetimeModule />
             <SystemModule />
         </box>

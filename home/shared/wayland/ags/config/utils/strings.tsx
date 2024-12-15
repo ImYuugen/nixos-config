@@ -1,7 +1,7 @@
 function humanReadable(bytes: number, unit: string, si = false, dp = 1): string {
     const div = si ? 1000 : 1024;
     if (Math.abs(bytes) < div) {
-        return bytes.toFixed(dp) + "B" + unit;
+        return bytes.toFixed(dp) + unit;
     }
     const units = si ? ["k", "M", "G", "T"] : ["ki", "Mi", "Gi", "Ti"];
     let u = -1;
