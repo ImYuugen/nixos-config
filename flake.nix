@@ -24,6 +24,7 @@
     lz.url = "github:nvim-neorocks/lz.n";
 
     ags.url = "github:Aylur/ags";
+    hyprland.url = "github:hyprwm/hyprland";
     hyprcursor.url = "github:hyprwm/hyprcursor";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     hyprpicker.url = "github:hyprwm/hyprpicker";

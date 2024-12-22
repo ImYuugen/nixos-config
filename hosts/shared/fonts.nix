@@ -1,17 +1,30 @@
 { pkgsSet, ... }:
+let
+  nf = with pkgsSet.unstable.nerd-fonts; [
+    _0xproto
+    departure-mono
+    fira-code
+    iosevka
+    jetbrains-mono
+    noto
+    roboto-mono
+    symbols-only
+  ];
+in
 {
   fonts = {
     enableDefaultPackages = true;
-    packages = with pkgsSet.unstable; [
-      # Curse of Râ
-      material-design-icons
-      material-symbols
-      nerdfonts
-      noto-fonts
-      noto-fonts-cjk-serif
-      noto-fonts-cjk-sans
-      twemoji-color-font
-    ];
+    packages =
+      with pkgsSet.unstable;
+      [
+        # Curse of Râ
+        material-design-icons
+        material-symbols
+        noto-fonts-cjk-serif
+        noto-fonts-cjk-sans
+        twemoji-color-font
+      ]
+      ++ nf;
     fontconfig = {
       defaultFonts = {
         monospace = [
