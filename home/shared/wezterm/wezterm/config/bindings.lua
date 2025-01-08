@@ -2,6 +2,9 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 local keys = {
+	-- Copy/Paste
+	{ key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
+	{ key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
 	-- Tabs
 	{
 		key = "t",
