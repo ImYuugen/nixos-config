@@ -1,15 +1,6 @@
 { inputs, pkgsSet, ... }:
 let
   pkgs = pkgsSet.unstable;
-  minty = pkgs.vimUtils.buildVimPlugin {
-    name = "minty";
-    src = pkgs.fetchFromGitHub {
-      owner = "NvChad";
-      repo = "minty";
-      rev = "157e91c04cce2f01643519338d6b854275a77547";
-      hash = "sha256-cthvn3CKYlA54unvz/ayS6W1/dnfhBgKOs39rzQTr2E=";
-    };
-  };
   volt = pkgs.vimUtils.buildVimPlugin {
     name = "volt";
     src = pkgs.fetchFromGitHub {
@@ -109,7 +100,6 @@ in
       mini-indentscope
       mini-nvim
       mini-pairs
-      minty
       multicursors-nvim
       neotest
       neo-tree-nvim
