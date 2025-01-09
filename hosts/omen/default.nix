@@ -31,6 +31,7 @@ in
     ];
     kernelParams = [ "usbcore.autosuspend=-1" ];
     kernelPackages = pkgsSet.stable.linuxPackages_latest;
+    extraModulePackages = [ config.boot.kernelPackages.wireguard ];
     supportedFilesystems = [ "ntfs" ];
     bootspec.enableValidation = true;
     loader = {
@@ -84,6 +85,12 @@ in
     hostName = "omen";
     networkmanager = {
       enable = true;
+    };
+    wg-quick.interfaces = {
+      protonvpn = {
+        autostart = true;
+        configFile = "/root/wireguard/protonvpn.conf"; # Manually setup
+      };
     };
   };
 
