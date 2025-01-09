@@ -62,9 +62,10 @@
         inherit (self.checks.${system}.pre-commit-check) shellHook;
         buildInputs = [
           inputs.nil.packages.${system}.default
-          pkgsSet.stable.nixfmt-rfc-style
-          pkgsSet.stable.nodePackages_latest.typescript-language-server
-          pkgsSet.stable.lua-language-server
+          pkgsSet.unstable.lua-language-server
+          pkgsSet.unstable.nixfmt-rfc-style
+          pkgsSet.unstable.nix-output-monitor
+          pkgsSet.unstable.nodePackages_latest.typescript-language-server
         ];
       };
       checks.${system} = {
