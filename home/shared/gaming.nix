@@ -5,7 +5,7 @@ let
 in
 {
   home.packages = with stable; [
-    inputs.umu.packages.${system}.umu
+    # inputs.umu.packages.${system}.umu
     (unstable.lutris.override {
       extraLibraries = pkgs: [ ];
       extraPkgs = pkgs: [ ];
