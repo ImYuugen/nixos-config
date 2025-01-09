@@ -30,8 +30,18 @@ in
       "nvidia_drm"
     ];
     kernelParams = [ "usbcore.autosuspend=-1" ];
-    kernelPackages = pkgsSet.stable.linuxPackages_latest;
-    extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+    kernelPackages = pkgsSet.stable.linuxPackagesFor (
+      pkgsSet.stable.linux_6_12.override {
+        argsOverride = rec {
+          src = pkgs.fetchurl {
+            url = "mirror://kernel/linux/kernel/v6.x/linux-${version}.tar.xz";
+            hash = "sha256-h74DYN8JMbNA0rrDUWGlSAcPvDqMNSxJ4h6WZmwmrrQ=";
+          };
+          version = "6.12.9";
+          modDirVersion = "6.12.9";
+        };
+      }
+    );
     supportedFilesystems = [ "ntfs" ];
     bootspec.enableValidation = true;
     loader = {
@@ -57,8 +67,8 @@ in
       ];
     };
     nvidia = {
-      open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      open = true;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
       nvidiaSettings = true;
       modesetting.enable = true;
       dynamicBoost.enable = true;
