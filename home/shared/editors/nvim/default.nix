@@ -1,15 +1,6 @@
 { inputs, pkgsSet, ... }:
 let
   pkgs = pkgsSet.unstable;
-  volt = pkgs.vimUtils.buildVimPlugin {
-    name = "volt";
-    src = pkgs.fetchFromGitHub {
-      owner = "NvChad";
-      repo = "volt";
-      rev = "4472da2e77ad240e7fc56af6357b2a8fdf6aa0ae";
-      hash = "sha256-i5gbXzJK7LpfUZbP/RG0wD0SWUj1EwUJq8Z+IEN3Ihg=";
-    };
-  };
   tsGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.arduino
     p.asm
@@ -135,7 +126,6 @@ in
       trouble-nvim
       vim-illuminate
       vim-repeat
-      volt
       which-key-nvim
     ];
     extraPackages = with pkgs; [
