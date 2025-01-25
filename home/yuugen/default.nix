@@ -23,6 +23,7 @@
       # ../shared/media/vlc.nix
       ../shared/media/utils.nix
       # ../shared/media/yt-dlp.nix
+      ../shared/production/drawpile.nix
       ../shared/production/obs.nix
       ../shared/production/krita.nix
       # ../shared/productivity/libreoffice.nix
