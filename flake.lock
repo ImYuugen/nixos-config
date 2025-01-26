@@ -1513,11 +1513,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1736381117,
-        "narHash": "sha256-eRiPgvGpaUrV4u2L/AKKr+G9PZX5YW3huIIdzbmniCg=",
+        "lastModified": 1736753650,
+        "narHash": "sha256-qSbPnZ2utGL39UD6lKi+K/7sWyZVl/kGZfOoy+xJEjA=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "177f38b4172b316a48f9ec5b41907b0ad7e0909f",
+        "rev": "9e2c41b7c12adc3ca17b1b50589f5234bcc0bbac",
         "type": "github"
       },
       "original": {
@@ -1545,11 +1545,11 @@
     "neovim-src_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1736358981,
-        "narHash": "sha256-FqAUWN8GTlSLz4uiQZyH+DPaGShhC/GP3nwjEoaMXMY=",
+        "lastModified": 1736752727,
+        "narHash": "sha256-sFD18EfXyQrN51ru6uzCt20C3DT4qBipJ1PbP9hnw80=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "c4b658fed8d96a4c4098ce59b01b228ef0bda62e",
+        "rev": "2c16c849986794682a4776ff4ec100d00eeba5ca",
         "type": "github"
       },
       "original": {
@@ -1771,11 +1771,11 @@
     },
     "nixpkgs_14": {
       "locked": {
-        "lastModified": 1736241350,
-        "narHash": "sha256-CHd7yhaDigUuJyDeX0SADbTM9FXfiWaeNyY34FL1wQU=",
+        "lastModified": 1736657626,
+        "narHash": "sha256-FWlPMUzp0lkQBdhKlPqtQdqmp+/C+1MBiEytaYfrCTY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8c9fd3e564728e90829ee7dbac6edc972971cd0f",
+        "rev": "2f9e2f85cb14a46410a1399aa9ea7ecf433e422e",
         "type": "github"
       },
       "original": {
@@ -2057,6 +2057,7 @@
         "nixpkgs": "nixpkgs_16",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pre-commit-hooks": "pre-commit-hooks_3",
+        "umu": "umu",
         "wezterm": "wezterm"
       }
     },
@@ -2234,6 +2235,30 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "umu": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "packaging/nix",
+        "lastModified": 1737834175,
+        "narHash": "sha256-fhyc89qqYM3ql0k4hJVibAhXvEXOch96hnsEGB7Av3I=",
+        "ref": "refs/heads/main",
+        "rev": "4d1860eefd79d6c04e964774155dbe13be65121a",
+        "revCount": 911,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging/nix"
+      },
+      "original": {
+        "dir": "packaging/nix",
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging/nix"
       }
     },
     "utils": {
