@@ -1,4 +1,4 @@
-{ pkgsSet, ... }:
+{ pkgsSet, inputs, ... }:
 let
   pkgs = pkgsSet.stable;
   dualsense-udev = pkgs.writeTextDir "etc/udev/rules.d/70-dualsensectl.rules" ''
@@ -13,6 +13,8 @@ let
   '';
 in
 {
+  imports = [ inputs.slippi.overlay ];
+
   programs = {
     steam = {
       enable = true;
