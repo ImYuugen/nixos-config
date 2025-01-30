@@ -5,11 +5,8 @@ in
 {
   imports = [ ./btop.nix ];
 
-  # Purely for Naelis
   home.packages = with pkgs; [
-    filezilla
-    remmina
-    mysql-workbench
+    qbittorrent-enhanced
   ];
 
   services = {
