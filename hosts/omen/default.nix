@@ -30,18 +30,7 @@ in
       "nvidia_drm"
     ];
     kernelParams = [ "usbcore.autosuspend=-1" ];
-    kernelPackages = pkgsSet.stable.linuxPackagesFor (
-      pkgsSet.stable.linux_6_12.override {
-        argsOverride = rec {
-          src = pkgs.fetchurl {
-            url = "mirror://kernel/linux/kernel/v6.x/linux-${version}.tar.xz";
-            hash = "sha256-h74DYN8JMbNA0rrDUWGlSAcPvDqMNSxJ4h6WZmwmrrQ=";
-          };
-          version = "6.12.9";
-          modDirVersion = "6.12.9";
-        };
-      }
-    );
+    kernelPackages = pkgsSet.unstable.linuxPackages_latest;
     supportedFilesystems = [ "ntfs" ];
     bootspec.enableValidation = true;
     loader = {
@@ -96,12 +85,13 @@ in
     networkmanager = {
       enable = true;
     };
-    wg-quick.interfaces = {
-      protonvpn = {
-        autostart = true;
-        configFile = "/root/wireguard/protonvpn.conf"; # Manually setup
-      };
-    };
+    # TODO: Find a way to do split tunneling for apps
+    # wg-quick.interfaces = {
+    #   protonvpn = {
+    #     autostart = false;
+    #     configFile = "/root/wireguard/protonvpn.conf"; # Manually setup
+    #   };
+    # };
   };
 
   powerManagement = {
