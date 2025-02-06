@@ -102,6 +102,7 @@ in
   programs = {
     fish.enable = true;
     light.enable = true;
+    nix-ld.enable = true;
   };
 
   services = {
