@@ -23,6 +23,7 @@ in
     prismlauncher
     protonplus
     jdk21 # For minecraft
+    r2modman
     (retroarch.override { cores = [ ]; })
     winetricks
     wineWowPackages.waylandFull

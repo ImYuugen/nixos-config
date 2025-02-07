@@ -12,8 +12,8 @@
       ../shared/communications/thunderbird.nix
       # ../shared/files.nix
       ../shared/firefox
+      ../shared/editors/emacs
       ../shared/editors/helix.nix
-      ../shared/editors/intellij.nix
       ../shared/editors/nvim
       ../shared/editors/vscode.nix
       ../shared/environment.nix
