@@ -4,13 +4,16 @@
   home.packages = [
     (pkgsSet.stable.emacsWithPackagesFromUsePackage {
       package = pkgsSet.stable.emacs-unstable;
-      config = ./emacs.el;
-      extraEmacsPackages = epkgs: [
-        epkgs.dashboard
-        epkgs.meow
-        epkgs.use-package
-        epkgs.rustic
-      ];
+      config = ./init.el;
+      extraEmacsPackages =
+        epkgs: with epkgs; [
+          all-the-icons
+          dashboard
+          meow
+          multiple-cursors
+          smartparens
+          use-package
+        ];
     })
   ];
   services.emacs = {

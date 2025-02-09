@@ -59,6 +59,7 @@ in
       "gls" = "git ls-files";
     };
     shellAliases = {
+      "em" = "emacs -nw";
       "tree" = "eza -T --color=always --icons";
       "ls" = "eza --color=always --icons --group-directories-first";
       "sudo" = "doas";
