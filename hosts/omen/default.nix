@@ -132,6 +132,10 @@ in
         STOP_CHARGE_THRESH_BAT0 = 90;
       };
     };
+    udisks2 = {
+      enable = true;
+      settings = { };
+    };
     upower.enable = true;
     xserver.enable = true;
     xserver.videoDrivers = [ "nvidia" ];
