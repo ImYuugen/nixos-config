@@ -8,6 +8,7 @@
       extraEmacsPackages =
         epkgs: with epkgs; [
           all-the-icons
+          autothemer
           dashboard
           meow
           multiple-cursors
