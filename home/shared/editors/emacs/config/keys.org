@@ -59,7 +59,7 @@ I took some creative freedom when I couldn't replicate 1:1 or when I didn't feel
 
 Still very much WIP
 
-#+being_src emacs-lisp
+#+begin_src emacs-lisp
     
     (meow-normal-define-key
      '("0" . meow-expand-0)
