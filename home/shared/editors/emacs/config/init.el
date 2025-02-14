@@ -5,6 +5,8 @@
 (tool-bar-mode -1)
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode 1)
+(setq visible-bell t)
+(setq ring-bell-function 'ignore)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 ; Nothing ever happens
