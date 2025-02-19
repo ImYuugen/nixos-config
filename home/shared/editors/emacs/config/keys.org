@@ -1,5 +1,7 @@
 * Keybinds :3
 
+** Meow
+
 #+begin_src emacs-lisp
 
   (require 'meow)
@@ -14,15 +16,19 @@
 
 #+end_src
 
-** Leader keys
+*** Leader keys
 
 Like modal editors, you have a Leader key (SPC in our case) which can be followed
 by other keys to access "sub-menus"
 
 They are pretty simple to remember
 e.g:
-  avy-goto-char == <leader> a g c
-  avy-kill-region == <leader> a k r
+
+_a_vy-_g_oto-_c_har == <leader> a g c
+
+_a_vy-_k_ill-_r_egion == <leader> a k r
+
+(This may vary for duplicate first letters, but yeah)
 
 #+begin_src emacs-lisp
 
@@ -44,14 +50,46 @@ e.g:
    '("a k r" . avy-kill-region)
    '("a k R" . avy-kill-ring-save-region)
    '("a m l" . avy-move-line)
-   '("a m r" . avy-move-line)
+   '("a m r" . avy-move-region)
    '("a y l" . avy-copy-line)
    '("a y r" . avy-copy-region)
+   '("b s g" . centaur-tabs-switch-group)
+   '("b s h" . centaur-tabs-forward)
+   '("b s l" . centaur-tabs)
+  					; FIXME: Find out why this translates to C-M-
+   '("m l" . magit-log)
+   '("n g" . consult-ripgrep)
+   '("n f" . consult-fd)
+   '("n m" . consult-man)
+   '("n r s" . consult-register)
+   '("n p k" . consult-yank-from-kill-ring)
+  					; TODO: o => Org mode
+   '("z c" . zoxide-cd)
+   '("z f" . zoxide-find-file)
+   '("z t" . zoxide-travel)
    '("?" . meow-cheatsheet))
 
 #+end_src
 
-** Normal mode keybinds
+*** Some util functions
+
+#+begin_src emacs-lisp
+
+  (defun append-line ()
+    "Start editing past this line's end"
+    (interactive)
+    (meow-line 1)
+    (meow-append))
+
+  (defun prepend-line ()
+    "Start editing at this line's start"
+    (interactive)
+    (meow-join 1)
+    (meow-append))
+
+#+end_src
+
+*** Normal mode keybinds
 The ones you use the most, they function in reverse of vim (a bit like helix)
 it goes like <initial selection><repetition><action>
 
@@ -60,67 +98,67 @@ I took some creative freedom when I couldn't replicate 1:1 or when I didn't feel
 Still very much WIP
 
 #+begin_src emacs-lisp
-    
-    (meow-normal-define-key
-     '("0" . meow-expand-0)
-     '("9" . meow-expand-9)
-     '("8" . meow-expand-8)
-     '("7" . meow-expand-7)
-     '("6" . meow-expand-6)
-     '("5" . meow-expand-5)
-     '("4" . meow-expand-4)
-     '("3" . meow-expand-3)
-     '("2" . meow-expand-2)
-     '("1" . meow-expand-1)
-     '("-" . negative-argument)
-     '("_" . meow-reverse)
-     '(";" . meow-cancel-selection)
-     '(":" . meow-goto-line)
-     '("," . meow-inner-of-thing)
-     '("." . meow-bounds-of-thing)
-     '("[" . meow-beginning-of-thing)
-     '("]" . meow-end-of-thing)
-     '("a" . meow-append)
-     '("A" . meow-line) ; TODO: Find a way to append after moving
-     '("b" . meow-back-word)
-     '("B" . meow-back-symbol)
-     '("c" . meow-change)
-     '("d" . meow-kill)
-     '("D" . meow-backward-delete)
-     '("e" . meow-next-word)
-     '("E" . meow-next-symbol)
-     '("f" . meow-find)
-     '("h" . meow-left)
-     '("H" . meow-left-expand)
-     '("i" . meow-insert)
-     '("I" . meow-join) ; TODO: Find a way to append after moving
-     '("j" . meow-next)
-     '("J" . meow-next-expand)
-     '("k" . meow-prev)
-     '("K" . meow-prev-expand)
-     '("l" . meow-right)
-     '("L" . meow-right-expand)
-     '("m" . meow-join)
-     '("M" . meow-mcursors-mode)
-     '("n" . meow-search)
-     '("o" . meow-open-below)
-     '("O" . meow-open-above)
-     '("p" . meow-yank)
-     '("r" . meow-replace)
-     '("s" . meow-visit)
-     '("t" . meow-till)
-     '("u" . meow-undo)
-     '("U" . undo-redo)
-     '("w" . meow-mark-word)
-     '("W" . meow-mark-symbol)
-     '("x" . meow-line)
-     '("y" . meow-save)
-     '("'" . repeat)
-     '("<escape>" . ignore))
+
+  (meow-normal-define-key
+   '("0" . meow-expand-0)
+   '("9" . meow-expand-9)
+   '("8" . meow-expand-8)
+   '("7" . meow-expand-7)
+   '("6" . meow-expand-6)
+   '("5" . meow-expand-5)
+   '("4" . meow-expand-4)
+   '("3" . meow-expand-3)
+   '("2" . meow-expand-2)
+   '("1" . meow-expand-1)
+   '("-" . negative-argument)
+   '("_" . meow-reverse)
+   '(";" . meow-cancel-selection)
+   '(":" . consult-goto-line)
+   '("," . meow-inner-of-thing)
+   '("." . meow-bounds-of-thing)
+   '("[" . meow-beginning-of-thing)
+   '("]" . meow-end-of-thing)
+   '("a" . meow-append)
+   '("A" . append-line)
+   '("b" . meow-back-word)
+   '("B" . meow-back-symbol)
+   '("c" . meow-change)
+   '("d" . meow-kill)
+   '("D" . meow-backward-delete)
+   '("e" . meow-next-word)
+   '("E" . meow-next-symbol)
+   '("f" . meow-find)
+   '("h" . meow-left)
+   '("H" . meow-left-expand)
+   '("i" . meow-insert)
+   '("I" . prepend-line)
+   '("j" . meow-next)
+   '("J" . meow-next-expand)
+   '("k" . meow-prev)
+   '("K" . meow-prev-expand)
+   '("l" . meow-right)
+   '("L" . meow-right-expand)
+   '("m" . meow-join)
+   '("M" . meow-mcursors-mode)
+   '("n" . meow-search)
+   '("o" . meow-open-below)
+   '("O" . meow-open-above)
+   '("p" . meow-yank)
+   '("r" . meow-replace)
+   '("s" . meow-visit)
+   '("t" . meow-till)
+   '("u" . meow-undo)
+   '("U" . undo-redo)
+   '("w" . meow-mark-word)
+   '("W" . meow-mark-symbol)
+   '("x" . meow-line)
+   '("y" . meow-save)
+   '("'" . repeat)
+   '("<escape>" . ignore))
 
 #+end_src
 
-** Multi cursors with meow
+*** Multi cursors with meow
 In an attempt to re-create the oh-so almighty Helix keybinds,
 here are multicursors, stored in a meow state, activated with
 
@@ -153,11 +191,11 @@ smarter way.
     '("[" . meow-beginning-of-thing)
     '("]" . meow-end-of-thing)
     '("a" . meow-append)
-    '("A" . meow-line) ; TODO: Find a way to append after moving
+    '("A" . append-line)
     '("b" . meow-back-word)
     '("B" . meow-back-symbol)
     '("c" . meow-change)
-    '("C" . mc/mark-next-lines)
+    '("C" . mc/mark-next-lines) ; FIXME: This creates more cursors than intended
     '("d" . meow-kill)
     '("D" . meow-backward-delete)
     '("e" . meow-next-word)
@@ -165,7 +203,7 @@ smarter way.
     '("h" . meow-left)
     '("H" . meow-left-expand)
     '("i" . meow-insert)
-    '("I" . meow-join) ; TODO: Find a way to append after moving
+    '("I" . prepend-line)
     '("j" . meow-next)
     '("J" . meow-next-expand)
     '("k" . meow-prev)
@@ -189,6 +227,7 @@ smarter way.
   (meow-global-mode 1)
 
   (setq mc/always-run-for-all 1)
+
 #+end_src
 
 ** General keys, independant of meow or mc
@@ -196,5 +235,7 @@ I mostly use meow keys, so I can just overwrite existing emacs
 keys without it being too much of a hassle.
 
 #+begin_src emacs-lisp
+
+  (global-set-key (kbd "M-o") 'ace-window)
 
 #+end_src

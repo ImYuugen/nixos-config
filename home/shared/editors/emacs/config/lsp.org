@@ -1,0 +1,7 @@
+#+begin_src emacs-lisp
+
+  (use-package lsp-bridge
+    :init
+    (global-lsp-bridge-mode))
+
+#+end_src
