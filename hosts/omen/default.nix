@@ -29,7 +29,10 @@ in
       "nvidia"
       "nvidia_drm"
     ];
-    kernelParams = [ "usbcore.autosuspend=-1" ];
+    kernelParams = [
+      "usbcore.autosuspend=-1"
+      "kvm.enable_virt_at_load=0"
+    ];
     kernelPackages = pkgsSet.unstable.linuxPackages_latest;
     supportedFilesystems = [ "ntfs" ];
     bootspec.enableValidation = true;
@@ -103,6 +106,7 @@ in
     fish.enable = true;
     light.enable = true;
     nix-ld.enable = true;
+    virt-manager.enable = true;
   };
 
   services = {
@@ -134,12 +138,14 @@ in
     };
     udisks2 = {
       enable = true;
-      settings = { };
     };
     upower.enable = true;
-    xserver.enable = true;
-    xserver.videoDrivers = [ "nvidia" ];
-    xserver.displayManager.startx.enable = true;
+    xserver = {
+      enable = true;
+      videoDrivers = [ "nvidia" ];
+      # TODO: Only enable on cfg.server == "X"
+      displayManager.startx.enable = true;
+    };
   };
 
   users.users.yuugen = {
@@ -152,12 +158,25 @@ in
       "video"
       "wheel"
       "gamemode"
+      "libvirtd"
     ];
   };
 
   virtualisation = {
     docker = {
       enable = true;
+    };
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgsSet.stable.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [ pkgsSet.stable.OVMFFull.fd ];
+        };
+      };
     };
   };
 
