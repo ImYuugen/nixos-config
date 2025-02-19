@@ -37,14 +37,8 @@ in
     ];
 
     shellAbbrs = {
-      "..." = "z ../..";
       "l" = "ls -la";
-
-      "goflake" = "z $HOME/Projects/Nix/flake";
-      "nix-fish" = "nix-shell --run fish";
-      "dev-fish" = "nix develop -c fish";
-      "shell-fish" = "nix shell -c fish";
-      "update" = "doas nixos-rebuild switch --flake .#";
+      "rebuild-flake" = "doas nixos-rebuild switch --flake .# -j auto --fast -L -v --log-format internal-json 2>&1 | nom --json";
 
       # Git
       # log
@@ -82,10 +76,6 @@ in
       tardel = ''
         tar -xvf $argv[1]
         rm $argv[1]
-      '';
-
-      dup = ''
-        $TERMINAL . & disown
       '';
     };
   };
