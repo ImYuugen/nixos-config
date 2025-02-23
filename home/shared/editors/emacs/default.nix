@@ -6,45 +6,66 @@ let
     config = ./config/init.el;
     extraEmacsPackages =
       epkgs: with epkgs; [
-        ace-window # OK
-        all-the-icons # OK
-        autothemer # OK
-        avy # OK
-        benchmark-init
-        catppuccin-theme # OK
-        centaur-tabs # OK
+        # Editing
+        avy
+        colorful-mode
+        emojify
+        highlight-thing
+        hl-todo
+        indent-bars
+        meow
+        multiple-cursors
+        rainbow-delimiters
+        smartparens
+        tempel
+
+        # Org mode
+        org-bullets
+        org-preview-html
+        org-roam
+
+        # Programming
+        elpy # Python extensions
+        flycheck
+        flycheck-irony
+        flycheck-hl-todo
+        flycheck-rust
+        impatient-mode # Live web changes
+        irony # C/C++ minor mode
+        lua-mode # Lua extensions
+        lsp-bridge # Lsp support
+        tide # Typescript
+        realgud # Debugger # TODO
+        rmsbolt # Decompiler
+        rustic # Rust extensions
+
+        # Project/VCS
+        direnv
+        forge
+        git-gutter
+        magit
+        projectile
+
+        # UI/Navigation
+        ace-window
+        all-the-icons
+        centaur-tabs
+        dashboard
+        doom-modeline
+        treemacs
+
+        # Themes
+        autothemer
+        catppuccin-theme
+
+        # TBD
         clipmon # NOPE
-        colorful-mode # OK
         consult # OK
-        dashboard # NOPE
-        direnv # OK
-        doom-modeline # OK
-        emojify # NOPE
-        flycheck # NOPE
-        forge # NOPE
-        highlight-thing # NOPE
-        indent-bars # NOPE
-        lsp-bridge # OK-ISH
-        magit # NOPE
-        magit-todos # NOPE
         marginalia # OK
-        meow # OK
-        multiple-cursors # OK-ISH
         polymode # NOPE
-        projectile # NOPE
         orderless # OK
-        org # OK
-        org-bullets # NOPE
-        org-preview-html # OK
-        org-roam # NOPE
-        rainbow-delimiters # NOPE
-        realgud # NOPE
-        smartparens # NOPE
-        tempel # NOPE
-        treemacs # NOPE
-        use-package # OK
+        use-package
         vertico # OK
-        ws-butler # NOPE
         zoxide # OK-ISH
       ];
   };
