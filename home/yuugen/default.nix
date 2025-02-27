@@ -18,6 +18,7 @@
       ../shared/editors/vscode.nix
       ../shared/environment.nix
       ../shared/gaming.nix
+      ../shared/input/japanese.nix
       ../shared/media/mpv.nix
       ../shared/media/spotify.nix
       # ../shared/media/vlc.nix
