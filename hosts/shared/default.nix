@@ -1,6 +1,4 @@
 {
-  inputs,
-  lib,
   pkgsSet,
   ...
 }:
@@ -25,7 +23,9 @@
     sudo.enable = false;
     doas = {
       enable = true;
+      # Allowing nixos-rebuild might be the unsafest thing ever but yeah
       extraConfig = ''
+        permit persist :wheel
         permit nopass keepenv setenv { PATH } :wheel cmd nixos-rebuild
       '';
     };

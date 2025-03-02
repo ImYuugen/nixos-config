@@ -88,13 +88,6 @@ in
     networkmanager = {
       enable = true;
     };
-    # TODO: Find a way to do split tunneling for apps
-    wg-quick.interfaces = {
-      protonvpn = {
-        autostart = false;
-        configFile = "/root/wireguard/protonvpn.conf"; # Manually setup
-      };
-    };
   };
 
   powerManagement = {
