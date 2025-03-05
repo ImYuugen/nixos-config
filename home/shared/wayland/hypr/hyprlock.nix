@@ -9,20 +9,28 @@
         hide_cursor = false;
         no_fade_in = true;
         no_fade_out = true;
-        grace = 3;
+        grace = 1;
       };
       background = {
         path = "screenshot";
-        blur_passes = 5;
-        blur_size = 7;
+        blur_passes = 3;
+        blur_size = 5;
+        brightness = 0.75;
+        noise = 5.0e-2;
       };
       inputs-field = [
         {
           monitor = "";
           size = "300, 50";
-          outline_thickness = 1;
-          fade_on_empty = false;
-          placeholder_text = ''<span>Swalalalaa (drank)...</span>'';
+          outline_thickness = 3;
+          dots_center = true;
+          dots_size = 0.33;
+          dots_spacing = 0.15;
+          placeholder_text = ''<i>Swalalalaa (drank)...</i>'';
+          hide_input = false;
+          position = "0, 200";
+          halign = "center";
+          valign = "bottom";
         }
       ];
       label = [

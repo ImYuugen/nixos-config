@@ -2,7 +2,6 @@
 rec {
   home.packages = [
     inputs.hyprcursor
-    pkgsSet.stable.hyprcursor
   ];
   home.pointerCursor = {
     gtk.enable = true;

@@ -38,6 +38,8 @@ in
   home.packages = [
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    inputs.hyprpolkitagent.packages.${pkgs.system}.hyprpolkitagent
+    inputs.hyprsunset.packages.${pkgs.system}.hyprsunset
 
     # TODO: Move to ricing options
     pkgs.kanagawa-icon-theme

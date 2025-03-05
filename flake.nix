@@ -30,6 +30,8 @@
     hyprcursor.url = "github:hyprwm/hyprcursor";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     hyprpicker.url = "github:hyprwm/hyprpicker";
+    hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
+    hyprsunset.url = "github:hyprwm/hyprsunset";
     hypr-contrib.url = "github:hyprwm/contrib";
 
     slippi = {

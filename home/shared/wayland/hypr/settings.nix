@@ -7,6 +7,14 @@
       enabled = "yes";
     };
 
+    animation = [
+      "windows, 1, 7, default, slide"
+      "windowsOut, 0"
+      "fadeIn, 0"
+      "fadeOut, 0"
+      "workspaces, 1, 5, default"
+    ];
+
     decoration = {
       rounding = "8";
     };
@@ -49,9 +57,13 @@
       "dbus-update-activation-environment --systemd --all"
       "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "/usr/lib/polkit-kde-authentication-agent-1"
+      "systemctl --user start hyprpolkitagent"
+      "hyprsunset"
+      "fcitx5 &"
     ];
 
     general = {
+      allow_tearing = "true";
       gaps_in = "0";
       gaps_out = "8";
       border_size = "1";
