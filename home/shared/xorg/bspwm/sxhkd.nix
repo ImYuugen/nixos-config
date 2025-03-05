@@ -7,7 +7,7 @@
       "super + shift + x" = "xsecurelock";
       # Apps
       "super + {_,shift + }d" = "rofi -modi \"run,drun\" -show {drun,run}";
-      "alt + shift + w" = "firefox";
+      "alt + shift + w" = "$BROWSER";
       # Window/Desktop movement
       "super + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,10}'";
       "super + shift + {a,d}" = "bspc node @/ -C {backward,forward}";

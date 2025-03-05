@@ -42,7 +42,7 @@ in
         "$mainMod, D, exec, rofi -show drun"
         "$mainMod SHIFT, D, exec, rofi -show run"
         # Apps
-        "$appMod, W, exec, firefox"
+        "$appMod, W, exec, $BROWSER"
         # Layout
         "$mainMod, P, pseudo"
         "$mainMod, apostrophe, togglesplit,"

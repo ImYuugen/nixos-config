@@ -13,6 +13,7 @@
     windowrule = [
       # Match firefox versions
       "noblur, ^(firefox(-*)?)$"
+      "noblur, ^(librewolf(-*)?)$"
     ];
   };
 }
