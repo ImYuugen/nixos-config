@@ -7,11 +7,11 @@
     # Ooh that's a lot of words
     imports = [
       ./git.nix
+      ../shared/browser.nix
       ../shared/communications/discord.nix
       ../shared/communications/slack.nix
       ../shared/communications/thunderbird.nix
       # ../shared/files.nix
-      ../shared/firefox
       ../shared/editors/emacs
       ../shared/editors/helix.nix
       ../shared/editors/nvim

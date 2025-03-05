@@ -1,7 +1,25 @@
 { pkgsSet, ... }:
+
 {
-  programs.firefox = {
+  home.sessionVariables.BROWSER = "librewolf";
+
+  programs.librewolf = {
     enable = true;
+    languagePacks = [
+      "en-US"
+      "fr-FR"
+      "jp-JP"
+    ];
+    settings = {
+      "identity.fxaccounts.enabled" = true;
+      "privacy.clearOnShutdown.history" = false;
+      "middlemouse.paste" = false;
+      "general.autoScroll" = true;
+    };
+  };
+
+  programs.firefox = {
+    enable = false;
     policies = {
       AppAutoUpdate = false;
       DisablePocket = true;
