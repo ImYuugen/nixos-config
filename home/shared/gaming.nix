@@ -14,7 +14,7 @@ in
   };
 
   home.packages = with stable; [
-    inputs.umu.packages.${system}.umu
+    pkgsSet.unstable.umu-launcher
     dolphin-emu
     (unstable.lutris.override {
       extraLibraries = pkgs: [ ];
@@ -24,7 +24,12 @@ in
     protonplus
     jdk21 # For minecraft
     r2modman
-    (retroarch.override { cores = [ ]; })
+    (retroarch.override {
+      cores = with libretro; [
+        citra
+        desmume
+      ];
+    })
     winetricks
     wineWowPackages.waylandFull
   ];
