@@ -14,7 +14,6 @@ in
   };
 
   home.packages = with stable; [
-    pkgsSet.unstable.umu-launcher
     dolphin-emu
     (unstable.lutris.override {
       extraLibraries = pkgs: [ ];
@@ -30,6 +29,8 @@ in
         desmume
       ];
     })
+    torzu
+    pkgsSet.unstable.umu-launcher
     winetricks
     wineWowPackages.waylandFull
   ];
