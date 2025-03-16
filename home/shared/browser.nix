@@ -13,8 +13,14 @@
     settings = {
       "identity.fxaccounts.enabled" = true;
       "privacy.clearOnShutdown.history" = false;
+      "browser.startup.page" = 3;
       "middlemouse.paste" = false;
       "general.autoScroll" = true;
+      "dom.webgpu.enabled" = true;
+      "dom.webgl.enabled" = true; # I know I shouldn't 😔
+      "signon.storeSignons" = true;
+      "signon.rememberSignons" = true;
+      "signon.storeWhenAutocompleteOff" = true;
     };
   };
 
