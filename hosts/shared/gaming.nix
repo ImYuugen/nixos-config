@@ -33,6 +33,26 @@ in
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "\${HOME}/.steam/root/compatibilitytools.d";
   };
 
-  environment.systemPackages = [ pkgs.dualsensectl ];
+  environment.systemPackages = [
+    pkgs.dualsensectl
+    # VR
+    pkgs.wlx-overlay-s
+    # ==
+  ];
   services.udev.packages = [ dualsense-udev ];
+
+  # VR
+  programs.envision = {
+    enable = true;
+    openFirewall = true;
+  };
+  services.monado = {
+    enable = true;
+    defaultRuntime = true;
+  };
+  systemd.user.services.monado.environment = {
+    STEAMVR_LH_ENABLE = "1";
+    XRT_COMPOSITOR_COMPUTE = "1";
+  };
+  # ==
 }
