@@ -2408,7 +2408,6 @@
         "nixpkgs": "nixpkgs_19",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pre-commit-hooks": "pre-commit-hooks_3",
-        "slippi": "slippi",
         "wezterm": "wezterm"
       }
     },
@@ -2451,26 +2450,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "slippi": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1740681406,
-        "narHash": "sha256-ITB2+UUDsAkbUEWr/sSDHhc79Z0Y+O1HBTm9vOmYs7M=",
-        "owner": "NormalFall",
-        "repo": "ssbm-nix",
-        "rev": "616c28a956b331103211556583ca456dd8e0942a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NormalFall",
-        "repo": "ssbm-nix",
         "type": "github"
       }
     },

@@ -1,4 +1,4 @@
-{ pkgsSet, inputs, ... }:
+{ pkgsSet, ... }:
 let
   pkgs = pkgsSet.stable;
   dualsense-udev = pkgs.writeTextDir "etc/udev/rules.d/70-dualsensectl.rules" ''
@@ -13,8 +13,6 @@ let
   '';
 in
 {
-  imports = [ inputs.slippi.overlay ];
-
   programs = {
     steam = {
       enable = true;
@@ -36,16 +34,13 @@ in
   environment.systemPackages = [
     pkgs.dualsensectl
     # VR
+    pkgs.opencomposite
     pkgs.wlx-overlay-s
     # ==
   ];
   services.udev.packages = [ dualsense-udev ];
 
   # VR
-  programs.envision = {
-    enable = true;
-    openFirewall = true;
-  };
   services.monado = {
     enable = true;
     defaultRuntime = true;

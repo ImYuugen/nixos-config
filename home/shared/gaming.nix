@@ -1,18 +1,10 @@
-{ pkgsSet, inputs, ... }:
+{ pkgsSet, ... }:
 let
   stable = pkgsSet.stable;
   unstable = pkgsSet.unstable;
+  confPkgs = pkgsSet.confPkgs;
 in
 {
-  imports = [
-    inputs.slippi.homeManagerModule
-  ];
-  ssbm.slippi-launcher = {
-    enable = true;
-    # Wah wah user reference - I'm the sole mf using this flake
-    isoPath = "/home/yuugen/Games/Super Smash Bros. Melee v1.02 NTSC-U.iso";
-  };
-
   home.packages = with stable; [
     dolphin-emu
     (unstable.lutris.override {
@@ -33,6 +25,10 @@ in
     pkgsSet.unstable.umu-launcher
     winetricks
     wineWowPackages.waylandFull
+
+    #= Slippi
+    confPkgs.slippi-launcher
+    #=
   ];
 
   programs.mangohud.enable = true;

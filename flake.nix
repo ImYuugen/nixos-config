@@ -34,11 +34,6 @@
     hyprsunset.url = "github:hyprwm/hyprsunset";
     hypr-contrib.url = "github:hyprwm/contrib";
 
-    slippi = {
-      url = "github:NormalFall/ssbm-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
@@ -57,7 +52,7 @@
           inherit system;
           config.allowUnfree = true;
         };
-        confPkgs = import ./pkgs;
+        confPkgs = import ./pkgs { pkgs = pkgsSet.stable; };
       };
     in
     {
