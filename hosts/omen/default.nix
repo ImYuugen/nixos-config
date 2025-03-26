@@ -100,6 +100,10 @@ in
     light.enable = true;
     nix-ld.enable = true;
     virt-manager.enable = true;
+    wireshark = {
+      enable = true;
+      package = pkgsSet.stable.wireshark;
+    };
   };
 
   services = {
