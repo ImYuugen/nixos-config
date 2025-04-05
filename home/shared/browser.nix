@@ -1,10 +1,10 @@
 { pkgsSet, ... }:
 
 {
-  home.sessionVariables.BROWSER = "librewolf";
+  home.sessionVariables.BROWSER = "firefox";
 
   programs.librewolf = {
-    enable = true;
+    enable = false;
     languagePacks = [
       "en-US"
       "fr-FR"
@@ -25,7 +25,7 @@
   };
 
   programs.firefox = {
-    enable = false;
+    enable = true;
     policies = {
       AppAutoUpdate = false;
       DisablePocket = true;
@@ -35,51 +35,6 @@
         "media.ffmpeg.vaapi.enabled" = true;
       };
       TranslateEnabled = false;
-    };
-    profiles."Default" = {
-      isDefault = true;
-      search = {
-        force = true; # Why is this a thing
-        default = "DuckDuckGo";
-        privateDefault = "DuckDuckGo";
-        engines = {
-          "Nix Packages" = {
-            urls = [
-              {
-                template = "https://search.nixos.org/packages";
-                params = [
-                  {
-                    name = "type";
-                    value = "packages";
-                  }
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            icon = "${pkgsSet.unstable.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = [ "@np" ];
-          };
-          "NixOS Wiki" = {
-            urls = [
-              {
-                template = "https://wiki.nixos.org/index.php";
-                params = [
-                  {
-                    name = "search";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            iconUpdateURL = "https://wiki.nixos.org/favicon.png";
-            updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = [ "@nw" ];
-          };
-        };
-      };
     };
   };
 }
