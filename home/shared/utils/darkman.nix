@@ -8,7 +8,7 @@
     };
     lightModeScripts = {
       notif = ''
-        notify-send "Skibidi toilet"
+        notify-send --expire-time=5000 --urgency=low "Rise and Shine Diva 💭"
       '';
       activate = ''
         export PATH="/nix/var/nix/profiles/default/bin:$PATH"
@@ -17,7 +17,7 @@
     };
     darkModeScripts = {
       notif = ''
-        notify-send "jsp"
+        notify-send --expire-time=5000 --urgency=low "The sun is setting Queen 🍵🎼"
       '';
       activate = ''
         export PATH="/nix/var/nix/profiles/default/bin:$PATH"
