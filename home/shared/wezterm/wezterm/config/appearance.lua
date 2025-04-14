@@ -1,5 +1,3 @@
-local colors = require("colors.rose-pine").main.colors()
-
 return {
 	max_fps = 144,
 	front_end = "WebGpu",
@@ -10,8 +8,6 @@ return {
 	cursor_blink_ease_out = "EaseOut",
 	default_cursor_style = "BlinkingBlock",
 	cursor_blink_rate = 650,
-
-	colors = colors,
 
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,

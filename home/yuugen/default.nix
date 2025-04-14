@@ -33,6 +33,7 @@
       # ../shared/shells/bash.nix
       ../shared/sound/easyeffects.nix
       ../shared/utils
+      ../shared/utils/darkman.nix
       # ../shared/vpn.nix
       ../shared/wayland
       ../shared/wayland/ags

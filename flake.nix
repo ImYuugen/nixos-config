@@ -33,8 +33,6 @@
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
     hyprsunset.url = "github:hyprwm/hyprsunset";
     hypr-contrib.url = "github:hyprwm/contrib";
-
-    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
   outputs =
