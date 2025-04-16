@@ -6,7 +6,6 @@
     enable = true;
     package = pkgsSet.unstable.helix;
     settings = {
-      theme = "rose_pine_moon";
       editor = {
         line-number = "relative";
         lsp = {
@@ -41,5 +40,14 @@
         language-servers = [ "nil" ];
       }
     ];
+  };
+
+  specialisation = {
+    light.configuration = {
+      programs.helix.settings.theme = "catppuccin_latte";
+    };
+    dark.configuration = {
+      programs.helix.settings.theme = "catppuccin_macchiato";
+    };
   };
 }
