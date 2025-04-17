@@ -1,15 +1,29 @@
 { inputs, pkgsSet, ... }:
+
 let
-  # wallpaper = ./resources/115738312_p0.jpg;
-  wallpaper = ./resources/cpunk2077.jpg;
+  wallpapers = {
+    light = ../../../../resources/wallpapers/light/kronii.jpg;
+    dark = ../../../../resources/wallpapers/dark/cpunk2077.jpg;
+  };
 in
 {
   services.hyprpaper = {
     enable = true;
     package = inputs.hyprpaper.packages.${pkgsSet.stable.system}.hyprpaper;
     settings = {
-      preload = [ "${wallpaper}" ];
-      wallpaper = [ ", ${wallpaper}" ];
+      preload = [ "${wallpapers.dark}" ];
+      wallpaper = [ ",${wallpapers.dark}" ];
     };
+  };
+
+  services.darkman = {
+    lightModeScripts.hyprpaper = ''
+      hyprctl hyprpaper preload "${wallpapers.light}"
+      hyprctl hyprpaper wallpaper ",${wallpapers.light}"
+    '';
+    darkModeScripts.hyprpaper = ''
+      hyprctl hyprpaper preload "${wallpapers.dark}"
+      hyprctl hyprpaper wallpaper ",${wallpapers.dark}"
+    '';
   };
 }

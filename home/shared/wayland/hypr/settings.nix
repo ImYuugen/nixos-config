@@ -59,7 +59,9 @@
       "/usr/lib/polkit-kde-authentication-agent-1"
       "systemctl --user start hyprpolkitagent"
       "hyprsunset"
-      "fcitx5 &"
+      "fcitx5-remote -r"
+      "fcitx5 -d --replace &"
+      "fcitx5-remote -r"
     ];
 
     general = {
@@ -74,9 +76,9 @@
     };
 
     input = {
-      kb_layout = "us, fr";
+      kb_layout = "us";
       kb_variant = "altgr-intl,";
-      kb_options = "grp:win_space_toggle,caps:escape";
+      kb_options = "caps:escape";
       follow_mouse = "2";
       mouse_refocus = "false";
       sensitivity = "0.2";

@@ -6,6 +6,7 @@
   home-manager.users.yuugen = {
     # Ooh that's a lot of words
     imports = [
+      ./files.nix
       ./git.nix
       ../shared/browser.nix
       ../shared/communications/discord.nix
@@ -19,7 +20,7 @@
       ../shared/editors/vscode.nix
       ../shared/environment.nix
       ../shared/gaming.nix
-      ../shared/input/fcitx.nix
+      ../shared/input/fcitx
       ../shared/media/mpv.nix
       ../shared/media/spotify.nix
       # ../shared/media/vlc.nix

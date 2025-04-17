@@ -16,9 +16,4 @@
     glfw-wayland
     qt6.qtwayland
   ];
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgsSet.stable; [ xdg-desktop-portal-wlr ];
-  };
 }
