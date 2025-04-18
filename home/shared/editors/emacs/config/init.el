@@ -3,6 +3,7 @@
 ;; Paths
 (add-to-list 'load-path "~/.emacs.d/features")
 (add-to-list 'load-path "~/.emacs.d/preferences")
+(add-to-list 'load-path "~/.emacs.d/themes")
 
 ;; Features
 (require 'feat-modal-editing)
@@ -16,3 +17,6 @@
 (require 'pref-margin)
 (require 'pref-saving)
 (require 'pref-tabs)
+
+;; Themes
+(require 'theme-catppuccin)

@@ -6,8 +6,7 @@
   (meow-motion-overwrite-define-key
    '("j" . meow-next)
    '("k" . meow-prev)
-   '("<escape>" . ignore)
-   )
+   '("<escape>" . ignore))
 
   (meow-leader-define-key
    '("1" . meow-digit-argument)
