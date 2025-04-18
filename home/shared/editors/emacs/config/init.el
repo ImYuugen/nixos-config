@@ -13,6 +13,7 @@
 (require 'pref-bell)
 (require 'pref-buffers)
 (require 'pref-custom)
+(require 'pref-font)
 (require 'pref-linum)
 (require 'pref-margin)
 (require 'pref-saving)
