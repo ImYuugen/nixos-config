@@ -1,8 +1,0 @@
-#+begin_src emacs-lisp
-
-  (doom-modeline-mode)
-  (setq doom-modeline-bar-height 24)
-  (setq doom-modeline-minor-modes t)
-  (setq doom-modeline-total-line-number t)
-
-#+end_src
