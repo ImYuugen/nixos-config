@@ -12,8 +12,13 @@
     ];
     windowrule = [
       # Match firefox versions
-      "noblur, ^(firefox(-*)?)$"
-      "noblur, ^(librewolf(-*)?)$"
+      "noblur, ^(firefox(-.*)?)$"
+      "noblur, ^(librewolf(-.*)?)$"
+    ];
+    workspace = [
+      # Smart gaps/No gaps when only
+      "w[tv1], gapsout:0, gapsin:0, bordersize:0, rounding:0"
+      "f[1], gapsout:0, gapsin:0, bordersize:0, rounding:0"
     ];
   };
 }
