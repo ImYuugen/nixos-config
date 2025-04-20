@@ -11,7 +11,9 @@
 
 (use-package vertico
   :custom (vertico-count 20)
-  :config (vertico-mode))
+  :config
+  (keymap-set vertico-map "TAB" #'minibuffer-complete)
+  (vertico-mode))
 
 (use-package marginalia
   :config (marginalia-mode))

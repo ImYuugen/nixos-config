@@ -10,6 +10,7 @@
 (require 'feat-avy)
 (require 'feat-centaur-tabs)
 (require 'feat-completion)
+(require 'feat-direnv)
 (require 'feat-meow)
 (require 'feat-zoxide)
 
