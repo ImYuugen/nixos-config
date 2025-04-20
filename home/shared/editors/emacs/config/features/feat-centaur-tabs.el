@@ -39,6 +39,7 @@
      )))
 
 (use-package centaur-tabs
+  :ensure t
   :after meow
   :config (config-centaur-tabs))
 

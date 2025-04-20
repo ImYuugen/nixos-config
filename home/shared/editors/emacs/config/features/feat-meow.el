@@ -96,7 +96,7 @@
   (meow-global-mode 1))
 
 (use-package meow
-  :config (meow-configure)
-  :ensure t)
+  :ensure t
+  :config (meow-configure))
 
 (provide 'feat-meow)

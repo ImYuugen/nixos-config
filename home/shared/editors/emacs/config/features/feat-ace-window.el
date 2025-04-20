@@ -5,7 +5,7 @@
   (setq aw-background nil))
 
 (use-package ace-window
-  :config (config-ace-window)
-  :ensure t)
+  :ensure t
+  :config (config-ace-window))
 
 (provide 'feat-ace-window)
