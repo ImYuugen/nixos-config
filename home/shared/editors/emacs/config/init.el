@@ -6,7 +6,12 @@
 (add-to-list 'load-path "~/.emacs.d/themes")
 
 ;; Features
-(require 'feat-modal-editing)
+(require 'feat-ace-window)
+(require 'feat-avy)
+(require 'feat-centaur-tabs)
+(require 'feat-completion)
+(require 'feat-meow)
+(require 'feat-zoxide)
 
 ;; Prefs
 (require 'pref-bars)

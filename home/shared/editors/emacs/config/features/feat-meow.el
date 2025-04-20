@@ -99,4 +99,4 @@
   :config (meow-configure)
   :ensure t)
 
-(provide 'feat-modal-editing)
+(provide 'feat-meow)
