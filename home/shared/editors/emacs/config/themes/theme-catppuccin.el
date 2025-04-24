@@ -2,7 +2,9 @@
 
 (defun config-catppuccin ()
   (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'macchiato)
+  (darkman-set-light-callback (lambda () (catppuccin-load-flavor 'latte)))
+  (darkman-set-dark-callback (lambda () (catppuccin-load-flavor 'macchiato)))
+  (darkman-exec-callback)
   (catppuccin-reload))
 
 (use-package catppuccin-theme

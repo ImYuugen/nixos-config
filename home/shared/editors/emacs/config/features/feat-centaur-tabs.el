@@ -7,7 +7,10 @@
   (setq centaur-tabs-gray-out-icons 'buffer)
   (setq centaur-tabs-set-modified-marker t)
   (centaur-tabs-mode)
+
   (meow-leader-define-key
+   ;; TODO: Find a way to name prefixes so that which-key shows "b -> Buffers"
+   ;; IN FAQ
    '("b s g" . centaur-tabs-switch-group)
    '("b s h" . centaur-tabs-backward)
    '("b s l" . centaur-tabs-forward)))
