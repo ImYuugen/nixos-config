@@ -6,6 +6,7 @@ in
   imports = [
     ./binds.nix
     ./hyprcursor.nix
+    ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
     ./rules.nix
@@ -40,9 +41,6 @@ in
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     inputs.hyprpolkitagent.packages.${pkgs.system}.hyprpolkitagent
     inputs.hyprsunset.packages.${pkgs.system}.hyprsunset
-
-    # TODO: Move to ricing options
-    pkgs.kanagawa-icon-theme
   ];
 
   xdg.portal = {

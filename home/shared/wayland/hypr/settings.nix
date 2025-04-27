@@ -56,7 +56,6 @@
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "dbus-update-activation-environment --systemd --all"
       "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-      "/usr/lib/polkit-kde-authentication-agent-1"
       "systemctl --user start hyprpolkitagent"
       "hyprsunset"
       "fcitx5-remote -r"
@@ -99,6 +98,8 @@
       disable_autoreload = "true";
       vfr = "false";
       vrr = "1";
+      mouse_move_enables_dpms = "true";
+      key_press_enables_dpms = "true";
     };
 
     # Set default scale to 1
