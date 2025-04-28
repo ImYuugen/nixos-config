@@ -1,12 +1,8 @@
 { pkgsSet, ... }:
-let
-  pkgs = pkgsSet.stable;
-in
 {
   imports = [ ./btop.nix ];
 
-  home.packages = with pkgs; [
-    protonvpn-cli_2
+  home.packages = with pkgsSet.unstable; [
     protonvpn-gui
     qbittorrent-enhanced
   ];
