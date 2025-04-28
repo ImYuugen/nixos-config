@@ -1,6 +1,6 @@
 ;; -*- coding: utf-8; lexical-binding: t -*-
 
-(defun config-centaur-tabs ()
+(defun feat--config-centaur-tabs ()
   (setq centaur-tabs-style "slant")
   (setq centaur-tabs-set-icons t)
   (setq centaur-tabs-icon-type 'nerd-icons)
@@ -15,7 +15,7 @@
    '("b s h" . centaur-tabs-backward)
    '("b s l" . centaur-tabs-forward)))
 
-(defun centaur-tabs-hide-tab (x)
+(defun feat--centaur-tabs-hide-tab (x)
   (let ((name (format "%s" x)))
     (or
      (window-dedicated-p (selected-window))
@@ -44,6 +44,6 @@
 (use-package centaur-tabs
   :ensure t
   :after meow
-  :config (config-centaur-tabs))
+  :config (feat--config-centaur-tabs))
 
 (provide 'feat-centaur-tabs)

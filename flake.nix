@@ -23,8 +23,6 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     lz.url = "github:nvim-neorocks/lz.n";
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-
     ags.url = "github:Aylur/ags";
     hyprland.url = "github:hyprwm/hyprland";
     hyprcursor.url = "github:hyprwm/hyprcursor";
@@ -44,7 +42,7 @@
         stable = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          overlays = [ inputs.emacs-overlay.overlay ];
+          overlays = [ ];
         };
         unstable = import nixpkgs-unstable {
           inherit system;

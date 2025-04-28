@@ -1,10 +1,12 @@
 ;;; init --- My Emacs config :3 -*- coding: utf-8; lexical-binding: t -*-
 
-(defun config-doom-modeline ()
-  (doom-modeline-mode 1))
-
 (use-package doom-modeline
   :ensure t
-  :config (config-doom-modeline))
+  :custom
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-enable-word-count t)
+  (doom-modeline-hud t)
+  :config
+  (doom-modeline-mode))
 
 (provide 'feat-doom-modeline)

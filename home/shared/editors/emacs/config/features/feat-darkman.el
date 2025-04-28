@@ -17,9 +17,9 @@
   :prefix "darkman-")
 
 (defun darkman--default-light-callback ()
-  (message "Default light callback"))
+  (print "Default light callback"))
 (defun darkman--default-dark-callback ()
-  (message "Default dark callback"))
+  (print "Default dark callback"))
 
 (defcustom darkman-callbacks '(:light darkman--default-light-callback :dark darkman--default-dark-callback)
   "A property list which maps modes, `:light` and `:dark`, to their respective

@@ -21,4 +21,16 @@
   :ensure t
   :config (marginalia-mode))
 
+(defun feat--config-company ()
+  (global-company-mode))
+
+(use-package company
+  :ensure t
+  :config (feat--config-company))
+
+(use-package company-box
+  :ensure t
+  :if window-system
+  :hook ((company-mode . company-box-mode)))
+
 (provide 'feat-completion)
