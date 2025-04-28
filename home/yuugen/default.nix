@@ -8,6 +8,7 @@
     imports = [
       ./files.nix
       ./git.nix
+      ./work.nix
       ../shared/browser.nix
       ../shared/communications/discord.nix
       ../shared/communications/slack.nix
