@@ -29,9 +29,9 @@
       "GDK_BACKEND,wayland,x11,*"
       "LIBSEAT_BACKEND,logind"
       "LIBVA_DRIVER_NAME,radeonsi"
-      "LIBVA_DRIVER_NAME,nvidia"
+      # "LIBVA_DRIVER_NAME,nvidia"
       # "GBM_BACKEND,nvidia-drm" # Firefox crashes when enabled
-      "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+      # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       "NVD_BACKEND,direct"
       "ELECTRON_OZONE_PLATFORM_HINT,auto"
       "NIXOS_OZONE_WL,1"
@@ -58,9 +58,7 @@
       "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "systemctl --user start hyprpolkitagent"
       "hyprsunset"
-      "fcitx5-remote -r"
       "fcitx5 -d --replace &"
-      "fcitx5-remote -r"
     ];
 
     general = {
@@ -76,7 +74,7 @@
 
     input = {
       kb_layout = "us";
-      kb_variant = "altgr-intl,";
+      kb_variant = "altgr-intl";
       kb_options = "caps:escape";
       follow_mouse = "2";
       mouse_refocus = "false";
