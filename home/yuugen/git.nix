@@ -17,6 +17,7 @@
         nicelog = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %C(bold blue)%an%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative";
         pall = "!git remote | xargs -L1 git push --all";
         s = "status";
+        ld = "log --graph --oneline --abbrev-commit --decorate --stat --format=format:'%C(bold blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(italic red)- %an%C(reset)%C(bold green)%d%C(reset)'";
       };
 
       diff-so-fancy = {
