@@ -1,25 +1,33 @@
-{ pkgsSet, ... }:
+{ config, pkgsSet, ... }:
 {
   imports = [ ./btop.nix ];
 
   home.packages = with pkgsSet.unstable; [
+    hunspell
+    hunspellDicts.en-us-large
+    hunspellDicts.fr-any
+    hunspellDicts.sv-se
     protonvpn-gui
     qbittorrent-enhanced
+    kdePackages.dolphin
+    kdePackages.qtsvg
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
   ];
+
+  home.sessionVariables.DICPATH = "${config.home.profileDirectory}/share/hunspell";
 
   services = {
     blueman-applet.enable = true;
     gnome-keyring.enable = true;
   };
 
-  # HACK: Drop-in replacement for programs.direnv.silent
-  home.sessionVariables.DIRENV_LOG_FORMAT = "";
-
   programs = {
     bat.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+      silent = true;
     };
     eza = {
       enable = true;
