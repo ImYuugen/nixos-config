@@ -3,8 +3,8 @@
   services.darkman = {
     enable = true;
     settings = {
-      lat = 48.87951;
-      lng = 2.28513;
+      lat = 48;
+      lng = 2;
     };
     lightModeScripts = {
       notif = ''
