@@ -32,8 +32,39 @@ in
     '';
   };
 
-  gtk = {
+  gtk.enable = true;
+  qt = {
     enable = true;
+    style = {
+      package = pkgs.catppuccin-qt5ct;
+    };
+  };
+  specialisation = {
+    light.configuration = {
+      gtk.theme = {
+        package = (
+          pkgsSet.unstable.magnetic-catppuccin-gtk.override {
+            accent = [ "teal" ];
+            shade = "light";
+          }
+        );
+        name = "Catppuccin-GTK-Teal-Light";
+      };
+      qt.style.name = "catppuccin-latte-teal";
+    };
+    dark.configuration = {
+      gtk.theme = {
+        package = (
+          pkgsSet.unstable.magnetic-catppuccin-gtk.override {
+            accent = [ "teal" ];
+            shade = "dark";
+            tweaks = [ "macchiato" ];
+          }
+        );
+        name = "Catppuccin-GTK-Teal-Dark-Macchiato";
+      };
+      qt.style.name = "catppuccin-macchiato-teal";
+    };
   };
 
   home.packages = [
