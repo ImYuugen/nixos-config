@@ -2,7 +2,8 @@
 
 {
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enabled = true;
+    type = "fcitx5";
     fcitx5 = {
       fcitx5-with-addons = pkgsSet.stable.kdePackages.fcitx5-with-addons;
       addons = with pkgsSet.stable; [
