@@ -15,14 +15,14 @@ in
     protonplus
     jdk21 # For minecraft
     r2modman
-    (retroarch.override {
-      cores = with libretro; [
+    (retroarch.withCores (
+      cores: with cores; [
         citra
         desmume
-      ];
-    })
-    torzu
-    pkgsSet.unstable.umu-launcher
+      ]
+    ))
+    confPkgs.someRandomSoft
+    umu-launcher
     winetricks
     wineWowPackages.waylandFull
 
