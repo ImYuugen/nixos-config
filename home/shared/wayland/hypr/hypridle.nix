@@ -12,10 +12,7 @@
         {
           timeout = 240;
           on-timeout = "hyprctl hyprsunset gamma -50";
-          on-resume = ''
-            hyprctl hyprsunset identity
-            hyprctl hyprsunset gamma +50
-          '';
+          on-resume = "hyprctl hyprsunset gamma +50";
         }
         {
           timeout = 300;
