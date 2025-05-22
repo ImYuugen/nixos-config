@@ -10,11 +10,6 @@
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
     ];
-    windowrule = [
-      # Match firefox versions
-      "noblur, ^(firefox(-.*)?)$"
-      "noblur, ^(librewolf(-.*)?)$"
-    ];
     workspace = [
       # Smart gaps/No gaps when only
       "w[tv1], gapsout:0, gapsin:0, bordersize:0, rounding:0"

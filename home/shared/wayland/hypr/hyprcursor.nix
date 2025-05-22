@@ -13,7 +13,7 @@ let
       name = "Bibata-Modern-Ice";
     };
     package = pkgsSet.stable.bibata-cursors;
-    size = 24;
+    size = 20;
   };
 in
 {

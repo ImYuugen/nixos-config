@@ -7,8 +7,6 @@
       general = {
         disable_loading_bar = true;
         hide_cursor = false;
-        no_fade_in = true;
-        no_fade_out = true;
         grace = 1;
       };
       background = {
@@ -18,15 +16,16 @@
         brightness = 0.75;
         noise = 5.0e-2;
       };
-      inputs-field = [
+      input-field = [
         {
           monitor = "";
-          size = "300, 50";
+          size = "20%, 5%";
           outline_thickness = 3;
           dots_center = true;
           dots_size = 0.33;
           dots_spacing = 0.15;
           placeholder_text = ''<i>Swalalalaa (drank)...</i>'';
+          fail_text = "$PAMFAIL";
           hide_input = false;
           position = "0, 200";
           halign = "center";
@@ -36,9 +35,17 @@
       label = [
         {
           monitor = "";
-          text = "$TIME";
+          text = "cmd[update:60000] date +\"%A, %d %B %Y\"";
           font_size = 50;
-          position = "0, 50";
+          position = "0, 25%";
+          valign = "center";
+          halign = "center";
+        }
+        {
+          monitor = "";
+          text = "$TIME";
+          font_size = 75;
+          position = "0, 10%";
           valign = "center";
           halign = "center";
         }
