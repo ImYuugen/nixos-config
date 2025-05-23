@@ -20,7 +20,7 @@
       ../shared/editors/vscode.nix
       ../shared/environment.nix
       ../shared/gaming.nix
-      ../shared/input/fcitx
+      ../shared/input/fcitx.nix
       ../shared/media/mpv.nix
       ../shared/media/spotify.nix
       # ../shared/media/vlc.nix

@@ -1,6 +1,8 @@
 { pkgsSet, ... }:
 
 {
+  home.sessionVariables.QT_IM_MODULE = "fcitx";
+
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
@@ -76,7 +78,7 @@
           };
           unicode.sections.TriggerKey."0" = "Control+Alt+Shift+U";
           # Plus long aussi fdp
-          wayland.globalSection."Allow Overriding System XKB Settings" = true;
+          wayland.globalSection."Allow Overriding System XKB Settings" = false;
           waylandim.globalSection = {
             DetectApplication = true;
             PreferKeyEvent = true;
