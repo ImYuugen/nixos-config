@@ -6,7 +6,7 @@
     wayland-scanner
     wayland-utils
     xwayland
-    xwaylandvideobridge
+    kdePackages.xwaylandvideobridge
     wlroots
     wlrctl
     wlr-protocols
