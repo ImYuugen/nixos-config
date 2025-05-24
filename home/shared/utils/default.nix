@@ -3,6 +3,7 @@
   imports = [ ./btop.nix ];
 
   home.packages = with pkgsSet.unstable; [
+    anki-bin
     hunspell
     hunspellDicts.en-us-large
     hunspellDicts.fr-any
