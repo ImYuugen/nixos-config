@@ -1,5 +1,4 @@
 {
-  inputs,
   lib,
   pkgsSet,
   ...
@@ -17,13 +16,14 @@ let
   };
 in
 {
-  home.packages = [
-    inputs.hyprcursor
-  ];
   home.pointerCursor = {
     inherit (cursor) package size;
     gtk.enable = true;
     name = "${cursor.light.name}";
+    hyprcursor = {
+      enable = true;
+      size = cursor.size;
+    };
   };
 
   # Doesn't work for GTK, because GTK

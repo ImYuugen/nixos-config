@@ -15,6 +15,11 @@
       "workspaces, 1, 5, default"
     ];
 
+    cursor = {
+      # Fix laggy curor
+      no_hardware_cursors = true;
+    };
+
     decoration = {
       rounding = "8";
     };
