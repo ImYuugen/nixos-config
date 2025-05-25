@@ -108,6 +108,24 @@ in
   };
 
   services = {
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+          governor = "powersave";
+          turbo = "never";
+          # balance_power = 8, power = 15
+          energy_perf_bias = "10";
+          scaling_min_freq = 400000;
+          scaling_max_freq = 3000000;
+        };
+        charger = {
+          governor = "balanced";
+          turbo = "auto";
+          energy_perf_bias = "balance_performance";
+        };
+      };
+    };
     blueman.enable = true;
     dbus = {
       enable = true;
@@ -115,21 +133,6 @@ in
     };
     openssh.enable = true;
     thermald.enable = true;
-    tlp = {
-      enable = true;
-      settings = {
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-        CPU_ENERGY_PERF_POLICY_ON_AC = "default";
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-        CPU_BOOST_ON_AC = "1";
-        CPU_BOOST_ON_BAT = "0";
-        PLATFORM_PROFILE_ON_AC = "performance";
-        PLATFORM_PROFILE_ON_BAT = "low-power";
-        USB_AUTOSUSPEND = "0";
-        USB_ALLOWLIST = "";
-      };
-    };
     udisks2 = {
       enable = true;
     };
