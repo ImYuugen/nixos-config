@@ -9,6 +9,7 @@ in
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./hyprsunset.nix
     ./rules.nix
     ./settings.nix
   ];
@@ -70,13 +71,13 @@ in
   home.packages = [
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-    inputs.hyprpolkitagent.packages.${pkgs.system}.hyprpolkitagent
-    inputs.hyprsunset.packages.${pkgs.system}.hyprsunset
   ];
+
+  services.hyprpolkitagent.enable = true;
 
   xdg.portal = {
     enable = true;
-    configPackages = [ pkgsSet.stable.xdg-desktop-portal-hyprland ];
+    configPackages = with pkgs; [ xdg-desktop-portal-hyprland ];
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 

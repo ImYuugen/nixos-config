@@ -1,4 +1,4 @@
-{ inputs, pkgsSet, ... }:
+{ pkgsSet, ... }:
 
 let
   wallpapers = {
@@ -9,7 +9,6 @@ in
 {
   services.hyprpaper = {
     enable = true;
-    package = inputs.hyprpaper.packages.${pkgsSet.stable.system}.hyprpaper;
   };
 
   specialisation = {
