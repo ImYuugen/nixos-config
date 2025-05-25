@@ -27,7 +27,7 @@
             PreferTextIcon = false;
             ShowLayoutNameInIcon = true;
             UseInputMethodLanguageToDisplayText = true;
-            Theme = "cattpuccin-latte-teal";
+            Theme = "catppuccin-latte-teal";
             DarkTheme = "catppuccin-macchiato-teal";
             # Misleading, this enables following system light/dark accent
             UseDarkTheme = true;
