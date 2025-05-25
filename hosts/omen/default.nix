@@ -97,6 +97,7 @@ in
   };
 
   programs = {
+    dconf.enable = true;
     fish.enable = true;
     light.enable = true;
     nix-ld.enable = true;

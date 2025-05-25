@@ -4,7 +4,6 @@
 }:
 {
   environment.systemPackages = with pkgsSet.stable; [
-    dconf
     glib
     glibcLocales
     killall
