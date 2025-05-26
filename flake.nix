@@ -32,6 +32,7 @@
         {
           stable = mkPkgs inputs.nixpkgs;
           unstable = mkPkgs inputs.nixpkgs;
+          config = mkPkgs ./pkgs;
         };
     in
     {
