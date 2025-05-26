@@ -18,6 +18,12 @@
         };
       };
     };
+    languages.language-server = {
+      qmlls = {
+        command = "qmlls";
+        args = [ "-E" ];
+      };
+    };
     languages.language =
       let
         prettierdCfg =
@@ -52,6 +58,19 @@
           auto-format = true;
           formatter.command = lib.getExe pkgsSet.stable.nixfmt-rfc-style;
           language-servers = [ "nil" ];
+        }
+        {
+          name = "qml";
+          auto-format = true;
+          formatter = {
+            command = "qmlformat";
+            args = [
+              "--normalize"
+              "--objects-spacing"
+              "--functions-spacing"
+            ];
+          };
+          language-servers = [ "qmlls" ];
         }
         (prettierdCfg {
           name = "typescript";
