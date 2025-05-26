@@ -1,6 +1,0 @@
-{ pkgsSet, ... }:
-{
-  xsession = {
-    enable = true;
-  };
-}
