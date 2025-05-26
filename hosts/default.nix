@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  omen = import ./omen;
+}

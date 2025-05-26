@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  yuugen = import ./yuugen;
+}

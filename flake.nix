@@ -1,5 +1,5 @@
 {
-  description = "3rd time surely is the charm";
+  description = "This is definitely the last rewrite I'll do";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";

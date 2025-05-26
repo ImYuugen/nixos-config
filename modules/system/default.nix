@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  networking = import ./networking { };
+}
