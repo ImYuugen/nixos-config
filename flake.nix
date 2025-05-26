@@ -16,19 +16,28 @@
   outputs =
     { self, home-manager, ... }@inputs:
     let
+      inherit (inputs.nixpkgs) lib;
       system = "x86_64-linux";
-      pkgsSet = with inputs; {
-        stable = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
+      pkgsSet =
+        let
+          mkPkgs =
+            pkgs:
+            (import pkgs {
+              inherit system;
+              config = {
+                allowUnfree = true;
+              };
+            });
+        in
+        {
+          stable = mkPkgs inputs.nixpkgs;
+          unstable = mkPkgs inputs.nixpkgs;
         };
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
     in
     {
+      lib = import ./lib {
+        inherit lib;
+      };
       formatter.${system} = pkgsSet.stable.nixfmt-rfc-style;
       devShells.${system}.default = pkgsSet.stable.mkShell {
         inherit (self.checks.${system}.pre-commit-check) shellHook;
