@@ -9,7 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nil.url = "github:oxalica/nil";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   };
 
@@ -34,8 +33,21 @@
           unstable = mkPkgs inputs.nixpkgs;
           config = mkPkgs ./pkgs;
         };
+      commonArgs = {
+        inherit
+          inputs
+          lib
+          pkgsSet
+          self
+          system
+          ;
+      };
     in
     {
+      nixosModules = import ./modules/system commonArgs;
+      nixosConfigurations = import ./hosts commonArgs;
+      homeManagerModules = import ./modules/home commonArgs;
+      homeConfiguration = import ./homes commonArgs;
       lib = import ./lib {
         inherit lib;
       };
@@ -43,7 +55,7 @@
       devShells.${system}.default = pkgsSet.stable.mkShell {
         inherit (self.checks.${system}.pre-commit-check) shellHook;
         buildInputs = [
-          inputs.nil.packages.${system}.default
+          pkgsSet.unstable.nixd
           pkgsSet.unstable.lua-language-server
           pkgsSet.unstable.nixfmt-rfc-style
           pkgsSet.unstable.nix-output-monitor

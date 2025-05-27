@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  doas = import ./doas.nix { };
+}

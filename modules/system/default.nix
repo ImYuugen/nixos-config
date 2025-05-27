@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  networking = import ./networking { };
+  security = import ./security { };
 }
