@@ -57,7 +57,10 @@
           name = "nix";
           auto-format = true;
           formatter.command = lib.getExe pkgsSet.stable.nixfmt-rfc-style;
-          language-servers = [ "nil" ];
+          language-servers = [
+            "nixd"
+            "nil"
+          ];
         }
         {
           name = "qml";
