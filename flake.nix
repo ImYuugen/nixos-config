@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   };
 
