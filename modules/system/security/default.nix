@@ -1,5 +1,5 @@
-{ ... }:
+{ lib, ... }:
 
 {
-  doas = import ./doas.nix { };
+  doas = import ./doas.nix;
 }

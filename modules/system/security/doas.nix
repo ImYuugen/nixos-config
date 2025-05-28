@@ -4,7 +4,7 @@ let
   cfg = config.modules.security.doas;
 in
 {
-  options.config.modules.security.doas = {
+  options.modules.security.doas = {
     enable = lib.options.mkEnableOption "OpenDoas";
     extraRules = lib.options.mkOption {
       default = [

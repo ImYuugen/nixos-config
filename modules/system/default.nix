@@ -1,5 +1,5 @@
-{ ... }:
+{ lib, ... }:
 
 {
-  security = import ./security { };
+  security = import ./security { inherit lib; };
 }

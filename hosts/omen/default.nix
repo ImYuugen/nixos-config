@@ -13,10 +13,10 @@
     ./graphics.nix
     ./hardware-config.nix
 
-    #    self.nixosModules.security.doas
+    self.nixosModules.security.doas
   ];
 
-  #  modules.security.doas.enable = true;
+  modules.security.doas.enable = true;
 
   system.stateVersion = "23.11";
 }
