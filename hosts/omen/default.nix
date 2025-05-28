@@ -26,6 +26,8 @@
   ];
 
   modules.audio.pipewire.enable = true;
+  modules.hardware.bluetooth.enable = true;
+  modules.networking.networkmanager.enable = true;
   modules.security.doas.enable = true;
 
   system.stateVersion = "23.11";
