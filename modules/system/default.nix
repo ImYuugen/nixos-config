@@ -7,4 +7,5 @@
   networking = import ./networking { inherit lib; };
   power = import ./power { inherit lib; };
   security = import ./security { inherit lib; };
+  virtualisation = import ./virtualisation { inherit lib; };
 }
