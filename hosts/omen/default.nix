@@ -18,6 +18,7 @@
     self.nixosModules.profiles.base
 
     self.nixosModules.gaming.dualsense
+    self.nixosModules.gaming.gamemode
     self.nixosModules.gaming.steam
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd
@@ -27,8 +28,11 @@
   ];
 
   modules = {
-    gaming.dualsense.enable = true;
-    gaming.steam.enable = true;
+    gaming = {
+      dualsense.enable = true;
+      gamemode.enable = true;
+      steam.enable = true;
+    };
   };
 
   system.stateVersion = "23.11";
