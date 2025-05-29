@@ -16,6 +16,8 @@
     ./users.nix
 
     self.nixosModules.audio
+    self.nixosModules.gaming.dualsense
+    self.nixosModules.gaming.steam
     self.nixosModules.hardware.bluetooth
     self.nixosModules.hardware.disks
     self.nixosModules.networking.networkmanager
@@ -30,6 +32,8 @@
 
   modules = {
     audio.pipewire.enable = true;
+    gaming.dualsense.enable = true;
+    gaming.steam.enable = true;
     hardware = {
       bluetooth.enable = true;
       disks.enable = true;

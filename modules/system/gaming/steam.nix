@@ -11,7 +11,7 @@ in
 {
   options.modules.gaming.steam = {
     enable = lib.mkEnableOption "Steam";
-    withProtonGe = lib.mkEnableOption "Proton GE";
+    withProtonGE = lib.mkEnableOption "Proton GE";
     withGamescopeSession = lib.mkEnableOption "Gamescope Session";
   };
 

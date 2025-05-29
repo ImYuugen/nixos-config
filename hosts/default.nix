@@ -24,6 +24,7 @@
           nixpkgs.flake = inputs.nixpkgs;
           nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
         };
+        nixpkgs.pkgs = pkgsSet.stable;
       }
       ./omen
     ];
