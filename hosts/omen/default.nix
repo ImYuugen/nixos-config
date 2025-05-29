@@ -13,10 +13,13 @@
     ./disks.nix
     ./graphics.nix
     ./hardware-config.nix
+    ./users.nix
 
     self.nixosModules.audio
     self.nixosModules.hardware.bluetooth
+    self.nixosModules.hardware.disks
     self.nixosModules.networking.networkmanager
+    self.nixosModules.power.auto-cpufreq
     self.nixosModules.security.doas
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd
@@ -25,10 +28,16 @@
     inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
 
-  modules.audio.pipewire.enable = true;
-  modules.hardware.bluetooth.enable = true;
-  modules.networking.networkmanager.enable = true;
-  modules.security.doas.enable = true;
+  modules = {
+    audio.pipewire.enable = true;
+    hardware = {
+      bluetooth.enable = true;
+      disks.enable = true;
+    };
+    networking.networkmanager.enable = true;
+    power.auto-cpufreq.enable = true;
+    security.doas.enable = true;
+  };
 
   system.stateVersion = "23.11";
 }
