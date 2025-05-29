@@ -46,9 +46,13 @@
       };
     in
     {
-      nixosModules = import ./modules/system commonArgs;
+      nixosModules = (import ./modules/system commonArgs) // {
+        profiles = import ./profiles/system commonArgs;
+      };
       nixosConfigurations = import ./hosts commonArgs;
-      homeManagerModules = import ./modules/home commonArgs;
+      homeManagerModules = (import ./modules/home commonArgs) // {
+        profiles = import ./profiles/home commonArgs;
+      };
       homeConfiguration = import ./homes commonArgs;
       lib = import ./lib {
         inherit lib;

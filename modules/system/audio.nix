@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgsSet,
+  ...
+}:
 
 let
   cfg = config.modules.audio;
@@ -6,6 +11,7 @@ in
 {
   options.modules.audio = {
     pipewire.enable = lib.mkEnableOption "Pipewire";
+    withDefaultPackages = lib.mkEnableOption "With Default Packages";
   };
 
   config = {
@@ -19,5 +25,16 @@ in
       pulse.enable = lib.mkDefault true;
       wireplumber.enable = lib.mkDefault true;
     };
+
+    environment.systemPackages = lib.mkIf cfg.withDefaultPackages (
+      lib.mkDefault (
+        with pkgsSet.stable;
+        [
+          alsa-lib
+          alsa-utils
+          pavucontrol
+        ]
+      )
+    );
   };
 }

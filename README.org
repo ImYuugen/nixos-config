@@ -35,3 +35,6 @@ Local modifications on packages
 
 *** pkgs/
 Self packaged stuff
+
+*** profiles/
+Default configurations

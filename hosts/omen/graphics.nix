@@ -6,6 +6,11 @@
     "nvidia_drm"
   ];
 
+  environment.systemPackages = with pkgsSet.stable; [
+    mesa
+    nvtopPackages.full
+  ];
+
   hardware = {
     graphics = {
       enable = true;
@@ -15,6 +20,7 @@
       extraPackages = with pkgsSet.stable; [
         amdvlk
         libva-vdpau-driver
+        nvidia-vaapi-driver
       ];
       extraPackages32 = with pkgsSet.stable.driversi686Linux; [
         amdvlk

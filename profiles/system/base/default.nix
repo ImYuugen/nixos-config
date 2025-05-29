@@ -1,0 +1,110 @@
+{
+  lib,
+  pkgsSet,
+  self,
+  ...
+}:
+
+let
+  pkgs = pkgsSet.stable;
+in
+{
+  imports = [
+    self.nixosModules.audio
+    self.nixosModules.hardware.bluetooth
+    self.nixosModules.hardware.disks
+    self.nixosModules.networking.networkmanager
+    self.nixosModules.power.auto-cpufreq
+    self.nixosModules.security.doas
+  ];
+
+  modules = {
+    audio = {
+      pipewire.enable = lib.mkDefault true;
+      withDefaultPackages = lib.mkDefault true;
+    };
+    hardware = {
+      bluetooth.enable = lib.mkDefault true;
+      disks.enable = lib.mkDefault true;
+    };
+    networking.networkmanager.enable = lib.mkDefault true;
+    power.auto-cpufreq.enable = lib.mkDefault true;
+    security.doas.enable = lib.mkDefault true;
+  };
+
+  environment.systemPackages = lib.mkDefault (
+    with pkgs;
+    [
+      libnotify
+      libva
+      libva-utils
+    ]
+  );
+
+  fonts =
+    let
+      nerdfonts = with pkgs.nerd-fonts; [
+        fira-code
+        iosevka
+        jetbrains-mono
+        noto
+        roboto-mono
+        symbols-only
+      ];
+    in
+    {
+      enableDefaultPackages = lib.mkDefault true;
+      packages = lib.mkDefault (
+        with pkgsSet.unstable;
+        [
+          material-design-icons
+          material-symbols
+          ipafont
+          twemoji-color-font
+        ]
+        ++ nerdfonts
+      );
+    };
+
+  i18n =
+    let
+      mkUTF8Locale = locale: "${locale}.UTF-8/UTF-8";
+    in
+    {
+      # CA because all my homies hate mm/dd/yyyy
+      defaultLocale = lib.mkDefault "en_CA.UTF-8";
+      supportedLocales = lib.mkDefault (
+        builtins.map mkUTF8Locale [
+          "en_CA"
+          "fr_FR"
+          "ja_JP"
+        ]
+      );
+    };
+
+  nix = {
+    settings = {
+      auto-optimise-store = lib.mkDefault true;
+      experimental-features = lib.mkDefault [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = lib.mkDefault [
+        "root"
+        "@wheel"
+      ];
+      substituters = lib.mkDefault [
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = lib.mkDefault [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
+  };
+
+  time = {
+    timeZone = lib.mkDefault "Europe/Paris";
+    hardwareClockInLocalTime = lib.mkDefault true;
+  };
+}
