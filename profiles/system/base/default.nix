@@ -15,6 +15,7 @@ in
     self.nixosModules.hardware.disks
     self.nixosModules.networking.networkmanager
     self.nixosModules.power.auto-cpufreq
+    self.nixosModules.power.powerManagement
     self.nixosModules.security.doas
   ];
 
@@ -28,7 +29,10 @@ in
       disks.enable = lib.mkDefault true;
     };
     networking.networkmanager.enable = lib.mkDefault true;
-    power.auto-cpufreq.enable = lib.mkDefault true;
+    power = {
+      auto-cpufreq.enable = lib.mkDefault true;
+      powerManagement.enable = lib.mkDefault true;
+    };
     security.doas.enable = lib.mkDefault true;
   };
 
