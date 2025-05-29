@@ -20,6 +20,7 @@
     self.nixosModules.gaming.dualsense
     self.nixosModules.gaming.gamemode
     self.nixosModules.gaming.steam
+    self.nixosModules.virtualisation.docker
     self.nixosModules.virtualisation.libvirtd
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd
@@ -34,7 +35,10 @@
       gamemode.enable = true;
       steam.enable = true;
     };
-    virtualisation.libvirtd.enable = true;
+    virtualisation = {
+      docker.enable = true;
+      libvirtd.enable = true;
+    };
   };
 
   system.stateVersion = "23.11";
