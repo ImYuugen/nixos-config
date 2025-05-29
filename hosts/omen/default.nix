@@ -13,6 +13,8 @@
     ./disks.nix
     ./graphics.nix
     ./hardware-config.nix
+    ./locales.nix # Move to base profile
+    ./nix.nix # Move to base profile
     ./users.nix
 
     self.nixosModules.audio
