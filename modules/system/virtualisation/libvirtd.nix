@@ -11,10 +11,12 @@ in
 {
   options.modules.virtualisation.libvirtd = {
     enable = lib.mkEnableOption "Libvirtd";
-    qemu.enable = lib.mkEnableOption "Qemu";
+    qemu.enable = lib.mkOptionDefault true;
+    virt-manager.enable = lib.mkOptionDefault true;
   };
 
   config = lib.mkIf cfg.enable {
+    programs.virt-manager.enable = true;
     virtualisation.libvirtd = {
       enable = lib.mkDefault true;
       onBoot = lib.mkDefault "ignore";
