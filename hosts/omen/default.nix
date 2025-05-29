@@ -11,6 +11,7 @@
   imports = [
     ./boot.nix
     ./disks.nix
+    ./fonts.nix # Move to base profile
     ./graphics.nix
     ./hardware-config.nix
     ./locales.nix # Move to base profile
