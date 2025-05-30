@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  wayland = import ./wayland { };
+}

@@ -1,4 +1,5 @@
 { ... }:
 
 {
+  desktop = import ./desktop { };
 }
