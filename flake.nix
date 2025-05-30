@@ -53,7 +53,7 @@
       homeManagerModules = (import ./modules/home commonArgs) // {
         profiles = import ./profiles/home commonArgs;
       };
-      homeConfiguration = import ./homes commonArgs;
+      homeConfigurations = import ./homes commonArgs;
       lib = import ./lib {
         inherit lib;
       };

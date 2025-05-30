@@ -1,6 +1,8 @@
 { lib, ... }:
 
 {
+  home = import ./home.nix;
+
   mkIfElse =
     condition: trueBranch: falseBranch:
     lib.mkMerge [
