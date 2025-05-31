@@ -36,14 +36,17 @@ in
     security.doas.enable = lib.mkDefault true;
   };
 
-  environment.systemPackages = lib.mkDefault (
-    with pkgs;
-    [
-      libnotify
-      libva
-      libva-utils
-    ]
-  );
+  environment = {
+    etc.hosts.mode = "0644";
+    systemPackages = lib.mkDefault (
+      with pkgs;
+      [
+        libnotify
+        libva
+        libva-utils
+      ]
+    );
+  };
 
   fonts =
     let
@@ -105,6 +108,10 @@ in
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
+  };
+
+  programs = {
+    fish.enable = true;
   };
 
   time = {

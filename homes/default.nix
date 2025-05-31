@@ -1,15 +1,7 @@
 { self, ... }:
 
-let
-  mkHome =
-    {
-      username,
-      extraModules ? [ ],
-    }:
-    self.lib.home.generateHome { inherit username extraModules; };
-in
 {
-  yuugen = mkHome {
+  yuugen = self.lib.home.generateHome {
     username = "yuugen";
     extraModules = [ (import ./yuugen) ];
   };

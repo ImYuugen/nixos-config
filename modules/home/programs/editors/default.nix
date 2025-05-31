@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  helix = import ./helix.nix;
+}

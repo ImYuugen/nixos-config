@@ -10,17 +10,23 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users = {
-        inherit (self.homeConfigurations) yuugen;
-      };
-    }
   ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {
+      inherit inputs pkgsSet self;
+    };
+    users.yuugen = {
+      imports = [ self.homeConfigurations.yuugen ];
+    };
+  };
 
   users.users.yuugen = {
     shell = pkgsSet.stable.bash;
+    # Let the user set their own password :3
+    initialPassword = "";
     isNormalUser = true;
     extraGroups =
       [

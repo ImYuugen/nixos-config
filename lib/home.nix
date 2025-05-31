@@ -6,6 +6,8 @@
       extraModules ? [ ],
     }:
     {
+      _file = ./home.nix;
+      key = ./home.nix + ".${username}";
       home = {
         inherit homeDirectory username;
         stateVersion = "23.11";
