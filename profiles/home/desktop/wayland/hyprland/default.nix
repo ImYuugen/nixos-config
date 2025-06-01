@@ -8,8 +8,10 @@
 {
   imports = [
     self.homeManagerModules.desktop.wayland.hyprland
+
+    # Defaults I find nice
+    ./settings.nix
   ];
-  # TODO
 
   modules.desktop.wayland.hyprland = {
     enable = true;

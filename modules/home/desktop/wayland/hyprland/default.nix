@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 # TODO: Find a way for the user to specify their graphics cards without relying too much on osConfig
 # Could pass as an option, but then the user is tied to the system
@@ -15,22 +20,38 @@ in
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = lib.mkDefault true;
+      xwayland.enable = lib.mkDefault true;
+      systemd = {
+        variables = lib.mkDefault [ "--all" ];
+        extraCommands = lib.mkDefault [
+          "systemctl --user stop graphical-session.target"
+          "systemctl --user start hyprland-session.target"
+        ];
+      };
+    };
+
+    xdg.portal = {
+      enable = lib.mkDefault true;
+      configPackages = lib.mkDefault [ pkgs.xdg-desktop-portal-hyprland ];
+      extraPortals = lib.mkDefault [ pkgs.xdg-desktop-portal-gtk ];
     };
 
     # Launch Hyprland on login shells
-    programs = {
-      /*
-        bash = lib.mkIf config.modules.programs.shell.bash {
-          initExtra = lib.mkDefault ''[ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] && ${config.wayland.windowManager.hyprland.package}'';
+    programs =
+      let
+        hyprBin = "${config.wayland.windowManager.hyprland.package}/bin/Hyprland";
+      in
+      {
+        bash = lib.mkIf config.modules.programs.shells.bash.enable {
+          initExtra = ''[ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] && ${hyprBin}'';
         };
-        fish = lib.mkIf config.modules.programs.shell.fish {
-          loginShellInit = lib.mkDefault ''
+        fish = lib.mkIf config.modules.programs.shells.fish.enable {
+          loginShellInit = ''
             set TTY1 (tty)
-            [ "$TTY" = "/dev/tty1" ] && exec ${config.wayland.windowManager.hyprland.package}
+            [ "$TTY" = "/dev/tty1" ] && exec ${hyprBin}
           '';
         };
-      */
-    };
+      };
 
     nix.settings = {
       substituters = lib.mkDefault [ "https://hyprland.cachix.org" ];
