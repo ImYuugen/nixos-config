@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  hyprland = import ./hyprland { };
+  hyprland = import ./hyprland;
 }
