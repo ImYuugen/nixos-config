@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.modules.programs.shell.bash;
+  cfg = config.modules.programs.shells.bash;
 in
 {
-  options.modules.programs.shell.bash = {
+  options.modules.programs.shells.bash = {
     enable = lib.mkEnableOption "Bash";
     viBindings = lib.mkEnableOption "Vi keybinds";
   };

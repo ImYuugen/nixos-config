@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.modules.programs.shell.fish;
+  cfg = config.modules.programs.shells.fish;
 in
 {
-  options.modules.programs.shell.fish = {
+  options.modules.programs.shells.fish = {
     enable = lib.mkEnableOption "Fish";
     viBindings = lib.mkEnableOption "Vi keybinds";
   };
