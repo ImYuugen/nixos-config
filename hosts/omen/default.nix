@@ -33,13 +33,23 @@
     gaming = {
       dualsense.enable = true;
       gamemode.enable = true;
-      steam.enable = true;
+      steam = {
+        enable = true;
+        withProtonGE = true;
+        withGamescopeSession = true;
+      };
     };
     virtualisation = {
       docker.enable = true;
       libvirtd.enable = true;
     };
   };
+
+  programs.steam.gamescopeSession.args = lib.mkOptionDefault [
+    "-W 1920"
+    "-H 1080"
+    "-r 144"
+  ];
 
   system.stateVersion = "23.11";
 }
