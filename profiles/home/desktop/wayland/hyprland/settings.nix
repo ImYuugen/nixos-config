@@ -3,6 +3,10 @@
 {
   wayland.windowManager.hyprland = {
     settings = {
+      ecosystem = {
+        no_update_news = lib.mkDefault "true";
+      };
+
       env = lib.mkOptionDefault [
         "GDK_SCALE,1"
         "GDK_BACKEND,wayland,x11,*"
