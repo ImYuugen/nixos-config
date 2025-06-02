@@ -10,6 +10,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.shell.enableFishIntegration = lib.mkDefault true;
+
     programs.fish = {
       enable = lib.mkDefault true;
       interactiveShellInit = lib.mkDefault (

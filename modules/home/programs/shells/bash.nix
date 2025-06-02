@@ -10,6 +10,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.shell.enableBashIntegration = lib.mkDefault true;
+
     programs.bash = {
       enable = lib.mkDefault true;
       enableCompletion = lib.mkDefault true;
