@@ -9,14 +9,14 @@ let
   pkgs = pkgsSet.stable;
 in
 {
-  imports = [
-    self.nixosModules.audio
-    self.nixosModules.hardware.bluetooth
-    self.nixosModules.hardware.disks
-    self.nixosModules.networking.networkmanager
-    self.nixosModules.power.auto-cpufreq
-    self.nixosModules.power.powerManagement
-    self.nixosModules.security.doas
+  imports = with self.nixosModules; [
+    audio
+    hardware.bluetooth
+    hardware.disks
+    networking.networkmanager
+    power.auto-cpufreq
+    power.powerManagement
+    security.doas
   ];
 
   modules = {
@@ -41,9 +41,15 @@ in
     systemPackages = lib.mkDefault (
       with pkgs;
       [
+        glib
+        glibcLocales
         libnotify
         libva
         libva-utils
+        man-pages
+        man-man-pages-posix
+        pciutils
+        wget
       ]
     );
   };
