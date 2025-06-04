@@ -18,15 +18,13 @@ shift
 
 case $action in
   switch)
-    doas nixos-rebuild switch --flake .#$host -j auto --fast -L -v --log-format internal-json 2>&1 | nom --json
+    nixos-rebuild build --flake .#$host -j auto --fast -L -v --log-format internal-json 2>&1 | nom --json
+    doas ./result/bin/switch-to-configuration switch
 
     if [ $? -ne 0 ]; then
       echo "System rebuild failed" 1>&2
       exit 1
     fi
-
-    echo "Restarting darkman"
-    systemctl restart --user darkman.service
     ;;
   vm)
     # Leaving the old qcow might make you pull your hair out
