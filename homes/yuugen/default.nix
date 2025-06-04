@@ -3,6 +3,7 @@
 {
   imports = with self.homeManagerModules; [
     profiles.base
+    profiles.base-graphical
     profiles.desktop.wayland.hyprland
 
     programs.terminals.wezterm

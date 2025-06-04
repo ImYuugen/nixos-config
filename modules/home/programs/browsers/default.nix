@@ -1,4 +1,5 @@
 { ... }:
 
 {
+  firefox = import ./firefox.nix;
 }
