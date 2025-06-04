@@ -15,5 +15,6 @@
 
   modules.desktop.wayland.hyprland = {
     enable = true;
+    autoDetectGPU = lib.mkDefault true;
   };
 }

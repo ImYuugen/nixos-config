@@ -5,16 +5,14 @@
   ...
 }:
 
-# TODO: Find a way for the user to specify their graphics cards without relying too much on osConfig
-# Could pass as an option, but then the user is tied to the system
-# Maybe write a script that picks iGPU then dGPU ?
-
 let
   cfg = config.modules.desktop.wayland.hyprland;
 in
 {
   options.modules.desktop.wayland.hyprland = {
     enable = lib.mkEnableOption "Hyprland";
+    # Use this to run ./create_aq_drm.sh on each boot
+    autoDetectGPU = lib.mkEnableOption "Auto-detect GPU";
   };
 
   config = lib.mkIf cfg.enable {
@@ -40,15 +38,35 @@ in
     programs =
       let
         hyprBin = "${config.wayland.windowManager.hyprland.package}/bin/Hyprland";
+        detectAqDRM = pkgs.writeShellApplication {
+          name = "detectAqDRM";
+          runtimeInputs = [ pkgs.pciutils ];
+          text = builtins.readFile ./create_aq_drm.sh;
+        };
       in
       {
-        bash = lib.mkIf config.modules.programs.shells.bash.enable {
-          initExtra = ''[ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] && ${hyprBin}'';
+        bash = lib.mkIf config.home.shell.enableBashIntegration {
+          initExtra = ''
+            [ -z $DISPLAY ] && \
+              [ "$(tty)" = "/dev/tty1" ] && \
+              ${(lib.strings.optionalString cfg.autoDetectGPU "export AQ_DRM_DEVICES=$(${lib.getExe detectAqDRM})")} && \
+              ${hyprBin}
+          '';
         };
-        fish = lib.mkIf config.modules.programs.shells.fish.enable {
+        fish = lib.mkIf config.home.shell.enableFishIntegration {
           loginShellInit = ''
             set TTY1 (tty)
-            [ "$TTY" = "/dev/tty1" ] && exec ${hyprBin}
+            [ "$TTY" = "/dev/tty1" ] && \
+              ${(lib.strings.optionalString cfg.autoDetectGPU "set -x AQ_DRM_DEVICES $(${lib.getExe detectAqDRM})")} && \
+              exec ${hyprBin}
+          '';
+        };
+        zsh = lib.mkIf config.home.shell.enableZshIntegration {
+          loginExtra = ''
+            [ -z $DISPLAY ] && \
+              [ "$(tty)" = "/dev/tty1" ] && \
+              ${(lib.strings.optionalString cfg.autoDetectGPU "export AQ_DRM_DEVICES=$(${lib.getExe detectAqDRM})")} && \
+              ${hyprBin}
           '';
         };
       };

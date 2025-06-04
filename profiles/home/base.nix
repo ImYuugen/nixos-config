@@ -33,4 +33,6 @@
       };
     };
   };
+
+  xdg.enable = true;
 }
