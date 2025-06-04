@@ -5,7 +5,7 @@ let
 in
 {
   options.modules.programs.shells.cli.fzf = {
-    enable = lib.mkEnableOption "Fuzzy Find";
+    enable = lib.mkEnableOption "Fuzzy Finder";
   };
 
   config = lib.mkIf cfg.enable {
