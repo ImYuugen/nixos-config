@@ -1,4 +1,9 @@
-{ lib, self, ... }:
+{
+  lib,
+  self,
+  pkgs,
+  ...
+}:
 
 {
   key = ./.;
@@ -21,4 +26,12 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    wayland-utils
+    kdePackages.xwaylandvideobridge
+    wev
+    wlr-randr
+    qt6.qtwayland
+  ];
 }

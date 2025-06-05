@@ -24,6 +24,18 @@ in
     "$mainMod" = "SUPER";
     "$appMod" = "ALT SHIFT";
 
+    animations = {
+      enabled = true;
+    };
+
+    animation = [
+      "windows, 1, 7, default, slide"
+      "windowsOut, 0"
+      "fadeIn, 0"
+      "fadeOut, 0"
+      "workspaces, 1, 5, default"
+    ];
+
     binds = {
       workspace_back_and_forth = true;
     };
@@ -34,6 +46,7 @@ in
         "$mainMod, Return, exec, $TERMINAL"
         "$mainMod, D, exec, rofi -show drun"
         "$mainMod SHIFT, D, exec, rofi -show run"
+        # Layout
         "$mainMod, apostrophe, togglesplit,"
         "$mainMod, P, pseudo"
         "$mainMod, F, togglefloating"
@@ -42,21 +55,21 @@ in
         # Windows
         "$mainMod, left, movefocus, l"
         "$mainMod, H, movefocus, l"
-        "$mainMod, down, movefocus, l"
-        "$mainMod, J, movefocus, l"
-        "$mainMod, up, movefocus, l"
-        "$mainMod, K, movefocus, l"
-        "$mainMod, right, movefocus, l"
-        "$mainMod, L, movefocus, l"
+        "$mainMod, down, movefocus, d"
+        "$mainMod, J, movefocus, d"
+        "$mainMod, up, movefocus, u"
+        "$mainMod, K, movefocus, u"
+        "$mainMod, right, movefocus, r"
+        "$mainMod, L, movefocus, r"
         # Move windows
         "$mainMod SHIFT, left, movewindow, l"
         "$mainMod SHIFT, H, movewindow, l"
-        "$mainMod SHIFT, down, movewindow, l"
-        "$mainMod SHIFT, J, movewindow, l"
-        "$mainMod SHIFT, up, movewindow, l"
-        "$mainMod SHIFT, K, movewindow, l"
-        "$mainMod SHIFT, right, movewindow, l"
-        "$mainMod SHIFT, L, movewindow, l"
+        "$mainMod SHIFT, down, movewindow, d"
+        "$mainMod SHIFT, J, movewindow, d"
+        "$mainMod SHIFT, up, movewindow, u"
+        "$mainMod SHIFT, K, movewindow, u"
+        "$mainMod SHIFT, right, movewindow, r"
+        "$mainMod SHIFT, L, movewindow, r"
         # Apps
         "$appMod, W, exec, $BROWSER"
       ]
@@ -87,10 +100,6 @@ in
       no_hardware_cursors = true;
     };
 
-    decoration = {
-      rounding = 8;
-    };
-
     dwindle = {
       pseudotile = false;
       preserve_split = true;
@@ -115,6 +124,12 @@ in
       gaps_out = 4;
       layout = "dwindle";
       resize_on_border = true;
+    };
+
+    input = {
+      follow_mouse = 2;
+      mouse_refocus = false;
+      touchpad.natural_scroll = false;
     };
   };
 }

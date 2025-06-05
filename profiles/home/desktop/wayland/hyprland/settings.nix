@@ -33,23 +33,25 @@
         kb_variant = lib.mkDefault "altgr-intl";
         kb_options = lib.mkDefault "caps:escape";
         accel_profile = lib.mkDefault "flat";
-        touchpad.natural_scroll = lib.mkDefault "false";
       };
 
       misc = {
         initial_workspace_tracking = lib.mkDefault "1";
         force_default_wallpaper = lib.mkDefault "0";
-        disable_hyprland_logo = lib.mkDefault "true";
-        disable_splash_rendering = lib.mkDefault "true";
-        disable_autoreload = lib.mkDefault "true";
-        vfr = lib.mkDefault "false";
-        vrr = lib.mkDefault "1";
-        mouse_move_enables_dpms = lib.mkDefault "true";
-        key_press_enables_dpms = lib.mkDefault "true";
+        disable_hyprland_logo = lib.mkDefault true;
+        disable_splash_rendering = lib.mkDefault true;
+        disable_autoreload = lib.mkDefault true;
+        vfr = lib.mkDefault false;
+        vrr = lib.mkDefault 1;
+        mouse_move_enables_dpms = lib.mkDefault true;
+        key_press_enables_dpms = lib.mkDefault true;
       };
 
+      # Set default scale to 1, monitors are handled elsewhere
+      monitor = lib.mkDefault [ ",preferred,auto,1" ];
+
       xwayland = {
-        force_zero_scaling = lib.mkDefault "true";
+        force_zero_scaling = lib.mkDefault true;
       };
     };
   };
