@@ -2,6 +2,7 @@
 
 {
   browsers = import ./browsers { };
+  direnv = import ./direnv.nix;
   editors = import ./editors { };
   fcitx = import ./fcitx.nix;
   media = import ./media { };
