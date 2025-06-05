@@ -41,9 +41,4 @@ Default configurations
 
 ** Limitations
 
-As of now, the Hyprland configuration is not /totally/ reproducible.
-You still need to link your iGPU and dGPU in ~/.config/hypr to pass them to
-AQ_DRM_DEVICES.
-
-To do so, find your GPUs using =lspci -d ::03xx=, then link the GPUs in ~/.config/hypr
-using =ls -sf /dev/dri/by-path/pci-<PCI-PORT>-card ~/.config/hypr/<GPU-NAME>=
+Nothing, this flake is perfect (like me tbf)
