@@ -45,6 +45,8 @@
     };
   };
 
+  networking.hostName = "omen";
+
   programs.steam.gamescopeSession.args = lib.mkOptionDefault [
     "-W 1920"
     "-H 1080"
