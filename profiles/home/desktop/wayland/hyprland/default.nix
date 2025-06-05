@@ -6,6 +6,8 @@
 }:
 
 {
+  key = ./.;
+
   imports = [
     self.homeManagerModules.desktop.wayland.hyprland
 
@@ -14,7 +16,7 @@
   ];
 
   modules.desktop.wayland.hyprland = {
-    enable = true;
+    enable = lib.mkDefault true;
     autoDetectGPU = lib.mkDefault true;
   };
 }

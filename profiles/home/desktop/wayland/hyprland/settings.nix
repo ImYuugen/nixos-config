@@ -33,7 +33,7 @@
         kb_variant = lib.mkDefault "altgr-intl";
         kb_options = lib.mkDefault "caps:escape";
         accel_profile = lib.mkDefault "flat";
-        touchpad.natural_scoll = lib.mkDefault "false";
+        touchpad.natural_scroll = lib.mkDefault "false";
       };
 
       misc = {
