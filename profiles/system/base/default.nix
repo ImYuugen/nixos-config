@@ -48,7 +48,7 @@ in
         libva-utils
         man-pages
         man-man-pages-posix
-        pciutils
+        toybox
         wget
       ]
     );
