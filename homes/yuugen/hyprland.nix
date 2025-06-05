@@ -30,12 +30,15 @@ in
 
     bind =
       [
+        "$mainMod SHIFT, Q, killactive,"
         "$mainMod, Return, exec, $TERMINAL"
         "$mainMod, D, exec, rofi -show drun"
-        "$mainMod, P, pseudo"
+        "$mainMod SHIFT, D, exec, rofi -show run"
         "$mainMod, apostrophe, togglesplit,"
+        "$mainMod, P, pseudo"
         "$mainMod, F, togglefloating"
         "$mainMod, M, fullscreen,"
+        "$mainMod SHIFT, P, pin"
         # Windows
         "$mainMod, left, movefocus, l"
         "$mainMod, H, movefocus, l"
