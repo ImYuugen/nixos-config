@@ -9,6 +9,7 @@
     programs.terminals.wezterm
 
     ./git.nix
+    ./hyprland.nix
   ];
 
   modules = {
@@ -16,8 +17,4 @@
       terminals.wezterm.enable = true;
     };
   };
-
-  wayland.windowManager.hyprland.settings.bind = [
-    "SUPER, Return, exec, $TERMINAL"
-  ];
 }
