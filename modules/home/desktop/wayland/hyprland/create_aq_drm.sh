@@ -15,8 +15,8 @@ hypr_dir="$XDG_CONFIG_HOME/hypr"
 if ! ls "$hypr_dir" > /dev/null 2>&1; then
   echo "Hyprland config does not exist, exiting" >&2
   exit 1
-elif [ ! "$(find "$hypr_dir" -name \*gpu -type l)" = "" ]; then
-  echo "Cards found, exiting" >&2
+elif ls "$hypr_dir/.aq_gpu_cache" > /dev/null 2>&1; then
+  cat "$hypr_dir/.aq_gpu_cache"
   exit 0
 fi
 
@@ -46,4 +46,4 @@ for gpu in $gpus; do
 done
 IFS=$SAVE_IFS
 
-echo "$aq_drm_list"
+echo "$aq_drm_list" | tee "$hypr_dir/.aq_gpu_cache"
