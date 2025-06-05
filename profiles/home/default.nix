@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  base = import ./base.nix;
-  base-graphical = import ./base-graphical.nix;
+  base = import ./base;
+  base-graphical = import ./base-graphical;
   desktop = import ./desktop { };
 }

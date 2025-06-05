@@ -1,12 +1,13 @@
 { lib, self, ... }:
+
 {
   key = ./.;
 
   imports = with self.homeManagerModules; [
     profiles.desktop.wayland.hyprland
-    profiles.programs.browsers.firefox
 
     desktop.rofi
+    programs.browsers.firefox
   ];
 
   modules = {
@@ -14,7 +15,10 @@
       rofi.enable = lib.mkDefault true;
     };
     programs = {
-      browsers.firefox.enable = lib.mkDefault true;
+      browsers.firefox = {
+        enable = lib.mkDefault true;
+        defaultBrowser = lib.mkDefault true;
+      };
     };
   };
 }
