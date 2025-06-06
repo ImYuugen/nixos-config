@@ -132,9 +132,7 @@ in
     };
   };
 
-  programs = {
-    zsh.enable = true;
-  };
+  programs.fish.enable = true;
 
   time = {
     timeZone = lib.mkDefault "Europe/Paris";

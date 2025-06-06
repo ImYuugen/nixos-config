@@ -24,7 +24,7 @@
   };
 
   users.users.yuugen = {
-    shell = pkgsSet.stable.zsh;
+    shell = pkgsSet.stable.fish;
     # Let the user set their own password :3
     initialPassword = "";
     isNormalUser = true;

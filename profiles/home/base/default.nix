@@ -7,7 +7,6 @@
     programs.direnv
     programs.editors.helix
     programs.shells.bash
-    programs.shells.zsh
     programs.shells.cli.bat
     programs.shells.cli.btop
     programs.shells.cli.eza
@@ -33,11 +32,6 @@
           eza.enable = lib.mkDefault true;
           fzf.enable = lib.mkDefault true;
           zoxide.enable = lib.mkDefault true;
-        };
-        zsh = {
-          enable = lib.mkDefault true;
-          viBindings = lib.mkDefault true;
-          withOhMyZsh = lib.mkDefault true;
         };
       };
     };

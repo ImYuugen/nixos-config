@@ -6,6 +6,7 @@
     profiles.base-graphical
     profiles.desktop.wayland.hyprland
 
+    programs.shells.fish
     programs.terminals.wezterm
 
     ./git.nix
@@ -15,6 +16,12 @@
 
   modules = {
     programs = {
+      shells = {
+        fish = {
+          enable = true;
+          viBindings = true;
+        };
+      };
       terminals.wezterm.enable = true;
     };
   };
