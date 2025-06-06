@@ -41,6 +41,7 @@ in
     systemPackages = lib.mkDefault (
       with pkgs;
       [
+        acpi
         glib
         glibcLocales
         libnotify
@@ -102,15 +103,15 @@ in
         "nix-command"
         "flakes"
       ];
-      trusted-users = lib.mkDefault [
+      trusted-users = [
         "root"
         "@wheel"
       ];
-      substituters = lib.mkDefault [
+      substituters = [
         "https://cache.nixos.org"
         "https://nix-community.cachix.org"
       ];
-      trusted-public-keys = lib.mkDefault [
+      trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
