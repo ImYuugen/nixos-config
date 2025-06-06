@@ -40,19 +40,15 @@ in
 
   environment = {
     etc.hosts.mode = "0644";
-    systemPackages = lib.mkDefault (
-      with pkgs;
-      [
-        acpi
-        glib
-        glibcLocales
-        libnotify
-        man-pages
-        man-man-pages-posix
-        toybox
-        wget
-      ]
-    );
+    systemPackages = with pkgs; [
+      acpi
+      glib
+      glibcLocales
+      man-pages
+      man-pages-posix
+      toybox
+      wget
+    ];
   };
 
   fonts =

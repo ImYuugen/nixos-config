@@ -10,6 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     brightnessctl
+    libnotify
     libva
     libva-utils
   ];

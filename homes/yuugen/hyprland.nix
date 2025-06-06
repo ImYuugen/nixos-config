@@ -72,6 +72,10 @@ in
         "$mainMod SHIFT, L, movewindow, r"
         # Apps
         "$appMod, W, exec, $BROWSER"
+        # Media controls
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioNext, exec, playerctl next"
       ]
       # Workspaces
       ++ [
@@ -89,7 +93,13 @@ in
       "$mainMod ALT, K, resizeactive, 0 -10"
       "$mainMod ALT, right, resizeactive, 10 0"
       "$mainMod ALT, L, resizeactive, 10 0"
-      # TODO: XF86
+      # Brightness
+      ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+      # Volume
+      ", XF86AudioMute, exec, amixer set Master toggle"
+      ", XF86AudioLowerVolume, exec, amixer set Master 5%-"
+      ", XF86AudioRaiseVolume, exec, amixer set Master 5%+"
     ];
     bindm = [
       "$mainMod, mouse:272, movewindow"

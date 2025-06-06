@@ -27,11 +27,14 @@
     };
   };
 
+  services.playerctld.enable = lib.mkDefault true;
+
   home.packages = with pkgs; [
+    playerctl
+    qt6.qtwayland
     wayland-utils
-    kdePackages.xwaylandvideobridge
     wev
     wlr-randr
-    qt6.qtwayland
+    kdePackages.xwaylandvideobridge
   ];
 }
