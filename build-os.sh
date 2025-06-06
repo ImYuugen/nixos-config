@@ -18,8 +18,8 @@ shift
 
 case $action in
   switch)
-    nixos-rebuild build --flake .#$host -j auto --fast -L -v --log-format internal-json 2>&1 | nom --json
-    doas ./result/bin/switch-to-configuration switch
+    nixos-rebuild build --flake .#$host -j auto --fast -L -v --log-format internal-json 2>&1 | nom --json && \
+      doas ./result/bin/switch-to-configuration switch
 
     if [ $? -ne 0 ]; then
       echo "System rebuild failed" 1>&2
