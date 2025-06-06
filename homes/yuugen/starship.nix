@@ -88,6 +88,7 @@ in
       + "[](fg:green bg:lavender)"
       + "$time"
       + "[ ](fg:lavender)"
+      + "$jobs"
       + "$cmd_duration"
       + "$line_break"
       + "$character";
@@ -176,8 +177,14 @@ in
       stashed = "[󰜦\${count}](italic fg:crust bg:yellow)";
       modified = "[~\${count}](italic fg:crust bg:yellow)";
       staged = "[◈\${count}](bold fg:crust bg:yellow)";
-      renamed = "[\${count}](italic fg:crust bg:yellow)";
+      renamed = "[ \${count}](italic fg:crust bg:yellow)";
       deleted = "[✕\${count}](italic fg:crust bg:yellow)";
+    };
+    jobs = {
+      disabled = false;
+      style = "fg:green";
+      symbol = " ";
+      format = "[$symbol$number ]($style)";
     };
     time = {
       disabled = false;
