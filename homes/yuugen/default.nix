@@ -10,6 +10,7 @@
 
     ./git.nix
     ./hyprland.nix
+    ./starship.nix
   ];
 
   modules = {

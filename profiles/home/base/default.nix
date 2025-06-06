@@ -12,7 +12,6 @@
     programs.shells.cli.btop
     programs.shells.cli.eza
     programs.shells.cli.fzf
-    programs.shells.cli.starship
     programs.shells.cli.zoxide
   ];
 
@@ -33,7 +32,6 @@
           btop.enable = lib.mkDefault true;
           eza.enable = lib.mkDefault true;
           fzf.enable = lib.mkDefault true;
-          starship.enable = lib.mkDefault true;
           zoxide.enable = lib.mkDefault true;
         };
         zsh = {
@@ -43,6 +41,10 @@
         };
       };
     };
+  };
+
+  programs = {
+    ripgrep.enable = lib.mkDefault true;
   };
 
   xdg.enable = lib.mkDefault true;
