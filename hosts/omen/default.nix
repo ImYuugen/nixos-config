@@ -16,6 +16,7 @@
     ./users.nix
 
     self.nixosModules.profiles.base
+    self.nixosModules.profiles.base-graphical
 
     self.nixosModules.gaming.dualsense
     self.nixosModules.gaming.gamemode

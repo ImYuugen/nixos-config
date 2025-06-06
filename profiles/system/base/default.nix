@@ -9,6 +9,8 @@ let
   pkgs = pkgsSet.stable;
 in
 {
+  key = ./.;
+
   imports = with self.nixosModules; [
     audio
     hardware.bluetooth
@@ -45,8 +47,6 @@ in
         glib
         glibcLocales
         libnotify
-        libva
-        libva-utils
         man-pages
         man-man-pages-posix
         toybox
@@ -68,16 +68,35 @@ in
     in
     {
       enableDefaultPackages = lib.mkDefault true;
-      packages = lib.mkDefault (
-        with pkgsSet.unstable;
+      packages =
+        with pkgs;
         [
           material-design-icons
           material-symbols
           ipafont
           twemoji-color-font
         ]
-        ++ nerdfonts
-      );
+        ++ nerdfonts;
+      fontconfig = {
+        defaultFonts = {
+          monospace = [
+            "IosevkaTermNFM"
+            "IPAGothic"
+          ];
+          serif = [
+            "Noto Serif"
+            "IPAGothic"
+          ];
+          sansSerif = [
+            "Noto Sans"
+            "IPAGothic"
+          ];
+          emoji = [
+            "Noto Color Emoji"
+            "Twitter Color Emoji"
+          ];
+        };
+      };
     };
 
   i18n =
