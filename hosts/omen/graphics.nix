@@ -1,10 +1,13 @@
-{ pkgsSet, self, ... }:
+{ config, pkgsSet, ... }:
 
 {
-  boot.kernelModules = [
-    "nvidia"
-    "nvidia_drm"
-  ];
+  boot = {
+    blacklistedKernelModules = [ "nouveau" ];
+    kernelModules = [
+      "nvidia"
+      "nvidia_drm"
+    ];
+  };
 
   environment.systemPackages = with pkgsSet.stable; [
     mesa
@@ -12,18 +15,24 @@
   ];
 
   hardware = {
+    amdgpu = {
+      initrd.enable = true;
+      amdvlk = {
+        enable = true;
+        support32Bit.enable = true;
+        supportExperimental.enable = true;
+      };
+    };
     graphics = {
       enable = true;
       enable32Bit = true;
       # Additional vulkan AMD drivers
       # And Video Acceleration stuff
       extraPackages = with pkgsSet.stable; [
-        amdvlk
         libva-vdpau-driver
         nvidia-vaapi-driver
       ];
       extraPackages32 = with pkgsSet.stable.driversi686Linux; [
-        amdvlk
         libva-vdpau-driver
       ];
     };
@@ -32,7 +41,7 @@
       modesetting.enable = true;
       nvidiaSettings = true;
       open = true;
-      package = self.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
       powerManagement = {
         enable = true;
         finegrained = true;
@@ -49,5 +58,7 @@
     };
   };
 
-  services.xserver.drivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [
+    "nvidia"
+  ];
 }
