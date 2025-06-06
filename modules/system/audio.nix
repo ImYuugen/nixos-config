@@ -27,14 +27,12 @@ in
     };
 
     environment.systemPackages = lib.mkIf cfg.withDefaultPackages (
-      lib.mkDefault (
-        with pkgsSet.stable;
-        [
-          alsa-lib
-          alsa-utils
-          pavucontrol
-        ]
-      )
+      with pkgsSet.stable;
+      [
+        alsa-lib
+        alsa-utils
+        pavucontrol
+      ]
     );
   };
 }
