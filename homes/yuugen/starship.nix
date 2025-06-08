@@ -159,7 +159,7 @@ in
       unloaded_msg = "U";
       allowed_msg = "V";
       not_allowed_msg = "X";
-      format = "[$loaded/$allowed]($style)";
+      format = "[$loaded/$allowed ]($style)";
     };
     git_branch = {
       symbol = "";
@@ -168,11 +168,11 @@ in
     };
     git_status = {
       style = "bg:yellow";
-      format = "[[$all_status ](fg:crust bg:yellow)]($style)";
-      conflicted = "[◪\${count}](bold fg:crust bg:yellow)";
-      ahead = "[▴\${count}](bold fg:crust bg:yellow)";
-      behind = "[▿\${count}](bold fg:crust bg:yellow)";
-      diverged = "[▴\${ahead_count}|▿\${behind_count}](fg:crust bg:yellow)";
+      format = "[[$all_status $ahead_behind ](fg:crust bg:yellow)]($style)";
+      conflicted = "[⇌\${count}](bold fg:crust bg:yellow)";
+      ahead = "[⇡\${count}](bold fg:crust bg:yellow)";
+      behind = "[⇣\${count}](bold fg:crust bg:yellow)";
+      diverged = "[⇕\${ahead_count}|▿\${behind_count}](fg:crust bg:yellow)";
       untracked = "[◌\${count}](italic fg:crust bg:yellow)";
       stashed = "[󰜦\${count}](italic fg:crust bg:yellow)";
       modified = "[~\${count}](italic fg:crust bg:yellow)";
