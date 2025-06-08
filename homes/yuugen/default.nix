@@ -10,6 +10,7 @@
     programs.shells.fish
     programs.terminals.wezterm
 
+    ./email.nix
     ./git.nix
     ./hyprland.nix
     ./starship.nix
