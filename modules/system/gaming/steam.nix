@@ -38,7 +38,7 @@ in
         gamescopeDesktop = pkgs.makeDesktopItem {
           name = "steam-gamescope";
           desktopName = "Steam Gamescope";
-          exec = "steam-desktop %U";
+          exec = "steam-gamescope %U";
           icon = "steam";
           terminal = false;
           categories = [
