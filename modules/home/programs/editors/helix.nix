@@ -17,6 +17,7 @@ in
     programs.helix = {
       enable = lib.mkDefault true;
       settings = {
+        theme = "rose_pine_moon";
         editor = {
           line-number = lib.mkDefault "relative";
           lsp = {

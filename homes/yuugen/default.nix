@@ -6,6 +6,7 @@
     profiles.base-graphical
     profiles.desktop.wayland.hyprland
 
+    desktop.fcitx5
     programs.communications.discord
     programs.shells.fish
     programs.media.spotify
@@ -18,6 +19,10 @@
   ];
 
   modules = {
+    desktop.fcitx5 = {
+      autoLaunch = true;
+      enable = true;
+    };
     programs = {
       communications.discord.enable = true;
       media.spotify.enable = true;
