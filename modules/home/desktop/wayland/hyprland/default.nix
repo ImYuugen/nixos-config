@@ -56,7 +56,7 @@ in
         fish = lib.mkIf config.home.shell.enableFishIntegration {
           loginShellInit = ''
             set TTY1 (tty)
-            [ "$TTY" = "/dev/tty1" ] && \
+            [ "$TTY1" = "/dev/tty1" ] && \
               ${(lib.strings.optionalString cfg.autoDetectGPU "set -x AQ_DRM_DEVICES $(${lib.getExe detectAqDRM})")} && \
               exec ${hyprBin}
           '';
