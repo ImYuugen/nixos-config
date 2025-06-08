@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 let
   workspaceBinds = builtins.concatLists (
@@ -116,15 +116,18 @@ in
     };
 
     # Use default to merge
-    env = lib.mkOptionDefault [
-      "LIBSEAT_BACKEND,logind"
-      "NVD_BACKEND,direct"
-      "ELECTRON_OZONE_PLATFORM_HINT,auto"
-      "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-      "QT_SCALE_FACTOR,1"
-      "QT_QPA_PLATFORM,wayland;xcb"
-      "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-    ];
+    env = lib.mkOptionDefault (
+      [
+        "LIBSEAT_BACKEND,logind"
+        "NVD_BACKEND,direct"
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_SCALE_FACTOR,1"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+      ]
+      ++ lib.lists.optional config.modules.desktop.wayland.hyprland.autoDetectGPU "AQ_DRM_DEVICES,$HOME/.config/hypr/igpu:$HOME/.config/hypr/dgpu"
+    );
 
     general = {
       border_size = 1;
