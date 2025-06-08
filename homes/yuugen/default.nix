@@ -8,6 +8,7 @@
 
     programs.communications.discord
     programs.shells.fish
+    programs.media.spotify
     programs.terminals.wezterm
 
     ./email.nix
@@ -19,6 +20,7 @@
   modules = {
     programs = {
       communications.discord.enable = true;
+      media.spotify.enable = true;
       shells = {
         fish = {
           enable = true;

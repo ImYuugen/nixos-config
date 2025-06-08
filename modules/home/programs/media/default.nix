@@ -1,4 +1,5 @@
 { ... }:
 
 {
+  spotify = import ./spotify.nix;
 }
