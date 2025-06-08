@@ -6,6 +6,7 @@
     profiles.base-graphical
     profiles.desktop.wayland.hyprland
 
+    programs.communications.discord
     programs.shells.fish
     programs.terminals.wezterm
 
@@ -16,6 +17,7 @@
 
   modules = {
     programs = {
+      communications.discord.enable = true;
       shells = {
         fish = {
           enable = true;

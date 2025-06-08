@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  discord = import ./discord.nix;
+}

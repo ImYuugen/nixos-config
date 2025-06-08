@@ -205,7 +205,7 @@ in
       show_milliseconds = true;
       format = " in $duration ";
       style = "bg:lavender";
-      show_notifications = true;
+      show_notifications = false;
       min_time_to_notify = 45000;
     };
 
