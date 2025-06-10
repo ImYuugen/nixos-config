@@ -40,4 +40,6 @@
       hyprsunset.enable = lib.mkDefault true;
     };
   };
+
+  services.hyprpolkitagent.enable = lib.mkDefault true;
 }
