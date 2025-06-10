@@ -12,6 +12,8 @@
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+
+    esp-idf.url = "github:mirrexagon/nixpkgs-esp-dev";
   };
 
   outputs =

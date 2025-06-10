@@ -17,6 +17,7 @@
     profiles.base-graphical
     profiles.desktop.wayland.hyprland
 
+    dev.arduino
     gaming.dualsense
     gaming.gamemode
     gaming.steam
@@ -30,6 +31,9 @@
   ];
 
   modules = {
+    dev = {
+      arduino.enable = true;
+    };
     gaming = {
       dualsense.enable = true;
       gamemode.enable = true;
