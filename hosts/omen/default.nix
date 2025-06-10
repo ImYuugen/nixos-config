@@ -1,28 +1,27 @@
 {
-  config,
   inputs,
   lib,
-  pkgsSet,
   self,
   ...
 }:
 
 {
-  imports = [
+  imports = with self.nixosModules; [
     ./boot.nix
     ./disks.nix
     ./graphics.nix
     ./hardware-config.nix
     ./users.nix
 
-    self.nixosModules.profiles.base
-    self.nixosModules.profiles.base-graphical
+    profiles.base
+    profiles.base-graphical
+    profiles.desktop.wayland.hyprland
 
-    self.nixosModules.gaming.dualsense
-    self.nixosModules.gaming.gamemode
-    self.nixosModules.gaming.steam
-    self.nixosModules.virtualisation.docker
-    self.nixosModules.virtualisation.libvirtd
+    gaming.dualsense
+    gaming.gamemode
+    gaming.steam
+    virtualisation.docker
+    virtualisation.libvirtd
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate

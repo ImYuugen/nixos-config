@@ -8,8 +8,9 @@
 
     desktop.fcitx5
     programs.communications.discord
-    programs.shells.fish
     programs.media.spotify
+    programs.production.obs
+    programs.shells.fish
 
     ./email.nix
     ./git.nix
@@ -26,6 +27,7 @@
     programs = {
       communications.discord.enable = true;
       media.spotify.enable = true;
+      production.obs.enable = true;
       shells = {
         fish = {
           enable = true;

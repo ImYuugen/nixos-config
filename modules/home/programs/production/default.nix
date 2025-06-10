@@ -1,4 +1,5 @@
 { ... }:
 
 {
+  obs = import ./obs.nix;
 }
