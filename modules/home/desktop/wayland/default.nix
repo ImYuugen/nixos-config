@@ -1,6 +1,7 @@
 { ... }:
 
 {
+  hyprcursor = import ./hyprcursor.nix;
   hypridle = import ./hypridle.nix;
   hyprland = import ./hyprland;
   hyprlock = import ./hyprlock.nix;
