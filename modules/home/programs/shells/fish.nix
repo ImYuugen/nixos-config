@@ -16,6 +16,10 @@ in
 
   config = lib.mkIf cfg.enable {
     home.shell.enableFishIntegration = lib.mkDefault true;
+    home.packages = with pkgs; [
+      fd
+      fzf
+    ];
 
     programs.fish = {
       enable = lib.mkDefault true;
@@ -23,11 +27,10 @@ in
         let
           mkFishPlugins = builtins.map (name: {
             inherit name;
-            src = pkgs.fishPlugins.${name};
+            src = pkgs.fishPlugins.${name}.src;
           });
         in
         lib.mkDefault (mkFishPlugins [
-          "async-prompt"
           "fzf-fish"
           "plugin-git"
           "puffer"
@@ -36,7 +39,7 @@ in
       shellInit = lib.mkBefore ''
         set sponge_successful_exit_codes 0 1 2
         set sponge_allow_previously_successful true
-        set sponge_purge_only_on_exit
+        set sponge_purge_only_on_exit true
       '';
       interactiveShellInit = lib.mkBefore (
         ''
