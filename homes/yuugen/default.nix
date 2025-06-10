@@ -10,12 +10,12 @@
     programs.communications.discord
     programs.shells.fish
     programs.media.spotify
-    programs.terminals.wezterm
 
     ./email.nix
     ./git.nix
     ./hyprland.nix
     ./starship.nix
+    ./wezterm.nix
   ];
 
   modules = {
@@ -32,7 +32,6 @@
           viBindings = true;
         };
       };
-      terminals.wezterm.enable = true;
     };
   };
 }
