@@ -1,7 +1,8 @@
 {
   config,
   lib,
-  pkgsSet,
+  inputs,
+  pkgs,
   ...
 }:
 
@@ -9,11 +10,17 @@ let
   cfg = config.modules.programs.editors.helix;
 in
 {
+  key = ./helix.nix;
+
   options.modules.programs.editors.helix = {
     enable = lib.mkEnableOption "Helix";
+    withWakaTime = lib.mkEnableOption "WakaTime";
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = lib.mkIf cfg.withWakaTime [
+      inputs.wakatime-ls.packages.${pkgs.system}.wakatime-ls
+    ];
     programs.helix = {
       enable = lib.mkDefault true;
       settings = {
@@ -43,27 +50,40 @@ in
       };
       languages.language =
         let
+          addWakaTime =
+            lang:
+            (
+              lang
+              // {
+                language-servers = (lang.language-servers or [ ]) ++ [
+                  "${lib.getExe inputs.wakatime-ls.packages.${pkgs.system}.wakatime-ls}"
+                ];
+              }
+            );
           prettierdCfg =
             {
               name,
               ext ? name,
+              ls,
             }:
             {
               inherit name;
+              language-servers = ls;
               formatter = {
                 command = "prettierd";
                 args = [ ".${ext}" ];
               };
             };
         in
-        [
+        builtins.map (if cfg.withWakaTime then addWakaTime else (_: _)) [
           {
             name = "cpp";
             formatter.command = "clang-format";
+            language-servers = [ "clangd" ];
           }
           {
             name = "nix";
-            formatter.command = lib.getExe pkgsSet.stable.nixfmt-rfc-style;
+            formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
             language-servers = [
               "nixd"
               "nil"
@@ -77,22 +97,46 @@ in
                 "--normalize"
               ];
             };
+            language-servers = [ "qmlls" ];
           }
           (prettierdCfg {
             name = "typescript";
             ext = "ts";
+            ls = [ "typescript-language-server" ];
           })
           (prettierdCfg {
             name = "javascript";
             ext = "js";
+            ls = [ "typescript-language-server" ];
           })
-          (prettierdCfg { name = "json"; })
-          (prettierdCfg { name = "jsonc"; })
-          (prettierdCfg { name = "tsx"; })
-          (prettierdCfg { name = "jsx"; })
-          (prettierdCfg { name = "css"; })
-          (prettierdCfg { name = "html"; })
-          (prettierdCfg { name = "scss"; })
+          (prettierdCfg {
+            name = "json";
+            ls = [ "vscode-json-language-server" ];
+          })
+          (prettierdCfg {
+            name = "jsonc";
+            ls = [ "vscode-json-language-server" ];
+          })
+          (prettierdCfg {
+            name = "tsx";
+            ls = [ "typescript-language-server" ];
+          })
+          (prettierdCfg {
+            name = "jsx";
+            ls = [ "typescript-language-server" ];
+          })
+          (prettierdCfg {
+            name = "css";
+            ls = [ "vscode-css-language-server" ];
+          })
+          (prettierdCfg {
+            name = "html";
+            ls = [ "vscode-html-language-server" ];
+          })
+          (prettierdCfg {
+            name = "scss";
+            ls = [ "vscode-css-language-server" ];
+          })
         ];
     };
   };

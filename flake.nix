@@ -14,10 +14,14 @@
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
     esp-idf.url = "github:mirrexagon/nixpkgs-esp-dev";
+    wakatime-ls = {
+      url = "github:mrnossiom/wakatime-ls";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { self, home-manager, ... }@inputs:
+    { self, ... }@inputs:
     let
       inherit (inputs.nixpkgs) lib;
       system = "x86_64-linux";

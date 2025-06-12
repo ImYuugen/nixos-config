@@ -1,4 +1,4 @@
-{ self, ... }:
+{ pkgs, self, ... }:
 
 {
   imports = with self.homeManagerModules; [
@@ -8,6 +8,7 @@
 
     desktop.fcitx5
     programs.communications.discord
+    programs.editors.helix
     programs.media.spotify
     programs.production.obs
     programs.shells.fish
@@ -26,6 +27,7 @@
     };
     programs = {
       communications.discord.enable = true;
+      editors.helix.withWakaTime = true;
       media.spotify.enable = true;
       production.obs.enable = true;
       shells = {
@@ -36,4 +38,11 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
+  ];
 }
