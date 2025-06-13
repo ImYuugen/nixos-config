@@ -2,3 +2,8 @@
 .pre-commit-config.yaml
 *.qcow2
 result
+
+eln-cache
+elpaca
+history
+places

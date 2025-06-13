@@ -22,4 +22,9 @@
 (require 'pref-tabs)
 (require 'pref-which-key)
 
+(require 'feat-ace-window)
+(require 'feat-direnv)
+(require 'feat-doom-modeline)
+(require 'feat-indent-bars)
 (require 'feat-meow)
+(require 'feat-vertico)
