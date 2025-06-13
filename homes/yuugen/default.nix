@@ -8,7 +8,6 @@
 
     desktop.fcitx5
     programs.communications.discord
-    programs.editors.emacs
     programs.editors.helix
     programs.media.spotify
     programs.production.obs
@@ -28,13 +27,7 @@
     };
     programs = {
       communications.discord.enable = true;
-      editors = {
-        emacs = {
-          terminal = true;
-          daemon = true;
-        };
-        helix.withWakaTime = true;
-      };
+      editors.helix.withWakaTime = true;
       media.spotify.enable = true;
       production.obs.enable = true;
       shells = {
