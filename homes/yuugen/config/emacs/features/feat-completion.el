@@ -1,12 +1,13 @@
 ;; -*- coding: utf-8; lexical-binding: t -*-
 
-(defun feat--vertico-config ()
+(defun feat--config-vertico ()
   (keymap-set vertico-map "TAB" #'minibuffer-complete)
   (vertico-mode))
 
 (use-package vertico
   :ensure t
-  :config (feat--vertico-config))
+  :custom (vertico-count 20)
+  :config (feat--config-vertico))
 
 (use-package emacs
   :custom
@@ -21,10 +22,23 @@
 	  completion-ignore-case t)
 
 (use-package orderless
+  :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles partial-completion))))
-  :ensure t)
+  (completion-category-overrides '((file (styles partial-completion)))))
 
-(provide 'feat-vertico)
+(use-package marginalia
+  :ensure t
+  :config (marginalia-mode))
+
+(use-package company
+  :ensure t
+  :config (global-company-mode))
+
+(use-package company-box
+  :ensure t
+  :if window-system
+  :hook ((company-mode . company-box-mode)))
+
+(provide 'feat-completion)
