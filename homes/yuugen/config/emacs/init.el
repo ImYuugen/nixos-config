@@ -21,3 +21,5 @@
 (require 'pref-saving)
 (require 'pref-tabs)
 (require 'pref-which-key)
+
+(require 'feat-meow)
