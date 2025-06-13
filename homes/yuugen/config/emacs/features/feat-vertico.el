@@ -1,6 +1,7 @@
 ;; -*- coding: utf-8; lexical-binding: t -*-
 
 (defun feat--vertico-config ()
+  (keymap-set vertico-map "TAB" #'minibuffer-complete)
   (vertico-mode))
 
 (use-package vertico
@@ -14,6 +15,10 @@
   (read-extended-command-predicate #'command-completion-default-include-p)
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
+
+(setq read-file-name-completion-ignore-case t
+	  read-buffer-completion-ignore-case t
+	  completion-ignore-case t)
 
 (use-package orderless
   :custom

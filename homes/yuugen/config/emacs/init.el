@@ -23,8 +23,11 @@
 (require 'pref-which-key)
 
 (require 'feat-ace-window)
+(require 'feat-avy)
 (require 'feat-direnv)
 (require 'feat-doom-modeline)
 (require 'feat-indent-bars)
 (require 'feat-meow)
+(require 'feat-projectile)
 (require 'feat-vertico)
+(require 'feat-wakatime)

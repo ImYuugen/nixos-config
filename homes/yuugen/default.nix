@@ -13,6 +13,7 @@
     programs.production.obs
     programs.shells.fish
 
+    ./emacs.nix
     ./email.nix
     ./git.nix
     ./hyprland.nix

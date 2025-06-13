@@ -1,4 +1,4 @@
-{ self, ... }:
+{ pkgs, self, ... }:
 
 {
   imports = [
@@ -10,8 +10,13 @@
     daemon = true;
   };
 
-  xdg.configFile."emacs" = {
-    source = ./config/emacs;
-    recursive = true;
-  };
+  home.packages = with pkgs; [
+    wakatime-cli
+  ];
+
+  # Enable once config is finished
+  # xdg.configFile."emacs" = {
+  #   source = ./config/emacs;
+  #   recursive = true;
+  # };
 }
