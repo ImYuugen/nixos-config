@@ -34,3 +34,5 @@
 (require 'feat-meow)
 (require 'feat-projectile)
 (require 'feat-wakatime)
+
+(require 'theme-catppuccin)
