@@ -51,50 +51,6 @@ in
     ];
   };
 
-  fonts =
-    let
-      nerdfonts = with pkgs.nerd-fonts; [
-        fira-code
-        iosevka
-        jetbrains-mono
-        noto
-        roboto-mono
-        symbols-only
-      ];
-    in
-    {
-      enableDefaultPackages = lib.mkDefault true;
-      packages =
-        with pkgs;
-        [
-          material-design-icons
-          material-symbols
-          ipafont
-          twemoji-color-font
-        ]
-        ++ nerdfonts;
-      fontconfig = {
-        defaultFonts = {
-          monospace = [
-            "IosevkaTermNFM"
-            "IPAGothic"
-          ];
-          serif = [
-            "Noto Serif"
-            "IPAGothic"
-          ];
-          sansSerif = [
-            "Noto Sans"
-            "IPAGothic"
-          ];
-          emoji = [
-            "Noto Color Emoji"
-            "Twitter Color Emoji"
-          ];
-        };
-      };
-    };
-
   i18n =
     let
       mkUTF8Locale = locale: "${locale}.UTF-8/UTF-8";
