@@ -15,6 +15,7 @@
     desktop.wayland.hyprland
     desktop.wayland.hyprlock
     desktop.wayland.hyprsunset
+    desktop.wayland.shikane
 
     # Defaults I find nice
     ./settings.nix
@@ -38,6 +39,7 @@
       };
       hyprlock.enable = lib.mkDefault true;
       hyprsunset.enable = lib.mkDefault true;
+      shikane.enable = lib.mkDefault true;
     };
   };
 
