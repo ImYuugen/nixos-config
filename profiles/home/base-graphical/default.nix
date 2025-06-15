@@ -13,6 +13,7 @@
 
     desktop.rofi
     programs.browsers.firefox
+    programs.media.mpv
   ];
 
   modules = {
@@ -24,6 +25,7 @@
         enable = lib.mkDefault true;
         defaultBrowser = lib.mkDefault true;
       };
+      media.mpv.enable = lib.mkDefault true;
     };
   };
 
