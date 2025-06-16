@@ -35,4 +35,6 @@
 (require 'feat-projectile)
 (require 'feat-wakatime)
 
+(require 'mode-nix)
+
 (require 'theme-catppuccin)

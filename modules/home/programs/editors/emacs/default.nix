@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -10,8 +11,10 @@ let
 in
 {
   options.modules.programs.editors.emacs = {
-    terminal = lib.mkEnableOption "Emacs";
+    terminal = lib.mkEnableOption "emacsclient terminal support";
     daemon = lib.mkEnableOption "Emacs Daemon & Client";
+    # TODO: Do this automatically
+    waylandPure = lib.mkEnableOption "Enable Pure GTK";
   };
 
   config = {
@@ -27,11 +30,21 @@ in
 
     services.emacs = lib.mkIf cfg.daemon {
       enable = lib.mkDefault true;
+      package =
+        let
+          eoPkgs = inputs.emacs-overlay.packages.${pkgs.system};
+        in
+        (pkgs.emacsPackagesFor (
+          if cfg.waylandPure then eoPkgs.emacs-unstable-pgtk else eoPkgs.emacs-unstable
+        )).emacsWithPackages
+          (
+            epkgs: with epkgs; [
+              treesit-grammars.with-all-grammars
+            ]
+          );
       socketActivation.enable = lib.mkDefault true;
       startWithUserSession = lib.mkDefault "graphical";
-      client = {
-        enable = lib.mkDefault true;
-      };
+      client.enable = lib.mkDefault true;
     };
   };
 }

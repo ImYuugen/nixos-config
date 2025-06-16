@@ -13,6 +13,10 @@
 
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     esp-idf.url = "github:mirrexagon/nixpkgs-esp-dev";
     wakatime-ls = {
       url = "github:mrnossiom/wakatime-ls";
@@ -37,8 +41,12 @@
             });
         in
         {
-          stable = mkPkgs inputs.nixpkgs;
-          unstable = mkPkgs inputs.nixpkgs;
+          stable = (mkPkgs inputs.nixpkgs) // {
+            overlays = [ inputs.emacs-overlay.overlays.default ];
+          };
+          unstable = (mkPkgs inputs.nixpkgs) // {
+            overlays = [ inputs.emacs-overlay.overlays.default ];
+          };
           config = mkPkgs ./pkgs;
         };
       commonArgs = {

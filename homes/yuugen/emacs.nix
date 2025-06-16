@@ -8,6 +8,7 @@
   modules.programs.editors.emacs = {
     terminal = true;
     daemon = true;
+    waylandPure = true;
   };
 
   home.packages = with pkgs; [
