@@ -19,6 +19,7 @@
 
     dev.arduino
     gaming.dualsense
+    gaming.gamecube
     gaming.gamemode
     gaming.steam
     virtualisation.docker
@@ -36,6 +37,10 @@
     };
     gaming = {
       dualsense.enable = true;
+      gamecube = {
+        enable = true;
+        overclockGCC = true;
+      };
       gamemode.enable = true;
       steam = {
         enable = true;
