@@ -44,7 +44,7 @@
           stable = (mkPkgs inputs.nixpkgs) // {
             overlays = [ inputs.emacs-overlay.overlays.default ];
           };
-          unstable = (mkPkgs inputs.nixpkgs) // {
+          unstable = (mkPkgs inputs.nixpkgs-unstable) // {
             overlays = [ inputs.emacs-overlay.overlays.default ];
           };
           config = mkPkgs ./pkgs;
