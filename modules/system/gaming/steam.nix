@@ -18,6 +18,13 @@ in
   config = lib.mkIf cfg.enable {
     programs.steam = {
       enable = lib.mkDefault true;
+      package = pkgs.steam.override {
+        extraPkgs = (
+          spkgs: with spkgs; [
+            gamemode
+          ]
+        );
+      };
       extraCompatPackages = lib.mkIf cfg.withProtonGE (lib.mkDefault [ pkgs.proton-ge-bin ]);
       remotePlay.openFirewall = lib.mkDefault true;
       dedicatedServer.openFirewall = lib.mkDefault true;
