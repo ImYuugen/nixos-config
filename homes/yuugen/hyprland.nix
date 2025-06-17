@@ -85,14 +85,23 @@ in
       ++ workspaceBinds;
     binde = [
       # Resize window
-      "$mainMod ALT, left, resizeactive, -10 0"
-      "$mainMod ALT, H, resizeactive, -10 0"
-      "$mainMod ALT, down, resizeactive, 0 10"
-      "$mainMod ALT, J, resizeactive, 0 10"
-      "$mainMod ALT, up, resizeactive, 0 -10"
-      "$mainMod ALT, K, resizeactive, 0 -10"
-      "$mainMod ALT, right, resizeactive, 10 0"
-      "$mainMod ALT, L, resizeactive, 10 0"
+      "$mainMod ALT, left, resizeactive, -20 0"
+      "$mainMod ALT, H, resizeactive, -20 0"
+      "$mainMod ALT, down, resizeactive, 0 20"
+      "$mainMod ALT, J, resizeactive, 0 20"
+      "$mainMod ALT, up, resizeactive, 0 -20"
+      "$mainMod ALT, K, resizeactive, 0 -20"
+      "$mainMod ALT, right, resizeactive, 20 0"
+      "$mainMod ALT, L, resizeactive, 20 0"
+      # Move floating window
+      "$mainMod CTRL ALT, left, moveactive, -25 0"
+      "$mainMod CTRL ALT, H, moveactive, -25 0"
+      "$mainMod CTRL ALT, down, moveactive, 0 25"
+      "$mainMod CTRL ALT, J, moveactive, 0 25"
+      "$mainMod CTRL ALT, up, moveactive, 0 -25"
+      "$mainMod CTRL ALT, K, moveactive, 0 -25"
+      "$mainMod CTRL ALT, right, moveactive, 25 0"
+      "$mainMod CTRL ALT, L, moveactive, 25 0"
       # Brightness
       ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
@@ -143,6 +152,7 @@ in
       follow_mouse = 2;
       mouse_refocus = false;
       touchpad.natural_scroll = false;
+      repeat_delay = 250;
     };
   };
 }
