@@ -27,6 +27,7 @@
         nixpkgs.pkgs = pkgsSet.stable;
       }
       ./omen
+      inputs.flake-programs-sqlite.nixosModules.programs-sqlite
     ];
   };
 }
