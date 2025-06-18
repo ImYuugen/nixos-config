@@ -9,6 +9,7 @@
     terminal = true;
     daemon = true;
     waylandPure = true;
+    installOrgDeps = true;
   };
 
   home.packages = with pkgs; [
