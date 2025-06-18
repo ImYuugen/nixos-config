@@ -1,11 +1,9 @@
 ;; -*- coding: utf-8; lexical-binding: t -*-
 
 (use-package flycheck
-  :ensure t
   :config (global-flycheck-mode))
 
 (use-package lsp-mode
-  :ensure t
   :hook
   (lsp-mode . lsp-enable-which-key-integration)
   :custom
@@ -26,11 +24,11 @@
   (lsp-completion-show-kind t))
 
 (use-package lsp-completion
+  :ensure nil
   :no-require
   :hook ((lsp-mode . lsp-completion-mode)))
 
 (use-package lsp-ui
-  :ensure t
   :commands
   (lsp-ui-doc-show
    lsp-ui-doc-glance)

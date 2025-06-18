@@ -7,7 +7,6 @@
   (indent-bars-mode))
 
 (use-package indent-bars
-  :ensure t
   :config (config-indent-bars))
 
 (provide 'feat-indent-bars)

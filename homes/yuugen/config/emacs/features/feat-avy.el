@@ -14,8 +14,7 @@
    '("a y r" . avy-copy-region)))
 
 (use-package avy
-  :ensure t
-  :after meow
+ :after meow
   :config (config-avy))
 
 (provide 'feat-avy)

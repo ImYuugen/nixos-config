@@ -7,7 +7,6 @@
   (add-hook 'server-after-make-frame-hook #'catppuccin-reload))
 
 (use-package catppuccin-theme
-  :ensure t
   :config (theme--config-catppuccin))
 
 (provide 'theme-catppuccin)

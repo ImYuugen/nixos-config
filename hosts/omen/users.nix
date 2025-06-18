@@ -33,6 +33,7 @@
         "video"
         "audio"
         "input"
+        "dialout"
         "wheel"
       ]
       # TODO: Find a way to do this in modules directly

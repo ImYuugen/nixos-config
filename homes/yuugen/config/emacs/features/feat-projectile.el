@@ -29,11 +29,9 @@
    '("p b W" . projectile-save-project-buffers))
   (setq projectile-project-search-path '("~/Projects" "~/Bossage")))
 
-(use-package rg
-  :ensure t)
+(use-package rg)
 
 (use-package projectile
-  :ensure t
   :after rg
   :config (feat--config-projectile))
 

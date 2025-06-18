@@ -1,15 +1,18 @@
 ;;; init --- My Emacs config ;3 -*- coding: utf-8; lexical-binding: t -*-
 ;;; Commentary:
-;;; Credits to enzuru. I basically stole the structure
+;;; Credits to enzuru.  I basically stole the structure
 
 ;;; Code:
 
 ;; Paths
-(setq root (file-name-directory (or load-file-name (buffer-file-name))))
-(add-to-list 'load-path (concat root "features"))
-(add-to-list 'load-path (concat root "modes"))
-(add-to-list 'load-path (concat root "preferences"))
-(add-to-list 'load-path (concat root "themes"))
+(defvar cache-dir (concat (getenv "HOME") "/.config/emacs/"))
+
+(add-to-list 'load-path (concat user-emacs-directory "features"))
+(add-to-list 'load-path (concat user-emacs-directory "modes"))
+(add-to-list 'load-path (concat user-emacs-directory "preferences"))
+(add-to-list 'load-path (concat user-emacs-directory "themes"))
+
+(setq use-package-always-ensure t)
 
 (require 'pref-bars)
 (require 'pref-bell)
@@ -31,6 +34,7 @@
 (require 'feat-doom-modeline)
 (require 'feat-indent-bars)
 (require 'feat-lsp)
+(require 'feat-magit)
 (require 'feat-meow)
 (require 'feat-projectile)
 (require 'feat-wakatime)

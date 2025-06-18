@@ -40,7 +40,6 @@
      )))
 
 (use-package centaur-tabs
-  :ensure t
   :after meow
   :config (feat--config-centaur-tabs))
 

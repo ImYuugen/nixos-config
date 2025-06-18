@@ -5,11 +5,11 @@
   (vertico-mode))
 
 (use-package vertico
-  :ensure t
   :custom (vertico-count 20)
   :config (feat--config-vertico))
 
 (use-package emacs
+  :ensure nil
   :custom
   (context-menu-mode t)
   (enable-recursive-minibuffers t)
@@ -22,22 +22,18 @@
 	  completion-ignore-case t)
 
 (use-package orderless
-  :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles partial-completion)))))
 
 (use-package marginalia
-  :ensure t
   :config (marginalia-mode))
 
 (use-package company
-  :ensure t
   :config (global-company-mode))
 
 (use-package company-box
-  :ensure t
   :if window-system
   :hook ((company-mode . company-box-mode)))
 

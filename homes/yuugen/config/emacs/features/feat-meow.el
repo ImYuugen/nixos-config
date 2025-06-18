@@ -107,7 +107,6 @@
   (meow-global-mode 1))
 
 (use-package meow
-  :ensure t
   :config (meow-configure))
 
 (provide 'feat-meow)
