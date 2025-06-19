@@ -7,6 +7,8 @@
     profiles.desktop.wayland.hyprland
 
     desktop.fcitx5
+    gaming.dolphin-emu
+    gaming.lutris
     programs.communications.discord
     programs.editors.helix
     programs.media.spotify
@@ -26,6 +28,10 @@
     desktop.fcitx5 = {
       autoLaunch = true;
       enable = true;
+    };
+    gaming = {
+      dolphin-emu.enable = true;
+      lutris.enable = true;
     };
     programs = {
       communications.discord.enable = true;
@@ -47,7 +53,9 @@
     };
   };
 
+  # TODO: Module
   home.packages = with pkgs; [
+    protonup-qt
     kdePackages.dolphin
     kdePackages.dolphin-plugins
     kdePackages.kio-fuse
