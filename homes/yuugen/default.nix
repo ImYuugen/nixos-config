@@ -12,6 +12,7 @@
     programs.media.spotify
     programs.production.obs
     programs.shells.fish
+    services.easyeffects
 
     ./emacs.nix
     ./email.nix
@@ -36,6 +37,12 @@
           enable = true;
           viBindings = true;
         };
+      };
+    };
+    services = {
+      easyeffects = {
+        enable = true;
+        withDefaultPresets = true;
       };
     };
   };
