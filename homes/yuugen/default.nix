@@ -9,6 +9,7 @@
     desktop.fcitx5
     gaming.dolphin-emu
     gaming.lutris
+    gaming.slippi
     programs.communications.discord
     programs.editors.helix
     programs.media.spotify
@@ -32,6 +33,7 @@
     gaming = {
       dolphin-emu.enable = true;
       lutris.enable = true;
+      slippi.enable = true;
     };
     programs = {
       communications.discord.enable = true;
