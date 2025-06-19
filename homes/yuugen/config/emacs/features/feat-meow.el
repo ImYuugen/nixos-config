@@ -2,6 +2,8 @@
 
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
+  (setq meow-keypad-ctrl-meta-prefix nil)
+  (setq meow-keypad-meta-prefix nil)
 
   (meow-motion-overwrite-define-key
    '("j" . meow-next)

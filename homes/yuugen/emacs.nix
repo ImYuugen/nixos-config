@@ -14,6 +14,7 @@
 
   home.packages = with pkgs; [
     wakatime-cli
+    delta
   ];
 
   # Enable once config is finished

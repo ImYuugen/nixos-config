@@ -1,20 +1,22 @@
 ;;; -*- coding: utf-8; lexical-binding: t -*-
 
-(defun feat--config-magit ())
+(defun feat--config-magit ()
+  (meow-leader-define-key
+   ;; Git bindings
+   '("g g" . magit)
+   ))
 
 (use-package magit
+  :after meow
   :custom
   (magit-commit-arguments '("-S"))
   (magit-revert-buffers 'silent)
   :config
   (feat--config-magit))
 
-; Force transient to >9.0.0
+;; Force transient to >9.0.0
 (use-package transient
-  :ensure (
-    :host github
-    :repo "magit/transient"
-  )
+  :ensure (:host github :repo "magit/transient")
   :defer t
   :custom
   (transient-history-file (concat cache-dir "transient/history.el"))
