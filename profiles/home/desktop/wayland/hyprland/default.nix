@@ -10,6 +10,7 @@
 
   imports = with self.homeManagerModules; [
     desktop.dunst
+    desktop.wayland.grimblast
     desktop.wayland.hyprcursor
     desktop.wayland.hypridle
     desktop.wayland.hyprland
@@ -24,6 +25,7 @@
   modules.desktop = {
     dunst.enable = true;
     wayland = {
+      grimblast.enable = lib.mkDefault true;
       hyprcursor = {
         enable = lib.mkDefault true;
         cursor = {

@@ -46,6 +46,10 @@ in
         "$mainMod, Return, exec, $TERMINAL"
         "$mainMod, D, exec, rofi -show drun"
         "$mainMod SHIFT, D, exec, rofi -show run"
+        # Screenshots
+        "$mainMod, Print, exec, grimblast --notify copy screen"
+        "$mainMod SHIFT, S, exec, grimblast --notify copy area"
+        "$mainMod SHIFT, Print, exec, grimblast --notify --freeze save area"
         # Layout
         "$mainMod, apostrophe, togglesplit,"
         "$mainMod, P, pseudo"
@@ -117,6 +121,10 @@ in
 
     cursor = {
       no_hardware_cursors = true;
+    };
+
+    debug = {
+      full_cm_proto = true;
     };
 
     dwindle = {

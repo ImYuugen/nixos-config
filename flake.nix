@@ -22,6 +22,10 @@
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-ssb.url = "github:imyuugen/nix-ssb";
     wakatime-ls = {
       url = "github:mrnossiom/wakatime-ls";

@@ -196,6 +196,26 @@
         "type": "github"
       }
     },
+    "hyprland-contrib": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750372088,
+        "narHash": "sha256-LPwgPRBTfnA76rHUr7KYvwq2pNt5IfxymNAZUJFvn/M=",
+        "owner": "hyprwm",
+        "repo": "contrib",
+        "rev": "189f32f56285aae9646bf1292976392beba5a2e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "contrib",
+        "type": "github"
+      }
+    },
     "nix-ssb": {
       "inputs": {
         "nixpkgs": "nixpkgs_2",
@@ -388,6 +408,7 @@
         "esp-idf": "esp-idf",
         "flake-programs-sqlite": "flake-programs-sqlite",
         "home-manager": "home-manager",
+        "hyprland-contrib": "hyprland-contrib",
         "nix-ssb": "nix-ssb",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
