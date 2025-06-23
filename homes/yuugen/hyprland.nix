@@ -46,6 +46,8 @@ in
         "$mainMod, Return, exec, $TERMINAL"
         "$mainMod, D, exec, rofi -show drun"
         "$mainMod SHIFT, D, exec, rofi -show run"
+        "$mainMod SHIFT, X, exec, hyprlock"
+        "$mainMod SHIFT, XF86Launch2, exec, hyprlock"
         # Screenshots
         "$mainMod, Print, exec, grimblast --notify copy screen"
         "$mainMod SHIFT, S, exec, grimblast --notify copy area"

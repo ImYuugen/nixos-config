@@ -6,6 +6,7 @@
   (doom-modeline-enable-word-count t)
   (doom-modeline-hud t)
   :config
-  (doom-modeline-mode))
+  (doom-modeline-mode)
+  (column-number-mode))
 
 (provide 'feat-doom-modeline)
