@@ -33,10 +33,10 @@ in
       # playback = inputs.nix-ssb.packages.${pkgs.system}.slippi-playback
       {
         "Slippi Launcher/netplay/Slippi_Online-x86_64.AppImage" = {
-          source = lib.traceVal "${lib.getExe netplay}";
+          source = "${lib.getExe netplay}";
         };
         "Slippi Launcher/netplay/Sys" = {
-          source = lib.traceVal "${netplay.raw-zip}/Sys";
+          source = "${netplay.raw-zip}/Sys";
         };
         # "Slippi Launcher/playback/Slippi_Playback-x86_64.AppImage" = {};
         # "Slippi Launcher/playback/Sys" = {};

@@ -7,9 +7,6 @@
     profiles.desktop.wayland.hyprland
 
     desktop.fcitx5
-    gaming.dolphin-emu
-    gaming.lutris
-    gaming.slippi
     programs.communications.discord
     programs.editors.helix
     programs.media.spotify
@@ -19,6 +16,7 @@
 
     ./emacs.nix
     ./email.nix
+    ./gaming.nix
     ./git.nix
     ./hyprland.nix
     ./starship.nix
@@ -29,11 +27,6 @@
     desktop.fcitx5 = {
       autoLaunch = true;
       enable = true;
-    };
-    gaming = {
-      dolphin-emu.enable = true;
-      lutris.enable = true;
-      slippi.enable = true;
     };
     programs = {
       communications.discord.enable = true;
