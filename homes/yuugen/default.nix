@@ -18,9 +18,10 @@
     ./email.nix
     ./gaming.nix
     ./git.nix
-    ./hyprland.nix
+    ./graphical/hyprland.nix
+    ./graphical/rofi.nix
+    ./graphical/wezterm.nix
     ./starship.nix
-    ./wezterm.nix
   ];
 
   modules = {
