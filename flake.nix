@@ -8,6 +8,8 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # For CachyOS kernel patches
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 

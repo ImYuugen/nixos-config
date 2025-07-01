@@ -12,6 +12,7 @@
   environment.systemPackages = with pkgsSet.stable; [
     mesa
     nvtopPackages.full
+    vulkan-tools
   ];
 
   hardware = {
@@ -25,8 +26,7 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      # Additional vulkan AMD drivers
-      # And Video Acceleration stuff
+      # Video Acceleration stuff
       extraPackages = with pkgsSet.stable; [
         libva-vdpau-driver
         nvidia-vaapi-driver
