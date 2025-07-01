@@ -1,12 +1,13 @@
 {
   config,
   lib,
-  pkgs,
+  pkgsSet,
   ...
 }:
 
 let
   cfg = config.modules.gaming.lutris;
+  pkgs = pkgsSet.unstable;
 in
 {
   options.modules.gaming.lutris = {
@@ -15,7 +16,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.umu-launcher ] ++ lib.lists.optional cfg.withIcons pkgs.adwaita-icon-theme;
+    home.packages =
+      with pkgs;
+      [
+        umu-launcher
+        winetricks
+        wineWowPackages.full
+      ]
+      ++ lib.lists.optional cfg.withIcons pkgs.adwaita-icon-theme;
     programs.lutris = {
       enable = lib.mkDefault true;
       protonPackages = [ pkgs.proton-ge-bin ];

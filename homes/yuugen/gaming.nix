@@ -1,4 +1,4 @@
-{ self, ... }:
+{ pkgsSet, self, ... }:
 
 {
   imports = with self.homeManagerModules; [
@@ -15,4 +15,8 @@
     };
     slippi.enable = true;
   };
+
+  home.packages = [
+    pkgsSet.unstable.olympus
+  ];
 }

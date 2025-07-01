@@ -51,6 +51,7 @@
 
   # TODO: Module
   home.packages = with pkgs; [
+    ffmpeg
     protonup-qt
     kdePackages.dolphin
     kdePackages.dolphin-plugins
