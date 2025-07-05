@@ -15,6 +15,7 @@
 
     profiles.base
     profiles.base-graphical
+    profiles.cachy
     profiles.desktop.wayland.hyprland
 
     dev.arduino
@@ -41,7 +42,6 @@
         enable = true;
         overclockGCC = true;
       };
-      gamemode.enable = true;
       steam = {
         enable = true;
         withProtonGE = true;
