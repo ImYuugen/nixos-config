@@ -36,13 +36,12 @@
       };
 
       misc = {
-        initial_workspace_tracking = lib.mkDefault "1";
-        force_default_wallpaper = lib.mkDefault "0";
+        force_default_wallpaper = lib.mkDefault 0;
         disable_hyprland_logo = lib.mkDefault true;
         disable_splash_rendering = lib.mkDefault true;
         disable_autoreload = lib.mkDefault true;
-        vfr = lib.mkDefault false;
-        vrr = lib.mkDefault 1;
+        vfr = lib.mkDefault true;
+        vrr = lib.mkDefault 2; # Only on fullscreen
         mouse_move_enables_dpms = lib.mkDefault true;
         key_press_enables_dpms = lib.mkDefault true;
       };

@@ -10,159 +10,257 @@ let
             c = (x + 1) / 10;
           in
           builtins.toString (x + 1 - (c * 10));
+        actual = builtins.toString (x + 1);
       in
       [
-        "$mainMod, ${ws}, workspace, ${builtins.toString (x + 1)}"
-        "$mainMod SHIFT, ${ws}, movetoworkspace, ${builtins.toString (x + 1)}"
-        "$mainMod CTRL, ${ws}, movetoworkspacesilent, ${builtins.toString (x + 1)}"
+        "$mainMod, ${ws}, Focuses workspace ${actual}, workspace, ${actual}"
+        "$mainMod CTRL, ${ws}, Moves the current window to workspace ${actual}, movetoworkspace, ${actual}"
+        "$mainMod SHIFT, ${ws}, Follows the current window to workspace ${actual}, movetoworkspacesilent, ${actual}"
       ]
     ) 10
   );
 in
 {
-  wayland.windowManager.hyprland.settings = {
-    "$mainMod" = "SUPER";
-    "$appMod" = "ALT SHIFT";
+  wayland.windowManager.hyprland = {
+    settings = {
+      "$mainMod" = "SUPER";
+      "$appMod" = "ALT SHIFT";
 
-    animations = {
-      enabled = true;
+      animations = {
+        enabled = true;
+      };
+
+      animation = [
+        "windows, 1, 7, default, slide"
+        "windowsOut, 0"
+        "fadeIn, 0"
+        "fadeOut, 0"
+        "workspaces, 1, 5, default"
+      ];
+
+      binds = {
+        workspace_back_and_forth = true;
+      };
+
+      bindd =
+        [
+          "$mainMod, Q, Closes the current window, killactive,"
+          "$mainMod, Return, Opens your preferred terminal emulator, exec, $TERMINAL"
+          "$mainMod, D, Opens your preferred app launcher, exec, rofi -show drun"
+          "$mainMod SHIFT, D, Opens your preferred cmd launcher, exec, rofi -show run"
+          "$appMod, W, Opens your preferred web browser, exec, $BROWSER"
+          # Lock
+          "$mainMod SHIFT, X, Locks the session, exec, hyprlock"
+          ", XF86Launch2, Locks the session, exec, hyprlock"
+          # Screenshots
+          "$mainMod, Print, Takes a screenshot and places it in the clipboard, exec, grimblast --notify copy screen"
+          "$mainMod SHIFT, S, Select an area to paste to the clipboard, exec, grimblast --notify copy area"
+          "$mainMod SHIFT, Print, Select and area and save it in a file, exec, grimblast --notify --freeze save area"
+          # Layout
+          "$mainMod, F, Switches current window between floating and tiling mode, togglefloating,"
+          "$mainMod, M, Toggles fullscreen for current window, fullscreen,"
+          "$mainMod, P, Toggles pseudotile mode, pseudo"
+          "$mainMod, apostrophe, Toggles between horizontal and vertical split, togglesplit,"
+          "$mainMod, Y, Pins the current window, pin"
+          # Windows
+          "$mainMod, left, Focuses the window to the west, movefocus, l"
+          "$mainMod, H, Focuses the window to the west, movefocus, l"
+          "$mainMod, down, Focuses the window to the south, movefocus, d"
+          "$mainMod, J, Focuses the window to the south, movefocus, d"
+          "$mainMod, up, Focuses the window to the north, movefocus, u"
+          "$mainMod, K, Focuses the window to the north, movefocus, u"
+          "$mainMod, right, Focuses the window to the east, movefocus, r"
+          "$mainMod, L, Focuses the window to the east, movefocus, r"
+          # Move windows
+          "$mainMod SHIFT, left, Moves the current window to the west, movewindow, l"
+          "$mainMod SHIFT, H, Moves the current window to the west, movewindow, l"
+          "$mainMod SHIFT, down, Moves the current window to the south, movewindow, d"
+          "$mainMod SHIFT, J, Moves the current window to the south, movewindow, d"
+          "$mainMod SHIFT, up, Moves the current window to the north, movewindow, u"
+          "$mainMod SHIFT, K, Moves the current window to the north, movewindow, u"
+          "$mainMod SHIFT, right, Moves the current window to the east, movewindow, r"
+          "$mainMod SHIFT, L, Moves the current window to the east, movewindow, r"
+          # Media controls
+          ", XF86AudioPrev, Previous track, exec, playerctl previous"
+          ", XF86AudioPlay, Play/Pause track, exec, playerctl play-pause"
+          ", XF86AudioNext, Next track, exec, playerctl next"
+        ]
+        ++ [
+          # Workspace navigation
+          "$mainMod, Period, Go up a workspace, workspace, e+1"
+          "$mainMod, mouse_up, Go up a workspace, workspace, e+1"
+          "$mainMod, Comma, Go down a workspace, workspace, e-1"
+          "$mainMod, mouse_down, Go down a workspace, workspace, e-1"
+          "$mainMod, Tab, Go to previous workspace, workspace, previous"
+          # Special workspace
+          "$mainMod, F2, Toggles the Special workspace, togglespecialworkspace, special"
+          "$mainMod SHIFT, F2, Move current window to Special workspace, movetoworkspace,special"
+          "$mainMod, F1, Call special workspace scratchpad, togglespecialworkspace, scratchpad"
+          "$mainMod SHIFT, F1, Move active window to special workspace scratchpad, movetoworkspacesilent, special:scratchpad"
+        ]
+        ++ workspaceBinds;
+
+      binded = [
+        # Brightness
+        ", XF86MonBrightnessDown, Lowers the brightness, exec, brightnessctl set 5%-"
+        ", XF86MonBrightnessUp, Raises the brightness, exec, brightnessctl set 5%+"
+        # Volume
+        ", XF86AudioMute, Mutes the sound output, exec, amixer set Master toggle"
+        ", XF86AudioLowerVolume, Lowers the sound output, exec, amixer set Master 5%-"
+        ", XF86AudioRaiseVolume, Raises the sound output, exec, amixer set Master 5%+"
+      ];
+      bindmd = [
+        "$mainMod, mouse:272, Moves the window using the mouse, movewindow"
+        "$mainMod, mouse:273, Resizes the window using the mouse, resizewindow"
+      ];
+
+      cursor = {
+        no_hardware_cursors = true;
+      };
+
+      debug = {
+        full_cm_proto = true;
+      };
+
+      dwindle = {
+        pseudotile = false;
+        preserve_split = true;
+      };
+
+      # Use default to merge
+      env = lib.mkOptionDefault (
+        [
+          "LIBSEAT_BACKEND,logind"
+          "NVD_BACKEND,direct"
+          "ELECTRON_OZONE_PLATFORM_HINT,auto"
+          "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+          "QT_SCALE_FACTOR,1"
+          "QT_QPA_PLATFORM,wayland;xcb"
+          "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        ]
+        ++ lib.lists.optional config.modules.desktop.wayland.hyprland.autoDetectGPU "AQ_DRM_DEVICES,$HOME/.config/hypr/igpu:$HOME/.config/hypr/dgpu"
+      );
+
+      general = {
+        border_size = 1;
+        "col.active_border" = "rgba(ffffff88)";
+        "col.inactive_border" = "rgba(00000000)";
+        gaps_in = 3;
+        gaps_out = 5;
+        layout = "dwindle";
+        resize_on_border = true;
+        snap = {
+          enabled = true;
+        };
+      };
+
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 3;
+        workspace_swipe_distance = 250;
+        workspace_swipe_create_new = false;
+      };
+
+      input = {
+        follow_mouse = 2;
+        mouse_refocus = false;
+        repeat_delay = 250;
+        touchpad = {
+          disable_while_typing = false;
+          natural_scroll = false;
+        };
+      };
+
+      misc = {
+        enable_swallow = true;
+        swallow_regex = "^(firefox|dolphin)";
+        focus_on_activate = true;
+      };
+
+      render = {
+        direct_scanout = 2;
+      };
+
+      windowrule = [
+        # Floating windows
+        "float, class:^(org.pulseaudio.pavucontrol)"
+        "float, class:^()$,title:^(Save File)$"
+        "float, class:^()$,title:^(Open File)$"
+        "float, class:^(blueman-manager)$"
+        "float, class:^(xdg-desktop-portal-gtk|xdg-desktop-portal-hyprland)(.*)$"
+        "float, class:^(zenity)$"
+        "float, class:^(steam)$,title:^(Steam)(.+)$" # Usually a floating window
+        "float, class:^(steam)$,title:^(Friends List)$"
+        "float, title:^(Picture in picture)$"
+        "float, title:^(Picture-in-Picture)$"
+        "float, title:^(termfloat)$"
+      ];
+
+      workspace = [
+        # no_gaps_when_only
+        "w[tv1-10], gapsout:5, gapsin:3"
+        "f[1], gapsout:5, gapsin:3"
+      ];
     };
+    extraConfig =
+      let
+        mkSubmap =
+          name: submap:
+          assert lib.assertMsg (name != "reset") "'reset' is not a valid submap";
+          ''
+            ${with submap.params; "bindd = ${mod}, ${key}, ${description}, submap, ${name}"}
+            submap = ${name}
 
-    animation = [
-      "windows, 1, 7, default, slide"
-      "windowsOut, 0"
-      "fadeIn, 0"
-      "fadeOut, 0"
-      "workspaces, 1, 5, default"
-    ];
-
-    binds = {
-      workspace_back_and_forth = true;
-    };
-
-    bind =
-      [
-        "$mainMod SHIFT, Q, killactive,"
-        "$mainMod, Return, exec, $TERMINAL"
-        "$mainMod, D, exec, rofi -show drun"
-        "$mainMod SHIFT, D, exec, rofi -show run"
-        "$mainMod SHIFT, X, exec, hyprlock"
-        "$mainMod SHIFT, XF86Launch2, exec, hyprlock"
-        # Screenshots
-        "$mainMod, Print, exec, grimblast --notify copy screen"
-        "$mainMod SHIFT, S, exec, grimblast --notify copy area"
-        "$mainMod SHIFT, Print, exec, grimblast --notify --freeze save area"
-        # Layout
-        "$mainMod, apostrophe, togglesplit,"
-        "$mainMod, P, pseudo"
-        "$mainMod, F, togglefloating"
-        "$mainMod, M, fullscreen,"
-        "$mainMod SHIFT, P, pin"
-        # Windows
-        "$mainMod, left, movefocus, l"
-        "$mainMod, H, movefocus, l"
-        "$mainMod, down, movefocus, d"
-        "$mainMod, J, movefocus, d"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, K, movefocus, u"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, L, movefocus, r"
-        # Move windows
-        "$mainMod SHIFT, left, movewindow, l"
-        "$mainMod SHIFT, H, movewindow, l"
-        "$mainMod SHIFT, down, movewindow, d"
-        "$mainMod SHIFT, J, movewindow, d"
-        "$mainMod SHIFT, up, movewindow, u"
-        "$mainMod SHIFT, K, movewindow, u"
-        "$mainMod SHIFT, right, movewindow, r"
-        "$mainMod SHIFT, L, movewindow, r"
-        # Apps
-        "$appMod, W, exec, $BROWSER"
-        # Media controls
-        ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioNext, exec, playerctl next"
-      ]
-      # Workspaces
-      ++ [
-        "$mainMod, mouse_down, workspace, e-1"
-        "$mainMod, mouse_up, workspace, e+1"
-      ]
-      ++ workspaceBinds;
-    binde = [
-      # Resize window
-      "$mainMod ALT, left, resizeactive, -20 0"
-      "$mainMod ALT, H, resizeactive, -20 0"
-      "$mainMod ALT, down, resizeactive, 0 20"
-      "$mainMod ALT, J, resizeactive, 0 20"
-      "$mainMod ALT, up, resizeactive, 0 -20"
-      "$mainMod ALT, K, resizeactive, 0 -20"
-      "$mainMod ALT, right, resizeactive, 20 0"
-      "$mainMod ALT, L, resizeactive, 20 0"
-      # Move floating window
-      "$mainMod CTRL ALT, left, moveactive, -25 0"
-      "$mainMod CTRL ALT, H, moveactive, -25 0"
-      "$mainMod CTRL ALT, down, moveactive, 0 25"
-      "$mainMod CTRL ALT, J, moveactive, 0 25"
-      "$mainMod CTRL ALT, up, moveactive, 0 -25"
-      "$mainMod CTRL ALT, K, moveactive, 0 -25"
-      "$mainMod CTRL ALT, right, moveactive, 25 0"
-      "$mainMod CTRL ALT, L, moveactive, 25 0"
-      # Brightness
-      ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-      ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-      # Volume
-      ", XF86AudioMute, exec, amixer set Master toggle"
-      ", XF86AudioLowerVolume, exec, amixer set Master 5%-"
-      ", XF86AudioRaiseVolume, exec, amixer set Master 5%+"
-    ];
-    bindm = [
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
-    ];
-
-    cursor = {
-      no_hardware_cursors = true;
-    };
-
-    debug = {
-      full_cm_proto = true;
-    };
-
-    dwindle = {
-      pseudotile = false;
-      preserve_split = true;
-    };
-
-    # Use default to merge
-    env = lib.mkOptionDefault (
-      [
-        "LIBSEAT_BACKEND,logind"
-        "NVD_BACKEND,direct"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM,wayland;xcb"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-      ]
-      ++ lib.lists.optional config.modules.desktop.wayland.hyprland.autoDetectGPU "AQ_DRM_DEVICES,$HOME/.config/hypr/igpu:$HOME/.config/hypr/dgpu"
-    );
-
-    general = {
-      border_size = 1;
-      "col.active_border" = "rgba(ffffff88)";
-      "col.inactive_border" = "rgba(00000000)";
-      gaps_in = 0;
-      gaps_out = 4;
-      layout = "dwindle";
-      resize_on_border = true;
-    };
-
-    input = {
-      follow_mouse = 2;
-      mouse_refocus = false;
-      touchpad.natural_scroll = false;
-      repeat_delay = 250;
-    };
+            ${lib.hm.generators.toHyprconf {
+              attrs = submap.binds;
+              indentLevel = 1;
+            }}
+            ${lib.optionalString (submap.params.catchallExit or false) "bind = , catchall, submap, reset"}
+            submap = reset
+          '';
+        mkSubmaps = submaps: lib.concatStringsSep "\n" (lib.mapAttrsToList mkSubmap submaps);
+      in
+      mkSubmaps {
+        resize = {
+          params = {
+            mod = "$mainMod";
+            key = "R";
+            description = "Submap for resizing windows";
+          };
+          binds = {
+            binded = [
+              ", left, Resize to the west (resizing mode), resizeactive, -20 0"
+              ", H, Resize to the west (resizing mode), resizeactive, -20 0"
+              ", down, Resize to the south (resizing mode), resizeactive, 0 20"
+              ", J, Resize to the south (resizing mode), resizeactive, 0 20"
+              ", up, Resize to the north (resizing mode), resizeactive, 0 -20"
+              ", K, Resize to the north (resizing mode), resizeactive, 0 -20"
+              ", right, Resize to the east (resizing mode), resizeactive, 20 0"
+              ", L, Resize to the east (resizing mode), resizeactive, 20 0"
+              ", Escape, Exit the submap, submap, reset"
+            ];
+          };
+        };
+        move = {
+          params = {
+            mod = "$mainMod SHIFT";
+            key = "R";
+            description = "Submap for moving windows";
+          };
+          binds = {
+            binded = [
+              ", left, Move to the right (moving mode), moveactive, -25 0"
+              ", H, Move to the right (moving mode), moveactive, -25 0"
+              ", down, Move to the right (moving mode), moveactive, 0 25"
+              ", J, Move to the right (moving mode), moveactive, 0 25"
+              ", up, Move to the right (moving mode), moveactive, 0 -25"
+              ", K, Move to the right (moving mode), moveactive, 0 -25"
+              ", right, Move to the right (moving mode), moveactive, 25 0"
+              ", L, Move to the right (moving mode), moveactive, 25 0"
+              ", Escape, Exit the submap, submap, reset"
+            ];
+          };
+        };
+      };
   };
 }
