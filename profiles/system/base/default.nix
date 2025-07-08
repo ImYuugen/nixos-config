@@ -16,8 +16,8 @@ in
     hardware.bluetooth
     hardware.disks
     networking.networkmanager
-    power.auto-cpufreq
     power.powerManagement
+    power.power-profiles-daemon
     security.doas
   ];
 
@@ -32,8 +32,8 @@ in
     };
     networking.networkmanager.enable = lib.mkDefault true;
     power = {
-      auto-cpufreq.enable = lib.mkDefault true;
       powerManagement.enable = lib.mkDefault true;
+      power-profiles-daemon.enable = lib.mkDefault true;
     };
     security.doas.enable = lib.mkDefault true;
   };

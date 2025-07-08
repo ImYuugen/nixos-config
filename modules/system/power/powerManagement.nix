@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.modules.power.powerManagement;
@@ -9,6 +14,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = [ pkgs.powertop ];
+
     powerManagement = {
       enable = lib.mkDefault true;
       powertop.enable = lib.mkDefault true;
