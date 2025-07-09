@@ -26,6 +26,8 @@ in
       "$mainMod" = "SUPER";
       "$appMod" = "ALT SHIFT";
 
+      "$terminal" = "wezterm";
+
       animations = {
         enabled = true;
       };
@@ -44,8 +46,8 @@ in
 
       bindd =
         [
-          "$mainMod, Q, Closes the current window, killactive,"
-          "$mainMod, Return, Opens your preferred terminal emulator, exec, $TERMINAL"
+          "$mainMod SHIFT, Q, Closes the current window, killactive,"
+          "$mainMod, Return, Opens your preferred terminal emulator, exec, $terminal"
           "$mainMod, D, Opens your preferred app launcher, exec, rofi -show drun"
           "$mainMod SHIFT, D, Opens your preferred cmd launcher, exec, rofi -show run"
           "$appMod, W, Opens your preferred web browser, exec, $BROWSER"
@@ -175,6 +177,7 @@ in
         enable_swallow = true;
         swallow_regex = "^(firefox|dolphin)";
         focus_on_activate = true;
+        vfr = false; # Flickers on Nvidia
       };
 
       render = {
@@ -183,23 +186,18 @@ in
 
       windowrule = [
         # Floating windows
-        "float, class:^(org.pulseaudio.pavucontrol)"
         "float, class:^()$,title:^(Save File)$"
         "float, class:^()$,title:^(Open File)$"
-        "float, class:^(blueman-manager)$"
+        "float, class:^(.blueman-manager-wrapped)$"
         "float, class:^(xdg-desktop-portal-gtk|xdg-desktop-portal-hyprland)(.*)$"
-        "float, class:^(zenity)$"
-        "float, class:^(steam)$,title:^(Steam)(.+)$" # Usually a floating window
-        "float, class:^(steam)$,title:^(Friends List)$"
+        "float, class:^(steam)$,title:^(Steam.+|Friends List)$" # Usually a floating window
         "float, title:^(Picture in picture)$"
         "float, title:^(Picture-in-Picture)$"
         "float, title:^(termfloat)$"
       ];
 
       workspace = [
-        # no_gaps_when_only
-        "w[tv1-10], gapsout:5, gapsin:3"
-        "f[1], gapsout:5, gapsin:3"
+        "special:scratchpad, on-created-empty:[float; move 50% 2%; size 50% 46%] $terminal"
       ];
     };
     extraConfig =
@@ -229,6 +227,7 @@ in
           };
           binds = {
             binded = [
+              ", M, Switch to the move submap, submap, move"
               ", left, Resize to the west (resizing mode), resizeactive, -20 0"
               ", H, Resize to the west (resizing mode), resizeactive, -20 0"
               ", down, Resize to the south (resizing mode), resizeactive, 0 20"
@@ -249,6 +248,7 @@ in
           };
           binds = {
             binded = [
+              ", R, Switch to resize submap, submap, resize"
               ", left, Move to the right (moving mode), moveactive, -25 0"
               ", H, Move to the right (moving mode), moveactive, -25 0"
               ", down, Move to the right (moving mode), moveactive, 0 25"
