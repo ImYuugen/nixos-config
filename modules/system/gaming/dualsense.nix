@@ -28,6 +28,10 @@ in
 
         # PS5 DualSense Edge controller over bluetooth hidraw
         KERNEL=="hidraw*", KERNELS=="*054C:0DF2*", MODE="0660", TAG+="uaccess"
+
+        # Disable PS4/5 touchpad acting as mouse
+        ATTRS{name}=="Sony Interactive Entertainment Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+        ATTRS{name}=="Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
       '';
     in
     {
