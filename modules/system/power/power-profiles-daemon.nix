@@ -9,8 +9,11 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    services.power-profiles-daemon = {
-      enable = lib.mkDefault true;
+    services = {
+      power-profiles-daemon = {
+        enable = lib.mkDefault true;
+      };
+      upower.enable = lib.mkDefault true;
     };
   };
 }
