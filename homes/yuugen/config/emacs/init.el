@@ -40,5 +40,6 @@
 (require 'feat-wakatime)
 
 (require 'mode-nix)
+(require 'mode-qml)
 
 (require 'theme-catppuccin)
