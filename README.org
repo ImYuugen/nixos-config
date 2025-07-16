@@ -1,16 +1,26 @@
+#+OPTIONS: toc:ni
+
 * My totally based system flake
+
+Hi, this is my system flake and daily driver.
+
+** Things that I think are cool
+
+- Modules system
+- Cachy kernel for improved performance
+- Git hooks
 
 ** Structure
 
 *** flake.nix
 The entry point of this config.
 Exposes a lot of stuff
-- ~nixosModules~ Self defined system options and modules
-- ~nixosConfigurations~ Hosts a.k.a machines a.k.a computers definitions
-- ~homeManagerModules~ Self defined user options and modules
-- ~homeConfigurations~ Home a.k.a user definitions
-- ~devShells~ Everything needed to work on this flake
-- ~checks.<system>.pre-commit-check~ Pre commit hooks (nixfmt)
+- ~nixosModules~: Self defined system options and modules
+- ~nixosConfigurations~: Hosts a.k.a machines a.k.a computers definitions
+- ~homeManagerModules~: Self defined user options and modules
+- ~homeConfigurations~: Home a.k.a user definitions
+- ~devShells~: Everything needed to work on this flake
+- ~checks.<system>.pre-commit-check~: Pre commit hooks
 
 *** homes/
 User definitions, every subfolder is a user and is imported in ~default.nix~
@@ -22,10 +32,9 @@ Machine definitions, every subfolder is a host/machine and is imported in ~defau
 Self defined utilitary functions
 
 *** modules/
-
 **** home/
 User side modules/options to be imported and changed (or not) by users.
-Provides good enough default values
+Provides good enough default values.
 
 **** system/
 Same but host side
@@ -37,8 +46,37 @@ Local modifications on packages
 Self packaged stuff
 
 *** profiles/
-Default configurations
+**** home/
+Default set of options for users
+
+**** system/
+Same but host side
 
 ** Limitations
 
-Nothing, this flake is perfect (like me tbf)
+Nothing, this flake is perfect... except for:
+
+- Somehow worse performance than on stock CachyOS
+
+** TODOs
+- [ ] Match stock CachyOS performance
+- [ ] Manage secrets with Nix
+  - [ ] Hide from /nix/store
+  - [ ] Encrypt files on github
+- [ ] Manage theming through Nix
+
+** Contributing
+
+If you wish to expand on this config, you may open a pull request or fork this
+repo yourself.
+I would be extremely grateful if you made pull requests for modules you deem
+interesting.
+
+My only request is that you follow the [[https://www.conventionalcommits.org/en/v1.0.0/][Conventional Commits]] and use =nixfmt=
+
+** Credits
+
+- tsrk(the GOAT)'s config: https://github.com/itsshamed/tsrk-nix-flex
+- CachyOS' ideas, scripts and defaults: https://wiki.cachyos.org/
+- Enzuru's emacs config: https://github.com/enzuru/.emacs.d
+- Parc Informatique de l'EPITA: https://gitlab.cri.epita.fr/forge/infra/nixpie
