@@ -33,7 +33,10 @@ in
     networking.networkmanager.enable = lib.mkDefault true;
     power = {
       powerManagement.enable = lib.mkDefault true;
-      power-profiles-daemon.enable = lib.mkDefault true;
+      power-profiles-daemon = {
+        enable = lib.mkDefault true;
+        game-performance = lib.mkDefault true;
+      };
     };
     security.doas.enable = lib.mkDefault true;
   };
