@@ -1,2 +1,13 @@
 .direnv
 .pre-commit-config.yaml
+*.qcow2
+result
+
+eln-cache
+elpaca
+elpa
+history
+places
+transient
+.lsp-session
+*.eld

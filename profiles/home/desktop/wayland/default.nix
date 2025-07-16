@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  key = ./.;
+
+  hyprland = import ./hyprland;
+}

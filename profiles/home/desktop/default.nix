@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  key = ./.;
+
+  wayland = import ./wayland { };
+}

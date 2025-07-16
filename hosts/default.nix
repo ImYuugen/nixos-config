@@ -2,30 +2,32 @@
   inputs,
   lib,
   pkgsSet,
+  self,
+  system,
   ...
 }:
-let
-  shared = [
-    inputs.home-manager.nixosModules.home-manager
-    {
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-      };
-    }
-    # Fix command-not-found
-    inputs.fps.nixosModules.programs-sqlite
-  ];
-in
+
 {
-  # HP Omen Laptop
   omen = lib.nixosSystem {
+    inherit system;
     specialArgs = {
-      inherit inputs lib pkgsSet;
+      inherit
+        inputs
+        pkgsSet
+        self
+        ;
     };
     modules = [
+      {
+        system.name = "omen";
+        nix.registry = {
+          nixpkgs.flake = inputs.nixpkgs;
+          nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
+        };
+        nixpkgs.pkgs = pkgsSet.stable;
+      }
       ./omen
-      ../home/yuugen
-    ] ++ shared;
+      inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+    ];
   };
 }

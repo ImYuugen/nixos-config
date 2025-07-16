@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  easyeffects = import ./easyeffects;
+}

@@ -1,0 +1,44 @@
+* My totally based system flake
+
+** Structure
+
+*** flake.nix
+The entry point of this config.
+Exposes a lot of stuff
+- ~nixosModules~ Self defined system options and modules
+- ~nixosConfigurations~ Hosts a.k.a machines a.k.a computers definitions
+- ~homeManagerModules~ Self defined user options and modules
+- ~homeConfigurations~ Home a.k.a user definitions
+- ~devShells~ Everything needed to work on this flake
+- ~checks.<system>.pre-commit-check~ Pre commit hooks (nixfmt)
+
+*** homes/
+User definitions, every subfolder is a user and is imported in ~default.nix~
+
+*** hosts/
+Machine definitions, every subfolder is a host/machine and is imported in ~default.nix~
+
+*** lib/
+Self defined utilitary functions
+
+*** modules/
+
+**** home/
+User side modules/options to be imported and changed (or not) by users.
+Provides good enough default values
+
+**** system/
+Same but host side
+
+*** overlays/
+Local modifications on packages
+
+*** pkgs/
+Self packaged stuff
+
+*** profiles/
+Default configurations
+
+** Limitations
+
+Nothing, this flake is perfect (like me tbf)
