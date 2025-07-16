@@ -31,8 +31,4 @@
 (use-package magit-delta
   :config (feat--config-magit-delta))
 
-(use-package git-commit-ts-mode
-  :mode "\\COMMIT_EDITMSG\\'"
-  :custom (git-commit-major-mode 'git-commit-ts-mode))
-
 (provide 'feat-magit)

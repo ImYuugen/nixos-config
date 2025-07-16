@@ -37,6 +37,7 @@
 (require 'feat-magit)
 (require 'feat-meow)
 (require 'feat-projectile)
+(require 'feat-treesit)
 (require 'feat-wakatime)
 
 (require 'mode-nix)
