@@ -49,6 +49,7 @@ in
       "kernel.printk" = "3 3 3 3";
       "kernel.kptr_restrict" = 2;
       "kernel.kexec_load_disabled" = 1;
+      "kernel.split_lock_mitigate" = 0;
       "net.core.netdev_max_backlog" = 4096;
       "fs.file-max" = 2097152;
     };
