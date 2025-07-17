@@ -1,12 +1,17 @@
-{ inputs, pkgs, ... }:
+{ self, ... }:
 
 {
+  imports = [
+    self.nixosModules.plymouth
+  ];
+
+  modules.plymouth.enable = true;
+
   boot = {
     kernelParams = [
       "usbcore.autosuspend=-1"
       "kvm.enable_virt_at_load=0"
     ];
-    # kernelPackages = pkgsSet.unstable.linuxPackages_latest;
     supportedFilesystems = {
       ntfs = true;
     };
@@ -20,9 +25,8 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    plymouth = {
-      enable = true;
-      theme = "breeze";
-    };
   };
+
+  # Slows down boot
+  systemd.services.NetworkManager-wait-online.enable = false;
 }
