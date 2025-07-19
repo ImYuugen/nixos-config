@@ -11,3 +11,4 @@ places
 transient
 .lsp-session
 *.eld
+tree-sitter
