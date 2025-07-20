@@ -1,4 +1,8 @@
-{ pkgs, self, ... }:
+{
+  pkgs,
+  self,
+  ...
+}:
 
 {
   imports = with self.homeManagerModules; [
@@ -19,6 +23,7 @@
     ./gaming.nix
     ./git.nix
     ./graphical/hyprland.nix
+    ./graphical/theming.nix
     ./graphical/rofi.nix
     ./graphical/wezterm.nix
     ./starship.nix
@@ -51,6 +56,7 @@
 
   # TODO: Module
   home.packages = with pkgs; [
+    keepassxc
     ffmpeg
     protonup-qt
     kdePackages.dolphin
