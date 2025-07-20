@@ -23,6 +23,7 @@
     gaming.gamecube
     gaming.gamemode
     gaming.steam
+    networking.protonvpn
     virtualisation.docker
     virtualisation.libvirtd
 
@@ -35,6 +36,25 @@
   modules = {
     dev = {
       arduino.enable = true;
+    };
+    networking.protonvpn = {
+      enable = true;
+      autostart = false;
+      interface = {
+        name = "protonvpn-FR";
+        ip = "10.2.0.2/32";
+        port = 51820;
+        privateKeyFile = "/root/secrets/protonvpn-FR-pkey";
+        dns = {
+          enable = true;
+          ip = "10.2.0.1";
+        };
+      };
+      endpoint = {
+        publicKey = "zeGY3uQTDqTiaxp6vGqFzXck1TPNnzY+JZ2iNI2BrRU=";
+        ip = "146.70.194.98";
+        port = 51820;
+      };
     };
     gaming = {
       dualsense.enable = true;

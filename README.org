@@ -80,3 +80,4 @@ My only request is that you follow the [[https://www.conventionalcommits.org/en/
 - CachyOS' ideas, scripts and defaults: https://wiki.cachyos.org/
 - Enzuru's emacs config: https://github.com/enzuru/.emacs.d
 - Parc Informatique de l'EPITA: https://gitlab.cri.epita.fr/forge/infra/nixpie
+- Emmanuel Rosa's ProtonVPN module: https://github.com/emmanuelrosa/erosanix/blob/master/modules/protonvpn.nix
