@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
@@ -34,7 +33,7 @@ in
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
     # CachyOS Settings
     # https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/sysctl.d/99-cachyos-settings.conf
     kernel.sysctl = {
