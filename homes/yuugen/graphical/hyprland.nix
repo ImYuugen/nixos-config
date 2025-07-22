@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  self,
+  ...
+}:
 
 let
   workspaceBinds = builtins.concatLists (
@@ -21,6 +26,15 @@ let
   );
 in
 {
+  imports = [
+    self.homeManagerModules.desktop.wayland.hyprpaper
+  ];
+  modules.desktop.wayland.hyprpaper.enable = true;
+  services.hyprpaper.settings = {
+    preload = [ "${self.outPath}/assets/images/ceci.jpg" ];
+    wallpaper = [ ",${self.outPath}/assets/images/ceci.jpg" ];
+  };
+
   wayland.windowManager.hyprland = {
     settings = {
       "$mainMod" = "SUPER";
