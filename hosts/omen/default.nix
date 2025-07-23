@@ -27,6 +27,8 @@
     virtualisation.docker
     virtualisation.libvirtd
 
+    inputs.everforest.nixosModules.everforest
+
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
     inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
@@ -73,6 +75,8 @@
       libvirtd.enable = true;
     };
   };
+
+  everforest.enable = true;
 
   networking.hostName = "omen";
 

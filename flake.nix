@@ -20,6 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     esp-idf.url = "github:mirrexagon/nixpkgs-esp-dev";
+    everforest.url = "git+https://codeberg.org/fwinter/everforest-nix.git";
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -7,8 +7,10 @@
 
   modules.programs.terminals.wezterm.enable = true;
 
-  xdg.configFile."wezterm" = {
-    source = ../config/wezterm;
-    recursive = true;
+  xdg.configFile = {
+    "wezterm" = {
+      source = ../config/wezterm;
+      recursive = true;
+    };
   };
 }

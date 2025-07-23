@@ -43,4 +43,5 @@
 (require 'mode-nix)
 (require 'mode-qml)
 
-(require 'theme-catppuccin)
+; (require 'theme-catppuccin)
+(require 'theme-everforest)

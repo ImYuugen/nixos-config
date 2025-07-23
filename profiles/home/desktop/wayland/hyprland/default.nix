@@ -26,14 +26,7 @@
     dunst.enable = true;
     wayland = {
       grimblast.enable = lib.mkDefault true;
-      hyprcursor = {
-        enable = lib.mkDefault true;
-        cursor = {
-          package = pkgs.bibata-cursors;
-          name = "Bibata-Modern-Ice";
-          size = lib.mkDefault 24;
-        };
-      };
+      hyprcursor.enable = lib.mkDefault true;
       hypridle.enable = lib.mkDefault true;
       hyprland = {
         enable = lib.mkDefault true;

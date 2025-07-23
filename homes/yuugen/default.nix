@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   self,
   ...
@@ -6,6 +7,8 @@
 
 {
   imports = with self.homeManagerModules; [
+    inputs.everforest.homeModules.everforest
+
     profiles.base
     profiles.base-graphical
     profiles.desktop.wayland.hyprland
@@ -53,6 +56,8 @@
       };
     };
   };
+
+  everforest.enable = true;
 
   # TODO: Module
   home.packages = with pkgs; [

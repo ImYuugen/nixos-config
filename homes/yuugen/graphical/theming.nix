@@ -1,26 +1,14 @@
 { pkgs, pkgsSet, ... }:
 
 let
-  variant = "mocha";
+  variant = "macchiato";
   accent = "green";
   flavor = "catppuccin-${variant}-${accent}";
 in
 {
-  dconf.settings = {
-    "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-  };
+  gtk.enable = true;
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "${flavor}-standard";
-      package = pkgs.catppuccin-gtk.override {
-        inherit variant;
-        accents = [ accent ];
-      };
-    };
-  };
-
+  # TODO: Everforest QT theme
   qt = {
     enable = true;
     platformTheme.name = "qtct";

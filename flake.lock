@@ -63,6 +63,24 @@
         "type": "github"
       }
     },
+    "everforest": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1744991977,
+        "narHash": "sha256-Iw1vJ2h0gwnUjnw/6ZS0SCMTPa7PtkahLSxY7MpK538=",
+        "ref": "refs/heads/main",
+        "rev": "609cc00da3bbc9c67fd8842e4c7bf1eb70fc16e4",
+        "revCount": 53,
+        "type": "git",
+        "url": "https://codeberg.org/fwinter/everforest-nix.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/fwinter/everforest-nix.git"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -321,7 +339,7 @@
     },
     "nix-ssb": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
@@ -419,6 +437,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1744098102,
+        "narHash": "sha256-tzCdyIJj9AjysC3OuKA+tMD/kDEDAF9mICPDU7ix0JA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c8cd81426f45942bb2906d5ed2fe21d2f19d95b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1749794982,
         "narHash": "sha256-Kh9K4taXbVuaLC0IL+9HcfvxsSUx8dPB5s5weJcc9pc=",
         "owner": "nixos",
@@ -433,7 +467,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1730768919,
         "narHash": "sha256-8AKquNnnSaJRXZxc5YmF/WfmxiHX6MMZZasRP6RRQkE=",
@@ -449,7 +483,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1752866191,
         "narHash": "sha256-NV4S2Lf2hYmZQ3Qf4t/YyyBaJNuxLPyjzvDma0zPp/M=",
@@ -465,7 +499,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1730768919,
         "narHash": "sha256-8AKquNnnSaJRXZxc5YmF/WfmxiHX6MMZZasRP6RRQkE=",
@@ -485,7 +519,7 @@
       "inputs": {
         "flake-compat": "flake-compat",
         "gitignore": "gitignore",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1749636823,
@@ -505,7 +539,7 @@
       "inputs": {
         "flake-compat": "flake-compat_2",
         "gitignore": "gitignore_2",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_7"
       },
       "locked": {
         "lastModified": 1750779888,
@@ -526,12 +560,13 @@
         "chaotic": "chaotic",
         "emacs-overlay": "emacs-overlay",
         "esp-idf": "esp-idf",
+        "everforest": "everforest",
         "flake-programs-sqlite": "flake-programs-sqlite",
         "home-manager": "home-manager_2",
         "hyprland-contrib": "hyprland-contrib",
         "nix-ssb": "nix-ssb",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pre-commit-hooks": "pre-commit-hooks_2",
         "wakatime-ls": "wakatime-ls"

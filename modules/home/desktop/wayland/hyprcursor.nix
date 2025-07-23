@@ -1,7 +1,13 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.modules.desktop.wayland.hyprcursor;
+  mkMiniDefault = lib.mkOverride 1001;
 in
 {
   options.modules.desktop.wayland.hyprcursor = {
@@ -9,18 +15,17 @@ in
     cursor = {
       package = lib.mkOption {
         type = lib.types.package;
-        example = lib.literalExpression "pkgs.bibata-cursors";
+        default = pkgs.bibata-cursors;
         description = "Package providing the cursor.";
       };
       name = lib.mkOption {
         type = lib.types.str;
-        example = "Bibata-Modern-Ice";
+        default = "Bibata-Modern-Ice";
         description = "The cursor name within the package.";
       };
       size = lib.mkOption {
         type = lib.types.int;
         default = 20;
-        example = 16;
         description = "The cursor size";
       };
     };
@@ -28,12 +33,12 @@ in
 
   config = lib.mkIf cfg.enable {
     home.pointerCursor = {
-      inherit (cfg.cursor) name package size;
+      # mkDefault clashes with modules
+      name = mkMiniDefault cfg.cursor.name;
+      package = mkMiniDefault cfg.cursor.package;
+      size = mkMiniDefault cfg.cursor.size;
       gtk.enable = lib.mkDefault true;
-      hyprcursor = {
-        inherit (cfg.cursor) size;
-        enable = lib.mkDefault true;
-      };
+      hyprcursor.enable = lib.mkDefault true;
     };
   };
 }
