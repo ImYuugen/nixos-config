@@ -10,6 +10,10 @@
     daemon = true;
     waylandPure = true;
     installOrgDeps = true;
+    doom = {
+      enable = true;
+      configDir = ./config/doom;
+    };
   };
 
   home.packages = with pkgs; [
