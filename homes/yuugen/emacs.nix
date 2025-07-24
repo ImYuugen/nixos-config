@@ -6,10 +6,8 @@
   ];
 
   modules.programs.editors.emacs = {
+    enable = true;
     terminal = true;
-    daemon = true;
-    waylandPure = true;
-    installOrgDeps = true;
     doom = {
       enable = true;
       configDir = ./config/doom;
