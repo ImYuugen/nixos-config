@@ -31,8 +31,8 @@ in
   ];
   modules.desktop.wayland.hyprpaper.enable = true;
   services.hyprpaper.settings = {
-    preload = [ "${self.outPath}/assets/images/ceci.jpg" ];
-    wallpaper = [ ",${self.outPath}/assets/images/ceci.jpg" ];
+    preload = [ "${self.outPath}/assets/images/ceci.png" ];
+    wallpaper = [ ",${self.outPath}/assets/images/ceci.png" ];
   };
 
   wayland.windowManager.hyprland = {
