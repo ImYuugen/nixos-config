@@ -5,8 +5,6 @@
     self.nixosModules.plymouth
   ];
 
-  modules.plymouth.enable = true;
-
   boot = {
     kernelParams = [
       "usbcore.autosuspend=-1"
