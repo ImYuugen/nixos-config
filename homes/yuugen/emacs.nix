@@ -10,7 +10,7 @@
     terminal = true;
     doom = {
       enable = true;
-      configDir = /home/yuugen/.doom.d;
+      configDir = ./config/doom;
     };
   };
 
