@@ -17,6 +17,7 @@
   };
 
   home.packages = [
+    pkgsSet.stable.joystickwake
     pkgsSet.unstable.olympus
   ];
 

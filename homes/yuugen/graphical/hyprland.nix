@@ -210,6 +210,10 @@ in
         "float, title:^(termfloat)$"
       ];
 
+      windowrulev2 = [
+        "idleinhibit fullscreen, class:.*"
+      ];
+
       workspace = [
         "special:scratchpad, on-created-empty:[float; move 50% 2%; size 50% 46%] $terminal"
       ];
