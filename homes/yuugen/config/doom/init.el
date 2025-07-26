@@ -1,9 +1,7 @@
-;;; $DOOMDIR/init.el -*- lexical-binding: t; -*-
+;;; init.el -*- lexical-binding: t; -*-
 
 (doom!
-	:completion
+	:themes
+	everforest
 	:editor
-	(meow +qwerty)
-	:lang
-	:ui
-	)
+	(meow +qwerty))
