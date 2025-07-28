@@ -3,5 +3,141 @@
 (doom!
 	:themes
 	everforest
+
+	:input
+	japanese ; うわ！凄い！
+
+	:completion
+	(corfu
+	 +icons
+	 +orderless
+	 +dabbrev)
+	(vertico
+	 +icons)
+
+	:ui
+	doom
+	doom-dashboard
+	(emoji
+	 +ascii
+	 +github
+	 +unicode)
+	hl-todo
+	indent-guides
+	minimap
+	modeline
+	tabs
+	treemacs
+	unicode
+	(vc-gutter
+	 +pretty)
+	vi-tilde-fringe
+	(window-select
+	 +numbers)
+
 	:editor
-	(meow +qwerty))
+	(meow
+	 +qwerty)
+	multiple-cursors
+	fold
+	(format
+	 +lsp
+	 +onsave)
+
+	:emacs
+	undo
+	vc
+
+	:term
+	eshell
+	vterm
+
+	:checkers
+	(syntax
+	 +icons
+	 +flymake)
+	(spell
+	 +flyspell
+	 +everywhere)
+	grammar
+
+	:tools
+	(debugger
+	 +lsp)
+	direnv
+	(docker
+	 +lsp)
+	editorconfig
+	(eval
+	 +overlay)
+	(lookup
+	 +docsets
+	 +dictionnary
+	 +offline)
+	(lsp
+	 +peek)
+	(magit
+	 +forge)
+	make
+	rgb
+	tree-sitter
+
+	:lang
+	(cc
+	 +lsp)
+	emacs-lisp
+	(go
+	 +lsp
+	 +tree-sitter)
+	(haskell
+	 +lsp
+	 +tree-sitter)
+	(java
+	 +lsp
+	 +tree-sitter)
+	(javascript
+	 +lsp
+	 +tree-sitter)
+	(json
+	 +lsp
+	 +tree-sitter)
+	(latex
+	 +lsp)
+	(lua
+	 +lsp
+	 +tree-sitter)
+	(markdown
+	 +grip)
+	(nix
+	 +lsp
+	 +tree-sitter)
+	(org
+	 +dragndrop
+	 +hugo
+	 +pandoc
+	 +pomodoro
+	 +present
+	 +pretty
+	 +roam2)
+	(python
+	 +lsp
+	 +pyenv
+	 +pyright
+	 +treesitter)
+	qt
+	(rest
+	 +jq)
+	(rust
+	 +lsp
+	 +tree-sitter)
+	(sh
+	 +fish
+	 +lsp
+	 +powershell
+	 +tree-sitter)
+	(web
+	 +lsp
+	 +tree-sitter)
+	(yaml
+	 +lsp
+	 +tree-sitter))
