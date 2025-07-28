@@ -19,6 +19,11 @@
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-doom-emacs-unstraightened = {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "";
+    };
+
     esp-idf.url = "github:mirrexagon/nixpkgs-esp-dev";
     everforest.url = "git+https://codeberg.org/fwinter/everforest-nix.git";
     flake-programs-sqlite = {
