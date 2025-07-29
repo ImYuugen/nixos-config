@@ -31,10 +31,11 @@ in
   config = lib.mkIf cfg.enable (
     let
       emacsPackage = inputs.emacs-overlay.packages.${pkgs.system}.emacs-unstable-pgtk;
-      extraPackages =
-        epkgs: with epkgs; [
-          treesit-grammars.with-all-grammars
-        ];
+      extraPackages = epkgs: [
+        pkgs.ripgrep
+        pkgs.fd
+        pkgs.git
+      ];
     in
     lib.mkMerge [
       (lib.mkIf cfg.doom.enable {
@@ -43,21 +44,13 @@ in
           imagemagick
           zstd
         ];
-        programs = {
-          git.enable = lib.mkDefault true;
-          fd.enable = lib.mkDefault true;
-          ripgrep.enable = lib.mkDefault true;
-
-          doom-emacs = {
-            inherit extraPackages;
-            enable = lib.mkDefault true;
-            doomDir = lib.mkDefault cfg.doom.configDir;
-            emacs = lib.mkDefault emacsPackage;
-            experimentalFetchTree = lib.mkDefault true;
-          };
+        programs.doom-emacs = {
+          inherit extraPackages;
+          enable = lib.mkDefault true;
+          doomDir = lib.mkDefault cfg.doom.configDir;
+          emacs = lib.mkDefault emacsPackage;
+          experimentalFetchTree = lib.mkDefault true;
         };
-
-        home.sessionPath = [ "$XDG_CONFIG_HOME/emacs/bin" ];
       })
 
       (lib.mkIf (!cfg.doom.enable) {

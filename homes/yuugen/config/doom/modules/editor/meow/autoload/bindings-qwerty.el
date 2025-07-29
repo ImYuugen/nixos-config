@@ -37,6 +37,7 @@
    '("0" . meow-digit-argument)
    '("/" . meow-keypad-describe-key)
    '("?" . meow-cheatsheet))
+
   (meow-normal-define-key
    '("1" . meow-expand-1)
    '("2" . meow-expand-2)

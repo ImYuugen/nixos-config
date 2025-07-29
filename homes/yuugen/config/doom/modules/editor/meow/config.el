@@ -43,7 +43,7 @@
         meow-cursor-type-default 'box
         blink-cursor-delay 0 ; start blinking immediately
         blink-cursor-blinks 0 ; blink forever
-        blink-cursor-interval 0.15) ; blink time period
+        blink-cursor-interval 0.35) ; blink time period
 
   ;; Toggle blink on entering/exiting insert mode
   (add-hook 'meow-insert-mode-hook #'+meow-maybe-toggle-cursor-blink)
