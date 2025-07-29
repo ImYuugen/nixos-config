@@ -86,5 +86,12 @@
     "-r 144"
   ];
 
+  hardware = {
+    opentabletdriver = {
+      enable = true;
+      daemon.enable = true;
+    };
+  };
+
   system.stateVersion = "23.11";
 }

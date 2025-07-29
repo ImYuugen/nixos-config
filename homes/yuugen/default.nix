@@ -59,11 +59,15 @@
 
   everforest.enable = true;
 
-  # TODO: Module
+  # TODO: Module (Like fr this is getting out of hand)
   home.packages = with pkgs; [
+    krita
+    krita-plugin-gmic
+
     keepassxc
     ffmpeg
     protonup-qt
+
     kdePackages.dolphin
     kdePackages.dolphin-plugins
     kdePackages.kio-fuse
