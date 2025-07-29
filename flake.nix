@@ -91,12 +91,12 @@
       formatter.${system} = pkgsSet.stable.nixfmt-rfc-style;
       devShells.${system}.default = pkgsSet.stable.mkShell {
         inherit (self.checks.${system}.pre-commit-check) shellHook;
-        buildInputs = [
-          pkgsSet.unstable.nixd
-          pkgsSet.unstable.lua-language-server
-          pkgsSet.unstable.nixfmt-rfc-style
-          pkgsSet.unstable.nix-output-monitor
-          pkgsSet.unstable.nodePackages_latest.typescript-language-server
+        buildInputs = with pkgsSet.unstable; [
+          nixd
+          lua-language-server
+          nixfmt-rfc-style
+          nix-output-monitor
+          bash-language-server
         ];
       };
       checks.${system} = {
