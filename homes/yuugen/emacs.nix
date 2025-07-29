@@ -18,10 +18,4 @@
     wakatime-cli
     delta
   ];
-
-  # Enable once config is finished
-  # xdg.configFile."emacs" = {
-  #   source = ./config/emacs;
-  #   recursive = true;
-  # };
 }
