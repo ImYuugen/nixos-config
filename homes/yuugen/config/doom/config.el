@@ -1,5 +1,8 @@
 ;;; config.el -*- lexical-binding: t; -*-
 
+(setq doom-theme 'doom-everforest-hard)
+(load-theme 'doom-everforest-hard t)
+
 (setq display-line-numbers-type 'relative)
 
 (setq doom-font                 (font-spec :family "Moralerspace Argon NF" :size 16)

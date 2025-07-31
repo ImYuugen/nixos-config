@@ -1,9 +1,6 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
 (doom!
- :themes
- everforest
-
  :input
  japanese ; うわ！凄い！
 
