@@ -2,12 +2,13 @@
   config,
   inputs,
   lib,
-  pkgs,
+  pkgsSet,
   ...
 }:
 
 let
   cfg = config.modules.programs.editors.emacs;
+  pkgs = pkgsSet.unstable;
 in
 {
   key = ./.;
@@ -32,9 +33,8 @@ in
     let
       emacsPackage = inputs.emacs-overlay.packages.${pkgs.system}.emacs-unstable-pgtk;
       extraPackages = epkgs: [
-        pkgs.ripgrep
-        pkgs.fd
-        pkgs.git
+        epkgs.vterm
+        epkgs.treesit-grammars.with-all-grammars
       ];
     in
     lib.mkMerge [
