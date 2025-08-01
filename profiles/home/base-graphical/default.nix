@@ -32,6 +32,7 @@
   services.playerctld.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
+    feh
     playerctl
     qt6.qtwayland
     wayland-utils

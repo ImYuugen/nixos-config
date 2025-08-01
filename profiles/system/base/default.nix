@@ -51,6 +51,10 @@ in
       man-pages-posix
       toybox
       wget
+
+      rar
+      zip
+      unzip
     ];
   };
 
