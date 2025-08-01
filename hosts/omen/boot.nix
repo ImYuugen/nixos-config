@@ -26,6 +26,13 @@
     };
   };
 
+  console = {
+    earlySetup = true;
+    # Bigger font
+    font = "${pkgsSet.stable.terminus_font}/share/consolefonts/ter-v24b.psf.gz";
+    packages = [ pkgsSet.stable.terminus_font ];
+  };
+
   # Slows down boot
   systemd.services.NetworkManager-wait-online.enable = false;
 }
