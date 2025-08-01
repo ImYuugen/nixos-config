@@ -1,8 +1,5 @@
 ;;; config.el -*- lexical-binding: t; -*-
 
-(setq doom-theme 'doom-everforest-hard)
-(load-theme 'doom-everforest-hard t)
-
 (setq display-line-numbers-type 'relative)
 
 (setq doom-font                 (font-spec :family "Moralerspace Argon NF" :size 16)
@@ -126,3 +123,5 @@
 (global-set-key (kbd "C-x 2") #'split-window-v-focus-right)
 (global-set-key (kbd "C-x 3") #'split-window-h-focus-below)
 (global-set-key (kbd "M-o") 'ace-window)
+
+(setq doom-theme 'doom-everforest-hard)
