@@ -49,7 +49,6 @@ in
       glibcLocales
       man-pages
       man-pages-posix
-      toybox
       wget
 
       rar
