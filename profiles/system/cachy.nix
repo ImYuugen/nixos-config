@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
@@ -62,7 +63,7 @@ in
 
   # Ananicy in place of gamemode to better mimic CachyOS
   modules.gaming = {
-    ananicy.enable = true;
+    ananicy.enable = lib.mkDefault (!config.services.scx.enable);
     gamemode.enable = lib.mkForce false;
   };
 
@@ -71,6 +72,8 @@ in
     scx = {
       enable = true;
       package = pkgs.scx_git.full;
+      scheduler = "scx_bpfland";
+      extraArgs = [ "--cpufreq" ];
     };
     udev.packages = udevRules;
   };
