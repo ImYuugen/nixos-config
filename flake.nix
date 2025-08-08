@@ -25,7 +25,6 @@
     };
 
     esp-idf.url = "github:mirrexagon/nixpkgs-esp-dev";
-    everforest.url = "git+https://codeberg.org/fwinter/everforest-nix.git";
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +34,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-ssb.url = "github:imyuugen/nix-ssb";
+    stylix.url = "github:nix-community/stylix/release-25.05";
     wakatime-ls = {
       url = "github:mrnossiom/wakatime-ls";
       inputs.nixpkgs.follows = "nixpkgs";

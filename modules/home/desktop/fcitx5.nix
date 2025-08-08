@@ -23,27 +23,15 @@ in
         addons = with pkgs; [
           fcitx5-mozc
           fcitx5-gtk
-          catppuccin-fcitx5
         ];
         settings = {
           addons = {
             classicui.globalSection = {
               "Vertical Candidate List" = false;
               WheelForPaging = true;
-              # TODO: Change once theming is done
-              Font = "Sans 10";
-              MenoFont = "Sans 10";
-              TrayFont = "Sans Bold 10";
-              TrayOutlineColor = "#000000";
-              TrayTextColor = "#ffffff";
               PreferTextIcon = false;
               ShowLayoutNameInIcon = true;
               UseInputMethodLanguageToDisplayText = true;
-              Theme = "catppuccin-latte-teal";
-              DarkTheme = "catppuccin-macchiato-teal";
-              # Misleading, this enables following system light/dark accent
-              UseDarkTheme = true;
-              UseAccentColor = true;
               PerScreenDPI = false;
               ForceWaylandDPI = 0;
               EnableFractionalScale = true;

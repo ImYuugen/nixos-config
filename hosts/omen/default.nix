@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  pkgs,
   self,
   ...
 }:
@@ -27,7 +28,7 @@
     virtualisation.docker
     virtualisation.libvirtd
 
-    inputs.everforest.nixosModules.everforest
+    inputs.stylix.nixosModules.stylix
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
@@ -76,7 +77,13 @@
     };
   };
 
-  everforest.enable = true;
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    # Use `colors` to set your own
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+    image = "${self.outPath}/assets/images/ceci.png";
+  };
 
   networking.hostName = "omen";
 

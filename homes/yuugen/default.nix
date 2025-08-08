@@ -7,8 +7,6 @@
 
 {
   imports = with self.homeManagerModules; [
-    inputs.everforest.homeModules.everforest
-
     profiles.base
     profiles.base-graphical
     profiles.desktop.wayland.hyprland
@@ -26,7 +24,7 @@
     ./gaming.nix
     ./git.nix
     ./graphical/hyprland.nix
-    ./graphical/theming.nix
+    # ./graphical/theming.nix
     ./graphical/rofi.nix
     ./graphical/wezterm.nix
     ./starship.nix
@@ -57,12 +55,12 @@
     };
   };
 
-  everforest.enable = true;
-
   # TODO: Module (Like fr this is getting out of hand)
   home.packages = with pkgs; [
     krita
     krita-plugin-gmic
+
+    davinci-resolve
 
     keepassxc
     ffmpeg

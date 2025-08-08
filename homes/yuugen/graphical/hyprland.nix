@@ -58,63 +58,62 @@ in
         workspace_back_and_forth = true;
       };
 
-      bindd =
-        [
-          "$mainMod SHIFT, Q, Closes the current window, killactive,"
-          "$mainMod, Return, Opens your preferred terminal emulator, exec, $terminal"
-          "$mainMod, D, Opens your preferred app launcher, exec, rofi -show drun"
-          "$mainMod SHIFT, D, Opens your preferred cmd launcher, exec, rofi -show run"
-          "$appMod, W, Opens your preferred web browser, exec, $BROWSER"
-          # Lock
-          "$mainMod SHIFT, X, Locks the session, exec, hyprlock"
-          ", XF86Launch2, Locks the session, exec, hyprlock"
-          # Screenshots
-          "$mainMod, Print, Takes a screenshot and places it in the clipboard, exec, grimblast --notify copy screen"
-          "$mainMod SHIFT, S, Select an area to paste to the clipboard, exec, grimblast --notify copy area"
-          "$mainMod SHIFT, Print, Select and area and save it in a file, exec, grimblast --notify --freeze save area"
-          # Layout
-          "$mainMod, F, Switches current window between floating and tiling mode, togglefloating,"
-          "$mainMod, M, Toggles fullscreen for current window, fullscreen,"
-          "$mainMod, P, Toggles pseudotile mode, pseudo"
-          "$mainMod, apostrophe, Toggles between horizontal and vertical split, togglesplit,"
-          "$mainMod, Y, Pins the current window, pin"
-          # Windows
-          "$mainMod, left, Focuses the window to the west, movefocus, l"
-          "$mainMod, H, Focuses the window to the west, movefocus, l"
-          "$mainMod, down, Focuses the window to the south, movefocus, d"
-          "$mainMod, J, Focuses the window to the south, movefocus, d"
-          "$mainMod, up, Focuses the window to the north, movefocus, u"
-          "$mainMod, K, Focuses the window to the north, movefocus, u"
-          "$mainMod, right, Focuses the window to the east, movefocus, r"
-          "$mainMod, L, Focuses the window to the east, movefocus, r"
-          # Move windows
-          "$mainMod SHIFT, left, Moves the current window to the west, movewindow, l"
-          "$mainMod SHIFT, H, Moves the current window to the west, movewindow, l"
-          "$mainMod SHIFT, down, Moves the current window to the south, movewindow, d"
-          "$mainMod SHIFT, J, Moves the current window to the south, movewindow, d"
-          "$mainMod SHIFT, up, Moves the current window to the north, movewindow, u"
-          "$mainMod SHIFT, K, Moves the current window to the north, movewindow, u"
-          "$mainMod SHIFT, right, Moves the current window to the east, movewindow, r"
-          "$mainMod SHIFT, L, Moves the current window to the east, movewindow, r"
-          # Media controls
-          ", XF86AudioPrev, Previous track, exec, playerctl previous"
-          ", XF86AudioPlay, Play/Pause track, exec, playerctl play-pause"
-          ", XF86AudioNext, Next track, exec, playerctl next"
-        ]
-        ++ [
-          # Workspace navigation
-          "$mainMod, Period, Go up a workspace, workspace, e+1"
-          "$mainMod, mouse_up, Go up a workspace, workspace, e+1"
-          "$mainMod, Comma, Go down a workspace, workspace, e-1"
-          "$mainMod, mouse_down, Go down a workspace, workspace, e-1"
-          "$mainMod, Tab, Go to previous workspace, workspace, previous"
-          # Special workspace
-          "$mainMod, F2, Toggles the Special workspace, togglespecialworkspace, special"
-          "$mainMod SHIFT, F2, Move current window to Special workspace, movetoworkspace,special"
-          "$mainMod, F1, Call special workspace scratchpad, togglespecialworkspace, scratchpad"
-          "$mainMod SHIFT, F1, Move active window to special workspace scratchpad, movetoworkspacesilent, special:scratchpad"
-        ]
-        ++ workspaceBinds;
+      bindd = [
+        "$mainMod SHIFT, Q, Closes the current window, killactive,"
+        "$mainMod, Return, Opens your preferred terminal emulator, exec, $terminal"
+        "$mainMod, D, Opens your preferred app launcher, exec, rofi -show drun"
+        "$mainMod SHIFT, D, Opens your preferred cmd launcher, exec, rofi -show run"
+        "$appMod, W, Opens your preferred web browser, exec, $BROWSER"
+        # Lock
+        "$mainMod SHIFT, X, Locks the session, exec, hyprlock"
+        ", XF86Launch2, Locks the session, exec, hyprlock"
+        # Screenshots
+        "$mainMod, Print, Takes a screenshot and places it in the clipboard, exec, grimblast --notify copy screen"
+        "$mainMod SHIFT, S, Select an area to paste to the clipboard, exec, grimblast --notify copy area"
+        "$mainMod SHIFT, Print, Select and area and save it in a file, exec, grimblast --notify --freeze save area"
+        # Layout
+        "$mainMod, F, Switches current window between floating and tiling mode, togglefloating,"
+        "$mainMod, M, Toggles fullscreen for current window, fullscreen,"
+        "$mainMod, P, Toggles pseudotile mode, pseudo"
+        "$mainMod, apostrophe, Toggles between horizontal and vertical split, togglesplit,"
+        "$mainMod, Y, Pins the current window, pin"
+        # Windows
+        "$mainMod, left, Focuses the window to the west, movefocus, l"
+        "$mainMod, H, Focuses the window to the west, movefocus, l"
+        "$mainMod, down, Focuses the window to the south, movefocus, d"
+        "$mainMod, J, Focuses the window to the south, movefocus, d"
+        "$mainMod, up, Focuses the window to the north, movefocus, u"
+        "$mainMod, K, Focuses the window to the north, movefocus, u"
+        "$mainMod, right, Focuses the window to the east, movefocus, r"
+        "$mainMod, L, Focuses the window to the east, movefocus, r"
+        # Move windows
+        "$mainMod SHIFT, left, Moves the current window to the west, movewindow, l"
+        "$mainMod SHIFT, H, Moves the current window to the west, movewindow, l"
+        "$mainMod SHIFT, down, Moves the current window to the south, movewindow, d"
+        "$mainMod SHIFT, J, Moves the current window to the south, movewindow, d"
+        "$mainMod SHIFT, up, Moves the current window to the north, movewindow, u"
+        "$mainMod SHIFT, K, Moves the current window to the north, movewindow, u"
+        "$mainMod SHIFT, right, Moves the current window to the east, movewindow, r"
+        "$mainMod SHIFT, L, Moves the current window to the east, movewindow, r"
+        # Media controls
+        ", XF86AudioPrev, Previous track, exec, playerctl previous"
+        ", XF86AudioPlay, Play/Pause track, exec, playerctl play-pause"
+        ", XF86AudioNext, Next track, exec, playerctl next"
+      ]
+      ++ [
+        # Workspace navigation
+        "$mainMod, Period, Go up a workspace, workspace, e+1"
+        "$mainMod, mouse_up, Go up a workspace, workspace, e+1"
+        "$mainMod, Comma, Go down a workspace, workspace, e-1"
+        "$mainMod, mouse_down, Go down a workspace, workspace, e-1"
+        "$mainMod, Tab, Go to previous workspace, workspace, previous"
+        # Special workspace
+        "$mainMod, F2, Toggles the Special workspace, togglespecialworkspace, special"
+        "$mainMod SHIFT, F2, Move current window to Special workspace, movetoworkspace,special"
+        "$mainMod, F1, Call special workspace scratchpad, togglespecialworkspace, scratchpad"
+        "$mainMod SHIFT, F1, Move active window to special workspace scratchpad, movetoworkspacesilent, special:scratchpad"
+      ]
+      ++ workspaceBinds;
 
       binded = [
         # Brightness
@@ -159,8 +158,6 @@ in
 
       general = {
         border_size = 1;
-        "col.active_border" = "rgba(ffffff88)";
-        "col.inactive_border" = "rgba(00000000)";
         gaps_in = 3;
         gaps_out = 5;
         layout = "dwindle";

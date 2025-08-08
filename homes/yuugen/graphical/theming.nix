@@ -1,53 +1,42 @@
-{ pkgs, pkgsSet, ... }:
-
-let
-  variant = "macchiato";
-  accent = "green";
-  flavor = "catppuccin-${variant}-${accent}";
-in
 {
-  gtk.enable = true;
+  config,
+  inputs,
+  pkgs,
+  self,
+  ...
+}:
 
-  # TODO: Everforest QT theme
-  qt = {
+{
+  imports = [
+    inputs.stylix.homeModules.stylix
+  ];
+
+  stylix = {
     enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
+    autoEnable = true;
+    # Use `colors` to set your own
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+    image = "${self.outPath}/assets/images/ceci.png";
+    fonts = {
+      serif = {
+        package = pkgs.moralerspace-nf;
+        name = "Moralerspace Xenon NF";
+      };
+      sansSerif = {
+        package = pkgs.moralerspace-nf;
+        name = "Moralerspace Argon NF";
+      };
+      monospace = config.stylix.fonts.sansSerif;
+      emoji = {
+        package = pkgs.noto;
+        name = "Noto Color Emoji";
+      };
+    };
+    # Modules
+    emacs.enable = false; # Managed directly through config
+    hyprlock.enable = false;
   };
 
-  systemd.user.sessionVariables = {
-    QT_STYLE_OVERRIDE = "kvantum";
-  };
-
-  xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=${flavor}
-    '';
-    "Kvantum/${flavor}".source = "${
-      pkgs.catppuccin-kvantum.override {
-        inherit variant accent;
-      }
-    }/share/Kvantum/${flavor}";
-
-    "qt5ct/qt5ct.conf".text = ''
-      [Appearance]
-      icon_theme = "Papirus-Dark";
-    '';
-    "qt6ct/qt6ct.conf".text = ''
-      [Appearance]
-      icon_theme = "Papirus-Dark";
-    '';
-  };
-
-  home = {
-    packages = with pkgs; [
-      (catppuccin-kvantum.override {
-        inherit accent variant;
-      })
-      libsForQt5.qt5ct
-      papirus-icon-theme
-      pkgsSet.unstable.quickshell
-    ];
-  };
+  gtk.enable = true;
+  qt.enable = true;
 }
