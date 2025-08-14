@@ -44,6 +44,7 @@
         fish = {
           enable = true;
           viBindings = true;
+          fastfetchGreet = true;
         };
       };
     };

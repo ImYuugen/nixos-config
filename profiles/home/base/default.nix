@@ -6,12 +6,12 @@
   imports = with self.homeManagerModules; [
     programs.direnv
     programs.editors.helix
-    programs.shells.bash
-    programs.shells.cli.bat
-    programs.shells.cli.btop
-    programs.shells.cli.eza
-    programs.shells.cli.fzf
-    programs.shells.cli.zoxide
+    programs.bash
+    programs.cli.bat
+    programs.cli.btop
+    programs.cli.eza
+    programs.cli.fzf
+    programs.cli.zoxide
   ];
 
   modules = {

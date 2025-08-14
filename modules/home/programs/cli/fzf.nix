@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.modules.programs.shells.cli.fzf;
+  cfg = config.modules.programs.cli.fzf;
 in
 {
-  options.modules.programs.shells.cli.fzf = {
+  options.modules.programs.cli.fzf = {
     enable = lib.mkEnableOption "Fuzzy Finder";
   };
 

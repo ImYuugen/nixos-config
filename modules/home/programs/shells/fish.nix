@@ -12,6 +12,7 @@ in
   options.modules.programs.shells.fish = {
     enable = lib.mkEnableOption "My Fish config";
     viBindings = lib.mkEnableOption "Vi bindings";
+    fastfetchGreet = lib.mkEnableOption "Show fastfetch on startup";
   };
 
   config = lib.mkIf cfg.enable {
@@ -45,6 +46,9 @@ in
         ''
           set fish_greeting
         ''
+        + lib.optionalString cfg.fastfetchGreet ''
+          fastfetch
+        ''
         + lib.optionalString cfg.viBindings ''
           set -g fish_key_bindings fish_vi_key_bindings
         ''
@@ -76,6 +80,9 @@ in
           tar -xvf $argv[1] && rm $argv[1]
         '';
       };
+    };
+    programs.fastfetch = {
+      enable = lib.mkDefault true;
     };
   };
 }

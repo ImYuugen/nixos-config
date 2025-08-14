@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.modules.programs.shells.cli.btop;
+  cfg = config.modules.programs.cli.btop;
 in
 {
-  options.modules.programs.shells.cli.btop = {
+  options.modules.programs.cli.btop = {
     enable = lib.mkEnableOption "Btop";
   };
 

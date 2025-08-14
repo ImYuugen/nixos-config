@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.modules.programs.shells.cli.starship;
+  cfg = config.modules.programs.cli.starship;
 in
 {
-  options.modules.programs.shells.cli.starship = {
+  options.modules.programs.cli.starship = {
     enable = lib.mkEnableOption "Starship";
   };
 

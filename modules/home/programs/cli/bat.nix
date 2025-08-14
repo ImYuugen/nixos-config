@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.modules.programs.shells.cli.bat;
+  cfg = config.modules.programs.cli.bat;
 in
 {
-  options.modules.programs.shells.cli.bat = {
+  options.modules.programs.cli.bat = {
     enable = lib.mkEnableOption "Bat";
   };
 

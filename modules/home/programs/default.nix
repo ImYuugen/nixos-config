@@ -2,6 +2,7 @@
 
 {
   browsers = import ./browsers { };
+  cli = import ./cli { };
   communications = import ./communications { };
   direnv = import ./direnv.nix;
   editors = import ./editors { };

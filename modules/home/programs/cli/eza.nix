@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.modules.programs.shells.cli.eza;
+  cfg = config.modules.programs.cli.eza;
 in
 {
-  options.modules.programs.shells.cli.eza = {
+  options.modules.programs.cli.eza = {
     enable = lib.mkEnableOption "Eza";
   };
 

@@ -29,9 +29,9 @@ in
       oh-my-zsh = lib.mkIf cfg.withOhMyZsh {
         enable = lib.mkDefault true;
         plugins = lib.mkDefault (
-          (lib.lists.optional config.modules.programs.shells.cli.fzf.enable "fzf")
-          ++ (lib.lists.optional config.modules.programs.shells.cli.starship.enable "starship")
-          ++ (lib.lists.optional config.modules.programs.shells.cli.zoxide.enable "zoxide")
+          (lib.lists.optional config.modules.programs.cli.fzf.enable "fzf")
+          ++ (lib.lists.optional config.modules.programs.cli.starship.enable "starship")
+          ++ (lib.lists.optional config.modules.programs.cli.zoxide.enable "zoxide")
         );
       };
       zsh-abbr = {
