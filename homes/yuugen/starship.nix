@@ -2,10 +2,10 @@
 
 {
   imports = [
-    self.homeManagerModules.programs.starship
+    self.homeManagerModules.programs.cli.starship
   ];
 
-  modules.programs.starship.enable = true;
+  modules.programs.cli.starship.enable = true;
   programs.starship.settings =
     let
       nerdfonts = {

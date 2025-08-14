@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   self,
   ...
@@ -21,6 +20,7 @@
 
     ./emacs.nix
     ./email.nix
+    ./fastfetch.nix
     ./gaming.nix
     ./git.nix
     ./graphical/hyprland.nix

@@ -4,14 +4,14 @@
   key = ./.;
 
   imports = with self.homeManagerModules; [
-    programs.direnv
-    programs.editors.helix
-    programs.bash
     programs.cli.bat
     programs.cli.btop
     programs.cli.eza
     programs.cli.fzf
     programs.cli.zoxide
+    programs.direnv
+    programs.editors.helix
+    programs.shells.bash
   ];
 
   modules = {
@@ -26,13 +26,13 @@
           enable = lib.mkDefault true;
           viBindings = lib.mkDefault true;
         };
-        cli = {
-          bat.enable = lib.mkDefault true;
-          btop.enable = lib.mkDefault true;
-          eza.enable = lib.mkDefault true;
-          fzf.enable = lib.mkDefault true;
-          zoxide.enable = lib.mkDefault true;
-        };
+      };
+      cli = {
+        bat.enable = lib.mkDefault true;
+        btop.enable = lib.mkDefault true;
+        eza.enable = lib.mkDefault true;
+        fzf.enable = lib.mkDefault true;
+        zoxide.enable = lib.mkDefault true;
       };
     };
   };

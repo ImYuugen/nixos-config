@@ -1,0 +1,149 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "display": {
+    "brightColor": false,
+    "color": {
+      "keys": "blue"
+    },
+    "constants": [
+      "──────────────────────────────────────────────",
+      "\u001b[47D",
+      "\u001b[47C",
+      "\u001b[46C"
+    ],
+    "separator": ""
+  },
+  "logo": {
+    "padding": {
+      "top": 2
+    }
+  },
+  "modules": [
+    {
+      "format": "\u001b[1m{#keys} {1} - {2} ",
+      "key": "┌───────────────┬─{$1}┐\u001b[41D",
+      "type": "version"
+    },
+    {
+      "key": "│  {icon}  \u001b[s{sysname}\u001b[u\u001b[10C│{$3}│{$2}",
+      "type": "os"
+    },
+    {
+      "format": "{#bright_cyan} Hardware ",
+      "key": "│{#cyan}┌──────────────┬{$1}┐{#keys}│\u001b[37D",
+      "type": "custom"
+    },
+    {
+      "key": "│{#cyan}│ {icon}  RAM       │{$4}│{#keys}│{$2}",
+      "type": "memory"
+    },
+    {
+      "key": "│{#cyan}│ {icon}  CPU       │{$4}│{#keys}│{$2}",
+      "showPeCoreCount": true,
+      "type": "cpu"
+    },
+    {
+      "key": "│{#cyan}│ {icon}  GPU       │{$4}│{#keys}│{$2}",
+      "type": "gpu"
+    },
+    {
+      "format": "{size-used} / {size-total} @ {mountpoint}",
+      "key": "│{#cyan}│ {icon}  Disk      │{$4}│{#keys}│{$2}",
+      "type": "disk"
+    },
+    {
+      "format": "",
+      "key": "│{#cyan}└──────────────┴{$1}┘{#keys}│",
+      "type": "custom"
+    },
+    {
+      "format": "{#bright_green} Desktop ",
+      "key": "│{#green}┌──────────────┬{$1}┐{#keys}│\u001b[37D",
+      "type": "custom"
+    },
+    {
+      "key": "│{#green}│ {icon}  Desktop   │{$4}│{#keys}│{$2}",
+      "type": "de"
+    },
+    {
+      "key": "│{#green}│ {icon}  Session   │{$4}│{#keys}│{$2}",
+      "type": "wm"
+    },
+    {
+      "key": "│{#green}│ {icon}  Theme     │{$4}│{#keys}│{$2}",
+      "type": "theme"
+    },
+    {
+      "compactType": "original-with-refresh-rate",
+      "key": "│{#green}│ {icon}  Display   │{$4}│{#keys}│{$2}",
+      "type": "display"
+    },
+    {
+      "format": "",
+      "key": "│{#green}└──────────────┴{$1}┘{#keys}│",
+      "type": "custom"
+    },
+    {
+      "format": "{#bright_yellow} Terminal ",
+      "key": "│{#yellow}┌──────────────┬{$1}┐{#keys}│\u001b[37D",
+      "type": "custom"
+    },
+    {
+      "key": "│{#yellow}│ {icon}  Shell     │{$4}│{#keys}│{$2}",
+      "type": "shell"
+    },
+    {
+      "format": "",
+      "key": "│{#yellow}└──────────────┴{$1}┘{#keys}│",
+      "type": "custom"
+    },
+    {
+      "format": "{#bright_magenta} Uptime ",
+      "key": "│{#magenta}┌──────────────┬{$1}┐{#keys}│\u001b[36D",
+      "type": "custom"
+    },
+    {
+      "key": "│{#magenta}│ {icon}  Uptime    │{$4}│{#keys}│{$2}",
+      "type": "uptime"
+    },
+    {
+      "key": "│{#magenta}│ {icon}  Login     │{$4}│{#keys}│{$2}",
+      "keyIcon": "",
+      "myselfOnly": true,
+      "type": "users"
+    },
+    {
+      "condition": {
+        "!system": "macOS"
+      },
+      "folders": "/",
+      "format": "{create-time:10} [{days} days]",
+      "key": "│{#magenta}│ {icon}  OS Age    │{$4}│{#keys}│{$2}",
+      "keyIcon": "",
+      "type": "disk"
+    },
+    {
+      "condition": {
+        "system": "macOS"
+      },
+      "folders": "/System/Volumes/VM",
+      "format": "{create-time =10} [{days} days]",
+      "key": "│{#magenta}│ {icon}  OS Age    │{$4}│{#keys}│{$2}",
+      "keyIcon": "",
+      "type": "disk"
+    },
+    {
+      "format": "",
+      "key": "│{#magenta}└──────────────┴{$1}┘{#keys}│",
+      "type": "custom"
+    },
+    {
+      "format": "",
+      "key": "└─────────────────{$1}┘",
+      "type": "custom"
+    },
+    "break",
+    "colors"
+  ]
+}
+
