@@ -30,10 +30,11 @@ in
     self.homeManagerModules.desktop.wayland.hyprpaper
   ];
   modules.desktop.wayland.hyprpaper.enable = true;
-  services.hyprpaper.settings = {
-    preload = [ "${self.outPath}/assets/images/ceci.png" ];
-    wallpaper = [ ",${self.outPath}/assets/images/ceci.png" ];
-  };
+  # Managed by stylix
+  # services.hyprpaper.settings = {
+  #   preload = [ "${self.outPath}/assets/images/ceci.png" ];
+  #   wallpaper = [ ",${self.outPath}/assets/images/ceci.png" ];
+  # };
 
   wayland.windowManager.hyprland = {
     settings = {

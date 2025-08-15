@@ -80,10 +80,10 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    # Use `colors` to set your own
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
-    image = "${self.outPath}/assets/images/ceci.png";
   };
+
+  services.geoclue2.enable = true;
 
   networking.hostName = "omen";
 
