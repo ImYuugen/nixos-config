@@ -81,6 +81,10 @@
     enable = true;
     autoEnable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+    targets = {
+      # Causes flashes in some terminals; it's not synced with darkman
+      fish.enable = false;
+    };
   };
 
   services.geoclue2.enable = true;
