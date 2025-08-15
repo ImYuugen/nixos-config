@@ -23,10 +23,10 @@
     ./fastfetch.nix
     ./gaming.nix
     ./git.nix
-    ./graphical/hyprland.nix
-    ./graphical/theming.nix
-    ./graphical/rofi.nix
-    ./graphical/wezterm.nix
+    ./hyprland.nix
+    ./theming.nix
+    ./rofi.nix
+    ./wezterm.nix
     ./starship.nix
   ];
 
