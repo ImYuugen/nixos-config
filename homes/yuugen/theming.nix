@@ -105,6 +105,7 @@ in
       targets = {
         emacs.enable = false; # Managed directly through config
         hyprlock.enable = false;
+        firefox.profileNames = [ "Default" ];
       };
     };
 

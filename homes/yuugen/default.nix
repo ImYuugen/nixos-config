@@ -56,6 +56,8 @@
     };
   };
 
+  home.sessionVariables.EXPLORER = "nemo";
+
   # TODO: Module (Like fr this is getting out of hand)
   home.packages = with pkgs; [
     krita
@@ -67,9 +69,6 @@
     ffmpeg
     protonup-qt
 
-    kdePackages.dolphin
-    kdePackages.dolphin-plugins
-    kdePackages.kio-fuse
-    kdePackages.kio-extras
+    nemo-with-extensions
   ];
 }

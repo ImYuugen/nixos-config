@@ -65,6 +65,7 @@ in
         "$mainMod, D, Opens your preferred app launcher, exec, rofi -show drun"
         "$mainMod SHIFT, D, Opens your preferred cmd launcher, exec, rofi -show run"
         "$appMod, W, Opens your preferred web browser, exec, $BROWSER"
+        "$appMod, E, Opens your preferred file explorer, exec, $EXPLORER"
         # Lock
         "$mainMod SHIFT, X, Locks the session, exec, hyprlock"
         ", XF86Launch2, Locks the session, exec, hyprlock"
