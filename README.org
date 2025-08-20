@@ -1,5 +1,9 @@
 #+OPTIONS: toc:ni
 
+* This repo has moved !
+
+It is now on Codeberg at https://codeberg.org/Yuugen/nixos-config
+
 * My totally based system flake
 
 Hi, this is my system flake and daily driver.
